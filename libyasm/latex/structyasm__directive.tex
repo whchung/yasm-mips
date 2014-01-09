@@ -1,0 +1,76 @@
+\hypertarget{structyasm__directive}{\section{yasm\-\_\-directive Struct Reference}
+\label{structyasm__directive}\index{yasm\-\_\-directive@{yasm\-\_\-directive}}
+}
+
+
+{\ttfamily \#include $<$valparam.\-h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{structyasm__directive_af2d4bb52875d377ffd49e76515515104}{yasm\-\_\-directive\-\_\-flags} \{ \hyperlink{structyasm__directive_af2d4bb52875d377ffd49e76515515104a2d9cd720cb508f763d526f1b2ae6c567}{Y\-A\-S\-M\-\_\-\-D\-I\-R\-\_\-\-A\-N\-Y} = 0, 
+\hyperlink{structyasm__directive_af2d4bb52875d377ffd49e76515515104a4ab4fae10f559eb32c752f28b737fabc}{Y\-A\-S\-M\-\_\-\-D\-I\-R\-\_\-\-A\-R\-G\-\_\-\-R\-E\-Q\-U\-I\-R\-E\-D} = 1, 
+\hyperlink{structyasm__directive_af2d4bb52875d377ffd49e76515515104a14de6cfbb5d759ebe8048bd7328c4715}{Y\-A\-S\-M\-\_\-\-D\-I\-R\-\_\-\-I\-D\-\_\-\-R\-E\-Q\-U\-I\-R\-E\-D} = 2
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \hyperlink{structyasm__directive_a8d0102af38d39ebef49b1116cb995afb}{name}
+\item 
+const char $\ast$ \hyperlink{structyasm__directive_ae6c761eb5d0243cb1a467d69700557bc}{parser}
+\item 
+void($\ast$ \hyperlink{structyasm__directive_a4a30e72975467a1d258908adb6d01c7f}{handler} )(\hyperlink{structyasm__object}{yasm\-\_\-object} $\ast$object, \hyperlink{coretype_8h_ab1c6ed70512ed01b56479b23e5ece9bc}{yasm\-\_\-valparamhead} $\ast$valparams, \hyperlink{coretype_8h_ab1c6ed70512ed01b56479b23e5ece9bc}{yasm\-\_\-valparamhead} $\ast$objext\-\_\-valparams, unsigned long line)
+\item 
+\hypertarget{structyasm__directive_a8af7f0c711c25221ae820dab6610759c}{enum \\*
+\hyperlink{structyasm__directive_af2d4bb52875d377ffd49e76515515104}{yasm\-\_\-directive\-::yasm\-\_\-directive\-\_\-flags} {\bfseries flags}}\label{structyasm__directive_a8af7f0c711c25221ae820dab6610759c}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Directive list entry structure. 
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{structyasm__directive_af2d4bb52875d377ffd49e76515515104}{\index{yasm\-\_\-directive@{yasm\-\_\-directive}!yasm\-\_\-directive\-\_\-flags@{yasm\-\_\-directive\-\_\-flags}}
+\index{yasm\-\_\-directive\-\_\-flags@{yasm\-\_\-directive\-\_\-flags}!yasm_directive@{yasm\-\_\-directive}}
+\subsubsection[{yasm\-\_\-directive\-\_\-flags}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf yasm\-\_\-directive\-::yasm\-\_\-directive\-\_\-flags}}}\label{structyasm__directive_af2d4bb52875d377ffd49e76515515104}
+Flags for pre-\/handler parameter checking. \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Y\-A\-S\-M\-\_\-\-D\-I\-R\-\_\-\-A\-N\-Y@{Y\-A\-S\-M\-\_\-\-D\-I\-R\-\_\-\-A\-N\-Y}!yasm\-\_\-directive@{yasm\-\_\-directive}}\index{yasm\-\_\-directive@{yasm\-\_\-directive}!Y\-A\-S\-M\-\_\-\-D\-I\-R\-\_\-\-A\-N\-Y@{Y\-A\-S\-M\-\_\-\-D\-I\-R\-\_\-\-A\-N\-Y}}\item[{\em 
+\hypertarget{structyasm__directive_af2d4bb52875d377ffd49e76515515104a2d9cd720cb508f763d526f1b2ae6c567}{Y\-A\-S\-M\-\_\-\-D\-I\-R\-\_\-\-A\-N\-Y}\label{structyasm__directive_af2d4bb52875d377ffd49e76515515104a2d9cd720cb508f763d526f1b2ae6c567}
+}]Any valparams accepted \index{Y\-A\-S\-M\-\_\-\-D\-I\-R\-\_\-\-A\-R\-G\-\_\-\-R\-E\-Q\-U\-I\-R\-E\-D@{Y\-A\-S\-M\-\_\-\-D\-I\-R\-\_\-\-A\-R\-G\-\_\-\-R\-E\-Q\-U\-I\-R\-E\-D}!yasm\-\_\-directive@{yasm\-\_\-directive}}\index{yasm\-\_\-directive@{yasm\-\_\-directive}!Y\-A\-S\-M\-\_\-\-D\-I\-R\-\_\-\-A\-R\-G\-\_\-\-R\-E\-Q\-U\-I\-R\-E\-D@{Y\-A\-S\-M\-\_\-\-D\-I\-R\-\_\-\-A\-R\-G\-\_\-\-R\-E\-Q\-U\-I\-R\-E\-D}}\item[{\em 
+\hypertarget{structyasm__directive_af2d4bb52875d377ffd49e76515515104a4ab4fae10f559eb32c752f28b737fabc}{Y\-A\-S\-M\-\_\-\-D\-I\-R\-\_\-\-A\-R\-G\-\_\-\-R\-E\-Q\-U\-I\-R\-E\-D}\label{structyasm__directive_af2d4bb52875d377ffd49e76515515104a4ab4fae10f559eb32c752f28b737fabc}
+}]Require at least 1 valparam \index{Y\-A\-S\-M\-\_\-\-D\-I\-R\-\_\-\-I\-D\-\_\-\-R\-E\-Q\-U\-I\-R\-E\-D@{Y\-A\-S\-M\-\_\-\-D\-I\-R\-\_\-\-I\-D\-\_\-\-R\-E\-Q\-U\-I\-R\-E\-D}!yasm\-\_\-directive@{yasm\-\_\-directive}}\index{yasm\-\_\-directive@{yasm\-\_\-directive}!Y\-A\-S\-M\-\_\-\-D\-I\-R\-\_\-\-I\-D\-\_\-\-R\-E\-Q\-U\-I\-R\-E\-D@{Y\-A\-S\-M\-\_\-\-D\-I\-R\-\_\-\-I\-D\-\_\-\-R\-E\-Q\-U\-I\-R\-E\-D}}\item[{\em 
+\hypertarget{structyasm__directive_af2d4bb52875d377ffd49e76515515104a14de6cfbb5d759ebe8048bd7328c4715}{Y\-A\-S\-M\-\_\-\-D\-I\-R\-\_\-\-I\-D\-\_\-\-R\-E\-Q\-U\-I\-R\-E\-D}\label{structyasm__directive_af2d4bb52875d377ffd49e76515515104a14de6cfbb5d759ebe8048bd7328c4715}
+}]First valparam must be I\-D \end{description}
+\end{Desc}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structyasm__directive_a4a30e72975467a1d258908adb6d01c7f}{\index{yasm\-\_\-directive@{yasm\-\_\-directive}!handler@{handler}}
+\index{handler@{handler}!yasm_directive@{yasm\-\_\-directive}}
+\subsubsection[{handler}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ yasm\-\_\-directive\-::handler)({\bf yasm\-\_\-object} $\ast$object, {\bf yasm\-\_\-valparamhead} $\ast$valparams, {\bf yasm\-\_\-valparamhead} $\ast$objext\-\_\-valparams, unsigned long line)}}\label{structyasm__directive_a4a30e72975467a1d258908adb6d01c7f}
+Handler callback function for the directive. 
+\begin{DoxyParams}{Parameters}
+{\em object} & object \\
+\hline
+{\em valparams} & value/parameters \\
+\hline
+{\em objext\-\_\-valparams} & object format-\/specific value/parameters \\
+\hline
+{\em line} & virtual line (from \hyperlink{structyasm__linemap}{yasm\-\_\-linemap}) \\
+\hline
+\end{DoxyParams}
+\hypertarget{structyasm__directive_a8d0102af38d39ebef49b1116cb995afb}{\index{yasm\-\_\-directive@{yasm\-\_\-directive}!name@{name}}
+\index{name@{name}!yasm_directive@{yasm\-\_\-directive}}
+\subsubsection[{name}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ yasm\-\_\-directive\-::name}}\label{structyasm__directive_a8d0102af38d39ebef49b1116cb995afb}
+Directive name. G\-A\-S directives should include the \char`\"{}.\char`\"{}, N\-A\-S\-M directives should just be the raw name (not including the \mbox{[}\mbox{]}). N\-U\-L\-L entry required to terminate list of directives. \hypertarget{structyasm__directive_ae6c761eb5d0243cb1a467d69700557bc}{\index{yasm\-\_\-directive@{yasm\-\_\-directive}!parser@{parser}}
+\index{parser@{parser}!yasm_directive@{yasm\-\_\-directive}}
+\subsubsection[{parser}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ yasm\-\_\-directive\-::parser}}\label{structyasm__directive_ae6c761eb5d0243cb1a467d69700557bc}
+Parser keyword 
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{valparam_8h}{valparam.\-h}\end{DoxyCompactItemize}

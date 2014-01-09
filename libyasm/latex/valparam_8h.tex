@@ -1,0 +1,608 @@
+\hypertarget{valparam_8h}{\section{valparam.\-h File Reference}
+\label{valparam_8h}\index{valparam.\-h@{valparam.\-h}}
+}
+
+
+Y\-A\-S\-M value/parameter interface.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structyasm__valparam}{yasm\-\_\-valparam}
+\item 
+union \hyperlink{unionyasm__valparam_1_1yasm__param}{yasm\-\_\-valparam\-::yasm\-\_\-param}
+\item 
+struct \hyperlink{structyasm__directive}{yasm\-\_\-directive}
+\item 
+struct \hyperlink{structyasm__dir__help}{yasm\-\_\-dir\-\_\-help}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{valparam_8h_a49672a9f0bbf31d5fe92e7b4e2f2dc60}{\#define {\bfseries Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L}}\label{valparam_8h_a49672a9f0bbf31d5fe92e7b4e2f2dc60}
+
+\item 
+\hypertarget{valparam_8h_ae06ebff0fbfc3dc8e8eabb9a51ff0d11}{\#define {\bfseries yasm\-\_\-vps\-\_\-initialize}(headp)~S\-T\-A\-I\-L\-Q\-\_\-\-I\-N\-I\-T(headp)}\label{valparam_8h_ae06ebff0fbfc3dc8e8eabb9a51ff0d11}
+
+\item 
+\#define {\bfseries yasm\-\_\-vps\-\_\-append}(headp, vp)
+\item 
+\hypertarget{valparam_8h_aaac36f97f9a020e658424e0c46bb4049}{\#define {\bfseries yasm\-\_\-vps\-\_\-first}(headp)~S\-T\-A\-I\-L\-Q\-\_\-\-F\-I\-R\-S\-T(headp)}\label{valparam_8h_aaac36f97f9a020e658424e0c46bb4049}
+
+\item 
+\hypertarget{valparam_8h_a5ec17dc0c97ead9db6e46207de697e77}{\#define {\bfseries yasm\-\_\-vps\-\_\-next}(cur)~S\-T\-A\-I\-L\-Q\-\_\-\-N\-E\-X\-T(cur, link)}\label{valparam_8h_a5ec17dc0c97ead9db6e46207de697e77}
+
+\item 
+\#define \hyperlink{valparam_8h_a620377ff3962f557f6b560086904c9e8}{yasm\-\_\-vps\-\_\-foreach}(iter, headp)~S\-T\-A\-I\-L\-Q\-\_\-\-F\-O\-R\-E\-A\-C\-H(iter, headp, link)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structyasm__dir__help}{yasm\-\_\-dir\-\_\-help} \hyperlink{valparam_8h_a76ae05020da9e668fb5d48e5c36681d5}{yasm\-\_\-dir\-\_\-help}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{valparam_8h_a7949d29a61f44a1b27a0daf4512ee1e1}{S\-T\-A\-I\-L\-Q\-\_\-\-H\-E\-A\-D} (\hyperlink{coretype_8h_ab1c6ed70512ed01b56479b23e5ece9bc}{yasm\-\_\-valparamhead}, \hyperlink{structyasm__valparam}{yasm\-\_\-valparam})
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{valparam_8h_a7965539dda1a324f4754b45165b913d6}{yasm\-\_\-call\-\_\-directive} (const \hyperlink{structyasm__directive}{yasm\-\_\-directive} $\ast$directive, \hyperlink{structyasm__object}{yasm\-\_\-object} $\ast$object, \hyperlink{coretype_8h_ab1c6ed70512ed01b56479b23e5ece9bc}{yasm\-\_\-valparamhead} $\ast$valparams, \hyperlink{coretype_8h_ab1c6ed70512ed01b56479b23e5ece9bc}{yasm\-\_\-valparamhead} $\ast$objext\-\_\-valparams, unsigned long line)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__valparam}{yasm\-\_\-valparam} $\ast$ \hyperlink{valparam_8h_ac7dd57119522046f51feb345230f587e}{yasm\-\_\-vp\-\_\-create\-\_\-id} (char $\ast$v, char $\ast$p, int id\-\_\-prefix)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__valparam}{yasm\-\_\-valparam} $\ast$ \hyperlink{valparam_8h_a38b29998585856f8edaec5063c9722a5}{yasm\-\_\-vp\-\_\-create\-\_\-string} (char $\ast$v, char $\ast$p)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__valparam}{yasm\-\_\-valparam} $\ast$ \hyperlink{valparam_8h_a8689db27f647eda2e3de730d9a524b41}{yasm\-\_\-vp\-\_\-create\-\_\-expr} (char $\ast$v, \hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$p)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$ \hyperlink{valparam_8h_a6cbed0a178e56bb1cd662e4d7855956f}{yasm\-\_\-vp\-\_\-expr} (const \hyperlink{structyasm__valparam}{yasm\-\_\-valparam} $\ast$vp, \hyperlink{structyasm__symtab}{yasm\-\_\-symtab} $\ast$symtab, unsigned long line)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L const char $\ast$ \hyperlink{valparam_8h_a055c3e4ce5ba9c3f58f4fcf66016ce7f}{yasm\-\_\-vp\-\_\-string} (const \hyperlink{structyasm__valparam}{yasm\-\_\-valparam} $\ast$vp)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L const char $\ast$ \hyperlink{valparam_8h_adfb358f966787153fdcf8b9a72ec8c39}{yasm\-\_\-vp\-\_\-id} (const \hyperlink{structyasm__valparam}{yasm\-\_\-valparam} $\ast$vp)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{coretype_8h_ab1c6ed70512ed01b56479b23e5ece9bc}{yasm\-\_\-valparamhead} $\ast$ \hyperlink{valparam_8h_a6ff6acbcac7eea35f8ec8cd784614162}{yasm\-\_\-vps\-\_\-create} (void)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{valparam_8h_ad54928f8b34e75e4ccf5e8736e19cd24}{yasm\-\_\-vps\-\_\-destroy} (\hyperlink{coretype_8h_ab1c6ed70512ed01b56479b23e5ece9bc}{yasm\-\_\-valparamhead} $\ast$headp)
+\item 
+void \hyperlink{valparam_8h_a487fa9437bd593965744d27a7a77db45}{yasm\-\_\-vps\-\_\-initialize} (\hyperlink{coretype_8h_ab1c6ed70512ed01b56479b23e5ece9bc}{yasm\-\_\-valparamhead} $\ast$headp)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{valparam_8h_a174d33fe64b54c840935fae1ac1e0365}{yasm\-\_\-vps\-\_\-delete} (\hyperlink{coretype_8h_ab1c6ed70512ed01b56479b23e5ece9bc}{yasm\-\_\-valparamhead} $\ast$headp)
+\item 
+void \hyperlink{valparam_8h_a9118d520207ee7a4e85274c8e59810a5}{yasm\-\_\-vps\-\_\-append} (\hyperlink{coretype_8h_ab1c6ed70512ed01b56479b23e5ece9bc}{yasm\-\_\-valparamhead} $\ast$headp, \hyperlink{structyasm__valparam}{yasm\-\_\-valparam} $\ast$vp)
+\item 
+\hyperlink{structyasm__valparam}{yasm\-\_\-valparam} $\ast$ \hyperlink{valparam_8h_ac57d22a54b45da16e9156a19f8521aff}{yasm\-\_\-vps\-\_\-first} (\hyperlink{coretype_8h_ab1c6ed70512ed01b56479b23e5ece9bc}{yasm\-\_\-valparamhead} $\ast$headp)
+\item 
+\hyperlink{structyasm__valparam}{yasm\-\_\-valparam} $\ast$ \hyperlink{valparam_8h_a9f2ed4471123fdfa092ac40f55fdc241}{yasm\-\_\-vps\-\_\-next} (\hyperlink{structyasm__valparam}{yasm\-\_\-valparam} $\ast$cur)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{valparam_8h_a78922308cb237123c4ca5cdc9af2946d}{yasm\-\_\-vps\-\_\-print} (const \hyperlink{coretype_8h_ab1c6ed70512ed01b56479b23e5ece9bc}{yasm\-\_\-valparamhead} $\ast$headp, F\-I\-L\-E $\ast$f)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int \hyperlink{valparam_8h_acec41779a83f94fa1b5fa5374b7d7828}{yasm\-\_\-dir\-\_\-helper} (void $\ast$obj, \hyperlink{structyasm__valparam}{yasm\-\_\-valparam} $\ast$vp\-\_\-first, unsigned long line, const \hyperlink{structyasm__dir__help}{yasm\-\_\-dir\-\_\-help} $\ast$help, size\-\_\-t nhelp, void $\ast$data, int($\ast$helper\-\_\-valparam)(void $\ast$object, \hyperlink{structyasm__valparam}{yasm\-\_\-valparam} $\ast$vp, unsigned long line, void $\ast$data))
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int \hyperlink{valparam_8h_a877c83308e32bf80eaf9b7b1435df770}{yasm\-\_\-dir\-\_\-helper\-\_\-flag\-\_\-set} (void $\ast$obj, \hyperlink{structyasm__valparam}{yasm\-\_\-valparam} $\ast$vp, unsigned long line, void $\ast$data, uintptr\-\_\-t arg)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int \hyperlink{valparam_8h_a68d5df984443a58fe0b215aae71f7732}{yasm\-\_\-dir\-\_\-helper\-\_\-flag\-\_\-or} (void $\ast$obj, \hyperlink{structyasm__valparam}{yasm\-\_\-valparam} $\ast$vp, unsigned long line, void $\ast$data, uintptr\-\_\-t arg)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int \hyperlink{valparam_8h_a00ca210aa76de1338bbbafc64155e877}{yasm\-\_\-dir\-\_\-helper\-\_\-flag\-\_\-and} (void $\ast$obj, \hyperlink{structyasm__valparam}{yasm\-\_\-valparam} $\ast$vp, unsigned long line, void $\ast$data, uintptr\-\_\-t arg)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int \hyperlink{valparam_8h_aa4ab7e0d0b48ca250611e11dc296380c}{yasm\-\_\-dir\-\_\-helper\-\_\-expr} (void $\ast$obj, \hyperlink{structyasm__valparam}{yasm\-\_\-valparam} $\ast$vp, unsigned long line, void $\ast$data, uintptr\-\_\-t arg)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int \hyperlink{valparam_8h_a383fb486bce1f3d43244a87cce3dbbca}{yasm\-\_\-dir\-\_\-helper\-\_\-intn} (void $\ast$obj, \hyperlink{structyasm__valparam}{yasm\-\_\-valparam} $\ast$vp, unsigned long line, void $\ast$data, uintptr\-\_\-t arg)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int \hyperlink{valparam_8h_aa97bf64433ad26a553f636ba80af40e9}{yasm\-\_\-dir\-\_\-helper\-\_\-string} (void $\ast$obj, \hyperlink{structyasm__valparam}{yasm\-\_\-valparam} $\ast$vp, unsigned long line, void $\ast$data, uintptr\-\_\-t arg)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int \hyperlink{valparam_8h_a338b1d92b556b68353556d9b1f495644}{yasm\-\_\-dir\-\_\-helper\-\_\-valparam\-\_\-warn} (void $\ast$obj, \hyperlink{structyasm__valparam}{yasm\-\_\-valparam} $\ast$vp, unsigned long line, void $\ast$data)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Y\-A\-S\-M value/parameter interface. Copyright (C) 2001-\/2007 Peter Johnson
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\-:
+\begin{DoxyItemize}
+\item Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+\item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+\end{DoxyItemize}
+
+T\-H\-I\-S S\-O\-F\-T\-W\-A\-R\-E I\-S P\-R\-O\-V\-I\-D\-E\-D B\-Y T\-H\-E A\-U\-T\-H\-O\-R A\-N\-D O\-T\-H\-E\-R C\-O\-N\-T\-R\-I\-B\-U\-T\-O\-R\-S ``\-A\-S I\-S'' A\-N\-D A\-N\-Y E\-X\-P\-R\-E\-S\-S O\-R I\-M\-P\-L\-I\-E\-D W\-A\-R\-R\-A\-N\-T\-I\-E\-S, I\-N\-C\-L\-U\-D\-I\-N\-G, B\-U\-T N\-O\-T L\-I\-M\-I\-T\-E\-D T\-O, T\-H\-E I\-M\-P\-L\-I\-E\-D W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-F M\-E\-R\-C\-H\-A\-N\-T\-A\-B\-I\-L\-I\-T\-Y A\-N\-D F\-I\-T\-N\-E\-S\-S F\-O\-R A P\-A\-R\-T\-I\-C\-U\-L\-A\-R P\-U\-R\-P\-O\-S\-E A\-R\-E D\-I\-S\-C\-L\-A\-I\-M\-E\-D. I\-N N\-O E\-V\-E\-N\-T S\-H\-A\-L\-L T\-H\-E A\-U\-T\-H\-O\-R O\-R O\-T\-H\-E\-R C\-O\-N\-T\-R\-I\-B\-U\-T\-O\-R\-S B\-E L\-I\-A\-B\-L\-E F\-O\-R A\-N\-Y D\-I\-R\-E\-C\-T, I\-N\-D\-I\-R\-E\-C\-T, I\-N\-C\-I\-D\-E\-N\-T\-A\-L, S\-P\-E\-C\-I\-A\-L, E\-X\-E\-M\-P\-L\-A\-R\-Y, O\-R C\-O\-N\-S\-E\-Q\-U\-E\-N\-T\-I\-A\-L D\-A\-M\-A\-G\-E\-S (I\-N\-C\-L\-U\-D\-I\-N\-G, B\-U\-T N\-O\-T L\-I\-M\-I\-T\-E\-D T\-O, P\-R\-O\-C\-U\-R\-E\-M\-E\-N\-T O\-F S\-U\-B\-S\-T\-I\-T\-U\-T\-E G\-O\-O\-D\-S O\-R S\-E\-R\-V\-I\-C\-E\-S; L\-O\-S\-S O\-F U\-S\-E, D\-A\-T\-A, O\-R P\-R\-O\-F\-I\-T\-S; O\-R B\-U\-S\-I\-N\-E\-S\-S I\-N\-T\-E\-R\-R\-U\-P\-T\-I\-O\-N) H\-O\-W\-E\-V\-E\-R C\-A\-U\-S\-E\-D A\-N\-D O\-N A\-N\-Y T\-H\-E\-O\-R\-Y O\-F L\-I\-A\-B\-I\-L\-I\-T\-Y, W\-H\-E\-T\-H\-E\-R I\-N C\-O\-N\-T\-R\-A\-C\-T, S\-T\-R\-I\-C\-T L\-I\-A\-B\-I\-L\-I\-T\-Y, O\-R T\-O\-R\-T (I\-N\-C\-L\-U\-D\-I\-N\-G N\-E\-G\-L\-I\-G\-E\-N\-C\-E O\-R O\-T\-H\-E\-R\-W\-I\-S\-E) A\-R\-I\-S\-I\-N\-G I\-N A\-N\-Y W\-A\-Y O\-U\-T O\-F T\-H\-E U\-S\-E O\-F T\-H\-I\-S S\-O\-F\-T\-W\-A\-R\-E, E\-V\-E\-N I\-F A\-D\-V\-I\-S\-E\-D O\-F T\-H\-E P\-O\-S\-S\-I\-B\-I\-L\-I\-T\-Y O\-F S\-U\-C\-H D\-A\-M\-A\-G\-E.  
+
+\subsection{Macro Definition Documentation}
+\hypertarget{valparam_8h_ada1c55699bfbffcae848e63ee6ff5f14}{\index{valparam.\-h@{valparam.\-h}!yasm\-\_\-vps\-\_\-append@{yasm\-\_\-vps\-\_\-append}}
+\index{yasm\-\_\-vps\-\_\-append@{yasm\-\_\-vps\-\_\-append}!valparam.h@{valparam.\-h}}
+\subsubsection[{yasm\-\_\-vps\-\_\-append}]{\setlength{\rightskip}{0pt plus 5cm}\#define yasm\-\_\-vps\-\_\-append(
+\begin{DoxyParamCaption}
+\item[{}]{headp, }
+\item[{}]{vp}
+\end{DoxyParamCaption}
+)}}\label{valparam_8h_ada1c55699bfbffcae848e63ee6ff5f14}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{        \(\backslash\)
+        if (vp)                                     \(\backslash\)
+            STAILQ\_INSERT\_TAIL(headp, vp, link);    \(\backslash\)
+    \} \textcolor{keywordflow}{while}(0)
+\end{DoxyCode}
+\hypertarget{valparam_8h_a620377ff3962f557f6b560086904c9e8}{\index{valparam.\-h@{valparam.\-h}!yasm\-\_\-vps\-\_\-foreach@{yasm\-\_\-vps\-\_\-foreach}}
+\index{yasm\-\_\-vps\-\_\-foreach@{yasm\-\_\-vps\-\_\-foreach}!valparam.h@{valparam.\-h}}
+\subsubsection[{yasm\-\_\-vps\-\_\-foreach}]{\setlength{\rightskip}{0pt plus 5cm}\#define yasm\-\_\-vps\-\_\-foreach(
+\begin{DoxyParamCaption}
+\item[{}]{iter, }
+\item[{}]{headp}
+\end{DoxyParamCaption}
+)~S\-T\-A\-I\-L\-Q\-\_\-\-F\-O\-R\-E\-A\-C\-H(iter, headp, link)}}\label{valparam_8h_a620377ff3962f557f6b560086904c9e8}
+Iterate through linked list of valparams. 
+
+\subsection{Typedef Documentation}
+\hypertarget{valparam_8h_a76ae05020da9e668fb5d48e5c36681d5}{\index{valparam.\-h@{valparam.\-h}!yasm\-\_\-dir\-\_\-help@{yasm\-\_\-dir\-\_\-help}}
+\index{yasm\-\_\-dir\-\_\-help@{yasm\-\_\-dir\-\_\-help}!valparam.h@{valparam.\-h}}
+\subsubsection[{yasm\-\_\-dir\-\_\-help}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf yasm\-\_\-dir\-\_\-help}  {\bf yasm\-\_\-dir\-\_\-help}}}\label{valparam_8h_a76ae05020da9e668fb5d48e5c36681d5}
+Directive valparam parse helper structure. 
+
+\subsection{Function Documentation}
+\hypertarget{valparam_8h_a7949d29a61f44a1b27a0daf4512ee1e1}{\index{valparam.\-h@{valparam.\-h}!S\-T\-A\-I\-L\-Q\-\_\-\-H\-E\-A\-D@{S\-T\-A\-I\-L\-Q\-\_\-\-H\-E\-A\-D}}
+\index{S\-T\-A\-I\-L\-Q\-\_\-\-H\-E\-A\-D@{S\-T\-A\-I\-L\-Q\-\_\-\-H\-E\-A\-D}!valparam.h@{valparam.\-h}}
+\subsubsection[{S\-T\-A\-I\-L\-Q\-\_\-\-H\-E\-A\-D}]{\setlength{\rightskip}{0pt plus 5cm}S\-T\-A\-I\-L\-Q\-\_\-\-H\-E\-A\-D (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-valparamhead}}]{, }
+\item[{{\bf yasm\-\_\-valparam}}]{}
+\end{DoxyParamCaption}
+)}}\label{valparam_8h_a7949d29a61f44a1b27a0daf4512ee1e1}
+Linked list of value/parameter pairs. \hypertarget{valparam_8h_a7965539dda1a324f4754b45165b913d6}{\index{valparam.\-h@{valparam.\-h}!yasm\-\_\-call\-\_\-directive@{yasm\-\_\-call\-\_\-directive}}
+\index{yasm\-\_\-call\-\_\-directive@{yasm\-\_\-call\-\_\-directive}!valparam.h@{valparam.\-h}}
+\subsubsection[{yasm\-\_\-call\-\_\-directive}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-call\-\_\-directive (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-directive} $\ast$}]{directive, }
+\item[{{\bf yasm\-\_\-object} $\ast$}]{object, }
+\item[{{\bf yasm\-\_\-valparamhead} $\ast$}]{valparams, }
+\item[{{\bf yasm\-\_\-valparamhead} $\ast$}]{objext\-\_\-valparams, }
+\item[{unsigned long}]{line}
+\end{DoxyParamCaption}
+)}}\label{valparam_8h_a7965539dda1a324f4754b45165b913d6}
+Call a directive. Performs any valparam checks asked for by the directive prior to call. Note that for a variety of reasons, a directive can generate an error. 
+\begin{DoxyParams}{Parameters}
+{\em directive} & directive \\
+\hline
+{\em object} & object \\
+\hline
+{\em valparams} & value/parameters \\
+\hline
+{\em objext\-\_\-valparams} & object format-\/specific value/parameters \\
+\hline
+{\em line} & virtual line (from \hyperlink{structyasm__linemap}{yasm\-\_\-linemap}) \\
+\hline
+\end{DoxyParams}
+\hypertarget{valparam_8h_acec41779a83f94fa1b5fa5374b7d7828}{\index{valparam.\-h@{valparam.\-h}!yasm\-\_\-dir\-\_\-helper@{yasm\-\_\-dir\-\_\-helper}}
+\index{yasm\-\_\-dir\-\_\-helper@{yasm\-\_\-dir\-\_\-helper}!valparam.h@{valparam.\-h}}
+\subsubsection[{yasm\-\_\-dir\-\_\-helper}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int yasm\-\_\-dir\-\_\-helper (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{obj, }
+\item[{{\bf yasm\-\_\-valparam} $\ast$}]{vp\-\_\-first, }
+\item[{unsigned long}]{line, }
+\item[{const {\bf yasm\-\_\-dir\-\_\-help} $\ast$}]{help, }
+\item[{size\-\_\-t}]{nhelp, }
+\item[{void $\ast$}]{data, }
+\item[{int($\ast$)(void $\ast$object, {\bf yasm\-\_\-valparam} $\ast$vp, unsigned long line, void $\ast$data)}]{helper\-\_\-valparam}
+\end{DoxyParamCaption}
+)}}\label{valparam_8h_acec41779a83f94fa1b5fa5374b7d7828}
+Help parse a list of directive value/parameters. Takes an array of \hyperlink{structyasm__dir__help}{yasm\-\_\-dir\-\_\-help} structures and tries to match val=param (or just val) against the passed value/parameters. When no match is found in the array of help structures, calls helper\-\_\-valparam. 
+\begin{DoxyParams}{Parameters}
+{\em obj} & object to be passed to \hyperlink{structyasm__dir__help_a3a1b8f80c538883aa9378143369653c0}{yasm\-\_\-dir\-\_\-help.\-helper()} or helper\-\_\-valparam() callback \\
+\hline
+{\em vp\-\_\-first} & first value/parameter to examine \\
+\hline
+{\em line} & virtual line number; passed down to helper callback \\
+\hline
+{\em help} & array of \hyperlink{structyasm__dir__help}{yasm\-\_\-dir\-\_\-help} structures \\
+\hline
+{\em nhelp} & number of array elements \\
+\hline
+{\em data} & base data pointer; if a match is found, the respective \hyperlink{structyasm__dir__help_a1824c4b170376581f470e6338b6f95df}{yasm\-\_\-dir\-\_\-help.\-off} is added to this prior to it being passed to the helper callback \\
+\hline
+{\em helper\-\_\-valparam} & catch-\/all callback; should return -\/1 on error, 0 if not matched, 1 if matched. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/1 on error, 1 if any arguments matched (including via catch-\/all callback), 0 if no match. 
+\end{DoxyReturn}
+\hypertarget{valparam_8h_aa4ab7e0d0b48ca250611e11dc296380c}{\index{valparam.\-h@{valparam.\-h}!yasm\-\_\-dir\-\_\-helper\-\_\-expr@{yasm\-\_\-dir\-\_\-helper\-\_\-expr}}
+\index{yasm\-\_\-dir\-\_\-helper\-\_\-expr@{yasm\-\_\-dir\-\_\-helper\-\_\-expr}!valparam.h@{valparam.\-h}}
+\subsubsection[{yasm\-\_\-dir\-\_\-helper\-\_\-expr}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int yasm\-\_\-dir\-\_\-helper\-\_\-expr (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{obj, }
+\item[{{\bf yasm\-\_\-valparam} $\ast$}]{vp, }
+\item[{unsigned long}]{line, }
+\item[{void $\ast$}]{data, }
+\item[{uintptr\-\_\-t}]{arg}
+\end{DoxyParamCaption}
+)}}\label{valparam_8h_aa4ab7e0d0b48ca250611e11dc296380c}
+Standard helper for \hyperlink{valparam_8h_acec41779a83f94fa1b5fa5374b7d7828}{yasm\-\_\-dir\-\_\-helper()} that parses an expr parameter. The \hyperlink{structyasm__dir__help}{yasm\-\_\-dir\-\_\-help} structure that uses this function should have needsparam=1. The obj parameter to \hyperlink{valparam_8h_acec41779a83f94fa1b5fa5374b7d7828}{yasm\-\_\-dir\-\_\-helper()} when this helper is used M\-U\-S\-T point to a \hyperlink{structyasm__object}{yasm\-\_\-object}. In addition, the data parameter that is ultimately passed to this function (e.\-g. \hyperlink{valparam_8h_acec41779a83f94fa1b5fa5374b7d7828}{yasm\-\_\-dir\-\_\-helper()} data parameter plus \hyperlink{structyasm__dir__help_a1824c4b170376581f470e6338b6f95df}{yasm\-\_\-dir\-\_\-help.\-off}) must point to a \hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$ initialized to N\-U\-L\-L. 
+\begin{DoxyParams}{Parameters}
+{\em obj} & object; must be \hyperlink{structyasm__object}{yasm\-\_\-object} \\
+\hline
+{\em vp} & valparam \\
+\hline
+{\em line} & virtual line number \\
+\hline
+{\em data} & pointer to \hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$ \\
+\hline
+{\em arg} & unused argument \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/1 on error, 0 otherwise. 
+\end{DoxyReturn}
+\hypertarget{valparam_8h_a00ca210aa76de1338bbbafc64155e877}{\index{valparam.\-h@{valparam.\-h}!yasm\-\_\-dir\-\_\-helper\-\_\-flag\-\_\-and@{yasm\-\_\-dir\-\_\-helper\-\_\-flag\-\_\-and}}
+\index{yasm\-\_\-dir\-\_\-helper\-\_\-flag\-\_\-and@{yasm\-\_\-dir\-\_\-helper\-\_\-flag\-\_\-and}!valparam.h@{valparam.\-h}}
+\subsubsection[{yasm\-\_\-dir\-\_\-helper\-\_\-flag\-\_\-and}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int yasm\-\_\-dir\-\_\-helper\-\_\-flag\-\_\-and (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{obj, }
+\item[{{\bf yasm\-\_\-valparam} $\ast$}]{vp, }
+\item[{unsigned long}]{line, }
+\item[{void $\ast$}]{data, }
+\item[{uintptr\-\_\-t}]{arg}
+\end{DoxyParamCaption}
+)}}\label{valparam_8h_a00ca210aa76de1338bbbafc64155e877}
+Standard helper for \hyperlink{valparam_8h_acec41779a83f94fa1b5fa5374b7d7828}{yasm\-\_\-dir\-\_\-helper()} that simply A\-N\-Ds a flag when called. It does not look at the vp; rather, it uses the value of the arg parameter, and A\-N\-Ds its inverse ($\sim$) with the unsigned long value in data. 
+\begin{DoxyParams}{Parameters}
+{\em obj} & unused \\
+\hline
+{\em vp} & unused \\
+\hline
+{\em line} & unused \\
+\hline
+{\em data} & pointer to an unsigned long \\
+\hline
+{\em arg} & flag to A\-N\-D \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 
+\end{DoxyReturn}
+\hypertarget{valparam_8h_a68d5df984443a58fe0b215aae71f7732}{\index{valparam.\-h@{valparam.\-h}!yasm\-\_\-dir\-\_\-helper\-\_\-flag\-\_\-or@{yasm\-\_\-dir\-\_\-helper\-\_\-flag\-\_\-or}}
+\index{yasm\-\_\-dir\-\_\-helper\-\_\-flag\-\_\-or@{yasm\-\_\-dir\-\_\-helper\-\_\-flag\-\_\-or}!valparam.h@{valparam.\-h}}
+\subsubsection[{yasm\-\_\-dir\-\_\-helper\-\_\-flag\-\_\-or}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int yasm\-\_\-dir\-\_\-helper\-\_\-flag\-\_\-or (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{obj, }
+\item[{{\bf yasm\-\_\-valparam} $\ast$}]{vp, }
+\item[{unsigned long}]{line, }
+\item[{void $\ast$}]{data, }
+\item[{uintptr\-\_\-t}]{arg}
+\end{DoxyParamCaption}
+)}}\label{valparam_8h_a68d5df984443a58fe0b215aae71f7732}
+Standard helper for \hyperlink{valparam_8h_acec41779a83f94fa1b5fa5374b7d7828}{yasm\-\_\-dir\-\_\-helper()} that simply O\-Rs a flag when called. It does not look at the vp; rather, it uses the value of the arg parameter, and O\-Rs it with the unsigned long value in data. 
+\begin{DoxyParams}{Parameters}
+{\em obj} & unused \\
+\hline
+{\em vp} & unused \\
+\hline
+{\em line} & unused \\
+\hline
+{\em data} & pointer to an unsigned long \\
+\hline
+{\em arg} & flag to O\-R \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 
+\end{DoxyReturn}
+\hypertarget{valparam_8h_a877c83308e32bf80eaf9b7b1435df770}{\index{valparam.\-h@{valparam.\-h}!yasm\-\_\-dir\-\_\-helper\-\_\-flag\-\_\-set@{yasm\-\_\-dir\-\_\-helper\-\_\-flag\-\_\-set}}
+\index{yasm\-\_\-dir\-\_\-helper\-\_\-flag\-\_\-set@{yasm\-\_\-dir\-\_\-helper\-\_\-flag\-\_\-set}!valparam.h@{valparam.\-h}}
+\subsubsection[{yasm\-\_\-dir\-\_\-helper\-\_\-flag\-\_\-set}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int yasm\-\_\-dir\-\_\-helper\-\_\-flag\-\_\-set (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{obj, }
+\item[{{\bf yasm\-\_\-valparam} $\ast$}]{vp, }
+\item[{unsigned long}]{line, }
+\item[{void $\ast$}]{data, }
+\item[{uintptr\-\_\-t}]{arg}
+\end{DoxyParamCaption}
+)}}\label{valparam_8h_a877c83308e32bf80eaf9b7b1435df770}
+Standard helper for \hyperlink{valparam_8h_acec41779a83f94fa1b5fa5374b7d7828}{yasm\-\_\-dir\-\_\-helper()} that simply sets a flag when called. It does not look at the vp; rather, it uses the value of the arg parameter, and stores an unsigned long value to data. 
+\begin{DoxyParams}{Parameters}
+{\em obj} & unused \\
+\hline
+{\em vp} & unused \\
+\hline
+{\em line} & unused \\
+\hline
+{\em data} & pointer to an unsigned long \\
+\hline
+{\em arg} & flag to set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 
+\end{DoxyReturn}
+\hypertarget{valparam_8h_a383fb486bce1f3d43244a87cce3dbbca}{\index{valparam.\-h@{valparam.\-h}!yasm\-\_\-dir\-\_\-helper\-\_\-intn@{yasm\-\_\-dir\-\_\-helper\-\_\-intn}}
+\index{yasm\-\_\-dir\-\_\-helper\-\_\-intn@{yasm\-\_\-dir\-\_\-helper\-\_\-intn}!valparam.h@{valparam.\-h}}
+\subsubsection[{yasm\-\_\-dir\-\_\-helper\-\_\-intn}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int yasm\-\_\-dir\-\_\-helper\-\_\-intn (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{obj, }
+\item[{{\bf yasm\-\_\-valparam} $\ast$}]{vp, }
+\item[{unsigned long}]{line, }
+\item[{void $\ast$}]{data, }
+\item[{uintptr\-\_\-t}]{arg}
+\end{DoxyParamCaption}
+)}}\label{valparam_8h_a383fb486bce1f3d43244a87cce3dbbca}
+Standard helper for \hyperlink{valparam_8h_acec41779a83f94fa1b5fa5374b7d7828}{yasm\-\_\-dir\-\_\-helper()} that parses an intnum parameter. The \hyperlink{structyasm__dir__help}{yasm\-\_\-dir\-\_\-help} structure that uses this function should have needsparam=1. The obj parameter to \hyperlink{valparam_8h_acec41779a83f94fa1b5fa5374b7d7828}{yasm\-\_\-dir\-\_\-helper()} when this helper is used M\-U\-S\-T point to a \hyperlink{structyasm__object}{yasm\-\_\-object}. In addition, the data parameter that is ultimately passed to this function (e.\-g. \hyperlink{valparam_8h_acec41779a83f94fa1b5fa5374b7d7828}{yasm\-\_\-dir\-\_\-helper()} data parameter plus \hyperlink{structyasm__dir__help_a1824c4b170376581f470e6338b6f95df}{yasm\-\_\-dir\-\_\-help.\-off}) must point to a \hyperlink{structyasm__intnum}{yasm\-\_\-intnum} $\ast$ initialized to N\-U\-L\-L. 
+\begin{DoxyParams}{Parameters}
+{\em obj} & object; must be \hyperlink{structyasm__object}{yasm\-\_\-object} \\
+\hline
+{\em vp} & valparam \\
+\hline
+{\em line} & virtual line number \\
+\hline
+{\em data} & pointer to \hyperlink{structyasm__intnum}{yasm\-\_\-intnum} $\ast$ \\
+\hline
+{\em arg} & unused argument \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/1 on error, 0 otherwise. 
+\end{DoxyReturn}
+\hypertarget{valparam_8h_aa97bf64433ad26a553f636ba80af40e9}{\index{valparam.\-h@{valparam.\-h}!yasm\-\_\-dir\-\_\-helper\-\_\-string@{yasm\-\_\-dir\-\_\-helper\-\_\-string}}
+\index{yasm\-\_\-dir\-\_\-helper\-\_\-string@{yasm\-\_\-dir\-\_\-helper\-\_\-string}!valparam.h@{valparam.\-h}}
+\subsubsection[{yasm\-\_\-dir\-\_\-helper\-\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int yasm\-\_\-dir\-\_\-helper\-\_\-string (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{obj, }
+\item[{{\bf yasm\-\_\-valparam} $\ast$}]{vp, }
+\item[{unsigned long}]{line, }
+\item[{void $\ast$}]{data, }
+\item[{uintptr\-\_\-t}]{arg}
+\end{DoxyParamCaption}
+)}}\label{valparam_8h_aa97bf64433ad26a553f636ba80af40e9}
+Standard helper for \hyperlink{valparam_8h_acec41779a83f94fa1b5fa5374b7d7828}{yasm\-\_\-dir\-\_\-helper()} that parses an string (or standalone identifier) parameter. The \hyperlink{structyasm__dir__help}{yasm\-\_\-dir\-\_\-help} structure that uses this function should have needsparam=1. The data parameter that is ultimately passed to this function (e.\-g. \hyperlink{valparam_8h_acec41779a83f94fa1b5fa5374b7d7828}{yasm\-\_\-dir\-\_\-helper()} data parameter plus \hyperlink{structyasm__dir__help_a1824c4b170376581f470e6338b6f95df}{yasm\-\_\-dir\-\_\-help.\-off}) must point to a char $\ast$ initialized to N\-U\-L\-L. 
+\begin{DoxyParams}{Parameters}
+{\em obj} & unused \\
+\hline
+{\em vp} & valparam \\
+\hline
+{\em line} & unused \\
+\hline
+{\em data} & pointer to char $\ast$ \\
+\hline
+{\em arg} & unused \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/1 on error, 0 otherwise. 
+\end{DoxyReturn}
+\hypertarget{valparam_8h_a338b1d92b556b68353556d9b1f495644}{\index{valparam.\-h@{valparam.\-h}!yasm\-\_\-dir\-\_\-helper\-\_\-valparam\-\_\-warn@{yasm\-\_\-dir\-\_\-helper\-\_\-valparam\-\_\-warn}}
+\index{yasm\-\_\-dir\-\_\-helper\-\_\-valparam\-\_\-warn@{yasm\-\_\-dir\-\_\-helper\-\_\-valparam\-\_\-warn}!valparam.h@{valparam.\-h}}
+\subsubsection[{yasm\-\_\-dir\-\_\-helper\-\_\-valparam\-\_\-warn}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int yasm\-\_\-dir\-\_\-helper\-\_\-valparam\-\_\-warn (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{obj, }
+\item[{{\bf yasm\-\_\-valparam} $\ast$}]{vp, }
+\item[{unsigned long}]{line, }
+\item[{void $\ast$}]{data}
+\end{DoxyParamCaption}
+)}}\label{valparam_8h_a338b1d92b556b68353556d9b1f495644}
+Standard catch-\/all callback fro \hyperlink{valparam_8h_acec41779a83f94fa1b5fa5374b7d7828}{yasm\-\_\-dir\-\_\-helper()}. Generates standard warning for all valparams. 
+\begin{DoxyParams}{Parameters}
+{\em obj} & unused \\
+\hline
+{\em vp} & valparam \\
+\hline
+{\em line} & unused \\
+\hline
+{\em data} & unused \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 
+\end{DoxyReturn}
+\hypertarget{valparam_8h_a8689db27f647eda2e3de730d9a524b41}{\index{valparam.\-h@{valparam.\-h}!yasm\-\_\-vp\-\_\-create\-\_\-expr@{yasm\-\_\-vp\-\_\-create\-\_\-expr}}
+\index{yasm\-\_\-vp\-\_\-create\-\_\-expr@{yasm\-\_\-vp\-\_\-create\-\_\-expr}!valparam.h@{valparam.\-h}}
+\subsubsection[{yasm\-\_\-vp\-\_\-create\-\_\-expr}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-valparam}$\ast$ yasm\-\_\-vp\-\_\-create\-\_\-expr (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{v, }
+\item[{{\bf yasm\-\_\-expr} $\ast$}]{p}
+\end{DoxyParamCaption}
+)}}\label{valparam_8h_a8689db27f647eda2e3de730d9a524b41}
+Create a new valparam with expression parameter. 
+\begin{DoxyParams}{Parameters}
+{\em v} & value \\
+\hline
+{\em p} & parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly allocated valparam. 
+\end{DoxyReturn}
+\hypertarget{valparam_8h_ac7dd57119522046f51feb345230f587e}{\index{valparam.\-h@{valparam.\-h}!yasm\-\_\-vp\-\_\-create\-\_\-id@{yasm\-\_\-vp\-\_\-create\-\_\-id}}
+\index{yasm\-\_\-vp\-\_\-create\-\_\-id@{yasm\-\_\-vp\-\_\-create\-\_\-id}!valparam.h@{valparam.\-h}}
+\subsubsection[{yasm\-\_\-vp\-\_\-create\-\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-valparam}$\ast$ yasm\-\_\-vp\-\_\-create\-\_\-id (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{v, }
+\item[{char $\ast$}]{p, }
+\item[{int}]{id\-\_\-prefix}
+\end{DoxyParamCaption}
+)}}\label{valparam_8h_ac7dd57119522046f51feb345230f587e}
+Create a new valparam with identifier parameter. 
+\begin{DoxyParams}{Parameters}
+{\em v} & value \\
+\hline
+{\em p} & parameter \\
+\hline
+{\em id\-\_\-prefix} & identifier prefix for raw identifiers \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly allocated valparam. 
+\end{DoxyReturn}
+\hypertarget{valparam_8h_a38b29998585856f8edaec5063c9722a5}{\index{valparam.\-h@{valparam.\-h}!yasm\-\_\-vp\-\_\-create\-\_\-string@{yasm\-\_\-vp\-\_\-create\-\_\-string}}
+\index{yasm\-\_\-vp\-\_\-create\-\_\-string@{yasm\-\_\-vp\-\_\-create\-\_\-string}!valparam.h@{valparam.\-h}}
+\subsubsection[{yasm\-\_\-vp\-\_\-create\-\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-valparam}$\ast$ yasm\-\_\-vp\-\_\-create\-\_\-string (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{v, }
+\item[{char $\ast$}]{p}
+\end{DoxyParamCaption}
+)}}\label{valparam_8h_a38b29998585856f8edaec5063c9722a5}
+Create a new valparam with string parameter. 
+\begin{DoxyParams}{Parameters}
+{\em v} & value \\
+\hline
+{\em p} & parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly allocated valparam. 
+\end{DoxyReturn}
+\hypertarget{valparam_8h_a6cbed0a178e56bb1cd662e4d7855956f}{\index{valparam.\-h@{valparam.\-h}!yasm\-\_\-vp\-\_\-expr@{yasm\-\_\-vp\-\_\-expr}}
+\index{yasm\-\_\-vp\-\_\-expr@{yasm\-\_\-vp\-\_\-expr}!valparam.h@{valparam.\-h}}
+\subsubsection[{yasm\-\_\-vp\-\_\-expr}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-expr}$\ast$ yasm\-\_\-vp\-\_\-expr (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-valparam} $\ast$}]{vp, }
+\item[{{\bf yasm\-\_\-symtab} $\ast$}]{symtab, }
+\item[{unsigned long}]{line}
+\end{DoxyParamCaption}
+)}}\label{valparam_8h_a6cbed0a178e56bb1cd662e4d7855956f}
+Get a valparam parameter as an expr. If the parameter is an identifier, it's treated as a symbol (\hyperlink{symrec_8h_a2e4a0f93bb6b5d7bd5b14e76bb977ee2}{yasm\-\_\-symtab\-\_\-use()} is called to convert it). 
+\begin{DoxyParams}{Parameters}
+{\em vp} & valparam \\
+\hline
+{\em symtab} & symbol table \\
+\hline
+{\em line} & virtual line \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Expression, or N\-U\-L\-L if vp is N\-U\-L\-L or the parameter cannot be converted to an expression. 
+\end{DoxyReturn}
+\hypertarget{valparam_8h_adfb358f966787153fdcf8b9a72ec8c39}{\index{valparam.\-h@{valparam.\-h}!yasm\-\_\-vp\-\_\-id@{yasm\-\_\-vp\-\_\-id}}
+\index{yasm\-\_\-vp\-\_\-id@{yasm\-\_\-vp\-\_\-id}!valparam.h@{valparam.\-h}}
+\subsubsection[{yasm\-\_\-vp\-\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L const char$\ast$ yasm\-\_\-vp\-\_\-id (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-valparam} $\ast$}]{vp}
+\end{DoxyParamCaption}
+)}}\label{valparam_8h_adfb358f966787153fdcf8b9a72ec8c39}
+Get a valparam parameter as an identifier. 
+\begin{DoxyParams}{Parameters}
+{\em vp} & valparam \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Identifier (string), or N\-U\-L\-L if vp is N\-U\-L\-L or the parameter is not an identifier. 
+\end{DoxyReturn}
+\hypertarget{valparam_8h_a055c3e4ce5ba9c3f58f4fcf66016ce7f}{\index{valparam.\-h@{valparam.\-h}!yasm\-\_\-vp\-\_\-string@{yasm\-\_\-vp\-\_\-string}}
+\index{yasm\-\_\-vp\-\_\-string@{yasm\-\_\-vp\-\_\-string}!valparam.h@{valparam.\-h}}
+\subsubsection[{yasm\-\_\-vp\-\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L const char$\ast$ yasm\-\_\-vp\-\_\-string (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-valparam} $\ast$}]{vp}
+\end{DoxyParamCaption}
+)}}\label{valparam_8h_a055c3e4ce5ba9c3f58f4fcf66016ce7f}
+Get a valparam parameter as a string. If the parameter is an identifier, it's treated as a string. 
+\begin{DoxyParams}{Parameters}
+{\em vp} & valparam \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String, or N\-U\-L\-L if vp is N\-U\-L\-L or the parameter cannot be realized as a string. 
+\end{DoxyReturn}
+\hypertarget{valparam_8h_a9118d520207ee7a4e85274c8e59810a5}{\index{valparam.\-h@{valparam.\-h}!yasm\-\_\-vps\-\_\-append@{yasm\-\_\-vps\-\_\-append}}
+\index{yasm\-\_\-vps\-\_\-append@{yasm\-\_\-vps\-\_\-append}!valparam.h@{valparam.\-h}}
+\subsubsection[{yasm\-\_\-vps\-\_\-append}]{\setlength{\rightskip}{0pt plus 5cm}void yasm\-\_\-vps\-\_\-append (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-valparamhead} $\ast$}]{headp, }
+\item[{{\bf yasm\-\_\-valparam} $\ast$}]{vp}
+\end{DoxyParamCaption}
+)}}\label{valparam_8h_a9118d520207ee7a4e85274c8e59810a5}
+Append valparam to tail of linked list. 
+\begin{DoxyParams}{Parameters}
+{\em headp} & linked list \\
+\hline
+{\em vp} & valparam \\
+\hline
+\end{DoxyParams}
+\hypertarget{valparam_8h_a6ff6acbcac7eea35f8ec8cd784614162}{\index{valparam.\-h@{valparam.\-h}!yasm\-\_\-vps\-\_\-create@{yasm\-\_\-vps\-\_\-create}}
+\index{yasm\-\_\-vps\-\_\-create@{yasm\-\_\-vps\-\_\-create}!valparam.h@{valparam.\-h}}
+\subsubsection[{yasm\-\_\-vps\-\_\-create}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-valparamhead}$\ast$ yasm\-\_\-vps\-\_\-create (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{valparam_8h_a6ff6acbcac7eea35f8ec8cd784614162}
+Create a new linked list of valparams. \begin{DoxyReturn}{Returns}
+Newly allocated valparam list. 
+\end{DoxyReturn}
+\hypertarget{valparam_8h_a174d33fe64b54c840935fae1ac1e0365}{\index{valparam.\-h@{valparam.\-h}!yasm\-\_\-vps\-\_\-delete@{yasm\-\_\-vps\-\_\-delete}}
+\index{yasm\-\_\-vps\-\_\-delete@{yasm\-\_\-vps\-\_\-delete}!valparam.h@{valparam.\-h}}
+\subsubsection[{yasm\-\_\-vps\-\_\-delete}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-vps\-\_\-delete (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-valparamhead} $\ast$}]{headp}
+\end{DoxyParamCaption}
+)}}\label{valparam_8h_a174d33fe64b54c840935fae1ac1e0365}
+Destroy (free allocated memory for) linked list of valparams (created with yasm\-\_\-vps\-\_\-initialize). \begin{DoxyWarning}{Warning}
+Deletes val/params. 
+\end{DoxyWarning}
+
+\begin{DoxyParams}{Parameters}
+{\em headp} & linked list \\
+\hline
+\end{DoxyParams}
+\hypertarget{valparam_8h_ad54928f8b34e75e4ccf5e8736e19cd24}{\index{valparam.\-h@{valparam.\-h}!yasm\-\_\-vps\-\_\-destroy@{yasm\-\_\-vps\-\_\-destroy}}
+\index{yasm\-\_\-vps\-\_\-destroy@{yasm\-\_\-vps\-\_\-destroy}!valparam.h@{valparam.\-h}}
+\subsubsection[{yasm\-\_\-vps\-\_\-destroy}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-vps\-\_\-destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-valparamhead} $\ast$}]{headp}
+\end{DoxyParamCaption}
+)}}\label{valparam_8h_ad54928f8b34e75e4ccf5e8736e19cd24}
+Destroy a list of valparams (created with yasm\-\_\-vps\-\_\-create). 
+\begin{DoxyParams}{Parameters}
+{\em headp} & list of valparams \\
+\hline
+\end{DoxyParams}
+\hypertarget{valparam_8h_ac57d22a54b45da16e9156a19f8521aff}{\index{valparam.\-h@{valparam.\-h}!yasm\-\_\-vps\-\_\-first@{yasm\-\_\-vps\-\_\-first}}
+\index{yasm\-\_\-vps\-\_\-first@{yasm\-\_\-vps\-\_\-first}!valparam.h@{valparam.\-h}}
+\subsubsection[{yasm\-\_\-vps\-\_\-first}]{\setlength{\rightskip}{0pt plus 5cm}{\bf yasm\-\_\-valparam}$\ast$ yasm\-\_\-vps\-\_\-first (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-valparamhead} $\ast$}]{headp}
+\end{DoxyParamCaption}
+)}}\label{valparam_8h_ac57d22a54b45da16e9156a19f8521aff}
+Get first valparam in linked list. 
+\begin{DoxyParams}{Parameters}
+{\em headp} & linked list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+First valparam in linked list. 
+\end{DoxyReturn}
+\hypertarget{valparam_8h_a487fa9437bd593965744d27a7a77db45}{\index{valparam.\-h@{valparam.\-h}!yasm\-\_\-vps\-\_\-initialize@{yasm\-\_\-vps\-\_\-initialize}}
+\index{yasm\-\_\-vps\-\_\-initialize@{yasm\-\_\-vps\-\_\-initialize}!valparam.h@{valparam.\-h}}
+\subsubsection[{yasm\-\_\-vps\-\_\-initialize}]{\setlength{\rightskip}{0pt plus 5cm}void yasm\-\_\-vps\-\_\-initialize (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-valparamhead} $\ast$}]{headp}
+\end{DoxyParamCaption}
+)}}\label{valparam_8h_a487fa9437bd593965744d27a7a77db45}
+Initialize linked list of valparams. 
+\begin{DoxyParams}{Parameters}
+{\em headp} & linked list \\
+\hline
+\end{DoxyParams}
+\hypertarget{valparam_8h_a9f2ed4471123fdfa092ac40f55fdc241}{\index{valparam.\-h@{valparam.\-h}!yasm\-\_\-vps\-\_\-next@{yasm\-\_\-vps\-\_\-next}}
+\index{yasm\-\_\-vps\-\_\-next@{yasm\-\_\-vps\-\_\-next}!valparam.h@{valparam.\-h}}
+\subsubsection[{yasm\-\_\-vps\-\_\-next}]{\setlength{\rightskip}{0pt plus 5cm}{\bf yasm\-\_\-valparam}$\ast$ yasm\-\_\-vps\-\_\-next (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-valparam} $\ast$}]{cur}
+\end{DoxyParamCaption}
+)}}\label{valparam_8h_a9f2ed4471123fdfa092ac40f55fdc241}
+Get next valparam in linked list. 
+\begin{DoxyParams}{Parameters}
+{\em cur} & previous valparam in linked list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Next valparam in linked list. 
+\end{DoxyReturn}
+\hypertarget{valparam_8h_a78922308cb237123c4ca5cdc9af2946d}{\index{valparam.\-h@{valparam.\-h}!yasm\-\_\-vps\-\_\-print@{yasm\-\_\-vps\-\_\-print}}
+\index{yasm\-\_\-vps\-\_\-print@{yasm\-\_\-vps\-\_\-print}!valparam.h@{valparam.\-h}}
+\subsubsection[{yasm\-\_\-vps\-\_\-print}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-vps\-\_\-print (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-valparamhead} $\ast$}]{headp, }
+\item[{F\-I\-L\-E $\ast$}]{f}
+\end{DoxyParamCaption}
+)}}\label{valparam_8h_a78922308cb237123c4ca5cdc9af2946d}
+Print linked list of valparams. For debugging purposes. 
+\begin{DoxyParams}{Parameters}
+{\em f} & file \\
+\hline
+{\em headp} & linked list \\
+\hline
+\end{DoxyParams}

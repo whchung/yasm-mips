@@ -1,0 +1,701 @@
+\hypertarget{section_8h}{\section{section.\-h File Reference}
+\label{section_8h}\index{section.\-h@{section.\-h}}
+}
+
+
+Y\-A\-S\-M section interface.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structyasm__reloc}{yasm\-\_\-reloc}
+\item 
+struct \hyperlink{structyasm__object}{yasm\-\_\-object}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{section_8h_a49672a9f0bbf31d5fe92e7b4e2f2dc60}{\#define {\bfseries Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L}}\label{section_8h_a49672a9f0bbf31d5fe92e7b4e2f2dc60}
+
+\item 
+\hypertarget{section_8h_a08e5c479f64f2feb7e1e4b35106e06df}{\#define {\bfseries yasm\-\_\-section\-\_\-reloc\-\_\-next}(x)~S\-T\-A\-I\-L\-Q\-\_\-\-N\-E\-X\-T((x), link)}\label{section_8h_a08e5c479f64f2feb7e1e4b35106e06df}
+
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structyasm__reloc}{yasm\-\_\-reloc} \hyperlink{section_8h_a8865e26102c79ec61ebc1a259509fcd6}{yasm\-\_\-reloc}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__object}{yasm\-\_\-object} $\ast$ \hyperlink{section_8h_a386be80337e12c5a18ef1141e60d2ee4}{yasm\-\_\-object\-\_\-create} (const char $\ast$src\-\_\-filename, const char $\ast$obj\-\_\-filename, \hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch, const \hyperlink{structyasm__objfmt__module}{yasm\-\_\-objfmt\-\_\-module} $\ast$objfmt\-\_\-module, const \hyperlink{structyasm__dbgfmt__module}{yasm\-\_\-dbgfmt\-\_\-module} $\ast$dbgfmt\-\_\-module)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__section}{yasm\-\_\-section} $\ast$ \hyperlink{section_8h_a7d991755ecb1b4c77e0c4d21736307f9}{yasm\-\_\-object\-\_\-get\-\_\-general} (\hyperlink{structyasm__object}{yasm\-\_\-object} $\ast$object, const char $\ast$name, unsigned long align, int code, int res\-\_\-only, int $\ast$isnew, unsigned long line)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int \hyperlink{section_8h_af096286edf9395bd6d8b8c5a00548b25}{yasm\-\_\-object\-\_\-directive} (\hyperlink{structyasm__object}{yasm\-\_\-object} $\ast$object, const char $\ast$name, const char $\ast$parser, \hyperlink{coretype_8h_ab1c6ed70512ed01b56479b23e5ece9bc}{yasm\-\_\-valparamhead} $\ast$valparams, \hyperlink{coretype_8h_ab1c6ed70512ed01b56479b23e5ece9bc}{yasm\-\_\-valparamhead} $\ast$objext\-\_\-valparams, unsigned long line)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{section_8h_ad817e1bb5f300c306c1b25a41ce43681}{yasm\-\_\-object\-\_\-destroy} (\hyperlink{structyasm__object}{yasm\-\_\-object} $\ast$object)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{section_8h_a3e49e71efb3053e02741a07f05e5ff62}{yasm\-\_\-object\-\_\-print} (const \hyperlink{structyasm__object}{yasm\-\_\-object} $\ast$object, F\-I\-L\-E $\ast$f, int indent\-\_\-level)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{section_8h_a627d12967ef6381ebc4d979a62f4ed52}{yasm\-\_\-object\-\_\-finalize} (\hyperlink{structyasm__object}{yasm\-\_\-object} $\ast$object, \hyperlink{structyasm__errwarns}{yasm\-\_\-errwarns} $\ast$errwarns)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int \hyperlink{section_8h_a25b5b1f524163893f0f1879dedd8e033}{yasm\-\_\-object\-\_\-sections\-\_\-traverse} (\hyperlink{structyasm__object}{yasm\-\_\-object} $\ast$object, void $\ast$d, int($\ast$func)(\hyperlink{structyasm__section}{yasm\-\_\-section} $\ast$sect, void $\ast$d))
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__section}{yasm\-\_\-section} $\ast$ \hyperlink{section_8h_ac1ed60231665d2d4a7883a892ee6524c}{yasm\-\_\-object\-\_\-find\-\_\-general} (\hyperlink{structyasm__object}{yasm\-\_\-object} $\ast$object, const char $\ast$name)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{section_8h_abbbede392b468323bf513d4595b72926}{yasm\-\_\-object\-\_\-set\-\_\-source\-\_\-fn} (\hyperlink{structyasm__object}{yasm\-\_\-object} $\ast$object, const char $\ast$src\-\_\-filename)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{section_8h_a47e9b6be6f219116a86425ee65734f56}{yasm\-\_\-object\-\_\-set\-\_\-global\-\_\-prefix} (\hyperlink{structyasm__object}{yasm\-\_\-object} $\ast$object, const char $\ast$prefix)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{section_8h_a9aa197f55d918f023cb84dd4682727a5}{yasm\-\_\-object\-\_\-set\-\_\-global\-\_\-suffix} (\hyperlink{structyasm__object}{yasm\-\_\-object} $\ast$object, const char $\ast$suffix)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{section_8h_a5d928fb391d9156d6af404b302f27dd5}{yasm\-\_\-object\-\_\-optimize} (\hyperlink{structyasm__object}{yasm\-\_\-object} $\ast$object, \hyperlink{structyasm__errwarns}{yasm\-\_\-errwarns} $\ast$errwarns)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int \hyperlink{section_8h_a0ac2ea1cf5a99e39daa55099448c3b17}{yasm\-\_\-section\-\_\-is\-\_\-code} (\hyperlink{structyasm__section}{yasm\-\_\-section} $\ast$sect)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L unsigned long \hyperlink{section_8h_ad0edc5d0b9110ef283221787e74550ba}{yasm\-\_\-section\-\_\-get\-\_\-opt\-\_\-flags} (const \hyperlink{structyasm__section}{yasm\-\_\-section} $\ast$sect)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{section_8h_a36818a25c45ee711f79e24daea2f7646}{yasm\-\_\-section\-\_\-set\-\_\-opt\-\_\-flags} (\hyperlink{structyasm__section}{yasm\-\_\-section} $\ast$sect, unsigned long opt\-\_\-flags)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int \hyperlink{section_8h_aaf4728f85478f0fc1aa4e9dd361d8173}{yasm\-\_\-section\-\_\-is\-\_\-default} (const \hyperlink{structyasm__section}{yasm\-\_\-section} $\ast$sect)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{section_8h_a8927915a7530481a33a092bd8dc3f306}{yasm\-\_\-section\-\_\-set\-\_\-default} (\hyperlink{structyasm__section}{yasm\-\_\-section} $\ast$sect, int def)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__object}{yasm\-\_\-object} $\ast$ \hyperlink{section_8h_a69e834591a30a15497354ec60e0b244f}{yasm\-\_\-section\-\_\-get\-\_\-object} (const \hyperlink{structyasm__section}{yasm\-\_\-section} $\ast$sect)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void $\ast$ \hyperlink{section_8h_a34b8e486bae09800d3a07043d27cef97}{yasm\-\_\-section\-\_\-get\-\_\-data} (\hyperlink{structyasm__section}{yasm\-\_\-section} $\ast$sect, const \hyperlink{structyasm__assoc__data__callback}{yasm\-\_\-assoc\-\_\-data\-\_\-callback} $\ast$callback)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{section_8h_a4ff62e6e0768c06ef1edd10092c96bba}{yasm\-\_\-section\-\_\-add\-\_\-data} (\hyperlink{structyasm__section}{yasm\-\_\-section} $\ast$sect, const \hyperlink{structyasm__assoc__data__callback}{yasm\-\_\-assoc\-\_\-data\-\_\-callback} $\ast$callback, void $\ast$data)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{section_8h_a467cef1d10e42598400fec112052d9b1}{yasm\-\_\-section\-\_\-add\-\_\-reloc} (\hyperlink{structyasm__section}{yasm\-\_\-section} $\ast$sect, \hyperlink{structyasm__reloc}{yasm\-\_\-reloc} $\ast$reloc, void($\ast$destroy\-\_\-func)(void $\ast$reloc))
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__reloc}{yasm\-\_\-reloc} $\ast$ \hyperlink{section_8h_af1220b04fd25c2f1258d79f8cab8d36c}{yasm\-\_\-section\-\_\-relocs\-\_\-first} (\hyperlink{structyasm__section}{yasm\-\_\-section} $\ast$sect)
+\item 
+\hyperlink{structyasm__reloc}{yasm\-\_\-reloc} $\ast$ \hyperlink{section_8h_a3838d12c6fee8fef054f7a919920231a}{yasm\-\_\-section\-\_\-reloc\-\_\-next} (\hyperlink{structyasm__reloc}{yasm\-\_\-reloc} $\ast$reloc)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{section_8h_a3f41734e41ee35b4c51cda48119bf613}{yasm\-\_\-reloc\-\_\-get} (\hyperlink{structyasm__reloc}{yasm\-\_\-reloc} $\ast$reloc, \hyperlink{structyasm__intnum}{yasm\-\_\-intnum} $\ast$$\ast$addrp, \hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$$\ast$symp)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$ \hyperlink{section_8h_ac1614e468f8df3ffef5a6b9b80a1b297}{yasm\-\_\-section\-\_\-bcs\-\_\-first} (\hyperlink{structyasm__section}{yasm\-\_\-section} $\ast$sect)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$ \hyperlink{section_8h_a9e843ca350894e907c17cf4ec5dd3631}{yasm\-\_\-section\-\_\-bcs\-\_\-last} (\hyperlink{structyasm__section}{yasm\-\_\-section} $\ast$sect)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$ \hyperlink{section_8h_af4e7aa5ded1175b180d209ff39e820cc}{yasm\-\_\-section\-\_\-bcs\-\_\-append} (\hyperlink{structyasm__section}{yasm\-\_\-section} $\ast$sect, \hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$bc)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int \hyperlink{section_8h_ab3c43de14b4e74a162e951c0e8f53f41}{yasm\-\_\-section\-\_\-bcs\-\_\-traverse} (\hyperlink{structyasm__section}{yasm\-\_\-section} $\ast$sect, \hyperlink{structyasm__errwarns}{yasm\-\_\-errwarns} $\ast$errwarns, void $\ast$d, int($\ast$func)(\hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$bc, void $\ast$d))
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L const char $\ast$ \hyperlink{section_8h_afa09ab35ce634d9724638d1f248fa7e9}{yasm\-\_\-section\-\_\-get\-\_\-name} (const \hyperlink{structyasm__section}{yasm\-\_\-section} $\ast$sect)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{section_8h_ab1bb54ad1e86773fd99242a359f16842}{yasm\-\_\-section\-\_\-set\-\_\-align} (\hyperlink{structyasm__section}{yasm\-\_\-section} $\ast$sect, unsigned long align, unsigned long line)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L unsigned long \hyperlink{section_8h_a419f5921e714cf05043d8a1ab38a76f8}{yasm\-\_\-section\-\_\-get\-\_\-align} (const \hyperlink{structyasm__section}{yasm\-\_\-section} $\ast$sect)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{section_8h_ad40bcbaf97af6ac41713698c749e19b7}{yasm\-\_\-section\-\_\-print} (const \hyperlink{structyasm__section}{yasm\-\_\-section} $\ast$sect, F\-I\-L\-E $\ast$f, int indent\-\_\-level, int print\-\_\-bcs)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Y\-A\-S\-M section interface. Copyright (C) 2001-\/2007 Peter Johnson
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\-:
+\begin{DoxyItemize}
+\item Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+\item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+\end{DoxyItemize}
+
+T\-H\-I\-S S\-O\-F\-T\-W\-A\-R\-E I\-S P\-R\-O\-V\-I\-D\-E\-D B\-Y T\-H\-E A\-U\-T\-H\-O\-R A\-N\-D O\-T\-H\-E\-R C\-O\-N\-T\-R\-I\-B\-U\-T\-O\-R\-S ``\-A\-S I\-S'' A\-N\-D A\-N\-Y E\-X\-P\-R\-E\-S\-S O\-R I\-M\-P\-L\-I\-E\-D W\-A\-R\-R\-A\-N\-T\-I\-E\-S, I\-N\-C\-L\-U\-D\-I\-N\-G, B\-U\-T N\-O\-T L\-I\-M\-I\-T\-E\-D T\-O, T\-H\-E I\-M\-P\-L\-I\-E\-D W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-F M\-E\-R\-C\-H\-A\-N\-T\-A\-B\-I\-L\-I\-T\-Y A\-N\-D F\-I\-T\-N\-E\-S\-S F\-O\-R A P\-A\-R\-T\-I\-C\-U\-L\-A\-R P\-U\-R\-P\-O\-S\-E A\-R\-E D\-I\-S\-C\-L\-A\-I\-M\-E\-D. I\-N N\-O E\-V\-E\-N\-T S\-H\-A\-L\-L T\-H\-E A\-U\-T\-H\-O\-R O\-R O\-T\-H\-E\-R C\-O\-N\-T\-R\-I\-B\-U\-T\-O\-R\-S B\-E L\-I\-A\-B\-L\-E F\-O\-R A\-N\-Y D\-I\-R\-E\-C\-T, I\-N\-D\-I\-R\-E\-C\-T, I\-N\-C\-I\-D\-E\-N\-T\-A\-L, S\-P\-E\-C\-I\-A\-L, E\-X\-E\-M\-P\-L\-A\-R\-Y, O\-R C\-O\-N\-S\-E\-Q\-U\-E\-N\-T\-I\-A\-L D\-A\-M\-A\-G\-E\-S (I\-N\-C\-L\-U\-D\-I\-N\-G, B\-U\-T N\-O\-T L\-I\-M\-I\-T\-E\-D T\-O, P\-R\-O\-C\-U\-R\-E\-M\-E\-N\-T O\-F S\-U\-B\-S\-T\-I\-T\-U\-T\-E G\-O\-O\-D\-S O\-R S\-E\-R\-V\-I\-C\-E\-S; L\-O\-S\-S O\-F U\-S\-E, D\-A\-T\-A, O\-R P\-R\-O\-F\-I\-T\-S; O\-R B\-U\-S\-I\-N\-E\-S\-S I\-N\-T\-E\-R\-R\-U\-P\-T\-I\-O\-N) H\-O\-W\-E\-V\-E\-R C\-A\-U\-S\-E\-D A\-N\-D O\-N A\-N\-Y T\-H\-E\-O\-R\-Y O\-F L\-I\-A\-B\-I\-L\-I\-T\-Y, W\-H\-E\-T\-H\-E\-R I\-N C\-O\-N\-T\-R\-A\-C\-T, S\-T\-R\-I\-C\-T L\-I\-A\-B\-I\-L\-I\-T\-Y, O\-R T\-O\-R\-T (I\-N\-C\-L\-U\-D\-I\-N\-G N\-E\-G\-L\-I\-G\-E\-N\-C\-E O\-R O\-T\-H\-E\-R\-W\-I\-S\-E) A\-R\-I\-S\-I\-N\-G I\-N A\-N\-Y W\-A\-Y O\-U\-T O\-F T\-H\-E U\-S\-E O\-F T\-H\-I\-S S\-O\-F\-T\-W\-A\-R\-E, E\-V\-E\-N I\-F A\-D\-V\-I\-S\-E\-D O\-F T\-H\-E P\-O\-S\-S\-I\-B\-I\-L\-I\-T\-Y O\-F S\-U\-C\-H D\-A\-M\-A\-G\-E.  
+
+\subsection{Typedef Documentation}
+\hypertarget{section_8h_a8865e26102c79ec61ebc1a259509fcd6}{\index{section.\-h@{section.\-h}!yasm\-\_\-reloc@{yasm\-\_\-reloc}}
+\index{yasm\-\_\-reloc@{yasm\-\_\-reloc}!section.h@{section.\-h}}
+\subsubsection[{yasm\-\_\-reloc}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf yasm\-\_\-reloc} {\bf yasm\-\_\-reloc}}}\label{section_8h_a8865e26102c79ec61ebc1a259509fcd6}
+Basic Y\-A\-S\-M relocation. Object formats will need to extend this structure with additional fields for relocation type, etc. 
+
+\subsection{Function Documentation}
+\hypertarget{section_8h_a386be80337e12c5a18ef1141e60d2ee4}{\index{section.\-h@{section.\-h}!yasm\-\_\-object\-\_\-create@{yasm\-\_\-object\-\_\-create}}
+\index{yasm\-\_\-object\-\_\-create@{yasm\-\_\-object\-\_\-create}!section.h@{section.\-h}}
+\subsubsection[{yasm\-\_\-object\-\_\-create}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-object}$\ast$ yasm\-\_\-object\-\_\-create (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{src\-\_\-filename, }
+\item[{const char $\ast$}]{obj\-\_\-filename, }
+\item[{{\bf yasm\-\_\-arch} $\ast$}]{arch, }
+\item[{const {\bf yasm\-\_\-objfmt\-\_\-module} $\ast$}]{objfmt\-\_\-module, }
+\item[{const {\bf yasm\-\_\-dbgfmt\-\_\-module} $\ast$}]{dbgfmt\-\_\-module}
+\end{DoxyParamCaption}
+)}}\label{section_8h_a386be80337e12c5a18ef1141e60d2ee4}
+Create a new object. A default section is created as the first section. An empty symbol table (\hyperlink{structyasm__symtab}{yasm\-\_\-symtab}) and line mapping (\hyperlink{structyasm__linemap}{yasm\-\_\-linemap}) are automatically created. 
+\begin{DoxyParams}{Parameters}
+{\em src\-\_\-filename} & source filename (e.\-g. \char`\"{}file.\-asm\char`\"{}) \\
+\hline
+{\em obj\-\_\-filename} & object filename (e.\-g. \char`\"{}file.\-o\char`\"{}) \\
+\hline
+{\em arch} & architecture \\
+\hline
+{\em objfmt\-\_\-module} & object format module \\
+\hline
+{\em dbgfmt\-\_\-module} & debug format module \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly allocated object, or N\-U\-L\-L on error. 
+\end{DoxyReturn}
+\hypertarget{section_8h_ad817e1bb5f300c306c1b25a41ce43681}{\index{section.\-h@{section.\-h}!yasm\-\_\-object\-\_\-destroy@{yasm\-\_\-object\-\_\-destroy}}
+\index{yasm\-\_\-object\-\_\-destroy@{yasm\-\_\-object\-\_\-destroy}!section.h@{section.\-h}}
+\subsubsection[{yasm\-\_\-object\-\_\-destroy}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-object\-\_\-destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-object} $\ast$}]{object}
+\end{DoxyParamCaption}
+)}}\label{section_8h_ad817e1bb5f300c306c1b25a41ce43681}
+Delete (free allocated memory for) an object. All sections in the object and all bytecodes within those sections are also deleted. 
+\begin{DoxyParams}{Parameters}
+{\em object} & object \\
+\hline
+\end{DoxyParams}
+\hypertarget{section_8h_af096286edf9395bd6d8b8c5a00548b25}{\index{section.\-h@{section.\-h}!yasm\-\_\-object\-\_\-directive@{yasm\-\_\-object\-\_\-directive}}
+\index{yasm\-\_\-object\-\_\-directive@{yasm\-\_\-object\-\_\-directive}!section.h@{section.\-h}}
+\subsubsection[{yasm\-\_\-object\-\_\-directive}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int yasm\-\_\-object\-\_\-directive (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-object} $\ast$}]{object, }
+\item[{const char $\ast$}]{name, }
+\item[{const char $\ast$}]{parser, }
+\item[{{\bf yasm\-\_\-valparamhead} $\ast$}]{valparams, }
+\item[{{\bf yasm\-\_\-valparamhead} $\ast$}]{objext\-\_\-valparams, }
+\item[{unsigned long}]{line}
+\end{DoxyParamCaption}
+)}}\label{section_8h_af096286edf9395bd6d8b8c5a00548b25}
+Handle a directive. Passed down to object format, debug format, or architecture as appropriate. 
+\begin{DoxyParams}{Parameters}
+{\em object} & object \\
+\hline
+{\em name} & directive name \\
+\hline
+{\em parser} & parser keyword \\
+\hline
+{\em valparams} & value/parameters \\
+\hline
+{\em objext\-\_\-valparams} & \char`\"{}object format-\/specific\char`\"{} value/parameters \\
+\hline
+{\em line} & virtual line (from \hyperlink{structyasm__linemap}{yasm\-\_\-linemap}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if directive recognized, nonzero if unrecognized. 
+\end{DoxyReturn}
+\hypertarget{section_8h_a627d12967ef6381ebc4d979a62f4ed52}{\index{section.\-h@{section.\-h}!yasm\-\_\-object\-\_\-finalize@{yasm\-\_\-object\-\_\-finalize}}
+\index{yasm\-\_\-object\-\_\-finalize@{yasm\-\_\-object\-\_\-finalize}!section.h@{section.\-h}}
+\subsubsection[{yasm\-\_\-object\-\_\-finalize}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-object\-\_\-finalize (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-object} $\ast$}]{object, }
+\item[{{\bf yasm\-\_\-errwarns} $\ast$}]{errwarns}
+\end{DoxyParamCaption}
+)}}\label{section_8h_a627d12967ef6381ebc4d979a62f4ed52}
+Finalize an object after parsing. 
+\begin{DoxyParams}{Parameters}
+{\em object} & object \\
+\hline
+{\em errwarns} & error/warning set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Errors/warnings are stored into errwarns. 
+\end{DoxyNote}
+\hypertarget{section_8h_ac1ed60231665d2d4a7883a892ee6524c}{\index{section.\-h@{section.\-h}!yasm\-\_\-object\-\_\-find\-\_\-general@{yasm\-\_\-object\-\_\-find\-\_\-general}}
+\index{yasm\-\_\-object\-\_\-find\-\_\-general@{yasm\-\_\-object\-\_\-find\-\_\-general}!section.h@{section.\-h}}
+\subsubsection[{yasm\-\_\-object\-\_\-find\-\_\-general}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-section}$\ast$ yasm\-\_\-object\-\_\-find\-\_\-general (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-object} $\ast$}]{object, }
+\item[{const char $\ast$}]{name}
+\end{DoxyParamCaption}
+)}}\label{section_8h_ac1ed60231665d2d4a7883a892ee6524c}
+Find a general section in an object, based on its name. 
+\begin{DoxyParams}{Parameters}
+{\em object} & object \\
+\hline
+{\em name} & section name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Section matching name, or N\-U\-L\-L if no match found. 
+\end{DoxyReturn}
+\hypertarget{section_8h_a7d991755ecb1b4c77e0c4d21736307f9}{\index{section.\-h@{section.\-h}!yasm\-\_\-object\-\_\-get\-\_\-general@{yasm\-\_\-object\-\_\-get\-\_\-general}}
+\index{yasm\-\_\-object\-\_\-get\-\_\-general@{yasm\-\_\-object\-\_\-get\-\_\-general}!section.h@{section.\-h}}
+\subsubsection[{yasm\-\_\-object\-\_\-get\-\_\-general}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-section}$\ast$ yasm\-\_\-object\-\_\-get\-\_\-general (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-object} $\ast$}]{object, }
+\item[{const char $\ast$}]{name, }
+\item[{unsigned long}]{align, }
+\item[{int}]{code, }
+\item[{int}]{res\-\_\-only, }
+\item[{int $\ast$}]{isnew, }
+\item[{unsigned long}]{line}
+\end{DoxyParamCaption}
+)}}\label{section_8h_a7d991755ecb1b4c77e0c4d21736307f9}
+Create a new, or continue an existing, general section. The section is added to the object if there's not already a section by that name. 
+\begin{DoxyParams}{Parameters}
+{\em object} & object \\
+\hline
+{\em name} & section name \\
+\hline
+{\em align} & alignment in bytes (0 if none) \\
+\hline
+{\em code} & if nonzero, section is intended to contain code (e.\-g. alignment should be made with N\-O\-P instructions, not 0) \\
+\hline
+{\em res\-\_\-only} & if nonzero, only space-\/reserving bytecodes are allowed in the section (ignored if section already exists) \\
+\hline
+{\em isnew} & output; set to nonzero if section did not already exist \\
+\hline
+{\em line} & virtual line of section declaration (ignored if section already exists) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New section. 
+\end{DoxyReturn}
+\hypertarget{section_8h_a5d928fb391d9156d6af404b302f27dd5}{\index{section.\-h@{section.\-h}!yasm\-\_\-object\-\_\-optimize@{yasm\-\_\-object\-\_\-optimize}}
+\index{yasm\-\_\-object\-\_\-optimize@{yasm\-\_\-object\-\_\-optimize}!section.h@{section.\-h}}
+\subsubsection[{yasm\-\_\-object\-\_\-optimize}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-object\-\_\-optimize (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-object} $\ast$}]{object, }
+\item[{{\bf yasm\-\_\-errwarns} $\ast$}]{errwarns}
+\end{DoxyParamCaption}
+)}}\label{section_8h_a5d928fb391d9156d6af404b302f27dd5}
+Optimize an object. Takes the unoptimized object and optimizes it. If successful, the object is ready for output to an object file. 
+\begin{DoxyParams}{Parameters}
+{\em object} & object \\
+\hline
+{\em errwarns} & error/warning set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Optimization failures are stored into errwarns. 
+\end{DoxyNote}
+\hypertarget{section_8h_a3e49e71efb3053e02741a07f05e5ff62}{\index{section.\-h@{section.\-h}!yasm\-\_\-object\-\_\-print@{yasm\-\_\-object\-\_\-print}}
+\index{yasm\-\_\-object\-\_\-print@{yasm\-\_\-object\-\_\-print}!section.h@{section.\-h}}
+\subsubsection[{yasm\-\_\-object\-\_\-print}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-object\-\_\-print (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-object} $\ast$}]{object, }
+\item[{F\-I\-L\-E $\ast$}]{f, }
+\item[{int}]{indent\-\_\-level}
+\end{DoxyParamCaption}
+)}}\label{section_8h_a3e49e71efb3053e02741a07f05e5ff62}
+Print an object. For debugging purposes. 
+\begin{DoxyParams}{Parameters}
+{\em object} & object \\
+\hline
+{\em f} & file \\
+\hline
+{\em indent\-\_\-level} & indentation level \\
+\hline
+\end{DoxyParams}
+\hypertarget{section_8h_a25b5b1f524163893f0f1879dedd8e033}{\index{section.\-h@{section.\-h}!yasm\-\_\-object\-\_\-sections\-\_\-traverse@{yasm\-\_\-object\-\_\-sections\-\_\-traverse}}
+\index{yasm\-\_\-object\-\_\-sections\-\_\-traverse@{yasm\-\_\-object\-\_\-sections\-\_\-traverse}!section.h@{section.\-h}}
+\subsubsection[{yasm\-\_\-object\-\_\-sections\-\_\-traverse}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int yasm\-\_\-object\-\_\-sections\-\_\-traverse (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-object} $\ast$}]{object, }
+\item[{void $\ast$}]{d, }
+\item[{int($\ast$)({\bf yasm\-\_\-section} $\ast$sect, void $\ast$d)}]{func}
+\end{DoxyParamCaption}
+)}}\label{section_8h_a25b5b1f524163893f0f1879dedd8e033}
+Traverses all sections in an object, calling a function on each section. 
+\begin{DoxyParams}{Parameters}
+{\em object} & object \\
+\hline
+{\em d} & data pointer passed to func on each call \\
+\hline
+{\em func} & function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Stops early (and returns func's return value) if func returns a nonzero value; otherwise 0. 
+\end{DoxyReturn}
+\hypertarget{section_8h_a47e9b6be6f219116a86425ee65734f56}{\index{section.\-h@{section.\-h}!yasm\-\_\-object\-\_\-set\-\_\-global\-\_\-prefix@{yasm\-\_\-object\-\_\-set\-\_\-global\-\_\-prefix}}
+\index{yasm\-\_\-object\-\_\-set\-\_\-global\-\_\-prefix@{yasm\-\_\-object\-\_\-set\-\_\-global\-\_\-prefix}!section.h@{section.\-h}}
+\subsubsection[{yasm\-\_\-object\-\_\-set\-\_\-global\-\_\-prefix}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-object\-\_\-set\-\_\-global\-\_\-prefix (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-object} $\ast$}]{object, }
+\item[{const char $\ast$}]{prefix}
+\end{DoxyParamCaption}
+)}}\label{section_8h_a47e9b6be6f219116a86425ee65734f56}
+Change the prefix used for externally-\/visible symbols. 
+\begin{DoxyParams}{Parameters}
+{\em object} & object \\
+\hline
+{\em prefix} & new prefix \\
+\hline
+\end{DoxyParams}
+\hypertarget{section_8h_a9aa197f55d918f023cb84dd4682727a5}{\index{section.\-h@{section.\-h}!yasm\-\_\-object\-\_\-set\-\_\-global\-\_\-suffix@{yasm\-\_\-object\-\_\-set\-\_\-global\-\_\-suffix}}
+\index{yasm\-\_\-object\-\_\-set\-\_\-global\-\_\-suffix@{yasm\-\_\-object\-\_\-set\-\_\-global\-\_\-suffix}!section.h@{section.\-h}}
+\subsubsection[{yasm\-\_\-object\-\_\-set\-\_\-global\-\_\-suffix}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-object\-\_\-set\-\_\-global\-\_\-suffix (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-object} $\ast$}]{object, }
+\item[{const char $\ast$}]{suffix}
+\end{DoxyParamCaption}
+)}}\label{section_8h_a9aa197f55d918f023cb84dd4682727a5}
+Change the suffix used for externally-\/visible symbols. 
+\begin{DoxyParams}{Parameters}
+{\em object} & object \\
+\hline
+{\em suffix} & new suffix \\
+\hline
+\end{DoxyParams}
+\hypertarget{section_8h_abbbede392b468323bf513d4595b72926}{\index{section.\-h@{section.\-h}!yasm\-\_\-object\-\_\-set\-\_\-source\-\_\-fn@{yasm\-\_\-object\-\_\-set\-\_\-source\-\_\-fn}}
+\index{yasm\-\_\-object\-\_\-set\-\_\-source\-\_\-fn@{yasm\-\_\-object\-\_\-set\-\_\-source\-\_\-fn}!section.h@{section.\-h}}
+\subsubsection[{yasm\-\_\-object\-\_\-set\-\_\-source\-\_\-fn}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-object\-\_\-set\-\_\-source\-\_\-fn (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-object} $\ast$}]{object, }
+\item[{const char $\ast$}]{src\-\_\-filename}
+\end{DoxyParamCaption}
+)}}\label{section_8h_abbbede392b468323bf513d4595b72926}
+Change the source filename for an object. 
+\begin{DoxyParams}{Parameters}
+{\em object} & object \\
+\hline
+{\em src\-\_\-filename} & new source filename (e.\-g. \char`\"{}file.\-asm\char`\"{}) \\
+\hline
+\end{DoxyParams}
+\hypertarget{section_8h_a3f41734e41ee35b4c51cda48119bf613}{\index{section.\-h@{section.\-h}!yasm\-\_\-reloc\-\_\-get@{yasm\-\_\-reloc\-\_\-get}}
+\index{yasm\-\_\-reloc\-\_\-get@{yasm\-\_\-reloc\-\_\-get}!section.h@{section.\-h}}
+\subsubsection[{yasm\-\_\-reloc\-\_\-get}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-reloc\-\_\-get (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-reloc} $\ast$}]{reloc, }
+\item[{{\bf yasm\-\_\-intnum} $\ast$$\ast$}]{addrp, }
+\item[{{\bf yasm\-\_\-symrec} $\ast$$\ast$}]{symp}
+\end{DoxyParamCaption}
+)}}\label{section_8h_a3f41734e41ee35b4c51cda48119bf613}
+Get the basic relocation information for a relocation. 
+\begin{DoxyParams}{Parameters}
+{\em reloc} & relocation \\
+\hline
+{\em addrp} & address of relocation within section (returned) \\
+\hline
+{\em symp} & relocated symbol (returned) \\
+\hline
+\end{DoxyParams}
+\hypertarget{section_8h_a4ff62e6e0768c06ef1edd10092c96bba}{\index{section.\-h@{section.\-h}!yasm\-\_\-section\-\_\-add\-\_\-data@{yasm\-\_\-section\-\_\-add\-\_\-data}}
+\index{yasm\-\_\-section\-\_\-add\-\_\-data@{yasm\-\_\-section\-\_\-add\-\_\-data}!section.h@{section.\-h}}
+\subsubsection[{yasm\-\_\-section\-\_\-add\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-section\-\_\-add\-\_\-data (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-section} $\ast$}]{sect, }
+\item[{const {\bf yasm\-\_\-assoc\-\_\-data\-\_\-callback} $\ast$}]{callback, }
+\item[{void $\ast$}]{data}
+\end{DoxyParamCaption}
+)}}\label{section_8h_a4ff62e6e0768c06ef1edd10092c96bba}
+Add associated data to a section. \begin{DoxyAttention}{Attention}
+Deletes any existing associated data for that data callback. 
+\end{DoxyAttention}
+
+\begin{DoxyParams}{Parameters}
+{\em sect} & section \\
+\hline
+{\em callback} & callback \\
+\hline
+{\em data} & data to associate \\
+\hline
+\end{DoxyParams}
+\hypertarget{section_8h_a467cef1d10e42598400fec112052d9b1}{\index{section.\-h@{section.\-h}!yasm\-\_\-section\-\_\-add\-\_\-reloc@{yasm\-\_\-section\-\_\-add\-\_\-reloc}}
+\index{yasm\-\_\-section\-\_\-add\-\_\-reloc@{yasm\-\_\-section\-\_\-add\-\_\-reloc}!section.h@{section.\-h}}
+\subsubsection[{yasm\-\_\-section\-\_\-add\-\_\-reloc}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-section\-\_\-add\-\_\-reloc (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-section} $\ast$}]{sect, }
+\item[{{\bf yasm\-\_\-reloc} $\ast$}]{reloc, }
+\item[{void($\ast$)(void $\ast$reloc)}]{destroy\-\_\-func}
+\end{DoxyParamCaption}
+)}}\label{section_8h_a467cef1d10e42598400fec112052d9b1}
+Add a relocation to a section. 
+\begin{DoxyParams}{Parameters}
+{\em sect} & section \\
+\hline
+{\em reloc} & relocation \\
+\hline
+{\em destroy\-\_\-func} & function that can destroy the relocation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Does not make a copy of reloc. The same destroy\-\_\-func must be used for all relocations in a section or an internal error will occur. The section will destroy the relocation address; it is the caller's responsibility to destroy any other allocated data. 
+\end{DoxyNote}
+\hypertarget{section_8h_af4e7aa5ded1175b180d209ff39e820cc}{\index{section.\-h@{section.\-h}!yasm\-\_\-section\-\_\-bcs\-\_\-append@{yasm\-\_\-section\-\_\-bcs\-\_\-append}}
+\index{yasm\-\_\-section\-\_\-bcs\-\_\-append@{yasm\-\_\-section\-\_\-bcs\-\_\-append}!section.h@{section.\-h}}
+\subsubsection[{yasm\-\_\-section\-\_\-bcs\-\_\-append}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-bytecode}$\ast$ yasm\-\_\-section\-\_\-bcs\-\_\-append (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-section} $\ast$}]{sect, }
+\item[{{\bf yasm\-\_\-bytecode} $\ast$}]{bc}
+\end{DoxyParamCaption}
+)}}\label{section_8h_af4e7aa5ded1175b180d209ff39e820cc}
+Add bytecode to the end of a section. \begin{DoxyNote}{Note}
+Does not make a copy of bc; so don't pass this function static or local variables, and discard the bc pointer after calling this function. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em sect} & section \\
+\hline
+{\em bc} & bytecode (may be N\-U\-L\-L) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If bytecode was actually appended (it wasn't N\-U\-L\-L or empty), the bytecode; otherwise N\-U\-L\-L. 
+\end{DoxyReturn}
+\hypertarget{section_8h_ac1614e468f8df3ffef5a6b9b80a1b297}{\index{section.\-h@{section.\-h}!yasm\-\_\-section\-\_\-bcs\-\_\-first@{yasm\-\_\-section\-\_\-bcs\-\_\-first}}
+\index{yasm\-\_\-section\-\_\-bcs\-\_\-first@{yasm\-\_\-section\-\_\-bcs\-\_\-first}!section.h@{section.\-h}}
+\subsubsection[{yasm\-\_\-section\-\_\-bcs\-\_\-first}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-bytecode}$\ast$ yasm\-\_\-section\-\_\-bcs\-\_\-first (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-section} $\ast$}]{sect}
+\end{DoxyParamCaption}
+)}}\label{section_8h_ac1614e468f8df3ffef5a6b9b80a1b297}
+Get the first bytecode in a section. 
+\begin{DoxyParams}{Parameters}
+{\em sect} & section \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+First bytecode in section (at least one empty bytecode is always present). 
+\end{DoxyReturn}
+\hypertarget{section_8h_a9e843ca350894e907c17cf4ec5dd3631}{\index{section.\-h@{section.\-h}!yasm\-\_\-section\-\_\-bcs\-\_\-last@{yasm\-\_\-section\-\_\-bcs\-\_\-last}}
+\index{yasm\-\_\-section\-\_\-bcs\-\_\-last@{yasm\-\_\-section\-\_\-bcs\-\_\-last}!section.h@{section.\-h}}
+\subsubsection[{yasm\-\_\-section\-\_\-bcs\-\_\-last}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-bytecode}$\ast$ yasm\-\_\-section\-\_\-bcs\-\_\-last (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-section} $\ast$}]{sect}
+\end{DoxyParamCaption}
+)}}\label{section_8h_a9e843ca350894e907c17cf4ec5dd3631}
+Get the last bytecode in a section. 
+\begin{DoxyParams}{Parameters}
+{\em sect} & section \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Last bytecode in section (at least one empty bytecode is always present). 
+\end{DoxyReturn}
+\hypertarget{section_8h_ab3c43de14b4e74a162e951c0e8f53f41}{\index{section.\-h@{section.\-h}!yasm\-\_\-section\-\_\-bcs\-\_\-traverse@{yasm\-\_\-section\-\_\-bcs\-\_\-traverse}}
+\index{yasm\-\_\-section\-\_\-bcs\-\_\-traverse@{yasm\-\_\-section\-\_\-bcs\-\_\-traverse}!section.h@{section.\-h}}
+\subsubsection[{yasm\-\_\-section\-\_\-bcs\-\_\-traverse}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int yasm\-\_\-section\-\_\-bcs\-\_\-traverse (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-section} $\ast$}]{sect, }
+\item[{{\bf yasm\-\_\-errwarns} $\ast$}]{errwarns, }
+\item[{void $\ast$}]{d, }
+\item[{int($\ast$)({\bf yasm\-\_\-bytecode} $\ast$bc, void $\ast$d)}]{func}
+\end{DoxyParamCaption}
+)}}\label{section_8h_ab3c43de14b4e74a162e951c0e8f53f41}
+Traverses all bytecodes in a section, calling a function on each bytecode. 
+\begin{DoxyParams}{Parameters}
+{\em sect} & section \\
+\hline
+{\em errwarns} & error/warning set (may be N\-U\-L\-L) \\
+\hline
+{\em d} & data pointer passed to func on each call (may be N\-U\-L\-L) \\
+\hline
+{\em func} & function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Stops early (and returns func's return value) if func returns a nonzero value; otherwise 0. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+If errwarns is non-\/\-N\-U\-L\-L, \hyperlink{errwarn_8h_a2952c6191e707d1b12f3e7b2f00c4317}{yasm\-\_\-errwarn\-\_\-propagate()} is called after each call to func (with the bytecode's line number). 
+\end{DoxyNote}
+\hypertarget{section_8h_a419f5921e714cf05043d8a1ab38a76f8}{\index{section.\-h@{section.\-h}!yasm\-\_\-section\-\_\-get\-\_\-align@{yasm\-\_\-section\-\_\-get\-\_\-align}}
+\index{yasm\-\_\-section\-\_\-get\-\_\-align@{yasm\-\_\-section\-\_\-get\-\_\-align}!section.h@{section.\-h}}
+\subsubsection[{yasm\-\_\-section\-\_\-get\-\_\-align}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L unsigned long yasm\-\_\-section\-\_\-get\-\_\-align (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-section} $\ast$}]{sect}
+\end{DoxyParamCaption}
+)}}\label{section_8h_a419f5921e714cf05043d8a1ab38a76f8}
+Get alignment of a section. 
+\begin{DoxyParams}{Parameters}
+{\em sect} & section \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Alignment in bytes (0 if none). 
+\end{DoxyReturn}
+\hypertarget{section_8h_a34b8e486bae09800d3a07043d27cef97}{\index{section.\-h@{section.\-h}!yasm\-\_\-section\-\_\-get\-\_\-data@{yasm\-\_\-section\-\_\-get\-\_\-data}}
+\index{yasm\-\_\-section\-\_\-get\-\_\-data@{yasm\-\_\-section\-\_\-get\-\_\-data}!section.h@{section.\-h}}
+\subsubsection[{yasm\-\_\-section\-\_\-get\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void$\ast$ yasm\-\_\-section\-\_\-get\-\_\-data (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-section} $\ast$}]{sect, }
+\item[{const {\bf yasm\-\_\-assoc\-\_\-data\-\_\-callback} $\ast$}]{callback}
+\end{DoxyParamCaption}
+)}}\label{section_8h_a34b8e486bae09800d3a07043d27cef97}
+Get assocated data for a section and data callback. 
+\begin{DoxyParams}{Parameters}
+{\em sect} & section \\
+\hline
+{\em callback} & callback used when adding data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Associated data (N\-U\-L\-L if none). 
+\end{DoxyReturn}
+\hypertarget{section_8h_afa09ab35ce634d9724638d1f248fa7e9}{\index{section.\-h@{section.\-h}!yasm\-\_\-section\-\_\-get\-\_\-name@{yasm\-\_\-section\-\_\-get\-\_\-name}}
+\index{yasm\-\_\-section\-\_\-get\-\_\-name@{yasm\-\_\-section\-\_\-get\-\_\-name}!section.h@{section.\-h}}
+\subsubsection[{yasm\-\_\-section\-\_\-get\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L const char$\ast$ yasm\-\_\-section\-\_\-get\-\_\-name (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-section} $\ast$}]{sect}
+\end{DoxyParamCaption}
+)}}\label{section_8h_afa09ab35ce634d9724638d1f248fa7e9}
+Get name of a section. 
+\begin{DoxyParams}{Parameters}
+{\em sect} & section \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Section name. 
+\end{DoxyReturn}
+\hypertarget{section_8h_a69e834591a30a15497354ec60e0b244f}{\index{section.\-h@{section.\-h}!yasm\-\_\-section\-\_\-get\-\_\-object@{yasm\-\_\-section\-\_\-get\-\_\-object}}
+\index{yasm\-\_\-section\-\_\-get\-\_\-object@{yasm\-\_\-section\-\_\-get\-\_\-object}!section.h@{section.\-h}}
+\subsubsection[{yasm\-\_\-section\-\_\-get\-\_\-object}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-object}$\ast$ yasm\-\_\-section\-\_\-get\-\_\-object (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-section} $\ast$}]{sect}
+\end{DoxyParamCaption}
+)}}\label{section_8h_a69e834591a30a15497354ec60e0b244f}
+Get object owner of a section. 
+\begin{DoxyParams}{Parameters}
+{\em sect} & section \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Object this section is a part of. 
+\end{DoxyReturn}
+\hypertarget{section_8h_ad0edc5d0b9110ef283221787e74550ba}{\index{section.\-h@{section.\-h}!yasm\-\_\-section\-\_\-get\-\_\-opt\-\_\-flags@{yasm\-\_\-section\-\_\-get\-\_\-opt\-\_\-flags}}
+\index{yasm\-\_\-section\-\_\-get\-\_\-opt\-\_\-flags@{yasm\-\_\-section\-\_\-get\-\_\-opt\-\_\-flags}!section.h@{section.\-h}}
+\subsubsection[{yasm\-\_\-section\-\_\-get\-\_\-opt\-\_\-flags}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L unsigned long yasm\-\_\-section\-\_\-get\-\_\-opt\-\_\-flags (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-section} $\ast$}]{sect}
+\end{DoxyParamCaption}
+)}}\label{section_8h_ad0edc5d0b9110ef283221787e74550ba}
+Get yasm\-\_\-optimizer-\/specific flags. For yasm\-\_\-optimizer use only. 
+\begin{DoxyParams}{Parameters}
+{\em sect} & section \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Optimizer-\/specific flags. 
+\end{DoxyReturn}
+\hypertarget{section_8h_a0ac2ea1cf5a99e39daa55099448c3b17}{\index{section.\-h@{section.\-h}!yasm\-\_\-section\-\_\-is\-\_\-code@{yasm\-\_\-section\-\_\-is\-\_\-code}}
+\index{yasm\-\_\-section\-\_\-is\-\_\-code@{yasm\-\_\-section\-\_\-is\-\_\-code}!section.h@{section.\-h}}
+\subsubsection[{yasm\-\_\-section\-\_\-is\-\_\-code}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int yasm\-\_\-section\-\_\-is\-\_\-code (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-section} $\ast$}]{sect}
+\end{DoxyParamCaption}
+)}}\label{section_8h_a0ac2ea1cf5a99e39daa55099448c3b17}
+Determine if a section is flagged to contain code. 
+\begin{DoxyParams}{Parameters}
+{\em sect} & section \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nonzero if section is flagged to contain code. 
+\end{DoxyReturn}
+\hypertarget{section_8h_aaf4728f85478f0fc1aa4e9dd361d8173}{\index{section.\-h@{section.\-h}!yasm\-\_\-section\-\_\-is\-\_\-default@{yasm\-\_\-section\-\_\-is\-\_\-default}}
+\index{yasm\-\_\-section\-\_\-is\-\_\-default@{yasm\-\_\-section\-\_\-is\-\_\-default}!section.h@{section.\-h}}
+\subsubsection[{yasm\-\_\-section\-\_\-is\-\_\-default}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int yasm\-\_\-section\-\_\-is\-\_\-default (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-section} $\ast$}]{sect}
+\end{DoxyParamCaption}
+)}}\label{section_8h_aaf4728f85478f0fc1aa4e9dd361d8173}
+Determine if a section was declared as the \char`\"{}default\char`\"{} section (e.\-g. not created through a section directive). 
+\begin{DoxyParams}{Parameters}
+{\em sect} & section \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nonzero if section was declared as default. 
+\end{DoxyReturn}
+\hypertarget{section_8h_ad40bcbaf97af6ac41713698c749e19b7}{\index{section.\-h@{section.\-h}!yasm\-\_\-section\-\_\-print@{yasm\-\_\-section\-\_\-print}}
+\index{yasm\-\_\-section\-\_\-print@{yasm\-\_\-section\-\_\-print}!section.h@{section.\-h}}
+\subsubsection[{yasm\-\_\-section\-\_\-print}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-section\-\_\-print (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-section} $\ast$}]{sect, }
+\item[{F\-I\-L\-E $\ast$}]{f, }
+\item[{int}]{indent\-\_\-level, }
+\item[{int}]{print\-\_\-bcs}
+\end{DoxyParamCaption}
+)}}\label{section_8h_ad40bcbaf97af6ac41713698c749e19b7}
+Print a section. For debugging purposes. 
+\begin{DoxyParams}{Parameters}
+{\em f} & file \\
+\hline
+{\em indent\-\_\-level} & indentation level \\
+\hline
+{\em sect} & section \\
+\hline
+{\em print\-\_\-bcs} & if nonzero, print bytecodes within section \\
+\hline
+\end{DoxyParams}
+\hypertarget{section_8h_a3838d12c6fee8fef054f7a919920231a}{\index{section.\-h@{section.\-h}!yasm\-\_\-section\-\_\-reloc\-\_\-next@{yasm\-\_\-section\-\_\-reloc\-\_\-next}}
+\index{yasm\-\_\-section\-\_\-reloc\-\_\-next@{yasm\-\_\-section\-\_\-reloc\-\_\-next}!section.h@{section.\-h}}
+\subsubsection[{yasm\-\_\-section\-\_\-reloc\-\_\-next}]{\setlength{\rightskip}{0pt plus 5cm}{\bf yasm\-\_\-reloc}$\ast$ yasm\-\_\-section\-\_\-reloc\-\_\-next (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-reloc} $\ast$}]{reloc}
+\end{DoxyParamCaption}
+)}}\label{section_8h_a3838d12c6fee8fef054f7a919920231a}
+Get the next relocation for a section. 
+\begin{DoxyParams}{Parameters}
+{\em reloc} & previous relocation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Next relocation for section. N\-U\-L\-L if no more relocations. 
+\end{DoxyReturn}
+\hypertarget{section_8h_af1220b04fd25c2f1258d79f8cab8d36c}{\index{section.\-h@{section.\-h}!yasm\-\_\-section\-\_\-relocs\-\_\-first@{yasm\-\_\-section\-\_\-relocs\-\_\-first}}
+\index{yasm\-\_\-section\-\_\-relocs\-\_\-first@{yasm\-\_\-section\-\_\-relocs\-\_\-first}!section.h@{section.\-h}}
+\subsubsection[{yasm\-\_\-section\-\_\-relocs\-\_\-first}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-reloc}$\ast$ yasm\-\_\-section\-\_\-relocs\-\_\-first (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-section} $\ast$}]{sect}
+\end{DoxyParamCaption}
+)}}\label{section_8h_af1220b04fd25c2f1258d79f8cab8d36c}
+Get the first relocation for a section. 
+\begin{DoxyParams}{Parameters}
+{\em sect} & section \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+First relocation for section. N\-U\-L\-L if no relocations. 
+\end{DoxyReturn}
+\hypertarget{section_8h_ab1bb54ad1e86773fd99242a359f16842}{\index{section.\-h@{section.\-h}!yasm\-\_\-section\-\_\-set\-\_\-align@{yasm\-\_\-section\-\_\-set\-\_\-align}}
+\index{yasm\-\_\-section\-\_\-set\-\_\-align@{yasm\-\_\-section\-\_\-set\-\_\-align}!section.h@{section.\-h}}
+\subsubsection[{yasm\-\_\-section\-\_\-set\-\_\-align}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-section\-\_\-set\-\_\-align (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-section} $\ast$}]{sect, }
+\item[{unsigned long}]{align, }
+\item[{unsigned long}]{line}
+\end{DoxyParamCaption}
+)}}\label{section_8h_ab1bb54ad1e86773fd99242a359f16842}
+Change alignment of a section. 
+\begin{DoxyParams}{Parameters}
+{\em sect} & section \\
+\hline
+{\em align} & alignment in bytes \\
+\hline
+{\em line} & virtual line \\
+\hline
+\end{DoxyParams}
+\hypertarget{section_8h_a8927915a7530481a33a092bd8dc3f306}{\index{section.\-h@{section.\-h}!yasm\-\_\-section\-\_\-set\-\_\-default@{yasm\-\_\-section\-\_\-set\-\_\-default}}
+\index{yasm\-\_\-section\-\_\-set\-\_\-default@{yasm\-\_\-section\-\_\-set\-\_\-default}!section.h@{section.\-h}}
+\subsubsection[{yasm\-\_\-section\-\_\-set\-\_\-default}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-section\-\_\-set\-\_\-default (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-section} $\ast$}]{sect, }
+\item[{int}]{def}
+\end{DoxyParamCaption}
+)}}\label{section_8h_a8927915a7530481a33a092bd8dc3f306}
+Set section \char`\"{}default\char`\"{} flag to a new value. 
+\begin{DoxyParams}{Parameters}
+{\em sect} & section \\
+\hline
+{\em def} & new value of default flag \\
+\hline
+\end{DoxyParams}
+\hypertarget{section_8h_a36818a25c45ee711f79e24daea2f7646}{\index{section.\-h@{section.\-h}!yasm\-\_\-section\-\_\-set\-\_\-opt\-\_\-flags@{yasm\-\_\-section\-\_\-set\-\_\-opt\-\_\-flags}}
+\index{yasm\-\_\-section\-\_\-set\-\_\-opt\-\_\-flags@{yasm\-\_\-section\-\_\-set\-\_\-opt\-\_\-flags}!section.h@{section.\-h}}
+\subsubsection[{yasm\-\_\-section\-\_\-set\-\_\-opt\-\_\-flags}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-section\-\_\-set\-\_\-opt\-\_\-flags (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-section} $\ast$}]{sect, }
+\item[{unsigned long}]{opt\-\_\-flags}
+\end{DoxyParamCaption}
+)}}\label{section_8h_a36818a25c45ee711f79e24daea2f7646}
+Set yasm\-\_\-optimizer-\/specific flags. For yasm\-\_\-optimizer use only. 
+\begin{DoxyParams}{Parameters}
+{\em sect} & section \\
+\hline
+{\em opt\-\_\-flags} & optimizer-\/specific flags. \\
+\hline
+\end{DoxyParams}

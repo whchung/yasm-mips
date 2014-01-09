@@ -1,0 +1,56 @@
+\hypertarget{structyasm__listfmt__module}{\section{yasm\-\_\-listfmt\-\_\-module Struct Reference}
+\label{structyasm__listfmt__module}\index{yasm\-\_\-listfmt\-\_\-module@{yasm\-\_\-listfmt\-\_\-module}}
+}
+
+
+{\ttfamily \#include $<$listfmt.\-h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \hyperlink{structyasm__listfmt__module_a0817d3519e1ac91a1bad94b28a7edadd}{name}
+\item 
+const char $\ast$ \hyperlink{structyasm__listfmt__module_a3ce0f3e953d23dce48ed848a910385cf}{keyword}
+\item 
+\hyperlink{coretype_8h_ae7dd230a0e386f070ca54f9d270eae26}{yasm\-\_\-listfmt} $\ast$($\ast$ \hyperlink{structyasm__listfmt__module_a8625c26e2d4c39e71383f57fda39c0b8}{create} )(const char $\ast$in\-\_\-filename, const char $\ast$obj\-\_\-filename)
+\item 
+void($\ast$ \hyperlink{structyasm__listfmt__module_a75c3694c69440c85582d0100d198fee7}{destroy} )(\hyperlink{coretype_8h_ae7dd230a0e386f070ca54f9d270eae26}{yasm\-\_\-listfmt} $\ast$listfmt)
+\item 
+void($\ast$ \hyperlink{structyasm__listfmt__module_a5d3da5cb63cf141bc06c8db40e2d4876}{output} )(\hyperlink{coretype_8h_ae7dd230a0e386f070ca54f9d270eae26}{yasm\-\_\-listfmt} $\ast$listfmt, F\-I\-L\-E $\ast$f, \hyperlink{structyasm__linemap}{yasm\-\_\-linemap} $\ast$linemap, \hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Y\-A\-S\-M list format module interface. 
+
+\subsection{Member Data Documentation}
+\hypertarget{structyasm__listfmt__module_a8625c26e2d4c39e71383f57fda39c0b8}{\index{yasm\-\_\-listfmt\-\_\-module@{yasm\-\_\-listfmt\-\_\-module}!create@{create}}
+\index{create@{create}!yasm_listfmt_module@{yasm\-\_\-listfmt\-\_\-module}}
+\subsubsection[{create}]{\setlength{\rightskip}{0pt plus 5cm}{\bf yasm\-\_\-listfmt}$\ast$($\ast$ yasm\-\_\-listfmt\-\_\-module\-::create)(const char $\ast$in\-\_\-filename, const char $\ast$obj\-\_\-filename)}}\label{structyasm__listfmt__module_a8625c26e2d4c39e71383f57fda39c0b8}
+Create list format. Module-\/level implementation of \hyperlink{listfmt_8h_aba521a013b01741868dc31754b1560a8}{yasm\-\_\-listfmt\-\_\-create()}. The filenames are provided solely for informational purposes. 
+\begin{DoxyParams}{Parameters}
+{\em in\-\_\-filename} & primary input filename \\
+\hline
+{\em obj\-\_\-filename} & object filename \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+N\-U\-L\-L if unable to initialize. 
+\end{DoxyReturn}
+\hypertarget{structyasm__listfmt__module_a75c3694c69440c85582d0100d198fee7}{\index{yasm\-\_\-listfmt\-\_\-module@{yasm\-\_\-listfmt\-\_\-module}!destroy@{destroy}}
+\index{destroy@{destroy}!yasm_listfmt_module@{yasm\-\_\-listfmt\-\_\-module}}
+\subsubsection[{destroy}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ yasm\-\_\-listfmt\-\_\-module\-::destroy)({\bf yasm\-\_\-listfmt} $\ast$listfmt)}}\label{structyasm__listfmt__module_a75c3694c69440c85582d0100d198fee7}
+Module-\/level implementation of \hyperlink{listfmt_8h_a8f8a4e618a10cdacf8ab094b68fd27cc}{yasm\-\_\-listfmt\-\_\-destroy()}. Call \hyperlink{listfmt_8h_a8f8a4e618a10cdacf8ab094b68fd27cc}{yasm\-\_\-listfmt\-\_\-destroy()} instead of calling this function. \hypertarget{structyasm__listfmt__module_a3ce0f3e953d23dce48ed848a910385cf}{\index{yasm\-\_\-listfmt\-\_\-module@{yasm\-\_\-listfmt\-\_\-module}!keyword@{keyword}}
+\index{keyword@{keyword}!yasm_listfmt_module@{yasm\-\_\-listfmt\-\_\-module}}
+\subsubsection[{keyword}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ yasm\-\_\-listfmt\-\_\-module\-::keyword}}\label{structyasm__listfmt__module_a3ce0f3e953d23dce48ed848a910385cf}
+Keyword used to select list format. \hypertarget{structyasm__listfmt__module_a0817d3519e1ac91a1bad94b28a7edadd}{\index{yasm\-\_\-listfmt\-\_\-module@{yasm\-\_\-listfmt\-\_\-module}!name@{name}}
+\index{name@{name}!yasm_listfmt_module@{yasm\-\_\-listfmt\-\_\-module}}
+\subsubsection[{name}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ yasm\-\_\-listfmt\-\_\-module\-::name}}\label{structyasm__listfmt__module_a0817d3519e1ac91a1bad94b28a7edadd}
+One-\/line description of the list format. \hypertarget{structyasm__listfmt__module_a5d3da5cb63cf141bc06c8db40e2d4876}{\index{yasm\-\_\-listfmt\-\_\-module@{yasm\-\_\-listfmt\-\_\-module}!output@{output}}
+\index{output@{output}!yasm_listfmt_module@{yasm\-\_\-listfmt\-\_\-module}}
+\subsubsection[{output}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ yasm\-\_\-listfmt\-\_\-module\-::output)({\bf yasm\-\_\-listfmt} $\ast$listfmt, F\-I\-L\-E $\ast$f, {\bf yasm\-\_\-linemap} $\ast$linemap, {\bf yasm\-\_\-arch} $\ast$arch)}}\label{structyasm__listfmt__module_a5d3da5cb63cf141bc06c8db40e2d4876}
+Module-\/level implementation of \hyperlink{listfmt_8h_a3d74e009674c5b67e5c29d31207630e2}{yasm\-\_\-listfmt\-\_\-output()}. Call \hyperlink{listfmt_8h_a3d74e009674c5b67e5c29d31207630e2}{yasm\-\_\-listfmt\-\_\-output()} instead of calling this function. 
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{listfmt_8h}{listfmt.\-h}\end{DoxyCompactItemize}

@@ -1,0 +1,922 @@
+\hypertarget{symrec_8h}{\section{symrec.\-h File Reference}
+\label{symrec_8h}\index{symrec.\-h@{symrec.\-h}}
+}
+
+
+Y\-A\-S\-M symbol table interface.  
+
+
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \hyperlink{symrec_8h_a4e830242184849024c9c8147a0d06ae8}{yasm\-\_\-sym\-\_\-status} \hyperlink{symrec_8h_aabf49d660013b4059ef125618e31731b}{yasm\-\_\-sym\-\_\-status}
+\item 
+typedef enum \hyperlink{symrec_8h_abcd4561bf31998e92b7b681e6355fbae}{yasm\-\_\-sym\-\_\-vis} \hyperlink{symrec_8h_a2fdd75f21f92b89bb65c67025839bcb9}{yasm\-\_\-sym\-\_\-vis}
+\item 
+typedef int($\ast$ \hyperlink{symrec_8h_a4f7a9004e44665e902feb3fbefce7391}{yasm\-\_\-symtab\-\_\-traverse\-\_\-callback} )(\hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$sym, void $\ast$d)
+\item 
+typedef struct \hyperlink{symrec_8h_a974c38e1fb2627c044a821cd82fd8465}{yasm\-\_\-symtab\-\_\-iter} \hyperlink{symrec_8h_a974c38e1fb2627c044a821cd82fd8465}{yasm\-\_\-symtab\-\_\-iter}
+\item 
+typedef \hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$ \hyperlink{symrec_8h_aabeba0dd94c9221c16a8955370066049}{yasm\-\_\-symrec\-\_\-get\-\_\-label\-\_\-bytecodep}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{symrec_8h_a4e830242184849024c9c8147a0d06ae8}{yasm\-\_\-sym\-\_\-status} \{ \\*
+\hyperlink{symrec_8h_a4e830242184849024c9c8147a0d06ae8a0c921dcbb95d08e3da7187b68ce97df8}{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-N\-O\-S\-T\-A\-T\-U\-S} = 0, 
+\hyperlink{symrec_8h_a4e830242184849024c9c8147a0d06ae8a06722807ace247cca85921fd23bf33aa}{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-U\-S\-E\-D} = 1 $<$$<$ 0, 
+\hyperlink{symrec_8h_a4e830242184849024c9c8147a0d06ae8a57924da670554cbd4a1ee63ea12e9a76}{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-D\-E\-F\-I\-N\-E\-D} = 1 $<$$<$ 1, 
+\hyperlink{symrec_8h_a4e830242184849024c9c8147a0d06ae8a9d7a2b9359f8041d7579d3ca0a4af22a}{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-V\-A\-L\-U\-E\-D} = 1 $<$$<$ 2, 
+\\*
+\hyperlink{symrec_8h_a4e830242184849024c9c8147a0d06ae8a9af811580e32d7fd8e9e563311fc5f7e}{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-N\-O\-T\-I\-N\-T\-A\-B\-L\-E} = 1 $<$$<$ 3
+ \}
+\item 
+enum \hyperlink{symrec_8h_abcd4561bf31998e92b7b681e6355fbae}{yasm\-\_\-sym\-\_\-vis} \{ \\*
+\hyperlink{symrec_8h_abcd4561bf31998e92b7b681e6355fbaea76eb8b0a41e6603b0b0b2e7a0cff7fe9}{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-L\-O\-C\-A\-L} = 0, 
+\hyperlink{symrec_8h_abcd4561bf31998e92b7b681e6355fbaeace2421d1b5aa6fff3825ff8f77c9e0a7}{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-G\-L\-O\-B\-A\-L} = 1 $<$$<$ 0, 
+\hyperlink{symrec_8h_abcd4561bf31998e92b7b681e6355fbaeaf2fa4155c44e9ed6072ddcba63fba416}{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-C\-O\-M\-M\-O\-N} = 1 $<$$<$ 1, 
+\hyperlink{symrec_8h_abcd4561bf31998e92b7b681e6355fbaea6b645e561b87f1f64ceceec1344370dc}{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-E\-X\-T\-E\-R\-N} = 1 $<$$<$ 2, 
+\\*
+\hyperlink{symrec_8h_abcd4561bf31998e92b7b681e6355fbaea50da13f14d1fe61ead13b2a483502a91}{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-D\-L\-O\-C\-A\-L} = 1 $<$$<$ 3
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__symtab}{yasm\-\_\-symtab} $\ast$ \hyperlink{symrec_8h_acde68c8addababc4af462b6c892dc251}{yasm\-\_\-symtab\-\_\-create} (void)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{symrec_8h_a2ca8b55ad92d12966deb3e78b8b89c40}{yasm\-\_\-symtab\-\_\-destroy} (\hyperlink{structyasm__symtab}{yasm\-\_\-symtab} $\ast$symtab)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{symrec_8h_a91984bec3233761128b053a53e9a088d}{yasm\-\_\-symtab\-\_\-set\-\_\-case\-\_\-sensitive} (\hyperlink{structyasm__symtab}{yasm\-\_\-symtab} $\ast$symtab, int sensitive)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$ \hyperlink{symrec_8h_a4beb25b93cbfb72934a0e2ea7c17be51}{yasm\-\_\-symtab\-\_\-abs\-\_\-sym} (\hyperlink{structyasm__symtab}{yasm\-\_\-symtab} $\ast$symtab)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$ \hyperlink{symrec_8h_a2e4a0f93bb6b5d7bd5b14e76bb977ee2}{yasm\-\_\-symtab\-\_\-use} (\hyperlink{structyasm__symtab}{yasm\-\_\-symtab} $\ast$symtab, const char $\ast$name, unsigned long line)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$ \hyperlink{symrec_8h_a0cdf2f053f59091db866fec2e23ec7aa}{yasm\-\_\-symtab\-\_\-get} (\hyperlink{structyasm__symtab}{yasm\-\_\-symtab} $\ast$symtab, const char $\ast$name)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$ \hyperlink{symrec_8h_afb20e78d32649c9d8da78598fe03e943}{yasm\-\_\-symtab\-\_\-define\-\_\-equ} (\hyperlink{structyasm__symtab}{yasm\-\_\-symtab} $\ast$symtab, const char $\ast$name, \hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$e, unsigned long line)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$ \hyperlink{symrec_8h_a8944fc0119e0e835bbdad06b4e6b6f9c}{yasm\-\_\-symtab\-\_\-define\-\_\-label} (\hyperlink{structyasm__symtab}{yasm\-\_\-symtab} $\ast$symtab, const char $\ast$name, \hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$precbc, int in\-\_\-table, unsigned long line)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$ \hyperlink{symrec_8h_a8f2f2f8a3faefd72a41c545fa2cd1c01}{yasm\-\_\-symtab\-\_\-define\-\_\-curpos} (\hyperlink{structyasm__symtab}{yasm\-\_\-symtab} $\ast$symtab, const char $\ast$name, \hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$precbc, unsigned long line)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$ \hyperlink{symrec_8h_afb516c37be8e20d0386751d4fe8f2fbb}{yasm\-\_\-symtab\-\_\-define\-\_\-special} (\hyperlink{structyasm__symtab}{yasm\-\_\-symtab} $\ast$symtab, const char $\ast$name, \hyperlink{symrec_8h_abcd4561bf31998e92b7b681e6355fbae}{yasm\-\_\-sym\-\_\-vis} vis)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$ \hyperlink{symrec_8h_a29d2c660c8261dd0dd7b88d3d147b907}{yasm\-\_\-symtab\-\_\-declare} (\hyperlink{structyasm__symtab}{yasm\-\_\-symtab} $\ast$symtab, const char $\ast$name, \hyperlink{symrec_8h_abcd4561bf31998e92b7b681e6355fbae}{yasm\-\_\-sym\-\_\-vis} vis, unsigned long line)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{symrec_8h_a5de2b646c1bf26e7e122fe81f177755e}{yasm\-\_\-symrec\-\_\-declare} (\hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$symrec, \hyperlink{symrec_8h_abcd4561bf31998e92b7b681e6355fbae}{yasm\-\_\-sym\-\_\-vis} vis, unsigned long line)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int \hyperlink{symrec_8h_a36a0eb144344485e61954d8627e37b3d}{yasm\-\_\-symtab\-\_\-traverse} (\hyperlink{structyasm__symtab}{yasm\-\_\-symtab} $\ast$symtab, void $\ast$d, \hyperlink{symrec_8h_a4f7a9004e44665e902feb3fbefce7391}{yasm\-\_\-symtab\-\_\-traverse\-\_\-callback} func)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L const \\*
+\hyperlink{symrec_8h_a974c38e1fb2627c044a821cd82fd8465}{yasm\-\_\-symtab\-\_\-iter} $\ast$ \hyperlink{symrec_8h_a4b5d76ba7a660fe6654df49be93e12b2}{yasm\-\_\-symtab\-\_\-first} (const \hyperlink{structyasm__symtab}{yasm\-\_\-symtab} $\ast$symtab)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L const \\*
+\hyperlink{symrec_8h_a974c38e1fb2627c044a821cd82fd8465}{yasm\-\_\-symtab\-\_\-iter} $\ast$ \hyperlink{symrec_8h_acd3bde61574c2580efe58e54a162dae6}{yasm\-\_\-symtab\-\_\-next} (const \hyperlink{symrec_8h_a974c38e1fb2627c044a821cd82fd8465}{yasm\-\_\-symtab\-\_\-iter} $\ast$prev)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$ \hyperlink{symrec_8h_ac50cc37503a3a49c8b4b5e2930b4aa28}{yasm\-\_\-symtab\-\_\-iter\-\_\-value} (const \hyperlink{symrec_8h_a974c38e1fb2627c044a821cd82fd8465}{yasm\-\_\-symtab\-\_\-iter} $\ast$cur)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{symrec_8h_ad135a0ee6a0c397a06cabec7aad9a08d}{yasm\-\_\-symtab\-\_\-parser\-\_\-finalize} (\hyperlink{structyasm__symtab}{yasm\-\_\-symtab} $\ast$symtab, int undef\-\_\-extern, \hyperlink{structyasm__errwarns}{yasm\-\_\-errwarns} $\ast$errwarns)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{symrec_8h_a079b6f19305732017b4d39686923ab76}{yasm\-\_\-symtab\-\_\-print} (\hyperlink{structyasm__symtab}{yasm\-\_\-symtab} $\ast$symtab, F\-I\-L\-E $\ast$f, int indent\-\_\-level)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L const char $\ast$ \hyperlink{symrec_8h_adc5c63c305af07e014f19a7fc6d6579c}{yasm\-\_\-symrec\-\_\-get\-\_\-name} (const \hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$sym)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L char $\ast$ \hyperlink{symrec_8h_a67202525a85ce8a0aa4d34a4a98317e0}{yasm\-\_\-symrec\-\_\-get\-\_\-global\-\_\-name} (const \hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$sym, const \hyperlink{structyasm__object}{yasm\-\_\-object} $\ast$object)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{symrec_8h_abcd4561bf31998e92b7b681e6355fbae}{yasm\-\_\-sym\-\_\-vis} \hyperlink{symrec_8h_af3a1dc1795a05ec36d10d5c0fbee0d45}{yasm\-\_\-symrec\-\_\-get\-\_\-visibility} (const \hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$sym)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{symrec_8h_a4e830242184849024c9c8147a0d06ae8}{yasm\-\_\-sym\-\_\-status} \hyperlink{symrec_8h_a598fe8c41d45e4b910fb57287a9ba166}{yasm\-\_\-symrec\-\_\-get\-\_\-status} (const \hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$sym)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L unsigned long \hyperlink{symrec_8h_a2f16a0ce15f6b6a7ff158d0e31ee0572}{yasm\-\_\-symrec\-\_\-get\-\_\-def\-\_\-line} (const \hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$sym)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L unsigned long \hyperlink{symrec_8h_a5ab81dd55916970ccb3f38d0a4dc8b71}{yasm\-\_\-symrec\-\_\-get\-\_\-decl\-\_\-line} (const \hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$sym)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L unsigned long \hyperlink{symrec_8h_a018d17697a2d1b96c642bc662c13995d}{yasm\-\_\-symrec\-\_\-get\-\_\-use\-\_\-line} (const \hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$sym)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L const \hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$ \hyperlink{symrec_8h_a862b2edd2ea7c556408498fd331595d5}{yasm\-\_\-symrec\-\_\-get\-\_\-equ} (const \hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$sym)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int \hyperlink{symrec_8h_a6cc431fe9bb873da16aa0480aba4c144}{yasm\-\_\-symrec\-\_\-get\-\_\-label} (const \hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$sym, \hyperlink{symrec_8h_aabeba0dd94c9221c16a8955370066049}{yasm\-\_\-symrec\-\_\-get\-\_\-label\-\_\-bytecodep} $\ast$precbc)
+\item 
+void \hyperlink{symrec_8h_aad54e06b327f57468b534ca8e57a4a70}{yasm\-\_\-symrec\-\_\-set\-\_\-size} (\hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$sym, int size)
+\item 
+int \hyperlink{symrec_8h_a7fd412a665c8d43818be66c49a3c4e49}{yasm\-\_\-symrec\-\_\-get\-\_\-size} (const \hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$sym)
+\item 
+void \hyperlink{symrec_8h_acab6e3fcbc121dc8b4fcc5231246a107}{yasm\-\_\-symrec\-\_\-set\-\_\-segment} (\hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$sym, const char $\ast$segment)
+\item 
+const char $\ast$ \hyperlink{symrec_8h_a3c8f7371d73c3932e185dbb7c1b8a7eb}{yasm\-\_\-symrec\-\_\-get\-\_\-segment} (const \hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$sym)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int \hyperlink{symrec_8h_afafdb54cc6596ebaa9c917e615da79b4}{yasm\-\_\-symrec\-\_\-is\-\_\-abs} (const \hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$sym)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int \hyperlink{symrec_8h_a0cb5cf152cfe1fbf4892af156e3ad763}{yasm\-\_\-symrec\-\_\-is\-\_\-special} (const \hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$sym)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int \hyperlink{symrec_8h_ae0008bb6357e4f28e136ada3b76566b0}{yasm\-\_\-symrec\-\_\-is\-\_\-curpos} (const \hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$sym)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{symrec_8h_a07f8d4feb59cead1a04e892a51672664}{yasm\-\_\-symrec\-\_\-set\-\_\-objext\-\_\-valparams} (\hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$sym, \hyperlink{coretype_8h_ab1c6ed70512ed01b56479b23e5ece9bc}{yasm\-\_\-valparamhead} $\ast$objext\-\_\-valparams)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{coretype_8h_ab1c6ed70512ed01b56479b23e5ece9bc}{yasm\-\_\-valparamhead} $\ast$ \hyperlink{symrec_8h_a47d41c8b42e82066972f496c04d4ba5c}{yasm\-\_\-symrec\-\_\-get\-\_\-objext\-\_\-valparams} (\hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$sym)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{symrec_8h_a9b3369dc9c4abcb8fd95b47fe562e3b0}{yasm\-\_\-symrec\-\_\-set\-\_\-common\-\_\-size} (\hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$sym, \hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$common\-\_\-size)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$$\ast$ \hyperlink{symrec_8h_a77780a43cfdf1558c641943cb0529250}{yasm\-\_\-symrec\-\_\-get\-\_\-common\-\_\-size} (\hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$sym)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void $\ast$ \hyperlink{symrec_8h_afd81fe9d85d2aa3a5f73005d40c48e2a}{yasm\-\_\-symrec\-\_\-get\-\_\-data} (\hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$sym, const \hyperlink{structyasm__assoc__data__callback}{yasm\-\_\-assoc\-\_\-data\-\_\-callback} $\ast$callback)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{symrec_8h_a7611f6a3113c55901bf338938875e2c9}{yasm\-\_\-symrec\-\_\-add\-\_\-data} (\hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$sym, const \hyperlink{structyasm__assoc__data__callback}{yasm\-\_\-assoc\-\_\-data\-\_\-callback} $\ast$callback, void $\ast$data)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{symrec_8h_a381a5d55eb5fc45ae961c14d5480b2a0}{yasm\-\_\-symrec\-\_\-print} (const \hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$sym, F\-I\-L\-E $\ast$f, int indent\-\_\-level)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Y\-A\-S\-M symbol table interface. Copyright (C) 2001-\/2007 Michael Urman, Peter Johnson
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\-:
+\begin{DoxyItemize}
+\item Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+\item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+\end{DoxyItemize}
+
+T\-H\-I\-S S\-O\-F\-T\-W\-A\-R\-E I\-S P\-R\-O\-V\-I\-D\-E\-D B\-Y T\-H\-E A\-U\-T\-H\-O\-R A\-N\-D O\-T\-H\-E\-R C\-O\-N\-T\-R\-I\-B\-U\-T\-O\-R\-S ``\-A\-S I\-S'' A\-N\-D A\-N\-Y E\-X\-P\-R\-E\-S\-S O\-R I\-M\-P\-L\-I\-E\-D W\-A\-R\-R\-A\-N\-T\-I\-E\-S, I\-N\-C\-L\-U\-D\-I\-N\-G, B\-U\-T N\-O\-T L\-I\-M\-I\-T\-E\-D T\-O, T\-H\-E I\-M\-P\-L\-I\-E\-D W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-F M\-E\-R\-C\-H\-A\-N\-T\-A\-B\-I\-L\-I\-T\-Y A\-N\-D F\-I\-T\-N\-E\-S\-S F\-O\-R A P\-A\-R\-T\-I\-C\-U\-L\-A\-R P\-U\-R\-P\-O\-S\-E A\-R\-E D\-I\-S\-C\-L\-A\-I\-M\-E\-D. I\-N N\-O E\-V\-E\-N\-T S\-H\-A\-L\-L T\-H\-E A\-U\-T\-H\-O\-R O\-R O\-T\-H\-E\-R C\-O\-N\-T\-R\-I\-B\-U\-T\-O\-R\-S B\-E L\-I\-A\-B\-L\-E F\-O\-R A\-N\-Y D\-I\-R\-E\-C\-T, I\-N\-D\-I\-R\-E\-C\-T, I\-N\-C\-I\-D\-E\-N\-T\-A\-L, S\-P\-E\-C\-I\-A\-L, E\-X\-E\-M\-P\-L\-A\-R\-Y, O\-R C\-O\-N\-S\-E\-Q\-U\-E\-N\-T\-I\-A\-L D\-A\-M\-A\-G\-E\-S (I\-N\-C\-L\-U\-D\-I\-N\-G, B\-U\-T N\-O\-T L\-I\-M\-I\-T\-E\-D T\-O, P\-R\-O\-C\-U\-R\-E\-M\-E\-N\-T O\-F S\-U\-B\-S\-T\-I\-T\-U\-T\-E G\-O\-O\-D\-S O\-R S\-E\-R\-V\-I\-C\-E\-S; L\-O\-S\-S O\-F U\-S\-E, D\-A\-T\-A, O\-R P\-R\-O\-F\-I\-T\-S; O\-R B\-U\-S\-I\-N\-E\-S\-S I\-N\-T\-E\-R\-R\-U\-P\-T\-I\-O\-N) H\-O\-W\-E\-V\-E\-R C\-A\-U\-S\-E\-D A\-N\-D O\-N A\-N\-Y T\-H\-E\-O\-R\-Y O\-F L\-I\-A\-B\-I\-L\-I\-T\-Y, W\-H\-E\-T\-H\-E\-R I\-N C\-O\-N\-T\-R\-A\-C\-T, S\-T\-R\-I\-C\-T L\-I\-A\-B\-I\-L\-I\-T\-Y, O\-R T\-O\-R\-T (I\-N\-C\-L\-U\-D\-I\-N\-G N\-E\-G\-L\-I\-G\-E\-N\-C\-E O\-R O\-T\-H\-E\-R\-W\-I\-S\-E) A\-R\-I\-S\-I\-N\-G I\-N A\-N\-Y W\-A\-Y O\-U\-T O\-F T\-H\-E U\-S\-E O\-F T\-H\-I\-S S\-O\-F\-T\-W\-A\-R\-E, E\-V\-E\-N I\-F A\-D\-V\-I\-S\-E\-D O\-F T\-H\-E P\-O\-S\-S\-I\-B\-I\-L\-I\-T\-Y O\-F S\-U\-C\-H D\-A\-M\-A\-G\-E.  
+
+\subsection{Typedef Documentation}
+\hypertarget{symrec_8h_aabf49d660013b4059ef125618e31731b}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-sym\-\_\-status@{yasm\-\_\-sym\-\_\-status}}
+\index{yasm\-\_\-sym\-\_\-status@{yasm\-\_\-sym\-\_\-status}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-sym\-\_\-status}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf yasm\-\_\-sym\-\_\-status}  {\bf yasm\-\_\-sym\-\_\-status}}}\label{symrec_8h_aabf49d660013b4059ef125618e31731b}
+Symbol status. Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-D\-E\-F\-I\-N\-E\-D is set by \hyperlink{symrec_8h_a8944fc0119e0e835bbdad06b4e6b6f9c}{yasm\-\_\-symtab\-\_\-define\-\_\-label()}, \hyperlink{symrec_8h_afb20e78d32649c9d8da78598fe03e943}{yasm\-\_\-symtab\-\_\-define\-\_\-equ()}, or \hyperlink{symrec_8h_a29d2c660c8261dd0dd7b88d3d147b907}{yasm\-\_\-symtab\-\_\-declare()}/yasm\-\_\-symrec\-\_\-declare() with a visibility of \hyperlink{symrec_8h_abcd4561bf31998e92b7b681e6355fbaea6b645e561b87f1f64ceceec1344370dc}{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-E\-X\-T\-E\-R\-N} or \hyperlink{symrec_8h_abcd4561bf31998e92b7b681e6355fbaeaf2fa4155c44e9ed6072ddcba63fba416}{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-C\-O\-M\-M\-O\-N}. \hypertarget{symrec_8h_a2fdd75f21f92b89bb65c67025839bcb9}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-sym\-\_\-vis@{yasm\-\_\-sym\-\_\-vis}}
+\index{yasm\-\_\-sym\-\_\-vis@{yasm\-\_\-sym\-\_\-vis}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-sym\-\_\-vis}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf yasm\-\_\-sym\-\_\-vis}  {\bf yasm\-\_\-sym\-\_\-vis}}}\label{symrec_8h_a2fdd75f21f92b89bb65c67025839bcb9}
+Symbol record visibility. \begin{DoxyNote}{Note}
+Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-E\-X\-T\-E\-R\-N and Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-C\-O\-M\-M\-O\-N are mutually exclusive. 
+\end{DoxyNote}
+\hypertarget{symrec_8h_aabeba0dd94c9221c16a8955370066049}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symrec\-\_\-get\-\_\-label\-\_\-bytecodep@{yasm\-\_\-symrec\-\_\-get\-\_\-label\-\_\-bytecodep}}
+\index{yasm\-\_\-symrec\-\_\-get\-\_\-label\-\_\-bytecodep@{yasm\-\_\-symrec\-\_\-get\-\_\-label\-\_\-bytecodep}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symrec\-\_\-get\-\_\-label\-\_\-bytecodep}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf yasm\-\_\-bytecode}$\ast$ {\bf yasm\-\_\-symrec\-\_\-get\-\_\-label\-\_\-bytecodep}}}\label{symrec_8h_aabeba0dd94c9221c16a8955370066049}
+Dependent pointer to a bytecode. \hypertarget{symrec_8h_a974c38e1fb2627c044a821cd82fd8465}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symtab\-\_\-iter@{yasm\-\_\-symtab\-\_\-iter}}
+\index{yasm\-\_\-symtab\-\_\-iter@{yasm\-\_\-symtab\-\_\-iter}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symtab\-\_\-iter}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf yasm\-\_\-symtab\-\_\-iter} {\bf yasm\-\_\-symtab\-\_\-iter}}}\label{symrec_8h_a974c38e1fb2627c044a821cd82fd8465}
+Symbol table iterator (opaque type). \hypertarget{symrec_8h_a4f7a9004e44665e902feb3fbefce7391}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symtab\-\_\-traverse\-\_\-callback@{yasm\-\_\-symtab\-\_\-traverse\-\_\-callback}}
+\index{yasm\-\_\-symtab\-\_\-traverse\-\_\-callback@{yasm\-\_\-symtab\-\_\-traverse\-\_\-callback}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symtab\-\_\-traverse\-\_\-callback}]{\setlength{\rightskip}{0pt plus 5cm}typedef int($\ast$ yasm\-\_\-symtab\-\_\-traverse\-\_\-callback)({\bf yasm\-\_\-symrec} $\ast$sym,void $\ast$d)}}\label{symrec_8h_a4f7a9004e44665e902feb3fbefce7391}
+Callback function for yasm\-\_\-symrec\-\_\-traverse(). 
+\begin{DoxyParams}{Parameters}
+{\em sym} & symbol \\
+\hline
+{\em d} & data passed into yasm\-\_\-symrec\-\_\-traverse() \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nonzero to stop symbol traversal. 
+\end{DoxyReturn}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{symrec_8h_a4e830242184849024c9c8147a0d06ae8}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-sym\-\_\-status@{yasm\-\_\-sym\-\_\-status}}
+\index{yasm\-\_\-sym\-\_\-status@{yasm\-\_\-sym\-\_\-status}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-sym\-\_\-status}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf yasm\-\_\-sym\-\_\-status}}}\label{symrec_8h_a4e830242184849024c9c8147a0d06ae8}
+Symbol status. Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-D\-E\-F\-I\-N\-E\-D is set by \hyperlink{symrec_8h_a8944fc0119e0e835bbdad06b4e6b6f9c}{yasm\-\_\-symtab\-\_\-define\-\_\-label()}, \hyperlink{symrec_8h_afb20e78d32649c9d8da78598fe03e943}{yasm\-\_\-symtab\-\_\-define\-\_\-equ()}, or \hyperlink{symrec_8h_a29d2c660c8261dd0dd7b88d3d147b907}{yasm\-\_\-symtab\-\_\-declare()}/yasm\-\_\-symrec\-\_\-declare() with a visibility of \hyperlink{symrec_8h_abcd4561bf31998e92b7b681e6355fbaea6b645e561b87f1f64ceceec1344370dc}{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-E\-X\-T\-E\-R\-N} or \hyperlink{symrec_8h_abcd4561bf31998e92b7b681e6355fbaeaf2fa4155c44e9ed6072ddcba63fba416}{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-C\-O\-M\-M\-O\-N}. \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-N\-O\-S\-T\-A\-T\-U\-S@{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-N\-O\-S\-T\-A\-T\-U\-S}!symrec.\-h@{symrec.\-h}}\index{symrec.\-h@{symrec.\-h}!Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-N\-O\-S\-T\-A\-T\-U\-S@{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-N\-O\-S\-T\-A\-T\-U\-S}}\item[{\em 
+\hypertarget{symrec_8h_a4e830242184849024c9c8147a0d06ae8a0c921dcbb95d08e3da7187b68ce97df8}{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-N\-O\-S\-T\-A\-T\-U\-S}\label{symrec_8h_a4e830242184849024c9c8147a0d06ae8a0c921dcbb95d08e3da7187b68ce97df8}
+}]no status \index{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-U\-S\-E\-D@{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-U\-S\-E\-D}!symrec.\-h@{symrec.\-h}}\index{symrec.\-h@{symrec.\-h}!Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-U\-S\-E\-D@{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-U\-S\-E\-D}}\item[{\em 
+\hypertarget{symrec_8h_a4e830242184849024c9c8147a0d06ae8a06722807ace247cca85921fd23bf33aa}{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-U\-S\-E\-D}\label{symrec_8h_a4e830242184849024c9c8147a0d06ae8a06722807ace247cca85921fd23bf33aa}
+}]for use before definition \index{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-D\-E\-F\-I\-N\-E\-D@{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-D\-E\-F\-I\-N\-E\-D}!symrec.\-h@{symrec.\-h}}\index{symrec.\-h@{symrec.\-h}!Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-D\-E\-F\-I\-N\-E\-D@{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-D\-E\-F\-I\-N\-E\-D}}\item[{\em 
+\hypertarget{symrec_8h_a4e830242184849024c9c8147a0d06ae8a57924da670554cbd4a1ee63ea12e9a76}{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-D\-E\-F\-I\-N\-E\-D}\label{symrec_8h_a4e830242184849024c9c8147a0d06ae8a57924da670554cbd4a1ee63ea12e9a76}
+}]once it's been defined in the file \index{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-V\-A\-L\-U\-E\-D@{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-V\-A\-L\-U\-E\-D}!symrec.\-h@{symrec.\-h}}\index{symrec.\-h@{symrec.\-h}!Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-V\-A\-L\-U\-E\-D@{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-V\-A\-L\-U\-E\-D}}\item[{\em 
+\hypertarget{symrec_8h_a4e830242184849024c9c8147a0d06ae8a9d7a2b9359f8041d7579d3ca0a4af22a}{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-V\-A\-L\-U\-E\-D}\label{symrec_8h_a4e830242184849024c9c8147a0d06ae8a9d7a2b9359f8041d7579d3ca0a4af22a}
+}]once its value has been determined \index{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-N\-O\-T\-I\-N\-T\-A\-B\-L\-E@{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-N\-O\-T\-I\-N\-T\-A\-B\-L\-E}!symrec.\-h@{symrec.\-h}}\index{symrec.\-h@{symrec.\-h}!Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-N\-O\-T\-I\-N\-T\-A\-B\-L\-E@{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-N\-O\-T\-I\-N\-T\-A\-B\-L\-E}}\item[{\em 
+\hypertarget{symrec_8h_a4e830242184849024c9c8147a0d06ae8a9af811580e32d7fd8e9e563311fc5f7e}{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-N\-O\-T\-I\-N\-T\-A\-B\-L\-E}\label{symrec_8h_a4e830242184849024c9c8147a0d06ae8a9af811580e32d7fd8e9e563311fc5f7e}
+}]if it's not in sym\-\_\-table (ex. '\$') \end{description}
+\end{Desc}
+\hypertarget{symrec_8h_abcd4561bf31998e92b7b681e6355fbae}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-sym\-\_\-vis@{yasm\-\_\-sym\-\_\-vis}}
+\index{yasm\-\_\-sym\-\_\-vis@{yasm\-\_\-sym\-\_\-vis}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-sym\-\_\-vis}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf yasm\-\_\-sym\-\_\-vis}}}\label{symrec_8h_abcd4561bf31998e92b7b681e6355fbae}
+Symbol record visibility. \begin{DoxyNote}{Note}
+Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-E\-X\-T\-E\-R\-N and Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-C\-O\-M\-M\-O\-N are mutually exclusive. 
+\end{DoxyNote}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-L\-O\-C\-A\-L@{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-L\-O\-C\-A\-L}!symrec.\-h@{symrec.\-h}}\index{symrec.\-h@{symrec.\-h}!Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-L\-O\-C\-A\-L@{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-L\-O\-C\-A\-L}}\item[{\em 
+\hypertarget{symrec_8h_abcd4561bf31998e92b7b681e6355fbaea76eb8b0a41e6603b0b0b2e7a0cff7fe9}{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-L\-O\-C\-A\-L}\label{symrec_8h_abcd4561bf31998e92b7b681e6355fbaea76eb8b0a41e6603b0b0b2e7a0cff7fe9}
+}]Default, local only \index{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-G\-L\-O\-B\-A\-L@{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-G\-L\-O\-B\-A\-L}!symrec.\-h@{symrec.\-h}}\index{symrec.\-h@{symrec.\-h}!Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-G\-L\-O\-B\-A\-L@{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-G\-L\-O\-B\-A\-L}}\item[{\em 
+\hypertarget{symrec_8h_abcd4561bf31998e92b7b681e6355fbaeace2421d1b5aa6fff3825ff8f77c9e0a7}{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-G\-L\-O\-B\-A\-L}\label{symrec_8h_abcd4561bf31998e92b7b681e6355fbaeace2421d1b5aa6fff3825ff8f77c9e0a7}
+}]If symbol is declared G\-L\-O\-B\-A\-L \index{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-C\-O\-M\-M\-O\-N@{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-C\-O\-M\-M\-O\-N}!symrec.\-h@{symrec.\-h}}\index{symrec.\-h@{symrec.\-h}!Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-C\-O\-M\-M\-O\-N@{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-C\-O\-M\-M\-O\-N}}\item[{\em 
+\hypertarget{symrec_8h_abcd4561bf31998e92b7b681e6355fbaeaf2fa4155c44e9ed6072ddcba63fba416}{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-C\-O\-M\-M\-O\-N}\label{symrec_8h_abcd4561bf31998e92b7b681e6355fbaeaf2fa4155c44e9ed6072ddcba63fba416}
+}]If symbol is declared C\-O\-M\-M\-O\-N \index{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-E\-X\-T\-E\-R\-N@{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-E\-X\-T\-E\-R\-N}!symrec.\-h@{symrec.\-h}}\index{symrec.\-h@{symrec.\-h}!Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-E\-X\-T\-E\-R\-N@{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-E\-X\-T\-E\-R\-N}}\item[{\em 
+\hypertarget{symrec_8h_abcd4561bf31998e92b7b681e6355fbaea6b645e561b87f1f64ceceec1344370dc}{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-E\-X\-T\-E\-R\-N}\label{symrec_8h_abcd4561bf31998e92b7b681e6355fbaea6b645e561b87f1f64ceceec1344370dc}
+}]If symbol is declared E\-X\-T\-E\-R\-N \index{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-D\-L\-O\-C\-A\-L@{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-D\-L\-O\-C\-A\-L}!symrec.\-h@{symrec.\-h}}\index{symrec.\-h@{symrec.\-h}!Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-D\-L\-O\-C\-A\-L@{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-D\-L\-O\-C\-A\-L}}\item[{\em 
+\hypertarget{symrec_8h_abcd4561bf31998e92b7b681e6355fbaea50da13f14d1fe61ead13b2a483502a91}{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-D\-L\-O\-C\-A\-L}\label{symrec_8h_abcd4561bf31998e92b7b681e6355fbaea50da13f14d1fe61ead13b2a483502a91}
+}]If symbol is explicitly declared L\-O\-C\-A\-L \end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{symrec_8h_a7611f6a3113c55901bf338938875e2c9}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symrec\-\_\-add\-\_\-data@{yasm\-\_\-symrec\-\_\-add\-\_\-data}}
+\index{yasm\-\_\-symrec\-\_\-add\-\_\-data@{yasm\-\_\-symrec\-\_\-add\-\_\-data}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symrec\-\_\-add\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-symrec\-\_\-add\-\_\-data (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-symrec} $\ast$}]{sym, }
+\item[{const {\bf yasm\-\_\-assoc\-\_\-data\-\_\-callback} $\ast$}]{callback, }
+\item[{void $\ast$}]{data}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_a7611f6a3113c55901bf338938875e2c9}
+Add associated data to a symbol. \begin{DoxyAttention}{Attention}
+Deletes any existing associated data for that data callback. 
+\end{DoxyAttention}
+
+\begin{DoxyParams}{Parameters}
+{\em sym} & symbol \\
+\hline
+{\em callback} & callback \\
+\hline
+{\em data} & data to associate \\
+\hline
+\end{DoxyParams}
+\hypertarget{symrec_8h_a5de2b646c1bf26e7e122fe81f177755e}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symrec\-\_\-declare@{yasm\-\_\-symrec\-\_\-declare}}
+\index{yasm\-\_\-symrec\-\_\-declare@{yasm\-\_\-symrec\-\_\-declare}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symrec\-\_\-declare}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-symrec\-\_\-declare (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-symrec} $\ast$}]{symrec, }
+\item[{{\bf yasm\-\_\-sym\-\_\-vis}}]{vis, }
+\item[{unsigned long}]{line}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_a5de2b646c1bf26e7e122fe81f177755e}
+Declare external visibility of a symbol. \begin{DoxyNote}{Note}
+Not all visibility combinations are allowed. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em symrec} & symbol \\
+\hline
+{\em vis} & visibility \\
+\hline
+{\em line} & virtual line of visibility-\/setting \\
+\hline
+\end{DoxyParams}
+\hypertarget{symrec_8h_a77780a43cfdf1558c641943cb0529250}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symrec\-\_\-get\-\_\-common\-\_\-size@{yasm\-\_\-symrec\-\_\-get\-\_\-common\-\_\-size}}
+\index{yasm\-\_\-symrec\-\_\-get\-\_\-common\-\_\-size@{yasm\-\_\-symrec\-\_\-get\-\_\-common\-\_\-size}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symrec\-\_\-get\-\_\-common\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-expr}$\ast$$\ast$ yasm\-\_\-symrec\-\_\-get\-\_\-common\-\_\-size (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-symrec} $\ast$}]{sym}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_a77780a43cfdf1558c641943cb0529250}
+Get common size of symbol, if symbol is declared C\-O\-M\-M\-O\-N and a size was set for it. 
+\begin{DoxyParams}{Parameters}
+{\em sym} & symbol \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Common size (N\-U\-L\-L if none). 
+\end{DoxyReturn}
+\hypertarget{symrec_8h_afd81fe9d85d2aa3a5f73005d40c48e2a}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symrec\-\_\-get\-\_\-data@{yasm\-\_\-symrec\-\_\-get\-\_\-data}}
+\index{yasm\-\_\-symrec\-\_\-get\-\_\-data@{yasm\-\_\-symrec\-\_\-get\-\_\-data}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symrec\-\_\-get\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void$\ast$ yasm\-\_\-symrec\-\_\-get\-\_\-data (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-symrec} $\ast$}]{sym, }
+\item[{const {\bf yasm\-\_\-assoc\-\_\-data\-\_\-callback} $\ast$}]{callback}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_afd81fe9d85d2aa3a5f73005d40c48e2a}
+Get associated data for a symbol and data callback. 
+\begin{DoxyParams}{Parameters}
+{\em sym} & symbol \\
+\hline
+{\em callback} & callback used when adding data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Associated data (N\-U\-L\-L if none). 
+\end{DoxyReturn}
+\hypertarget{symrec_8h_a5ab81dd55916970ccb3f38d0a4dc8b71}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symrec\-\_\-get\-\_\-decl\-\_\-line@{yasm\-\_\-symrec\-\_\-get\-\_\-decl\-\_\-line}}
+\index{yasm\-\_\-symrec\-\_\-get\-\_\-decl\-\_\-line@{yasm\-\_\-symrec\-\_\-get\-\_\-decl\-\_\-line}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symrec\-\_\-get\-\_\-decl\-\_\-line}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L unsigned long yasm\-\_\-symrec\-\_\-get\-\_\-decl\-\_\-line (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-symrec} $\ast$}]{sym}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_a5ab81dd55916970ccb3f38d0a4dc8b71}
+Get the virtual line of where a symbol was first declared. 
+\begin{DoxyParams}{Parameters}
+{\em sym} & symbol \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+line virtual line 
+\end{DoxyReturn}
+\hypertarget{symrec_8h_a2f16a0ce15f6b6a7ff158d0e31ee0572}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symrec\-\_\-get\-\_\-def\-\_\-line@{yasm\-\_\-symrec\-\_\-get\-\_\-def\-\_\-line}}
+\index{yasm\-\_\-symrec\-\_\-get\-\_\-def\-\_\-line@{yasm\-\_\-symrec\-\_\-get\-\_\-def\-\_\-line}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symrec\-\_\-get\-\_\-def\-\_\-line}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L unsigned long yasm\-\_\-symrec\-\_\-get\-\_\-def\-\_\-line (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-symrec} $\ast$}]{sym}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_a2f16a0ce15f6b6a7ff158d0e31ee0572}
+Get the virtual line of where a symbol was first defined. 
+\begin{DoxyParams}{Parameters}
+{\em sym} & symbol \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+line virtual line 
+\end{DoxyReturn}
+\hypertarget{symrec_8h_a862b2edd2ea7c556408498fd331595d5}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symrec\-\_\-get\-\_\-equ@{yasm\-\_\-symrec\-\_\-get\-\_\-equ}}
+\index{yasm\-\_\-symrec\-\_\-get\-\_\-equ@{yasm\-\_\-symrec\-\_\-get\-\_\-equ}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symrec\-\_\-get\-\_\-equ}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L const {\bf yasm\-\_\-expr}$\ast$ yasm\-\_\-symrec\-\_\-get\-\_\-equ (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-symrec} $\ast$}]{sym}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_a862b2edd2ea7c556408498fd331595d5}
+Get E\-Q\-U value of a symbol. 
+\begin{DoxyParams}{Parameters}
+{\em sym} & symbol \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+E\-Q\-U value, or N\-U\-L\-L if symbol is not an E\-Q\-U or is not defined. 
+\end{DoxyReturn}
+\hypertarget{symrec_8h_a67202525a85ce8a0aa4d34a4a98317e0}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symrec\-\_\-get\-\_\-global\-\_\-name@{yasm\-\_\-symrec\-\_\-get\-\_\-global\-\_\-name}}
+\index{yasm\-\_\-symrec\-\_\-get\-\_\-global\-\_\-name@{yasm\-\_\-symrec\-\_\-get\-\_\-global\-\_\-name}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symrec\-\_\-get\-\_\-global\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L char$\ast$ yasm\-\_\-symrec\-\_\-get\-\_\-global\-\_\-name (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-symrec} $\ast$}]{sym, }
+\item[{const {\bf yasm\-\_\-object} $\ast$}]{object}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_a67202525a85ce8a0aa4d34a4a98317e0}
+Get the externally-\/visible (global) name of a symbol. 
+\begin{DoxyParams}{Parameters}
+{\em sym} & symbol \\
+\hline
+{\em object} & object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Externally-\/visible symbol name (allocated, caller must free). 
+\end{DoxyReturn}
+\hypertarget{symrec_8h_a6cc431fe9bb873da16aa0480aba4c144}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symrec\-\_\-get\-\_\-label@{yasm\-\_\-symrec\-\_\-get\-\_\-label}}
+\index{yasm\-\_\-symrec\-\_\-get\-\_\-label@{yasm\-\_\-symrec\-\_\-get\-\_\-label}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symrec\-\_\-get\-\_\-label}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int yasm\-\_\-symrec\-\_\-get\-\_\-label (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-symrec} $\ast$}]{sym, }
+\item[{{\bf yasm\-\_\-symrec\-\_\-get\-\_\-label\-\_\-bytecodep} $\ast$}]{precbc}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_a6cc431fe9bb873da16aa0480aba4c144}
+Get the label location of a symbol. 
+\begin{DoxyParams}{Parameters}
+{\em sym} & symbol \\
+\hline
+{\em precbc} & bytecode preceding label (output) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if not symbol is not a label or if the symbol's visibility is \hyperlink{symrec_8h_abcd4561bf31998e92b7b681e6355fbaea6b645e561b87f1f64ceceec1344370dc}{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-E\-X\-T\-E\-R\-N} or \hyperlink{symrec_8h_abcd4561bf31998e92b7b681e6355fbaeaf2fa4155c44e9ed6072ddcba63fba416}{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-C\-O\-M\-M\-O\-N} (not defined in the file). 
+\end{DoxyReturn}
+\hypertarget{symrec_8h_adc5c63c305af07e014f19a7fc6d6579c}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symrec\-\_\-get\-\_\-name@{yasm\-\_\-symrec\-\_\-get\-\_\-name}}
+\index{yasm\-\_\-symrec\-\_\-get\-\_\-name@{yasm\-\_\-symrec\-\_\-get\-\_\-name}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symrec\-\_\-get\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L const char$\ast$ yasm\-\_\-symrec\-\_\-get\-\_\-name (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-symrec} $\ast$}]{sym}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_adc5c63c305af07e014f19a7fc6d6579c}
+Get the name of a symbol. 
+\begin{DoxyParams}{Parameters}
+{\em sym} & symbol \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Symbol name. 
+\end{DoxyReturn}
+\hypertarget{symrec_8h_a47d41c8b42e82066972f496c04d4ba5c}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symrec\-\_\-get\-\_\-objext\-\_\-valparams@{yasm\-\_\-symrec\-\_\-get\-\_\-objext\-\_\-valparams}}
+\index{yasm\-\_\-symrec\-\_\-get\-\_\-objext\-\_\-valparams@{yasm\-\_\-symrec\-\_\-get\-\_\-objext\-\_\-valparams}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symrec\-\_\-get\-\_\-objext\-\_\-valparams}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-valparamhead}$\ast$ yasm\-\_\-symrec\-\_\-get\-\_\-objext\-\_\-valparams (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-symrec} $\ast$}]{sym}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_a47d41c8b42e82066972f496c04d4ba5c}
+Get object-\/extended valparams, if any, associated with symbol's declaration. 
+\begin{DoxyParams}{Parameters}
+{\em sym} & symbol \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Object-\/extended valparams (N\-U\-L\-L if none). 
+\end{DoxyReturn}
+\hypertarget{symrec_8h_a3c8f7371d73c3932e185dbb7c1b8a7eb}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symrec\-\_\-get\-\_\-segment@{yasm\-\_\-symrec\-\_\-get\-\_\-segment}}
+\index{yasm\-\_\-symrec\-\_\-get\-\_\-segment@{yasm\-\_\-symrec\-\_\-get\-\_\-segment}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symrec\-\_\-get\-\_\-segment}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ yasm\-\_\-symrec\-\_\-get\-\_\-segment (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-symrec} $\ast$}]{sym}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_a3c8f7371d73c3932e185dbb7c1b8a7eb}
+Get the segment of a symbol. 
+\begin{DoxyParams}{Parameters}
+{\em sym} & symbol \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+segment of the symbol, N\-U\-L\-L if none specified by the user. 
+\end{DoxyReturn}
+\hypertarget{symrec_8h_a7fd412a665c8d43818be66c49a3c4e49}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symrec\-\_\-get\-\_\-size@{yasm\-\_\-symrec\-\_\-get\-\_\-size}}
+\index{yasm\-\_\-symrec\-\_\-get\-\_\-size@{yasm\-\_\-symrec\-\_\-get\-\_\-size}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symrec\-\_\-get\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}int yasm\-\_\-symrec\-\_\-get\-\_\-size (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-symrec} $\ast$}]{sym}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_a7fd412a665c8d43818be66c49a3c4e49}
+Get the size of a symbol. 
+\begin{DoxyParams}{Parameters}
+{\em sym} & symbol \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size of the symbol, 0 if none specified by the user. 
+\end{DoxyReturn}
+\hypertarget{symrec_8h_a598fe8c41d45e4b910fb57287a9ba166}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symrec\-\_\-get\-\_\-status@{yasm\-\_\-symrec\-\_\-get\-\_\-status}}
+\index{yasm\-\_\-symrec\-\_\-get\-\_\-status@{yasm\-\_\-symrec\-\_\-get\-\_\-status}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symrec\-\_\-get\-\_\-status}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-sym\-\_\-status} yasm\-\_\-symrec\-\_\-get\-\_\-status (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-symrec} $\ast$}]{sym}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_a598fe8c41d45e4b910fb57287a9ba166}
+Get the status of a symbol. 
+\begin{DoxyParams}{Parameters}
+{\em sym} & symbol \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Symbol status. 
+\end{DoxyReturn}
+\hypertarget{symrec_8h_a018d17697a2d1b96c642bc662c13995d}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symrec\-\_\-get\-\_\-use\-\_\-line@{yasm\-\_\-symrec\-\_\-get\-\_\-use\-\_\-line}}
+\index{yasm\-\_\-symrec\-\_\-get\-\_\-use\-\_\-line@{yasm\-\_\-symrec\-\_\-get\-\_\-use\-\_\-line}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symrec\-\_\-get\-\_\-use\-\_\-line}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L unsigned long yasm\-\_\-symrec\-\_\-get\-\_\-use\-\_\-line (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-symrec} $\ast$}]{sym}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_a018d17697a2d1b96c642bc662c13995d}
+Get the virtual line of where a symbol was first used. 
+\begin{DoxyParams}{Parameters}
+{\em sym} & symbol \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+line virtual line 
+\end{DoxyReturn}
+\hypertarget{symrec_8h_af3a1dc1795a05ec36d10d5c0fbee0d45}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symrec\-\_\-get\-\_\-visibility@{yasm\-\_\-symrec\-\_\-get\-\_\-visibility}}
+\index{yasm\-\_\-symrec\-\_\-get\-\_\-visibility@{yasm\-\_\-symrec\-\_\-get\-\_\-visibility}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symrec\-\_\-get\-\_\-visibility}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-sym\-\_\-vis} yasm\-\_\-symrec\-\_\-get\-\_\-visibility (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-symrec} $\ast$}]{sym}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_af3a1dc1795a05ec36d10d5c0fbee0d45}
+Get the visibility of a symbol. 
+\begin{DoxyParams}{Parameters}
+{\em sym} & symbol \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Symbol visibility. 
+\end{DoxyReturn}
+\hypertarget{symrec_8h_afafdb54cc6596ebaa9c917e615da79b4}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symrec\-\_\-is\-\_\-abs@{yasm\-\_\-symrec\-\_\-is\-\_\-abs}}
+\index{yasm\-\_\-symrec\-\_\-is\-\_\-abs@{yasm\-\_\-symrec\-\_\-is\-\_\-abs}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symrec\-\_\-is\-\_\-abs}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int yasm\-\_\-symrec\-\_\-is\-\_\-abs (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-symrec} $\ast$}]{sym}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_afafdb54cc6596ebaa9c917e615da79b4}
+Determine if symbol is the \char`\"{}absolute\char`\"{} symbol created by \hyperlink{symrec_8h_a4beb25b93cbfb72934a0e2ea7c17be51}{yasm\-\_\-symtab\-\_\-abs\-\_\-sym()}. 
+\begin{DoxyParams}{Parameters}
+{\em sym} & symbol \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if symbol is not the \char`\"{}absolute\char`\"{} symbol, nonzero otherwise. 
+\end{DoxyReturn}
+\hypertarget{symrec_8h_ae0008bb6357e4f28e136ada3b76566b0}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symrec\-\_\-is\-\_\-curpos@{yasm\-\_\-symrec\-\_\-is\-\_\-curpos}}
+\index{yasm\-\_\-symrec\-\_\-is\-\_\-curpos@{yasm\-\_\-symrec\-\_\-is\-\_\-curpos}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symrec\-\_\-is\-\_\-curpos}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int yasm\-\_\-symrec\-\_\-is\-\_\-curpos (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-symrec} $\ast$}]{sym}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_ae0008bb6357e4f28e136ada3b76566b0}
+Determine if symbol is a label representing the current assembly position. 
+\begin{DoxyParams}{Parameters}
+{\em sym} & symbol \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if symbol is not a current position label, nonzero otherwise. 
+\end{DoxyReturn}
+\hypertarget{symrec_8h_a0cb5cf152cfe1fbf4892af156e3ad763}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symrec\-\_\-is\-\_\-special@{yasm\-\_\-symrec\-\_\-is\-\_\-special}}
+\index{yasm\-\_\-symrec\-\_\-is\-\_\-special@{yasm\-\_\-symrec\-\_\-is\-\_\-special}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symrec\-\_\-is\-\_\-special}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int yasm\-\_\-symrec\-\_\-is\-\_\-special (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-symrec} $\ast$}]{sym}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_a0cb5cf152cfe1fbf4892af156e3ad763}
+Determine if symbol is a special symbol. 
+\begin{DoxyParams}{Parameters}
+{\em sym} & symbol \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if symbol is not a special symbol, nonzero otherwise. 
+\end{DoxyReturn}
+\hypertarget{symrec_8h_a381a5d55eb5fc45ae961c14d5480b2a0}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symrec\-\_\-print@{yasm\-\_\-symrec\-\_\-print}}
+\index{yasm\-\_\-symrec\-\_\-print@{yasm\-\_\-symrec\-\_\-print}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symrec\-\_\-print}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-symrec\-\_\-print (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-symrec} $\ast$}]{sym, }
+\item[{F\-I\-L\-E $\ast$}]{f, }
+\item[{int}]{indent\-\_\-level}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_a381a5d55eb5fc45ae961c14d5480b2a0}
+Print a symbol. For debugging purposes. 
+\begin{DoxyParams}{Parameters}
+{\em f} & file \\
+\hline
+{\em indent\-\_\-level} & indentation level \\
+\hline
+{\em sym} & symbol \\
+\hline
+\end{DoxyParams}
+\hypertarget{symrec_8h_a9b3369dc9c4abcb8fd95b47fe562e3b0}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symrec\-\_\-set\-\_\-common\-\_\-size@{yasm\-\_\-symrec\-\_\-set\-\_\-common\-\_\-size}}
+\index{yasm\-\_\-symrec\-\_\-set\-\_\-common\-\_\-size@{yasm\-\_\-symrec\-\_\-set\-\_\-common\-\_\-size}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symrec\-\_\-set\-\_\-common\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-symrec\-\_\-set\-\_\-common\-\_\-size (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-symrec} $\ast$}]{sym, }
+\item[{{\bf yasm\-\_\-expr} $\ast$}]{common\-\_\-size}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_a9b3369dc9c4abcb8fd95b47fe562e3b0}
+Set common size of symbol. 
+\begin{DoxyParams}{Parameters}
+{\em sym} & symbol \\
+\hline
+{\em common\-\_\-size} & common size expression \\
+\hline
+\end{DoxyParams}
+\hypertarget{symrec_8h_a07f8d4feb59cead1a04e892a51672664}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symrec\-\_\-set\-\_\-objext\-\_\-valparams@{yasm\-\_\-symrec\-\_\-set\-\_\-objext\-\_\-valparams}}
+\index{yasm\-\_\-symrec\-\_\-set\-\_\-objext\-\_\-valparams@{yasm\-\_\-symrec\-\_\-set\-\_\-objext\-\_\-valparams}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symrec\-\_\-set\-\_\-objext\-\_\-valparams}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-symrec\-\_\-set\-\_\-objext\-\_\-valparams (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-symrec} $\ast$}]{sym, }
+\item[{{\bf yasm\-\_\-valparamhead} $\ast$}]{objext\-\_\-valparams}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_a07f8d4feb59cead1a04e892a51672664}
+Set object-\/extended valparams. 
+\begin{DoxyParams}{Parameters}
+{\em sym} & symbol \\
+\hline
+{\em objext\-\_\-valparams} & object-\/extended valparams \\
+\hline
+\end{DoxyParams}
+\hypertarget{symrec_8h_acab6e3fcbc121dc8b4fcc5231246a107}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symrec\-\_\-set\-\_\-segment@{yasm\-\_\-symrec\-\_\-set\-\_\-segment}}
+\index{yasm\-\_\-symrec\-\_\-set\-\_\-segment@{yasm\-\_\-symrec\-\_\-set\-\_\-segment}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symrec\-\_\-set\-\_\-segment}]{\setlength{\rightskip}{0pt plus 5cm}void yasm\-\_\-symrec\-\_\-set\-\_\-segment (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-symrec} $\ast$}]{sym, }
+\item[{const char $\ast$}]{segment}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_acab6e3fcbc121dc8b4fcc5231246a107}
+Set the segment of a symbol. 
+\begin{DoxyParams}{Parameters}
+{\em sym} & symbol \\
+\hline
+{\em segment} & segment to be set \\
+\hline
+\end{DoxyParams}
+\hypertarget{symrec_8h_aad54e06b327f57468b534ca8e57a4a70}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symrec\-\_\-set\-\_\-size@{yasm\-\_\-symrec\-\_\-set\-\_\-size}}
+\index{yasm\-\_\-symrec\-\_\-set\-\_\-size@{yasm\-\_\-symrec\-\_\-set\-\_\-size}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symrec\-\_\-set\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}void yasm\-\_\-symrec\-\_\-set\-\_\-size (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-symrec} $\ast$}]{sym, }
+\item[{int}]{size}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_aad54e06b327f57468b534ca8e57a4a70}
+Set the size of a symbol. 
+\begin{DoxyParams}{Parameters}
+{\em sym} & symbol \\
+\hline
+{\em size} & size to be set \\
+\hline
+\end{DoxyParams}
+\hypertarget{symrec_8h_a4beb25b93cbfb72934a0e2ea7c17be51}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symtab\-\_\-abs\-\_\-sym@{yasm\-\_\-symtab\-\_\-abs\-\_\-sym}}
+\index{yasm\-\_\-symtab\-\_\-abs\-\_\-sym@{yasm\-\_\-symtab\-\_\-abs\-\_\-sym}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symtab\-\_\-abs\-\_\-sym}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-symrec}$\ast$ yasm\-\_\-symtab\-\_\-abs\-\_\-sym (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-symtab} $\ast$}]{symtab}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_a4beb25b93cbfb72934a0e2ea7c17be51}
+Get a reference to the symbol table's \char`\"{}absolute\char`\"{} symbol. This is essentially an E\-Q\-U with no name and value 0, and is used for relocating absolute current-\/position-\/relative values. \begin{DoxySeeAlso}{See Also}
+\hyperlink{value_8h_ac281987506376c5e99eaaddad215a493}{yasm\-\_\-value\-\_\-set\-\_\-curpos\-\_\-rel()}. 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em symtab} & symbol table \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Absolute symbol (dependent pointer, do not free). 
+\end{DoxyReturn}
+\hypertarget{symrec_8h_acde68c8addababc4af462b6c892dc251}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symtab\-\_\-create@{yasm\-\_\-symtab\-\_\-create}}
+\index{yasm\-\_\-symtab\-\_\-create@{yasm\-\_\-symtab\-\_\-create}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symtab\-\_\-create}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-symtab}$\ast$ yasm\-\_\-symtab\-\_\-create (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_acde68c8addababc4af462b6c892dc251}
+Create a new symbol table. \hypertarget{symrec_8h_a29d2c660c8261dd0dd7b88d3d147b907}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symtab\-\_\-declare@{yasm\-\_\-symtab\-\_\-declare}}
+\index{yasm\-\_\-symtab\-\_\-declare@{yasm\-\_\-symtab\-\_\-declare}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symtab\-\_\-declare}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-symrec}$\ast$ yasm\-\_\-symtab\-\_\-declare (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-symtab} $\ast$}]{symtab, }
+\item[{const char $\ast$}]{name, }
+\item[{{\bf yasm\-\_\-sym\-\_\-vis}}]{vis, }
+\item[{unsigned long}]{line}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_a29d2c660c8261dd0dd7b88d3d147b907}
+Declare external visibility of a symbol. \begin{DoxyNote}{Note}
+Not all visibility combinations are allowed. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em symtab} & symbol table \\
+\hline
+{\em name} & symbol name \\
+\hline
+{\em vis} & visibility \\
+\hline
+{\em line} & virtual line of visibility-\/setting \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Symbol (dependent pointer, do not free). 
+\end{DoxyReturn}
+\hypertarget{symrec_8h_a8f2f2f8a3faefd72a41c545fa2cd1c01}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symtab\-\_\-define\-\_\-curpos@{yasm\-\_\-symtab\-\_\-define\-\_\-curpos}}
+\index{yasm\-\_\-symtab\-\_\-define\-\_\-curpos@{yasm\-\_\-symtab\-\_\-define\-\_\-curpos}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symtab\-\_\-define\-\_\-curpos}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-symrec}$\ast$ yasm\-\_\-symtab\-\_\-define\-\_\-curpos (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-symtab} $\ast$}]{symtab, }
+\item[{const char $\ast$}]{name, }
+\item[{{\bf yasm\-\_\-bytecode} $\ast$}]{precbc, }
+\item[{unsigned long}]{line}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_a8f2f2f8a3faefd72a41c545fa2cd1c01}
+Define a symbol as a label representing the current assembly position. This should be used for this purpose instead of \hyperlink{symrec_8h_a8944fc0119e0e835bbdad06b4e6b6f9c}{yasm\-\_\-symtab\-\_\-define\-\_\-label()} as value\-\_\-finalize\-\_\-scan() looks for usage of this symbol type for special handling. The symbol created is not inserted into the symbol table. 
+\begin{DoxyParams}{Parameters}
+{\em symtab} & symbol table \\
+\hline
+{\em name} & symbol (label) name \\
+\hline
+{\em precbc} & bytecode preceding label \\
+\hline
+{\em line} & virtual line of label \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Symbol (dependent pointer, do not free). 
+\end{DoxyReturn}
+\hypertarget{symrec_8h_afb20e78d32649c9d8da78598fe03e943}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symtab\-\_\-define\-\_\-equ@{yasm\-\_\-symtab\-\_\-define\-\_\-equ}}
+\index{yasm\-\_\-symtab\-\_\-define\-\_\-equ@{yasm\-\_\-symtab\-\_\-define\-\_\-equ}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symtab\-\_\-define\-\_\-equ}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-symrec}$\ast$ yasm\-\_\-symtab\-\_\-define\-\_\-equ (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-symtab} $\ast$}]{symtab, }
+\item[{const char $\ast$}]{name, }
+\item[{{\bf yasm\-\_\-expr} $\ast$}]{e, }
+\item[{unsigned long}]{line}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_afb20e78d32649c9d8da78598fe03e943}
+Define a symbol as an E\-Q\-U value. 
+\begin{DoxyParams}{Parameters}
+{\em symtab} & symbol table \\
+\hline
+{\em name} & symbol (E\-Q\-U) name \\
+\hline
+{\em e} & E\-Q\-U value (expression) \\
+\hline
+{\em line} & virtual line of E\-Q\-U \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Symbol (dependent pointer, do not free). 
+\end{DoxyReturn}
+\hypertarget{symrec_8h_a8944fc0119e0e835bbdad06b4e6b6f9c}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symtab\-\_\-define\-\_\-label@{yasm\-\_\-symtab\-\_\-define\-\_\-label}}
+\index{yasm\-\_\-symtab\-\_\-define\-\_\-label@{yasm\-\_\-symtab\-\_\-define\-\_\-label}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symtab\-\_\-define\-\_\-label}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-symrec}$\ast$ yasm\-\_\-symtab\-\_\-define\-\_\-label (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-symtab} $\ast$}]{symtab, }
+\item[{const char $\ast$}]{name, }
+\item[{{\bf yasm\-\_\-bytecode} $\ast$}]{precbc, }
+\item[{int}]{in\-\_\-table, }
+\item[{unsigned long}]{line}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_a8944fc0119e0e835bbdad06b4e6b6f9c}
+Define a symbol as a label. 
+\begin{DoxyParams}{Parameters}
+{\em symtab} & symbol table \\
+\hline
+{\em name} & symbol (label) name \\
+\hline
+{\em precbc} & bytecode preceding label \\
+\hline
+{\em in\-\_\-table} & nonzero if the label should be inserted into the symbol table (some specially-\/generated ones should not be) \\
+\hline
+{\em line} & virtual line of label \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Symbol (dependent pointer, do not free). 
+\end{DoxyReturn}
+\hypertarget{symrec_8h_afb516c37be8e20d0386751d4fe8f2fbb}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symtab\-\_\-define\-\_\-special@{yasm\-\_\-symtab\-\_\-define\-\_\-special}}
+\index{yasm\-\_\-symtab\-\_\-define\-\_\-special@{yasm\-\_\-symtab\-\_\-define\-\_\-special}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symtab\-\_\-define\-\_\-special}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-symrec}$\ast$ yasm\-\_\-symtab\-\_\-define\-\_\-special (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-symtab} $\ast$}]{symtab, }
+\item[{const char $\ast$}]{name, }
+\item[{{\bf yasm\-\_\-sym\-\_\-vis}}]{vis}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_afb516c37be8e20d0386751d4fe8f2fbb}
+Define a special symbol that will appear in the symbol table and have a defined name, but have no other data associated with it within the standard symrec. 
+\begin{DoxyParams}{Parameters}
+{\em symtab} & symbol table \\
+\hline
+{\em name} & symbol name \\
+\hline
+{\em vis} & symbol visibility \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Symbol (dependent pointer, do not free). 
+\end{DoxyReturn}
+\hypertarget{symrec_8h_a2ca8b55ad92d12966deb3e78b8b89c40}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symtab\-\_\-destroy@{yasm\-\_\-symtab\-\_\-destroy}}
+\index{yasm\-\_\-symtab\-\_\-destroy@{yasm\-\_\-symtab\-\_\-destroy}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symtab\-\_\-destroy}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-symtab\-\_\-destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-symtab} $\ast$}]{symtab}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_a2ca8b55ad92d12966deb3e78b8b89c40}
+Destroy a symbol table and all internal symbols. 
+\begin{DoxyParams}{Parameters}
+{\em symtab} & symbol table \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+All \hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$'s into this symbol table become invalid after this is called! 
+\end{DoxyWarning}
+\hypertarget{symrec_8h_a4b5d76ba7a660fe6654df49be93e12b2}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symtab\-\_\-first@{yasm\-\_\-symtab\-\_\-first}}
+\index{yasm\-\_\-symtab\-\_\-first@{yasm\-\_\-symtab\-\_\-first}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symtab\-\_\-first}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L const {\bf yasm\-\_\-symtab\-\_\-iter}$\ast$ yasm\-\_\-symtab\-\_\-first (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-symtab} $\ast$}]{symtab}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_a4b5d76ba7a660fe6654df49be93e12b2}
+Get an iterator pointing to the first symbol in the symbol table. 
+\begin{DoxyParams}{Parameters}
+{\em symtab} & symbol table \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Iterator for the symbol table. 
+\end{DoxyReturn}
+\hypertarget{symrec_8h_a0cdf2f053f59091db866fec2e23ec7aa}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symtab\-\_\-get@{yasm\-\_\-symtab\-\_\-get}}
+\index{yasm\-\_\-symtab\-\_\-get@{yasm\-\_\-symtab\-\_\-get}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symtab\-\_\-get}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-symrec}$\ast$ yasm\-\_\-symtab\-\_\-get (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-symtab} $\ast$}]{symtab, }
+\item[{const char $\ast$}]{name}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_a0cdf2f053f59091db866fec2e23ec7aa}
+Get a reference to a symbol, without \char`\"{}using\char`\"{} it. Should be used for cases when an internal assembler usage of a symbol shouldn't be treated like a normal user symbol usage. 
+\begin{DoxyParams}{Parameters}
+{\em symtab} & symbol table \\
+\hline
+{\em name} & symbol name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Symbol (dependent pointer, do not free). May be N\-U\-L\-L if symbol doesn't exist. 
+\end{DoxyReturn}
+\hypertarget{symrec_8h_ac50cc37503a3a49c8b4b5e2930b4aa28}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symtab\-\_\-iter\-\_\-value@{yasm\-\_\-symtab\-\_\-iter\-\_\-value}}
+\index{yasm\-\_\-symtab\-\_\-iter\-\_\-value@{yasm\-\_\-symtab\-\_\-iter\-\_\-value}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symtab\-\_\-iter\-\_\-value}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-symrec}$\ast$ yasm\-\_\-symtab\-\_\-iter\-\_\-value (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-symtab\-\_\-iter} $\ast$}]{cur}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_ac50cc37503a3a49c8b4b5e2930b4aa28}
+Get the symbol corresponding to the current symbol table iterator value. 
+\begin{DoxyParams}{Parameters}
+{\em cur} & iterator value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Corresponding symbol. 
+\end{DoxyReturn}
+\hypertarget{symrec_8h_acd3bde61574c2580efe58e54a162dae6}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symtab\-\_\-next@{yasm\-\_\-symtab\-\_\-next}}
+\index{yasm\-\_\-symtab\-\_\-next@{yasm\-\_\-symtab\-\_\-next}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symtab\-\_\-next}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L const {\bf yasm\-\_\-symtab\-\_\-iter}$\ast$ yasm\-\_\-symtab\-\_\-next (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-symtab\-\_\-iter} $\ast$}]{prev}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_acd3bde61574c2580efe58e54a162dae6}
+Move a symbol table iterator to the next symbol in the symbol table. 
+\begin{DoxyParams}{Parameters}
+{\em prev} & Previous iterator value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Next iterator value, or N\-U\-L\-L if no more symbols in the table. 
+\end{DoxyReturn}
+\hypertarget{symrec_8h_ad135a0ee6a0c397a06cabec7aad9a08d}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symtab\-\_\-parser\-\_\-finalize@{yasm\-\_\-symtab\-\_\-parser\-\_\-finalize}}
+\index{yasm\-\_\-symtab\-\_\-parser\-\_\-finalize@{yasm\-\_\-symtab\-\_\-parser\-\_\-finalize}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symtab\-\_\-parser\-\_\-finalize}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-symtab\-\_\-parser\-\_\-finalize (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-symtab} $\ast$}]{symtab, }
+\item[{int}]{undef\-\_\-extern, }
+\item[{{\bf yasm\-\_\-errwarns} $\ast$}]{errwarns}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_ad135a0ee6a0c397a06cabec7aad9a08d}
+Finalize symbol table after parsing stage. Checks for symbols that are used but never defined or declared \hyperlink{symrec_8h_abcd4561bf31998e92b7b681e6355fbaea6b645e561b87f1f64ceceec1344370dc}{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-E\-X\-T\-E\-R\-N} or \hyperlink{symrec_8h_abcd4561bf31998e92b7b681e6355fbaeaf2fa4155c44e9ed6072ddcba63fba416}{Y\-A\-S\-M\-\_\-\-S\-Y\-M\-\_\-\-C\-O\-M\-M\-O\-N}. 
+\begin{DoxyParams}{Parameters}
+{\em symtab} & symbol table \\
+\hline
+{\em undef\-\_\-extern} & if nonzero, all undef syms should be declared extern \\
+\hline
+{\em errwarns} & error/warning set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Errors/warnings are stored into errwarns. 
+\end{DoxyNote}
+\hypertarget{symrec_8h_a079b6f19305732017b4d39686923ab76}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symtab\-\_\-print@{yasm\-\_\-symtab\-\_\-print}}
+\index{yasm\-\_\-symtab\-\_\-print@{yasm\-\_\-symtab\-\_\-print}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symtab\-\_\-print}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-symtab\-\_\-print (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-symtab} $\ast$}]{symtab, }
+\item[{F\-I\-L\-E $\ast$}]{f, }
+\item[{int}]{indent\-\_\-level}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_a079b6f19305732017b4d39686923ab76}
+Print the symbol table. For debugging purposes. 
+\begin{DoxyParams}{Parameters}
+{\em symtab} & symbol table \\
+\hline
+{\em f} & file \\
+\hline
+{\em indent\-\_\-level} & indentation level \\
+\hline
+\end{DoxyParams}
+\hypertarget{symrec_8h_a91984bec3233761128b053a53e9a088d}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symtab\-\_\-set\-\_\-case\-\_\-sensitive@{yasm\-\_\-symtab\-\_\-set\-\_\-case\-\_\-sensitive}}
+\index{yasm\-\_\-symtab\-\_\-set\-\_\-case\-\_\-sensitive@{yasm\-\_\-symtab\-\_\-set\-\_\-case\-\_\-sensitive}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symtab\-\_\-set\-\_\-case\-\_\-sensitive}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-symtab\-\_\-set\-\_\-case\-\_\-sensitive (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-symtab} $\ast$}]{symtab, }
+\item[{int}]{sensitive}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_a91984bec3233761128b053a53e9a088d}
+Set the symbol table to be case sensitive or not. Should be called before adding any symbol. 
+\begin{DoxyParams}{Parameters}
+{\em symtab} & symbol table \\
+\hline
+{\em sensitive} & whether the symbol table should be case sensitive. \\
+\hline
+\end{DoxyParams}
+\hypertarget{symrec_8h_a36a0eb144344485e61954d8627e37b3d}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symtab\-\_\-traverse@{yasm\-\_\-symtab\-\_\-traverse}}
+\index{yasm\-\_\-symtab\-\_\-traverse@{yasm\-\_\-symtab\-\_\-traverse}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symtab\-\_\-traverse}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int yasm\-\_\-symtab\-\_\-traverse (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-symtab} $\ast$}]{symtab, }
+\item[{void $\ast$}]{d, }
+\item[{{\bf yasm\-\_\-symtab\-\_\-traverse\-\_\-callback}}]{func}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_a36a0eb144344485e61954d8627e37b3d}
+Traverse all symbols in the symbol table. 
+\begin{DoxyParams}{Parameters}
+{\em symtab} & symbol table \\
+\hline
+{\em d} & data to pass to each call of callback function \\
+\hline
+{\em func} & callback function called on each symbol \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nonzero value returned by callback function if it ever returned nonzero. 
+\end{DoxyReturn}
+\hypertarget{symrec_8h_a2e4a0f93bb6b5d7bd5b14e76bb977ee2}{\index{symrec.\-h@{symrec.\-h}!yasm\-\_\-symtab\-\_\-use@{yasm\-\_\-symtab\-\_\-use}}
+\index{yasm\-\_\-symtab\-\_\-use@{yasm\-\_\-symtab\-\_\-use}!symrec.h@{symrec.\-h}}
+\subsubsection[{yasm\-\_\-symtab\-\_\-use}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-symrec}$\ast$ yasm\-\_\-symtab\-\_\-use (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-symtab} $\ast$}]{symtab, }
+\item[{const char $\ast$}]{name, }
+\item[{unsigned long}]{line}
+\end{DoxyParamCaption}
+)}}\label{symrec_8h_a2e4a0f93bb6b5d7bd5b14e76bb977ee2}
+Get a reference to (use) a symbol. The symbol does not necessarily need to be defined before it is used. 
+\begin{DoxyParams}{Parameters}
+{\em symtab} & symbol table \\
+\hline
+{\em name} & symbol name \\
+\hline
+{\em line} & virtual line where referenced \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Symbol (dependent pointer, do not free). 
+\end{DoxyReturn}

@@ -1,0 +1,111 @@
+\hypertarget{structyasm__objfmt__module}{\section{yasm\-\_\-objfmt\-\_\-module Struct Reference}
+\label{structyasm__objfmt__module}\index{yasm\-\_\-objfmt\-\_\-module@{yasm\-\_\-objfmt\-\_\-module}}
+}
+
+
+{\ttfamily \#include $<$objfmt.\-h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \hyperlink{structyasm__objfmt__module_a8680345e00c1f5f0141aa3d2b9e30b26}{name}
+\item 
+const char $\ast$ \hyperlink{structyasm__objfmt__module_a9e510cf4c0c7f848cf8c6d1b13f51036}{keyword}
+\item 
+const char $\ast$ \hyperlink{structyasm__objfmt__module_a9fb2337cdc2e80397d185f2e4e04b5ea}{extension}
+\item 
+const unsigned char \hyperlink{structyasm__objfmt__module_a3e301d11243b9378f5aedc4c92efba7c}{default\-\_\-x86\-\_\-mode\-\_\-bits}
+\item 
+const unsigned char \hyperlink{structyasm__objfmt__module_ae3e7c7b41312264be6a9d2ff01c668ec}{id\-\_\-at\-\_\-ok}
+\item 
+const char $\ast$$\ast$ \hyperlink{structyasm__objfmt__module_a1e349c3c4f8a09df4d45c41722065db7}{dbgfmt\-\_\-keywords}
+\item 
+const char $\ast$ \hyperlink{structyasm__objfmt__module_a922fb0423c14cd77aa56609224f3989c}{default\-\_\-dbgfmt\-\_\-keyword}
+\item 
+const \hyperlink{structyasm__directive}{yasm\-\_\-directive} $\ast$ \hyperlink{structyasm__objfmt__module_aad3cc13272a095a1c055704c80c66210}{directives}
+\item 
+const \hyperlink{structyasm__stdmac}{yasm\-\_\-stdmac} $\ast$ \hyperlink{structyasm__objfmt__module_a7786fbe1bf26e94e025f73422b4571ac}{stdmacs}
+\item 
+\hyperlink{coretype_8h_a391681636b57724e337bf97f9832adb7}{yasm\-\_\-objfmt} $\ast$($\ast$ \hyperlink{structyasm__objfmt__module_ab31b562cdf3e48eb10cf2ba407546ff3}{create} )(\hyperlink{structyasm__object}{yasm\-\_\-object} $\ast$object)
+\item 
+void($\ast$ \hyperlink{structyasm__objfmt__module_a5dbccfd2eba95930b2feff7a100c0fd4}{output} )(\hyperlink{structyasm__object}{yasm\-\_\-object} $\ast$o, F\-I\-L\-E $\ast$f, int all\-\_\-syms, \hyperlink{structyasm__errwarns}{yasm\-\_\-errwarns} $\ast$errwarns)
+\item 
+void($\ast$ \hyperlink{structyasm__objfmt__module_a05410dbea47334da2d93813be396c109}{destroy} )(\hyperlink{coretype_8h_a391681636b57724e337bf97f9832adb7}{yasm\-\_\-objfmt} $\ast$objfmt)
+\item 
+\hyperlink{structyasm__section}{yasm\-\_\-section} $\ast$($\ast$ \hyperlink{structyasm__objfmt__module_a0beb3df2ad8e10f879baa0e624235adf}{add\-\_\-default\-\_\-section} )(\hyperlink{structyasm__object}{yasm\-\_\-object} $\ast$object)
+\item 
+void($\ast$ \hyperlink{structyasm__objfmt__module_a65948c1fefc3f2c8e72bd0f830b3c29f}{init\-\_\-new\-\_\-section} )(\hyperlink{structyasm__section}{yasm\-\_\-section} $\ast$section, unsigned long line)
+\item 
+\hyperlink{structyasm__section}{yasm\-\_\-section} $\ast$($\ast$ \hyperlink{structyasm__objfmt__module_ac6eebfbcfe1999d7815ab6b0b624c377}{section\-\_\-switch} )(\hyperlink{structyasm__object}{yasm\-\_\-object} $\ast$object, \hyperlink{coretype_8h_ab1c6ed70512ed01b56479b23e5ece9bc}{yasm\-\_\-valparamhead} $\ast$valparams, \hyperlink{coretype_8h_ab1c6ed70512ed01b56479b23e5ece9bc}{yasm\-\_\-valparamhead} $\ast$objext\-\_\-valparams, unsigned long line)
+\item 
+\hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$($\ast$ \hyperlink{structyasm__objfmt__module_a179f412531d7bbf10ff1a96b54eede47}{get\-\_\-special\-\_\-sym} )(\hyperlink{structyasm__object}{yasm\-\_\-object} $\ast$object, const char $\ast$\hyperlink{structyasm__objfmt__module_a8680345e00c1f5f0141aa3d2b9e30b26}{name}, const char $\ast$parser)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Object format module interface. 
+
+\subsection{Member Data Documentation}
+\hypertarget{structyasm__objfmt__module_a0beb3df2ad8e10f879baa0e624235adf}{\index{yasm\-\_\-objfmt\-\_\-module@{yasm\-\_\-objfmt\-\_\-module}!add\-\_\-default\-\_\-section@{add\-\_\-default\-\_\-section}}
+\index{add\-\_\-default\-\_\-section@{add\-\_\-default\-\_\-section}!yasm_objfmt_module@{yasm\-\_\-objfmt\-\_\-module}}
+\subsubsection[{add\-\_\-default\-\_\-section}]{\setlength{\rightskip}{0pt plus 5cm}{\bf yasm\-\_\-section}$\ast$($\ast$ yasm\-\_\-objfmt\-\_\-module\-::add\-\_\-default\-\_\-section)({\bf yasm\-\_\-object} $\ast$object)}}\label{structyasm__objfmt__module_a0beb3df2ad8e10f879baa0e624235adf}
+Module-\/level implementation of \hyperlink{objfmt_8h_a1c6ab10c63842beab6506bb6e4df1076}{yasm\-\_\-objfmt\-\_\-add\-\_\-default\-\_\-section()}. Call \hyperlink{objfmt_8h_a1c6ab10c63842beab6506bb6e4df1076}{yasm\-\_\-objfmt\-\_\-add\-\_\-default\-\_\-section()} instead of calling this function. \hypertarget{structyasm__objfmt__module_ab31b562cdf3e48eb10cf2ba407546ff3}{\index{yasm\-\_\-objfmt\-\_\-module@{yasm\-\_\-objfmt\-\_\-module}!create@{create}}
+\index{create@{create}!yasm_objfmt_module@{yasm\-\_\-objfmt\-\_\-module}}
+\subsubsection[{create}]{\setlength{\rightskip}{0pt plus 5cm}{\bf yasm\-\_\-objfmt}$\ast$($\ast$ yasm\-\_\-objfmt\-\_\-module\-::create)({\bf yasm\-\_\-object} $\ast$object)}}\label{structyasm__objfmt__module_ab31b562cdf3e48eb10cf2ba407546ff3}
+Create object format. Module-\/level implementation of \hyperlink{objfmt_8h_af9c1f77d55eeb297af691bc7934b08a2}{yasm\-\_\-objfmt\-\_\-create()}. Call \hyperlink{objfmt_8h_af9c1f77d55eeb297af691bc7934b08a2}{yasm\-\_\-objfmt\-\_\-create()} instead of calling this function. 
+\begin{DoxyParams}{Parameters}
+{\em object} & object \\
+\hline
+{\em a} & architecture in use \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+N\-U\-L\-L if architecture/machine combination not supported. 
+\end{DoxyReturn}
+\hypertarget{structyasm__objfmt__module_a1e349c3c4f8a09df4d45c41722065db7}{\index{yasm\-\_\-objfmt\-\_\-module@{yasm\-\_\-objfmt\-\_\-module}!dbgfmt\-\_\-keywords@{dbgfmt\-\_\-keywords}}
+\index{dbgfmt\-\_\-keywords@{dbgfmt\-\_\-keywords}!yasm_objfmt_module@{yasm\-\_\-objfmt\-\_\-module}}
+\subsubsection[{dbgfmt\-\_\-keywords}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$$\ast$ yasm\-\_\-objfmt\-\_\-module\-::dbgfmt\-\_\-keywords}}\label{structyasm__objfmt__module_a1e349c3c4f8a09df4d45c41722065db7}
+N\-U\-L\-L-\/terminated list of debug format (yasm\-\_\-dbgfmt) keywords that are valid to use with this object format. The null debug format (null\-\_\-dbgfmt, \char`\"{}null\char`\"{}) should always be in this list so it's possible to have no debug output. \hypertarget{structyasm__objfmt__module_a922fb0423c14cd77aa56609224f3989c}{\index{yasm\-\_\-objfmt\-\_\-module@{yasm\-\_\-objfmt\-\_\-module}!default\-\_\-dbgfmt\-\_\-keyword@{default\-\_\-dbgfmt\-\_\-keyword}}
+\index{default\-\_\-dbgfmt\-\_\-keyword@{default\-\_\-dbgfmt\-\_\-keyword}!yasm_objfmt_module@{yasm\-\_\-objfmt\-\_\-module}}
+\subsubsection[{default\-\_\-dbgfmt\-\_\-keyword}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ yasm\-\_\-objfmt\-\_\-module\-::default\-\_\-dbgfmt\-\_\-keyword}}\label{structyasm__objfmt__module_a922fb0423c14cd77aa56609224f3989c}
+Default debug format keyword (set even if there's only one available to use). \hypertarget{structyasm__objfmt__module_a3e301d11243b9378f5aedc4c92efba7c}{\index{yasm\-\_\-objfmt\-\_\-module@{yasm\-\_\-objfmt\-\_\-module}!default\-\_\-x86\-\_\-mode\-\_\-bits@{default\-\_\-x86\-\_\-mode\-\_\-bits}}
+\index{default\-\_\-x86\-\_\-mode\-\_\-bits@{default\-\_\-x86\-\_\-mode\-\_\-bits}!yasm_objfmt_module@{yasm\-\_\-objfmt\-\_\-module}}
+\subsubsection[{default\-\_\-x86\-\_\-mode\-\_\-bits}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned char yasm\-\_\-objfmt\-\_\-module\-::default\-\_\-x86\-\_\-mode\-\_\-bits}}\label{structyasm__objfmt__module_a3e301d11243b9378f5aedc4c92efba7c}
+Default (starting) x86 B\-I\-T\-S setting. This only appies to the x86 architecture; other architectures ignore this setting. \hypertarget{structyasm__objfmt__module_a05410dbea47334da2d93813be396c109}{\index{yasm\-\_\-objfmt\-\_\-module@{yasm\-\_\-objfmt\-\_\-module}!destroy@{destroy}}
+\index{destroy@{destroy}!yasm_objfmt_module@{yasm\-\_\-objfmt\-\_\-module}}
+\subsubsection[{destroy}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ yasm\-\_\-objfmt\-\_\-module\-::destroy)({\bf yasm\-\_\-objfmt} $\ast$objfmt)}}\label{structyasm__objfmt__module_a05410dbea47334da2d93813be396c109}
+Module-\/level implementation of \hyperlink{objfmt_8h_ab8a5edb3ea79eb42de7d365cbd48ef5e}{yasm\-\_\-objfmt\-\_\-destroy()}. Call \hyperlink{objfmt_8h_ab8a5edb3ea79eb42de7d365cbd48ef5e}{yasm\-\_\-objfmt\-\_\-destroy()} instead of calling this function. \hypertarget{structyasm__objfmt__module_aad3cc13272a095a1c055704c80c66210}{\index{yasm\-\_\-objfmt\-\_\-module@{yasm\-\_\-objfmt\-\_\-module}!directives@{directives}}
+\index{directives@{directives}!yasm_objfmt_module@{yasm\-\_\-objfmt\-\_\-module}}
+\subsubsection[{directives}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf yasm\-\_\-directive}$\ast$ yasm\-\_\-objfmt\-\_\-module\-::directives}}\label{structyasm__objfmt__module_aad3cc13272a095a1c055704c80c66210}
+N\-U\-L\-L-\/terminated list of directives. N\-U\-L\-L if none. \hypertarget{structyasm__objfmt__module_a9fb2337cdc2e80397d185f2e4e04b5ea}{\index{yasm\-\_\-objfmt\-\_\-module@{yasm\-\_\-objfmt\-\_\-module}!extension@{extension}}
+\index{extension@{extension}!yasm_objfmt_module@{yasm\-\_\-objfmt\-\_\-module}}
+\subsubsection[{extension}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ yasm\-\_\-objfmt\-\_\-module\-::extension}}\label{structyasm__objfmt__module_a9fb2337cdc2e80397d185f2e4e04b5ea}
+Default output file extension (without the '.'). N\-U\-L\-L means no extension, with no '.', while \char`\"{}\char`\"{} includes the '.'. \hypertarget{structyasm__objfmt__module_a179f412531d7bbf10ff1a96b54eede47}{\index{yasm\-\_\-objfmt\-\_\-module@{yasm\-\_\-objfmt\-\_\-module}!get\-\_\-special\-\_\-sym@{get\-\_\-special\-\_\-sym}}
+\index{get\-\_\-special\-\_\-sym@{get\-\_\-special\-\_\-sym}!yasm_objfmt_module@{yasm\-\_\-objfmt\-\_\-module}}
+\subsubsection[{get\-\_\-special\-\_\-sym}]{\setlength{\rightskip}{0pt plus 5cm}{\bf yasm\-\_\-symrec}$\ast$($\ast$ yasm\-\_\-objfmt\-\_\-module\-::get\-\_\-special\-\_\-sym)({\bf yasm\-\_\-object} $\ast$object, const char $\ast${\bf name}, const char $\ast$parser)}}\label{structyasm__objfmt__module_a179f412531d7bbf10ff1a96b54eede47}
+Module-\/level implementation of \hyperlink{objfmt_8h_a951747cc5297f8084a8281d6c6dddc49}{yasm\-\_\-objfmt\-\_\-get\-\_\-special\-\_\-sym()}. Call \hyperlink{objfmt_8h_a951747cc5297f8084a8281d6c6dddc49}{yasm\-\_\-objfmt\-\_\-get\-\_\-special\-\_\-sym()} instead of calling this function. \hypertarget{structyasm__objfmt__module_ae3e7c7b41312264be6a9d2ff01c668ec}{\index{yasm\-\_\-objfmt\-\_\-module@{yasm\-\_\-objfmt\-\_\-module}!id\-\_\-at\-\_\-ok@{id\-\_\-at\-\_\-ok}}
+\index{id\-\_\-at\-\_\-ok@{id\-\_\-at\-\_\-ok}!yasm_objfmt_module@{yasm\-\_\-objfmt\-\_\-module}}
+\subsubsection[{id\-\_\-at\-\_\-ok}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned char yasm\-\_\-objfmt\-\_\-module\-::id\-\_\-at\-\_\-ok}}\label{structyasm__objfmt__module_ae3e7c7b41312264be6a9d2ff01c668ec}
+If @ signs should be legal in identifiers. \hypertarget{structyasm__objfmt__module_a65948c1fefc3f2c8e72bd0f830b3c29f}{\index{yasm\-\_\-objfmt\-\_\-module@{yasm\-\_\-objfmt\-\_\-module}!init\-\_\-new\-\_\-section@{init\-\_\-new\-\_\-section}}
+\index{init\-\_\-new\-\_\-section@{init\-\_\-new\-\_\-section}!yasm_objfmt_module@{yasm\-\_\-objfmt\-\_\-module}}
+\subsubsection[{init\-\_\-new\-\_\-section}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ yasm\-\_\-objfmt\-\_\-module\-::init\-\_\-new\-\_\-section)({\bf yasm\-\_\-section} $\ast$section, unsigned long line)}}\label{structyasm__objfmt__module_a65948c1fefc3f2c8e72bd0f830b3c29f}
+Module-\/level implementation of \hyperlink{objfmt_8h_a9667573b424e2cfd6af203c0632aca61}{yasm\-\_\-objfmt\-\_\-init\-\_\-new\-\_\-section()}. Call \hyperlink{objfmt_8h_a9667573b424e2cfd6af203c0632aca61}{yasm\-\_\-objfmt\-\_\-init\-\_\-new\-\_\-section()} instead of calling this function. \hypertarget{structyasm__objfmt__module_a9e510cf4c0c7f848cf8c6d1b13f51036}{\index{yasm\-\_\-objfmt\-\_\-module@{yasm\-\_\-objfmt\-\_\-module}!keyword@{keyword}}
+\index{keyword@{keyword}!yasm_objfmt_module@{yasm\-\_\-objfmt\-\_\-module}}
+\subsubsection[{keyword}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ yasm\-\_\-objfmt\-\_\-module\-::keyword}}\label{structyasm__objfmt__module_a9e510cf4c0c7f848cf8c6d1b13f51036}
+Keyword used to select object format. \hypertarget{structyasm__objfmt__module_a8680345e00c1f5f0141aa3d2b9e30b26}{\index{yasm\-\_\-objfmt\-\_\-module@{yasm\-\_\-objfmt\-\_\-module}!name@{name}}
+\index{name@{name}!yasm_objfmt_module@{yasm\-\_\-objfmt\-\_\-module}}
+\subsubsection[{name}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ yasm\-\_\-objfmt\-\_\-module\-::name}}\label{structyasm__objfmt__module_a8680345e00c1f5f0141aa3d2b9e30b26}
+One-\/line description of the object format. \hypertarget{structyasm__objfmt__module_a5dbccfd2eba95930b2feff7a100c0fd4}{\index{yasm\-\_\-objfmt\-\_\-module@{yasm\-\_\-objfmt\-\_\-module}!output@{output}}
+\index{output@{output}!yasm_objfmt_module@{yasm\-\_\-objfmt\-\_\-module}}
+\subsubsection[{output}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ yasm\-\_\-objfmt\-\_\-module\-::output)({\bf yasm\-\_\-object} $\ast$o, F\-I\-L\-E $\ast$f, int all\-\_\-syms, {\bf yasm\-\_\-errwarns} $\ast$errwarns)}}\label{structyasm__objfmt__module_a5dbccfd2eba95930b2feff7a100c0fd4}
+Module-\/level implementation of \hyperlink{objfmt_8h_a006e2f7c6f7f7492431782f2d0a4e42e}{yasm\-\_\-objfmt\-\_\-output()}. Call \hyperlink{objfmt_8h_a006e2f7c6f7f7492431782f2d0a4e42e}{yasm\-\_\-objfmt\-\_\-output()} instead of calling this function. \hypertarget{structyasm__objfmt__module_ac6eebfbcfe1999d7815ab6b0b624c377}{\index{yasm\-\_\-objfmt\-\_\-module@{yasm\-\_\-objfmt\-\_\-module}!section\-\_\-switch@{section\-\_\-switch}}
+\index{section\-\_\-switch@{section\-\_\-switch}!yasm_objfmt_module@{yasm\-\_\-objfmt\-\_\-module}}
+\subsubsection[{section\-\_\-switch}]{\setlength{\rightskip}{0pt plus 5cm}{\bf yasm\-\_\-section}$\ast$($\ast$ yasm\-\_\-objfmt\-\_\-module\-::section\-\_\-switch)({\bf yasm\-\_\-object} $\ast$object, {\bf yasm\-\_\-valparamhead} $\ast$valparams,{\bf yasm\-\_\-valparamhead} $\ast$objext\-\_\-valparams, unsigned long line)}}\label{structyasm__objfmt__module_ac6eebfbcfe1999d7815ab6b0b624c377}
+Module-\/level implementation of \hyperlink{objfmt_8h_a3bfaf475ae96a95a959caf5d376cff16}{yasm\-\_\-objfmt\-\_\-section\-\_\-switch()}. Call \hyperlink{objfmt_8h_a3bfaf475ae96a95a959caf5d376cff16}{yasm\-\_\-objfmt\-\_\-section\-\_\-switch()} instead of calling this function. \hypertarget{structyasm__objfmt__module_a7786fbe1bf26e94e025f73422b4571ac}{\index{yasm\-\_\-objfmt\-\_\-module@{yasm\-\_\-objfmt\-\_\-module}!stdmacs@{stdmacs}}
+\index{stdmacs@{stdmacs}!yasm_objfmt_module@{yasm\-\_\-objfmt\-\_\-module}}
+\subsubsection[{stdmacs}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf yasm\-\_\-stdmac}$\ast$ yasm\-\_\-objfmt\-\_\-module\-::stdmacs}}\label{structyasm__objfmt__module_a7786fbe1bf26e94e025f73422b4571ac}
+N\-U\-L\-L-\/terminated list of standard macro lookups. N\-U\-L\-L if none. 
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{objfmt_8h}{objfmt.\-h}\end{DoxyCompactItemize}

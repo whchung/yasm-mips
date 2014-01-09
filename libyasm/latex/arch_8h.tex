@@ -1,0 +1,757 @@
+\hypertarget{arch_8h}{\section{arch.\-h File Reference}
+\label{arch_8h}\index{arch.\-h@{arch.\-h}}
+}
+
+
+Y\-A\-S\-M architecture interface.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structyasm__arch__base}{yasm\-\_\-arch\-\_\-base}
+\item 
+struct \hyperlink{structyasm__arch__machine}{yasm\-\_\-arch\-\_\-machine}
+\item 
+struct \hyperlink{structyasm__arch__module}{yasm\-\_\-arch\-\_\-module}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{arch_8h_ab32a7b4ee87601d4962023ff4c573bc1}{\#define {\bfseries yasm\-\_\-arch\-\_\-name}(arch)~(((\hyperlink{structyasm__arch__base}{yasm\-\_\-arch\-\_\-base} $\ast$)arch)-\/$>$module-\/$>$name)}\label{arch_8h_ab32a7b4ee87601d4962023ff4c573bc1}
+
+\item 
+\hypertarget{arch_8h_a384967a53819b2c40c2a317c3e627d0b}{\#define {\bfseries yasm\-\_\-arch\-\_\-keyword}(arch)~(((\hyperlink{structyasm__arch__base}{yasm\-\_\-arch\-\_\-base} $\ast$)arch)-\/$>$module-\/$>$keyword)}\label{arch_8h_a384967a53819b2c40c2a317c3e627d0b}
+
+\item 
+\hypertarget{arch_8h_a6cfeaed1ec68469d784e94a85acfd033}{\#define {\bfseries yasm\-\_\-arch\-\_\-wordsize}(arch)~(((\hyperlink{structyasm__arch__base}{yasm\-\_\-arch\-\_\-base} $\ast$)arch)-\/$>$module-\/$>$wordsize)}\label{arch_8h_a6cfeaed1ec68469d784e94a85acfd033}
+
+\item 
+\hypertarget{arch_8h_a21c4ceed918aca726321d4fd3e20fc0e}{\#define {\bfseries yasm\-\_\-arch\-\_\-min\-\_\-insn\-\_\-len}(arch)~(((\hyperlink{structyasm__arch__base}{yasm\-\_\-arch\-\_\-base} $\ast$)arch)-\/$>$module-\/$>$min\-\_\-insn\-\_\-len)}\label{arch_8h_a21c4ceed918aca726321d4fd3e20fc0e}
+
+\item 
+\hypertarget{arch_8h_a91630cde0e8ecf20e1f6ce0afbad4067}{\#define {\bfseries yasm\-\_\-arch\-\_\-create}(module, machine, parser, error)~module-\/$>$create(machine, parser, error)}\label{arch_8h_a91630cde0e8ecf20e1f6ce0afbad4067}
+
+\item 
+\hypertarget{arch_8h_a3d0e04344feed5d6323e4965c200816d}{\#define {\bfseries yasm\-\_\-arch\-\_\-destroy}(arch)~((\hyperlink{structyasm__arch__base}{yasm\-\_\-arch\-\_\-base} $\ast$)arch)-\/$>$module-\/$>$destroy(arch)}\label{arch_8h_a3d0e04344feed5d6323e4965c200816d}
+
+\item 
+\hypertarget{arch_8h_adff9699b2aeca30e27b440817d43a5b6}{\#define {\bfseries yasm\-\_\-arch\-\_\-get\-\_\-machine}(arch)~((\hyperlink{structyasm__arch__base}{yasm\-\_\-arch\-\_\-base} $\ast$)arch)-\/$>$module-\/$>$get\-\_\-machine(arch)}\label{arch_8h_adff9699b2aeca30e27b440817d43a5b6}
+
+\item 
+\hypertarget{arch_8h_a1b053e131bf561891d92ec5476a5b2a6}{\#define {\bfseries yasm\-\_\-arch\-\_\-get\-\_\-address\-\_\-size}(arch)~((\hyperlink{structyasm__arch__base}{yasm\-\_\-arch\-\_\-base} $\ast$)arch)-\/$>$module-\/$>$get\-\_\-address\-\_\-size(arch)}\label{arch_8h_a1b053e131bf561891d92ec5476a5b2a6}
+
+\item 
+\hypertarget{arch_8h_ab960b77eb4074823c440c17831e26690}{\#define {\bfseries yasm\-\_\-arch\-\_\-set\-\_\-var}(arch, var, val)~((\hyperlink{structyasm__arch__base}{yasm\-\_\-arch\-\_\-base} $\ast$)arch)-\/$>$module-\/$>$set\-\_\-var(arch, var, val)}\label{arch_8h_ab960b77eb4074823c440c17831e26690}
+
+\item 
+\#define {\bfseries yasm\-\_\-arch\-\_\-parse\-\_\-check\-\_\-insnprefix}(arch, id, id\-\_\-len, line, bc, prefix)
+\item 
+\#define {\bfseries yasm\-\_\-arch\-\_\-parse\-\_\-check\-\_\-regtmod}(arch, id, id\-\_\-len, data)
+\item 
+\hypertarget{arch_8h_ad85e62cdd344ec6352247994cd239b81}{\#define {\bfseries yasm\-\_\-arch\-\_\-get\-\_\-fill}(arch)~((\hyperlink{structyasm__arch__base}{yasm\-\_\-arch\-\_\-base} $\ast$)arch)-\/$>$module-\/$>$get\-\_\-fill(arch)}\label{arch_8h_ad85e62cdd344ec6352247994cd239b81}
+
+\item 
+\#define {\bfseries yasm\-\_\-arch\-\_\-floatnum\-\_\-tobytes}(arch, flt, buf, destsize, valsize, shift, \hyperlink{structwarn}{warn})
+\item 
+\#define {\bfseries yasm\-\_\-arch\-\_\-intnum\-\_\-tobytes}(arch, intn, buf, destsize, valsize, shift, bc, \hyperlink{structwarn}{warn})
+\item 
+\hypertarget{arch_8h_ac0e0f39c17146ad1b579ae3b70851c38}{\#define {\bfseries yasm\-\_\-arch\-\_\-get\-\_\-reg\-\_\-size}(arch, reg)~((\hyperlink{structyasm__arch__base}{yasm\-\_\-arch\-\_\-base} $\ast$)arch)-\/$>$module-\/$>$get\-\_\-reg\-\_\-size(arch, reg)}\label{arch_8h_ac0e0f39c17146ad1b579ae3b70851c38}
+
+\item 
+\hypertarget{arch_8h_aa2db872d86f9aefab549c7ff00669d3f}{\#define {\bfseries yasm\-\_\-arch\-\_\-reggroup\-\_\-get\-\_\-reg}(arch, regg, regi)~((\hyperlink{structyasm__arch__base}{yasm\-\_\-arch\-\_\-base} $\ast$)arch)-\/$>$module-\/$>$reggroup\-\_\-get\-\_\-reg(arch, regg, regi)}\label{arch_8h_aa2db872d86f9aefab549c7ff00669d3f}
+
+\item 
+\hypertarget{arch_8h_a3162ef79637ab1acb244e09a82037834}{\#define {\bfseries yasm\-\_\-arch\-\_\-reg\-\_\-print}(arch, reg, f)~((\hyperlink{structyasm__arch__base}{yasm\-\_\-arch\-\_\-base} $\ast$)arch)-\/$>$module-\/$>$reg\-\_\-print(arch, reg, f)}\label{arch_8h_a3162ef79637ab1acb244e09a82037834}
+
+\item 
+\hypertarget{arch_8h_aaafa3abbe1c2278cc21291a3ae58948a}{\#define {\bfseries yasm\-\_\-arch\-\_\-segreg\-\_\-print}(arch, segreg, f)~((\hyperlink{structyasm__arch__base}{yasm\-\_\-arch\-\_\-base} $\ast$)arch)-\/$>$module-\/$>$segreg\-\_\-print(arch, segreg, f)}\label{arch_8h_aaafa3abbe1c2278cc21291a3ae58948a}
+
+\item 
+\hypertarget{arch_8h_ab8ba0cde54dcd129e12be111b716a147}{\#define {\bfseries yasm\-\_\-arch\-\_\-ea\-\_\-create}(arch, e)~((\hyperlink{structyasm__arch__base}{yasm\-\_\-arch\-\_\-base} $\ast$)arch)-\/$>$module-\/$>$ea\-\_\-create(arch, e)}\label{arch_8h_ab8ba0cde54dcd129e12be111b716a147}
+
+\item 
+\hypertarget{arch_8h_a53b8a4de3ed5905ce8a01b78cf9abff7}{\#define {\bfseries yasm\-\_\-arch\-\_\-ea\-\_\-destroy}(arch, ea)~((\hyperlink{structyasm__arch__base}{yasm\-\_\-arch\-\_\-base} $\ast$)arch)-\/$>$module-\/$>$ea\-\_\-destroy(ea)}\label{arch_8h_a53b8a4de3ed5905ce8a01b78cf9abff7}
+
+\item 
+\hypertarget{arch_8h_a7d41f98425b5085394bb641a62e4dd69}{\#define {\bfseries yasm\-\_\-arch\-\_\-ea\-\_\-print}(arch, ea, f, i)~((\hyperlink{structyasm__arch__base}{yasm\-\_\-arch\-\_\-base} $\ast$)arch)-\/$>$module-\/$>$ea\-\_\-print(ea, f, i)}\label{arch_8h_a7d41f98425b5085394bb641a62e4dd69}
+
+\item 
+\hypertarget{arch_8h_a250e1430beed84be0f29b4715af622b1}{\#define {\bfseries yasm\-\_\-arch\-\_\-create\-\_\-empty\-\_\-insn}(arch, line)~((\hyperlink{structyasm__arch__base}{yasm\-\_\-arch\-\_\-base} $\ast$)arch)-\/$>$module-\/$>$create\-\_\-empty\-\_\-insn(arch, line)}\label{arch_8h_a250e1430beed84be0f29b4715af622b1}
+
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \hyperlink{arch_8h_a6c9e33e39484739985d931045ca2faa2}{yasm\-\_\-arch\-\_\-create\-\_\-error} \hyperlink{arch_8h_aea1134ce762aa9c840fc955114a40b00}{yasm\-\_\-arch\-\_\-create\-\_\-error}
+\item 
+typedef enum \hyperlink{arch_8h_ac21db64e3ba86dfe84f8028f8c14cb2a}{yasm\-\_\-arch\-\_\-insnprefix} \hyperlink{arch_8h_a86322b751f753abf7b9912162d0d03aa}{yasm\-\_\-arch\-\_\-insnprefix}
+\item 
+typedef enum \hyperlink{arch_8h_a1261e0e39e12f0e4490924676c591376}{yasm\-\_\-arch\-\_\-regtmod} \hyperlink{arch_8h_a96c67b4bef85c6ef9a032b1832b7c404}{yasm\-\_\-arch\-\_\-regtmod}
+\item 
+typedef struct \hyperlink{structyasm__arch__base}{yasm\-\_\-arch\-\_\-base} \hyperlink{arch_8h_aac289203edca4e7c66ba770fea0f25a1}{yasm\-\_\-arch\-\_\-base}
+\item 
+typedef struct \hyperlink{structyasm__arch__machine}{yasm\-\_\-arch\-\_\-machine} \hyperlink{arch_8h_a8af2ef4ad08968b5c88e7be53cbc80ed}{yasm\-\_\-arch\-\_\-machine}
+\item 
+typedef struct \hyperlink{structyasm__arch__module}{yasm\-\_\-arch\-\_\-module} \hyperlink{arch_8h_ac94302e08b8b707c7ebd212e3aaef140}{yasm\-\_\-arch\-\_\-module}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{arch_8h_a6c9e33e39484739985d931045ca2faa2}{yasm\-\_\-arch\-\_\-create\-\_\-error} \{ \hyperlink{arch_8h_a6c9e33e39484739985d931045ca2faa2a1abe8ec90ec5f31067fe8f88c249b84d}{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-C\-R\-E\-A\-T\-E\-\_\-\-O\-K} = 0, 
+\hyperlink{arch_8h_a6c9e33e39484739985d931045ca2faa2af4e78598a1592747bed35b6b173b7d10}{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-C\-R\-E\-A\-T\-E\-\_\-\-B\-A\-D\-\_\-\-M\-A\-C\-H\-I\-N\-E}, 
+\hyperlink{arch_8h_a6c9e33e39484739985d931045ca2faa2a7035e79a7b23710fcd5c26c3f319486f}{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-C\-R\-E\-A\-T\-E\-\_\-\-B\-A\-D\-\_\-\-P\-A\-R\-S\-E\-R}
+ \}
+\item 
+enum \hyperlink{arch_8h_ac21db64e3ba86dfe84f8028f8c14cb2a}{yasm\-\_\-arch\-\_\-insnprefix} \{ \hyperlink{arch_8h_ac21db64e3ba86dfe84f8028f8c14cb2aa330bd61725c0ea3f0301222039af33f5}{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-N\-O\-T\-I\-N\-S\-N\-P\-R\-E\-F\-I\-X} = 0, 
+\hyperlink{arch_8h_ac21db64e3ba86dfe84f8028f8c14cb2aa156af61b97778215aa2136588474c65c}{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-I\-N\-S\-N}, 
+\hyperlink{arch_8h_ac21db64e3ba86dfe84f8028f8c14cb2aa4a28bc01af02a170a88d6dcbac952e18}{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-P\-R\-E\-F\-I\-X}
+ \}
+\item 
+enum \hyperlink{arch_8h_a1261e0e39e12f0e4490924676c591376}{yasm\-\_\-arch\-\_\-regtmod} \{ \\*
+\hyperlink{arch_8h_a1261e0e39e12f0e4490924676c591376a7ebb7a25bb58a03bb20a15be9206bf66}{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-N\-O\-T\-R\-E\-G\-T\-M\-O\-D} = 0, 
+\hyperlink{arch_8h_a1261e0e39e12f0e4490924676c591376ad681afa13d4e9474af243d2f89a89b8b}{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-R\-E\-G}, 
+\hyperlink{arch_8h_a1261e0e39e12f0e4490924676c591376a80d10caa7a3a1024a470b89fe3746793}{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-R\-E\-G\-G\-R\-O\-U\-P}, 
+\hyperlink{arch_8h_a1261e0e39e12f0e4490924676c591376a3adafed403646fbacebf675afd563832}{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-S\-E\-G\-R\-E\-G}, 
+\\*
+\hyperlink{arch_8h_a1261e0e39e12f0e4490924676c591376ae8ad96c051123fb498d9f05aa0b37de3}{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-T\-A\-R\-G\-E\-T\-M\-O\-D}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \hyperlink{arch_8h_a900a62f7862b711046f55203e52acb87}{yasm\-\_\-arch\-\_\-name} (const \hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch)
+\item 
+const char $\ast$ \hyperlink{arch_8h_afb6a9a676fcc1d959f5dedf3632f3b79}{yasm\-\_\-arch\-\_\-keyword} (const \hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch)
+\item 
+unsigned int \hyperlink{arch_8h_a7812ab1f993e1327fd1c1acafa63ca1e}{yasm\-\_\-arch\-\_\-wordsize} (const \hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch)
+\item 
+unsigned int \hyperlink{arch_8h_a59cdef038169de55f73eb37a0f87ddbc}{yasm\-\_\-arch\-\_\-min\-\_\-insn\-\_\-len} (const \hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch)
+\item 
+\hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$ \hyperlink{arch_8h_ac1aa673ef18339096cf4e2b387078bb3}{yasm\-\_\-arch\-\_\-create} (const \hyperlink{structyasm__arch__module}{yasm\-\_\-arch\-\_\-module} $\ast$module, const char $\ast$machine, const char $\ast$parser, \hyperlink{arch_8h_a6c9e33e39484739985d931045ca2faa2}{yasm\-\_\-arch\-\_\-create\-\_\-error} $\ast$error)
+\item 
+void \hyperlink{arch_8h_aa8c55848aa8e698d5a1b1291d440fee4}{yasm\-\_\-arch\-\_\-destroy} (\hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch)
+\item 
+const char $\ast$ \hyperlink{arch_8h_a140c8c687d8dfcde94aafc3338ec3bee}{yasm\-\_\-arch\-\_\-get\-\_\-machine} (const \hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch)
+\item 
+unsigned int \hyperlink{arch_8h_a544b276b9840e0bc39d0e6bdd27003c3}{yasm\-\_\-arch\-\_\-get\-\_\-address\-\_\-size} (const \hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch)
+\item 
+int \hyperlink{arch_8h_a06d7d1d8a7e999c8188e9fa6ae88fe0e}{yasm\-\_\-arch\-\_\-set\-\_\-var} (\hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch, const char $\ast$var, unsigned long val)
+\item 
+\hyperlink{arch_8h_ac21db64e3ba86dfe84f8028f8c14cb2a}{yasm\-\_\-arch\-\_\-insnprefix} \hyperlink{arch_8h_aebc146ab82bc5436dda1309ee6e03973}{yasm\-\_\-arch\-\_\-parse\-\_\-check\-\_\-insnprefix} (\hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch, const char $\ast$id, size\-\_\-t id\-\_\-len, unsigned long line, \hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$$\ast$bc, uintptr\-\_\-t $\ast$prefix)
+\item 
+\hyperlink{arch_8h_a1261e0e39e12f0e4490924676c591376}{yasm\-\_\-arch\-\_\-regtmod} \hyperlink{arch_8h_ae5629c839eb94f1635d8cf52bc1a2fae}{yasm\-\_\-arch\-\_\-parse\-\_\-check\-\_\-regtmod} (\hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch, const char $\ast$id, size\-\_\-t id\-\_\-len, uintptr\-\_\-t $\ast$data)
+\item 
+const unsigned char $\ast$$\ast$ \hyperlink{arch_8h_a858df4dae177c2f755ebea857133c98f}{yasm\-\_\-arch\-\_\-get\-\_\-fill} (const \hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch)
+\item 
+int \hyperlink{arch_8h_a443bebaf0b9d66277efa056568f683a5}{yasm\-\_\-arch\-\_\-floatnum\-\_\-tobytes} (\hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch, const \hyperlink{structyasm__floatnum}{yasm\-\_\-floatnum} $\ast$flt, unsigned char $\ast$buf, size\-\_\-t destsize, size\-\_\-t valsize, size\-\_\-t shift, int \hyperlink{structwarn}{warn})
+\item 
+int \hyperlink{arch_8h_a26af7f92b5ea9c7b9a663746de83de35}{yasm\-\_\-arch\-\_\-intnum\-\_\-tobytes} (\hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch, const \hyperlink{structyasm__intnum}{yasm\-\_\-intnum} $\ast$intn, unsigned char $\ast$buf, size\-\_\-t destsize, size\-\_\-t valsize, int shift, const \hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$bc, int \hyperlink{structwarn}{warn})
+\item 
+unsigned int \hyperlink{arch_8h_a028fd6b5698ea232ca602915d067cd64}{yasm\-\_\-arch\-\_\-get\-\_\-reg\-\_\-size} (\hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch, uintptr\-\_\-t reg)
+\item 
+uintptr\-\_\-t \hyperlink{arch_8h_a36f66dab0dda54a462a0ffde3a0ffd3f}{yasm\-\_\-arch\-\_\-reggroup\-\_\-get\-\_\-reg} (\hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch, uintptr\-\_\-t reggroup, unsigned long regindex)
+\item 
+void \hyperlink{arch_8h_aba11eeccc9e706a2ce6e1e33eb9e7b64}{yasm\-\_\-arch\-\_\-reg\-\_\-print} (\hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch, uintptr\-\_\-t reg, F\-I\-L\-E $\ast$f)
+\item 
+void \hyperlink{arch_8h_a36b6f88e9baf65e7de03a63afed67f3f}{yasm\-\_\-arch\-\_\-segreg\-\_\-print} (\hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch, uintptr\-\_\-t segreg, F\-I\-L\-E $\ast$f)
+\item 
+\hyperlink{structyasm__effaddr}{yasm\-\_\-effaddr} $\ast$ \hyperlink{arch_8h_a6da9f655b142d8b112ae286277b6b1ca}{yasm\-\_\-arch\-\_\-ea\-\_\-create} (\hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch, \hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$e)
+\item 
+void \hyperlink{arch_8h_a535b9daa3638a8f8f5540cbc643170f3}{yasm\-\_\-arch\-\_\-ea\-\_\-destroy} (\hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch, \hyperlink{structyasm__effaddr}{yasm\-\_\-effaddr} $\ast$ea)
+\item 
+void \hyperlink{arch_8h_afaa5797a072eb925e3fc4f24f6a7b376}{yasm\-\_\-arch\-\_\-ea\-\_\-print} (const \hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch, const \hyperlink{structyasm__effaddr}{yasm\-\_\-effaddr} $\ast$ea, F\-I\-L\-E $\ast$f, int indent\-\_\-level)
+\item 
+\hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$ \hyperlink{arch_8h_ac9134bbe90f137ddcbca2266713156e9}{yasm\-\_\-arch\-\_\-create\-\_\-empty\-\_\-insn} (\hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch, unsigned long line)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Y\-A\-S\-M architecture interface. Copyright (C) 2002-\/2007 Peter Johnson
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\-:
+\begin{DoxyItemize}
+\item Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+\item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+\end{DoxyItemize}
+
+T\-H\-I\-S S\-O\-F\-T\-W\-A\-R\-E I\-S P\-R\-O\-V\-I\-D\-E\-D B\-Y T\-H\-E A\-U\-T\-H\-O\-R A\-N\-D O\-T\-H\-E\-R C\-O\-N\-T\-R\-I\-B\-U\-T\-O\-R\-S ``\-A\-S I\-S'' A\-N\-D A\-N\-Y E\-X\-P\-R\-E\-S\-S O\-R I\-M\-P\-L\-I\-E\-D W\-A\-R\-R\-A\-N\-T\-I\-E\-S, I\-N\-C\-L\-U\-D\-I\-N\-G, B\-U\-T N\-O\-T L\-I\-M\-I\-T\-E\-D T\-O, T\-H\-E I\-M\-P\-L\-I\-E\-D W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-F M\-E\-R\-C\-H\-A\-N\-T\-A\-B\-I\-L\-I\-T\-Y A\-N\-D F\-I\-T\-N\-E\-S\-S F\-O\-R A P\-A\-R\-T\-I\-C\-U\-L\-A\-R P\-U\-R\-P\-O\-S\-E A\-R\-E D\-I\-S\-C\-L\-A\-I\-M\-E\-D. I\-N N\-O E\-V\-E\-N\-T S\-H\-A\-L\-L T\-H\-E A\-U\-T\-H\-O\-R O\-R O\-T\-H\-E\-R C\-O\-N\-T\-R\-I\-B\-U\-T\-O\-R\-S B\-E L\-I\-A\-B\-L\-E F\-O\-R A\-N\-Y D\-I\-R\-E\-C\-T, I\-N\-D\-I\-R\-E\-C\-T, I\-N\-C\-I\-D\-E\-N\-T\-A\-L, S\-P\-E\-C\-I\-A\-L, E\-X\-E\-M\-P\-L\-A\-R\-Y, O\-R C\-O\-N\-S\-E\-Q\-U\-E\-N\-T\-I\-A\-L D\-A\-M\-A\-G\-E\-S (I\-N\-C\-L\-U\-D\-I\-N\-G, B\-U\-T N\-O\-T L\-I\-M\-I\-T\-E\-D T\-O, P\-R\-O\-C\-U\-R\-E\-M\-E\-N\-T O\-F S\-U\-B\-S\-T\-I\-T\-U\-T\-E G\-O\-O\-D\-S O\-R S\-E\-R\-V\-I\-C\-E\-S; L\-O\-S\-S O\-F U\-S\-E, D\-A\-T\-A, O\-R P\-R\-O\-F\-I\-T\-S; O\-R B\-U\-S\-I\-N\-E\-S\-S I\-N\-T\-E\-R\-R\-U\-P\-T\-I\-O\-N) H\-O\-W\-E\-V\-E\-R C\-A\-U\-S\-E\-D A\-N\-D O\-N A\-N\-Y T\-H\-E\-O\-R\-Y O\-F L\-I\-A\-B\-I\-L\-I\-T\-Y, W\-H\-E\-T\-H\-E\-R I\-N C\-O\-N\-T\-R\-A\-C\-T, S\-T\-R\-I\-C\-T L\-I\-A\-B\-I\-L\-I\-T\-Y, O\-R T\-O\-R\-T (I\-N\-C\-L\-U\-D\-I\-N\-G N\-E\-G\-L\-I\-G\-E\-N\-C\-E O\-R O\-T\-H\-E\-R\-W\-I\-S\-E) A\-R\-I\-S\-I\-N\-G I\-N A\-N\-Y W\-A\-Y O\-U\-T O\-F T\-H\-E U\-S\-E O\-F T\-H\-I\-S S\-O\-F\-T\-W\-A\-R\-E, E\-V\-E\-N I\-F A\-D\-V\-I\-S\-E\-D O\-F T\-H\-E P\-O\-S\-S\-I\-B\-I\-L\-I\-T\-Y O\-F S\-U\-C\-H D\-A\-M\-A\-G\-E.  
+
+\subsection{Macro Definition Documentation}
+\hypertarget{arch_8h_aec53b7157446a17bbe89ffc10d0b3620}{\index{arch.\-h@{arch.\-h}!yasm\-\_\-arch\-\_\-floatnum\-\_\-tobytes@{yasm\-\_\-arch\-\_\-floatnum\-\_\-tobytes}}
+\index{yasm\-\_\-arch\-\_\-floatnum\-\_\-tobytes@{yasm\-\_\-arch\-\_\-floatnum\-\_\-tobytes}!arch.h@{arch.\-h}}
+\subsubsection[{yasm\-\_\-arch\-\_\-floatnum\-\_\-tobytes}]{\setlength{\rightskip}{0pt plus 5cm}\#define yasm\-\_\-arch\-\_\-floatnum\-\_\-tobytes(
+\begin{DoxyParamCaption}
+\item[{}]{arch, }
+\item[{}]{flt, }
+\item[{}]{buf, }
+\item[{}]{destsize, }
+\item[{}]{valsize, }
+\item[{}]{shift, }
+\item[{}]{{\bf warn}}
+\end{DoxyParamCaption}
+)}}\label{arch_8h_aec53b7157446a17bbe89ffc10d0b3620}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+((\hyperlink{structyasm__arch__base}{yasm\_arch\_base} *)arch)->module->floatnum\_tobytes \(\backslash\)
+        (arch, flt, buf, destsize, valsize, shift, \hyperlink{structwarn}{warn})
+\end{DoxyCode}
+\hypertarget{arch_8h_a69bbdc5a284aecce733ae2328b0f774d}{\index{arch.\-h@{arch.\-h}!yasm\-\_\-arch\-\_\-intnum\-\_\-tobytes@{yasm\-\_\-arch\-\_\-intnum\-\_\-tobytes}}
+\index{yasm\-\_\-arch\-\_\-intnum\-\_\-tobytes@{yasm\-\_\-arch\-\_\-intnum\-\_\-tobytes}!arch.h@{arch.\-h}}
+\subsubsection[{yasm\-\_\-arch\-\_\-intnum\-\_\-tobytes}]{\setlength{\rightskip}{0pt plus 5cm}\#define yasm\-\_\-arch\-\_\-intnum\-\_\-tobytes(
+\begin{DoxyParamCaption}
+\item[{}]{arch, }
+\item[{}]{intn, }
+\item[{}]{buf, }
+\item[{}]{destsize, }
+\item[{}]{valsize, }
+\item[{}]{shift, }
+\item[{}]{bc, }
+\item[{}]{{\bf warn}}
+\end{DoxyParamCaption}
+)}}\label{arch_8h_a69bbdc5a284aecce733ae2328b0f774d}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+((\hyperlink{structyasm__arch__base}{yasm\_arch\_base} *)arch)->module->intnum\_tobytes \(\backslash\)
+        (arch, intn, buf, destsize, valsize, shift, bc, \hyperlink{structwarn}{warn})
+\end{DoxyCode}
+\hypertarget{arch_8h_a484676b01c603b6cbf66a6dc3c17d2fb}{\index{arch.\-h@{arch.\-h}!yasm\-\_\-arch\-\_\-parse\-\_\-check\-\_\-insnprefix@{yasm\-\_\-arch\-\_\-parse\-\_\-check\-\_\-insnprefix}}
+\index{yasm\-\_\-arch\-\_\-parse\-\_\-check\-\_\-insnprefix@{yasm\-\_\-arch\-\_\-parse\-\_\-check\-\_\-insnprefix}!arch.h@{arch.\-h}}
+\subsubsection[{yasm\-\_\-arch\-\_\-parse\-\_\-check\-\_\-insnprefix}]{\setlength{\rightskip}{0pt plus 5cm}\#define yasm\-\_\-arch\-\_\-parse\-\_\-check\-\_\-insnprefix(
+\begin{DoxyParamCaption}
+\item[{}]{arch, }
+\item[{}]{id, }
+\item[{}]{id\-\_\-len, }
+\item[{}]{line, }
+\item[{}]{bc, }
+\item[{}]{prefix}
+\end{DoxyParamCaption}
+)}}\label{arch_8h_a484676b01c603b6cbf66a6dc3c17d2fb}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+((\hyperlink{structyasm__arch__base}{yasm\_arch\_base} *)arch)->module->parse\_check\_insnprefix \(\backslash\)
+        (arch, id, id\_len, line, bc, prefix)
+\end{DoxyCode}
+\hypertarget{arch_8h_a36d79b65b5ad88de95bff9d962db871b}{\index{arch.\-h@{arch.\-h}!yasm\-\_\-arch\-\_\-parse\-\_\-check\-\_\-regtmod@{yasm\-\_\-arch\-\_\-parse\-\_\-check\-\_\-regtmod}}
+\index{yasm\-\_\-arch\-\_\-parse\-\_\-check\-\_\-regtmod@{yasm\-\_\-arch\-\_\-parse\-\_\-check\-\_\-regtmod}!arch.h@{arch.\-h}}
+\subsubsection[{yasm\-\_\-arch\-\_\-parse\-\_\-check\-\_\-regtmod}]{\setlength{\rightskip}{0pt plus 5cm}\#define yasm\-\_\-arch\-\_\-parse\-\_\-check\-\_\-regtmod(
+\begin{DoxyParamCaption}
+\item[{}]{arch, }
+\item[{}]{id, }
+\item[{}]{id\-\_\-len, }
+\item[{}]{data}
+\end{DoxyParamCaption}
+)}}\label{arch_8h_a36d79b65b5ad88de95bff9d962db871b}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+((\hyperlink{structyasm__arch__base}{yasm\_arch\_base} *)arch)->module->parse\_check\_regtmod \(\backslash\)
+        (arch, id, id\_len, data)
+\end{DoxyCode}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{arch_8h_aac289203edca4e7c66ba770fea0f25a1}{\index{arch.\-h@{arch.\-h}!yasm\-\_\-arch\-\_\-base@{yasm\-\_\-arch\-\_\-base}}
+\index{yasm\-\_\-arch\-\_\-base@{yasm\-\_\-arch\-\_\-base}!arch.h@{arch.\-h}}
+\subsubsection[{yasm\-\_\-arch\-\_\-base}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf yasm\-\_\-arch\-\_\-base}  {\bf yasm\-\_\-arch\-\_\-base}}}\label{arch_8h_aac289203edca4e7c66ba770fea0f25a1}
+Base \hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} structure. Must be present as the first element in any \hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} implementation. \hypertarget{arch_8h_aea1134ce762aa9c840fc955114a40b00}{\index{arch.\-h@{arch.\-h}!yasm\-\_\-arch\-\_\-create\-\_\-error@{yasm\-\_\-arch\-\_\-create\-\_\-error}}
+\index{yasm\-\_\-arch\-\_\-create\-\_\-error@{yasm\-\_\-arch\-\_\-create\-\_\-error}!arch.h@{arch.\-h}}
+\subsubsection[{yasm\-\_\-arch\-\_\-create\-\_\-error}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf yasm\-\_\-arch\-\_\-create\-\_\-error}  {\bf yasm\-\_\-arch\-\_\-create\-\_\-error}}}\label{arch_8h_aea1134ce762aa9c840fc955114a40b00}
+Errors that may be returned by \hyperlink{structyasm__arch__module_a1c8c7a915d05db99e62b54a82d764231}{yasm\-\_\-arch\-\_\-module\-::create()}. \hypertarget{arch_8h_a86322b751f753abf7b9912162d0d03aa}{\index{arch.\-h@{arch.\-h}!yasm\-\_\-arch\-\_\-insnprefix@{yasm\-\_\-arch\-\_\-insnprefix}}
+\index{yasm\-\_\-arch\-\_\-insnprefix@{yasm\-\_\-arch\-\_\-insnprefix}!arch.h@{arch.\-h}}
+\subsubsection[{yasm\-\_\-arch\-\_\-insnprefix}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf yasm\-\_\-arch\-\_\-insnprefix}  {\bf yasm\-\_\-arch\-\_\-insnprefix}}}\label{arch_8h_a86322b751f753abf7b9912162d0d03aa}
+Return values for \hyperlink{structyasm__arch__module_a3dde1b6ec44c7d351f795ddafd364c48}{yasm\-\_\-arch\-\_\-module\-::parse\-\_\-check\-\_\-insnprefix()}. \hypertarget{arch_8h_a8af2ef4ad08968b5c88e7be53cbc80ed}{\index{arch.\-h@{arch.\-h}!yasm\-\_\-arch\-\_\-machine@{yasm\-\_\-arch\-\_\-machine}}
+\index{yasm\-\_\-arch\-\_\-machine@{yasm\-\_\-arch\-\_\-machine}!arch.h@{arch.\-h}}
+\subsubsection[{yasm\-\_\-arch\-\_\-machine}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf yasm\-\_\-arch\-\_\-machine}  {\bf yasm\-\_\-arch\-\_\-machine}}}\label{arch_8h_a8af2ef4ad08968b5c88e7be53cbc80ed}
+Y\-A\-S\-M machine subtype. A number of different machine types may be associated with a single architecture. These may be specific C\-P\-U's, but the A\-B\-I used to interface with the architecture should be the primary differentiator between machines. Some object formats (E\-L\-F) use the machine to determine parameters within the generated output. \hypertarget{arch_8h_ac94302e08b8b707c7ebd212e3aaef140}{\index{arch.\-h@{arch.\-h}!yasm\-\_\-arch\-\_\-module@{yasm\-\_\-arch\-\_\-module}}
+\index{yasm\-\_\-arch\-\_\-module@{yasm\-\_\-arch\-\_\-module}!arch.h@{arch.\-h}}
+\subsubsection[{yasm\-\_\-arch\-\_\-module}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf yasm\-\_\-arch\-\_\-module}  {\bf yasm\-\_\-arch\-\_\-module}}}\label{arch_8h_ac94302e08b8b707c7ebd212e3aaef140}
+Y\-A\-S\-M architecture module interface. \begin{DoxyNote}{Note}
+All \char`\"{}data\char`\"{} in parser-\/related functions (yasm\-\_\-arch\-\_\-parse\-\_\-$\ast$) needs to start the parse initialized to 0 to make it okay for a parser-\/related function to use/check previously stored data to see if it's been called before on the same piece of data. 
+\end{DoxyNote}
+\hypertarget{arch_8h_a96c67b4bef85c6ef9a032b1832b7c404}{\index{arch.\-h@{arch.\-h}!yasm\-\_\-arch\-\_\-regtmod@{yasm\-\_\-arch\-\_\-regtmod}}
+\index{yasm\-\_\-arch\-\_\-regtmod@{yasm\-\_\-arch\-\_\-regtmod}!arch.h@{arch.\-h}}
+\subsubsection[{yasm\-\_\-arch\-\_\-regtmod}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf yasm\-\_\-arch\-\_\-regtmod}  {\bf yasm\-\_\-arch\-\_\-regtmod}}}\label{arch_8h_a96c67b4bef85c6ef9a032b1832b7c404}
+Types of registers / target modifiers that may be returned by \hyperlink{structyasm__arch__module_a3ebd6e4bda71c110b9455b3965c148dd}{yasm\-\_\-arch\-\_\-module\-::parse\-\_\-check\-\_\-regtmod()}. 
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{arch_8h_a6c9e33e39484739985d931045ca2faa2}{\index{arch.\-h@{arch.\-h}!yasm\-\_\-arch\-\_\-create\-\_\-error@{yasm\-\_\-arch\-\_\-create\-\_\-error}}
+\index{yasm\-\_\-arch\-\_\-create\-\_\-error@{yasm\-\_\-arch\-\_\-create\-\_\-error}!arch.h@{arch.\-h}}
+\subsubsection[{yasm\-\_\-arch\-\_\-create\-\_\-error}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf yasm\-\_\-arch\-\_\-create\-\_\-error}}}\label{arch_8h_a6c9e33e39484739985d931045ca2faa2}
+Errors that may be returned by \hyperlink{structyasm__arch__module_a1c8c7a915d05db99e62b54a82d764231}{yasm\-\_\-arch\-\_\-module\-::create()}. \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-C\-R\-E\-A\-T\-E\-\_\-\-O\-K@{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-C\-R\-E\-A\-T\-E\-\_\-\-O\-K}!arch.\-h@{arch.\-h}}\index{arch.\-h@{arch.\-h}!Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-C\-R\-E\-A\-T\-E\-\_\-\-O\-K@{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-C\-R\-E\-A\-T\-E\-\_\-\-O\-K}}\item[{\em 
+\hypertarget{arch_8h_a6c9e33e39484739985d931045ca2faa2a1abe8ec90ec5f31067fe8f88c249b84d}{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-C\-R\-E\-A\-T\-E\-\_\-\-O\-K}\label{arch_8h_a6c9e33e39484739985d931045ca2faa2a1abe8ec90ec5f31067fe8f88c249b84d}
+}]No error. \index{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-C\-R\-E\-A\-T\-E\-\_\-\-B\-A\-D\-\_\-\-M\-A\-C\-H\-I\-N\-E@{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-C\-R\-E\-A\-T\-E\-\_\-\-B\-A\-D\-\_\-\-M\-A\-C\-H\-I\-N\-E}!arch.\-h@{arch.\-h}}\index{arch.\-h@{arch.\-h}!Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-C\-R\-E\-A\-T\-E\-\_\-\-B\-A\-D\-\_\-\-M\-A\-C\-H\-I\-N\-E@{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-C\-R\-E\-A\-T\-E\-\_\-\-B\-A\-D\-\_\-\-M\-A\-C\-H\-I\-N\-E}}\item[{\em 
+\hypertarget{arch_8h_a6c9e33e39484739985d931045ca2faa2af4e78598a1592747bed35b6b173b7d10}{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-C\-R\-E\-A\-T\-E\-\_\-\-B\-A\-D\-\_\-\-M\-A\-C\-H\-I\-N\-E}\label{arch_8h_a6c9e33e39484739985d931045ca2faa2af4e78598a1592747bed35b6b173b7d10}
+}]Unrecognized machine name. \index{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-C\-R\-E\-A\-T\-E\-\_\-\-B\-A\-D\-\_\-\-P\-A\-R\-S\-E\-R@{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-C\-R\-E\-A\-T\-E\-\_\-\-B\-A\-D\-\_\-\-P\-A\-R\-S\-E\-R}!arch.\-h@{arch.\-h}}\index{arch.\-h@{arch.\-h}!Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-C\-R\-E\-A\-T\-E\-\_\-\-B\-A\-D\-\_\-\-P\-A\-R\-S\-E\-R@{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-C\-R\-E\-A\-T\-E\-\_\-\-B\-A\-D\-\_\-\-P\-A\-R\-S\-E\-R}}\item[{\em 
+\hypertarget{arch_8h_a6c9e33e39484739985d931045ca2faa2a7035e79a7b23710fcd5c26c3f319486f}{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-C\-R\-E\-A\-T\-E\-\_\-\-B\-A\-D\-\_\-\-P\-A\-R\-S\-E\-R}\label{arch_8h_a6c9e33e39484739985d931045ca2faa2a7035e79a7b23710fcd5c26c3f319486f}
+}]Unrecognized parser name. \end{description}
+\end{Desc}
+\hypertarget{arch_8h_ac21db64e3ba86dfe84f8028f8c14cb2a}{\index{arch.\-h@{arch.\-h}!yasm\-\_\-arch\-\_\-insnprefix@{yasm\-\_\-arch\-\_\-insnprefix}}
+\index{yasm\-\_\-arch\-\_\-insnprefix@{yasm\-\_\-arch\-\_\-insnprefix}!arch.h@{arch.\-h}}
+\subsubsection[{yasm\-\_\-arch\-\_\-insnprefix}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf yasm\-\_\-arch\-\_\-insnprefix}}}\label{arch_8h_ac21db64e3ba86dfe84f8028f8c14cb2a}
+Return values for \hyperlink{structyasm__arch__module_a3dde1b6ec44c7d351f795ddafd364c48}{yasm\-\_\-arch\-\_\-module\-::parse\-\_\-check\-\_\-insnprefix()}. \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-N\-O\-T\-I\-N\-S\-N\-P\-R\-E\-F\-I\-X@{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-N\-O\-T\-I\-N\-S\-N\-P\-R\-E\-F\-I\-X}!arch.\-h@{arch.\-h}}\index{arch.\-h@{arch.\-h}!Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-N\-O\-T\-I\-N\-S\-N\-P\-R\-E\-F\-I\-X@{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-N\-O\-T\-I\-N\-S\-N\-P\-R\-E\-F\-I\-X}}\item[{\em 
+\hypertarget{arch_8h_ac21db64e3ba86dfe84f8028f8c14cb2aa330bd61725c0ea3f0301222039af33f5}{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-N\-O\-T\-I\-N\-S\-N\-P\-R\-E\-F\-I\-X}\label{arch_8h_ac21db64e3ba86dfe84f8028f8c14cb2aa330bd61725c0ea3f0301222039af33f5}
+}]Unrecognized \index{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-I\-N\-S\-N@{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-I\-N\-S\-N}!arch.\-h@{arch.\-h}}\index{arch.\-h@{arch.\-h}!Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-I\-N\-S\-N@{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-I\-N\-S\-N}}\item[{\em 
+\hypertarget{arch_8h_ac21db64e3ba86dfe84f8028f8c14cb2aa156af61b97778215aa2136588474c65c}{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-I\-N\-S\-N}\label{arch_8h_ac21db64e3ba86dfe84f8028f8c14cb2aa156af61b97778215aa2136588474c65c}
+}]An instruction \index{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-P\-R\-E\-F\-I\-X@{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-P\-R\-E\-F\-I\-X}!arch.\-h@{arch.\-h}}\index{arch.\-h@{arch.\-h}!Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-P\-R\-E\-F\-I\-X@{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-P\-R\-E\-F\-I\-X}}\item[{\em 
+\hypertarget{arch_8h_ac21db64e3ba86dfe84f8028f8c14cb2aa4a28bc01af02a170a88d6dcbac952e18}{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-P\-R\-E\-F\-I\-X}\label{arch_8h_ac21db64e3ba86dfe84f8028f8c14cb2aa4a28bc01af02a170a88d6dcbac952e18}
+}]An instruction prefix \end{description}
+\end{Desc}
+\hypertarget{arch_8h_a1261e0e39e12f0e4490924676c591376}{\index{arch.\-h@{arch.\-h}!yasm\-\_\-arch\-\_\-regtmod@{yasm\-\_\-arch\-\_\-regtmod}}
+\index{yasm\-\_\-arch\-\_\-regtmod@{yasm\-\_\-arch\-\_\-regtmod}!arch.h@{arch.\-h}}
+\subsubsection[{yasm\-\_\-arch\-\_\-regtmod}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf yasm\-\_\-arch\-\_\-regtmod}}}\label{arch_8h_a1261e0e39e12f0e4490924676c591376}
+Types of registers / target modifiers that may be returned by \hyperlink{structyasm__arch__module_a3ebd6e4bda71c110b9455b3965c148dd}{yasm\-\_\-arch\-\_\-module\-::parse\-\_\-check\-\_\-regtmod()}. \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-N\-O\-T\-R\-E\-G\-T\-M\-O\-D@{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-N\-O\-T\-R\-E\-G\-T\-M\-O\-D}!arch.\-h@{arch.\-h}}\index{arch.\-h@{arch.\-h}!Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-N\-O\-T\-R\-E\-G\-T\-M\-O\-D@{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-N\-O\-T\-R\-E\-G\-T\-M\-O\-D}}\item[{\em 
+\hypertarget{arch_8h_a1261e0e39e12f0e4490924676c591376a7ebb7a25bb58a03bb20a15be9206bf66}{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-N\-O\-T\-R\-E\-G\-T\-M\-O\-D}\label{arch_8h_a1261e0e39e12f0e4490924676c591376a7ebb7a25bb58a03bb20a15be9206bf66}
+}]Unrecognized \index{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-R\-E\-G@{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-R\-E\-G}!arch.\-h@{arch.\-h}}\index{arch.\-h@{arch.\-h}!Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-R\-E\-G@{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-R\-E\-G}}\item[{\em 
+\hypertarget{arch_8h_a1261e0e39e12f0e4490924676c591376ad681afa13d4e9474af243d2f89a89b8b}{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-R\-E\-G}\label{arch_8h_a1261e0e39e12f0e4490924676c591376ad681afa13d4e9474af243d2f89a89b8b}
+}]A \char`\"{}normal\char`\"{} register \index{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-R\-E\-G\-G\-R\-O\-U\-P@{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-R\-E\-G\-G\-R\-O\-U\-P}!arch.\-h@{arch.\-h}}\index{arch.\-h@{arch.\-h}!Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-R\-E\-G\-G\-R\-O\-U\-P@{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-R\-E\-G\-G\-R\-O\-U\-P}}\item[{\em 
+\hypertarget{arch_8h_a1261e0e39e12f0e4490924676c591376a80d10caa7a3a1024a470b89fe3746793}{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-R\-E\-G\-G\-R\-O\-U\-P}\label{arch_8h_a1261e0e39e12f0e4490924676c591376a80d10caa7a3a1024a470b89fe3746793}
+}]A group of indexable registers \index{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-S\-E\-G\-R\-E\-G@{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-S\-E\-G\-R\-E\-G}!arch.\-h@{arch.\-h}}\index{arch.\-h@{arch.\-h}!Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-S\-E\-G\-R\-E\-G@{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-S\-E\-G\-R\-E\-G}}\item[{\em 
+\hypertarget{arch_8h_a1261e0e39e12f0e4490924676c591376a3adafed403646fbacebf675afd563832}{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-S\-E\-G\-R\-E\-G}\label{arch_8h_a1261e0e39e12f0e4490924676c591376a3adafed403646fbacebf675afd563832}
+}]A segment register \index{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-T\-A\-R\-G\-E\-T\-M\-O\-D@{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-T\-A\-R\-G\-E\-T\-M\-O\-D}!arch.\-h@{arch.\-h}}\index{arch.\-h@{arch.\-h}!Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-T\-A\-R\-G\-E\-T\-M\-O\-D@{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-T\-A\-R\-G\-E\-T\-M\-O\-D}}\item[{\em 
+\hypertarget{arch_8h_a1261e0e39e12f0e4490924676c591376ae8ad96c051123fb498d9f05aa0b37de3}{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-T\-A\-R\-G\-E\-T\-M\-O\-D}\label{arch_8h_a1261e0e39e12f0e4490924676c591376ae8ad96c051123fb498d9f05aa0b37de3}
+}]A target modifier (for jumps) \end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{arch_8h_ac1aa673ef18339096cf4e2b387078bb3}{\index{arch.\-h@{arch.\-h}!yasm\-\_\-arch\-\_\-create@{yasm\-\_\-arch\-\_\-create}}
+\index{yasm\-\_\-arch\-\_\-create@{yasm\-\_\-arch\-\_\-create}!arch.h@{arch.\-h}}
+\subsubsection[{yasm\-\_\-arch\-\_\-create}]{\setlength{\rightskip}{0pt plus 5cm}{\bf yasm\-\_\-arch}$\ast$ yasm\-\_\-arch\-\_\-create (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-arch\-\_\-module} $\ast$}]{module, }
+\item[{const char $\ast$}]{machine, }
+\item[{const char $\ast$}]{parser, }
+\item[{{\bf yasm\-\_\-arch\-\_\-create\-\_\-error} $\ast$}]{error}
+\end{DoxyParamCaption}
+)}}\label{arch_8h_ac1aa673ef18339096cf4e2b387078bb3}
+Create architecture. 
+\begin{DoxyParams}{Parameters}
+{\em module} & architecture module \\
+\hline
+{\em machine} & keyword of machine in use (must be one listed in \hyperlink{structyasm__arch__module_aa9831300bb203ec3cdb35862b6187ebc}{yasm\-\_\-arch\-\_\-module.\-machines}) \\
+\hline
+{\em parser} & keyword of parser in use \\
+\hline
+{\em error} & error return value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+N\-U\-L\-L on error (error returned in error parameter), otherwise new architecture. 
+\end{DoxyReturn}
+\hypertarget{arch_8h_ac9134bbe90f137ddcbca2266713156e9}{\index{arch.\-h@{arch.\-h}!yasm\-\_\-arch\-\_\-create\-\_\-empty\-\_\-insn@{yasm\-\_\-arch\-\_\-create\-\_\-empty\-\_\-insn}}
+\index{yasm\-\_\-arch\-\_\-create\-\_\-empty\-\_\-insn@{yasm\-\_\-arch\-\_\-create\-\_\-empty\-\_\-insn}!arch.h@{arch.\-h}}
+\subsubsection[{yasm\-\_\-arch\-\_\-create\-\_\-empty\-\_\-insn}]{\setlength{\rightskip}{0pt plus 5cm}{\bf yasm\-\_\-bytecode}$\ast$ yasm\-\_\-arch\-\_\-create\-\_\-empty\-\_\-insn (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-arch} $\ast$}]{arch, }
+\item[{unsigned long}]{line}
+\end{DoxyParamCaption}
+)}}\label{arch_8h_ac9134bbe90f137ddcbca2266713156e9}
+Create a bytecode that represents a single empty (0 length) instruction. This is used for handling solitary prefixes. 
+\begin{DoxyParams}{Parameters}
+{\em arch} & architecture \\
+\hline
+{\em line} & virtual line (from \hyperlink{structyasm__linemap}{yasm\-\_\-linemap}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly allocated bytecode. 
+\end{DoxyReturn}
+\hypertarget{arch_8h_aa8c55848aa8e698d5a1b1291d440fee4}{\index{arch.\-h@{arch.\-h}!yasm\-\_\-arch\-\_\-destroy@{yasm\-\_\-arch\-\_\-destroy}}
+\index{yasm\-\_\-arch\-\_\-destroy@{yasm\-\_\-arch\-\_\-destroy}!arch.h@{arch.\-h}}
+\subsubsection[{yasm\-\_\-arch\-\_\-destroy}]{\setlength{\rightskip}{0pt plus 5cm}void yasm\-\_\-arch\-\_\-destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-arch} $\ast$}]{arch}
+\end{DoxyParamCaption}
+)}}\label{arch_8h_aa8c55848aa8e698d5a1b1291d440fee4}
+Clean up, free any architecture-\/allocated memory. 
+\begin{DoxyParams}{Parameters}
+{\em arch} & architecture \\
+\hline
+\end{DoxyParams}
+\hypertarget{arch_8h_a6da9f655b142d8b112ae286277b6b1ca}{\index{arch.\-h@{arch.\-h}!yasm\-\_\-arch\-\_\-ea\-\_\-create@{yasm\-\_\-arch\-\_\-ea\-\_\-create}}
+\index{yasm\-\_\-arch\-\_\-ea\-\_\-create@{yasm\-\_\-arch\-\_\-ea\-\_\-create}!arch.h@{arch.\-h}}
+\subsubsection[{yasm\-\_\-arch\-\_\-ea\-\_\-create}]{\setlength{\rightskip}{0pt plus 5cm}{\bf yasm\-\_\-effaddr}$\ast$ yasm\-\_\-arch\-\_\-ea\-\_\-create (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-arch} $\ast$}]{arch, }
+\item[{{\bf yasm\-\_\-expr} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}}\label{arch_8h_a6da9f655b142d8b112ae286277b6b1ca}
+Create an effective address from an expression. 
+\begin{DoxyParams}{Parameters}
+{\em arch} & architecture \\
+\hline
+{\em e} & expression (kept, do not delete) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly allocated effective address. 
+\end{DoxyReturn}
+\hypertarget{arch_8h_a535b9daa3638a8f8f5540cbc643170f3}{\index{arch.\-h@{arch.\-h}!yasm\-\_\-arch\-\_\-ea\-\_\-destroy@{yasm\-\_\-arch\-\_\-ea\-\_\-destroy}}
+\index{yasm\-\_\-arch\-\_\-ea\-\_\-destroy@{yasm\-\_\-arch\-\_\-ea\-\_\-destroy}!arch.h@{arch.\-h}}
+\subsubsection[{yasm\-\_\-arch\-\_\-ea\-\_\-destroy}]{\setlength{\rightskip}{0pt plus 5cm}void yasm\-\_\-arch\-\_\-ea\-\_\-destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-arch} $\ast$}]{arch, }
+\item[{{\bf yasm\-\_\-effaddr} $\ast$}]{ea}
+\end{DoxyParamCaption}
+)}}\label{arch_8h_a535b9daa3638a8f8f5540cbc643170f3}
+Delete (free allocated memory for) an effective address. 
+\begin{DoxyParams}{Parameters}
+{\em arch} & architecture \\
+\hline
+{\em ea} & effective address (only pointer to it). \\
+\hline
+\end{DoxyParams}
+\hypertarget{arch_8h_afaa5797a072eb925e3fc4f24f6a7b376}{\index{arch.\-h@{arch.\-h}!yasm\-\_\-arch\-\_\-ea\-\_\-print@{yasm\-\_\-arch\-\_\-ea\-\_\-print}}
+\index{yasm\-\_\-arch\-\_\-ea\-\_\-print@{yasm\-\_\-arch\-\_\-ea\-\_\-print}!arch.h@{arch.\-h}}
+\subsubsection[{yasm\-\_\-arch\-\_\-ea\-\_\-print}]{\setlength{\rightskip}{0pt plus 5cm}void yasm\-\_\-arch\-\_\-ea\-\_\-print (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-arch} $\ast$}]{arch, }
+\item[{const {\bf yasm\-\_\-effaddr} $\ast$}]{ea, }
+\item[{F\-I\-L\-E $\ast$}]{f, }
+\item[{int}]{indent\-\_\-level}
+\end{DoxyParamCaption}
+)}}\label{arch_8h_afaa5797a072eb925e3fc4f24f6a7b376}
+Print an effective address. For debugging purposes. 
+\begin{DoxyParams}{Parameters}
+{\em arch} & architecture \\
+\hline
+{\em ea} & effective address \\
+\hline
+{\em f} & file \\
+\hline
+{\em indent\-\_\-level} & indentation level \\
+\hline
+\end{DoxyParams}
+\hypertarget{arch_8h_a443bebaf0b9d66277efa056568f683a5}{\index{arch.\-h@{arch.\-h}!yasm\-\_\-arch\-\_\-floatnum\-\_\-tobytes@{yasm\-\_\-arch\-\_\-floatnum\-\_\-tobytes}}
+\index{yasm\-\_\-arch\-\_\-floatnum\-\_\-tobytes@{yasm\-\_\-arch\-\_\-floatnum\-\_\-tobytes}!arch.h@{arch.\-h}}
+\subsubsection[{yasm\-\_\-arch\-\_\-floatnum\-\_\-tobytes}]{\setlength{\rightskip}{0pt plus 5cm}int yasm\-\_\-arch\-\_\-floatnum\-\_\-tobytes (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-arch} $\ast$}]{arch, }
+\item[{const {\bf yasm\-\_\-floatnum} $\ast$}]{flt, }
+\item[{unsigned char $\ast$}]{buf, }
+\item[{size\-\_\-t}]{destsize, }
+\item[{size\-\_\-t}]{valsize, }
+\item[{size\-\_\-t}]{shift, }
+\item[{int}]{warn}
+\end{DoxyParamCaption}
+)}}\label{arch_8h_a443bebaf0b9d66277efa056568f683a5}
+Output \hyperlink{structyasm__floatnum}{yasm\-\_\-floatnum} to buffer. Puts the value into the least significant bits of the destination, or may be shifted into more significant bits by the shift parameter. The destination bits are cleared before being set. Architecture-\/specific because of endianness. 
+\begin{DoxyParams}{Parameters}
+{\em arch} & architecture \\
+\hline
+{\em flt} & floating point value \\
+\hline
+{\em buf} & buffer to write into \\
+\hline
+{\em destsize} & destination size (in bytes) \\
+\hline
+{\em valsize} & size (in bits) \\
+\hline
+{\em shift} & left shift (in bits) \\
+\hline
+{\em warn} & enables standard overflow/underflow warnings \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nonzero on error. 
+\end{DoxyReturn}
+\hypertarget{arch_8h_a544b276b9840e0bc39d0e6bdd27003c3}{\index{arch.\-h@{arch.\-h}!yasm\-\_\-arch\-\_\-get\-\_\-address\-\_\-size@{yasm\-\_\-arch\-\_\-get\-\_\-address\-\_\-size}}
+\index{yasm\-\_\-arch\-\_\-get\-\_\-address\-\_\-size@{yasm\-\_\-arch\-\_\-get\-\_\-address\-\_\-size}!arch.h@{arch.\-h}}
+\subsubsection[{yasm\-\_\-arch\-\_\-get\-\_\-address\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int yasm\-\_\-arch\-\_\-get\-\_\-address\-\_\-size (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-arch} $\ast$}]{arch}
+\end{DoxyParamCaption}
+)}}\label{arch_8h_a544b276b9840e0bc39d0e6bdd27003c3}
+Get architecture's active address size, in bits. 
+\begin{DoxyParams}{Parameters}
+{\em arch} & architecture \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Active address size (in bits). 
+\end{DoxyReturn}
+\hypertarget{arch_8h_a858df4dae177c2f755ebea857133c98f}{\index{arch.\-h@{arch.\-h}!yasm\-\_\-arch\-\_\-get\-\_\-fill@{yasm\-\_\-arch\-\_\-get\-\_\-fill}}
+\index{yasm\-\_\-arch\-\_\-get\-\_\-fill@{yasm\-\_\-arch\-\_\-get\-\_\-fill}!arch.h@{arch.\-h}}
+\subsubsection[{yasm\-\_\-arch\-\_\-get\-\_\-fill}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned char$\ast$$\ast$ yasm\-\_\-arch\-\_\-get\-\_\-fill (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-arch} $\ast$}]{arch}
+\end{DoxyParamCaption}
+)}}\label{arch_8h_a858df4dae177c2f755ebea857133c98f}
+Get N\-O\-P fill patterns for 1-\/15 bytes of fill. 
+\begin{DoxyParams}{Parameters}
+{\em arch} & architecture \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+16-\/entry array of arrays; \mbox{[}0\mbox{]} is unused, \mbox{[}1\mbox{]} -\/ \mbox{[}15\mbox{]} point to arrays of 1-\/15 bytes (respectively) in length. 
+\end{DoxyReturn}
+\hypertarget{arch_8h_a140c8c687d8dfcde94aafc3338ec3bee}{\index{arch.\-h@{arch.\-h}!yasm\-\_\-arch\-\_\-get\-\_\-machine@{yasm\-\_\-arch\-\_\-get\-\_\-machine}}
+\index{yasm\-\_\-arch\-\_\-get\-\_\-machine@{yasm\-\_\-arch\-\_\-get\-\_\-machine}!arch.h@{arch.\-h}}
+\subsubsection[{yasm\-\_\-arch\-\_\-get\-\_\-machine}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ yasm\-\_\-arch\-\_\-get\-\_\-machine (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-arch} $\ast$}]{arch}
+\end{DoxyParamCaption}
+)}}\label{arch_8h_a140c8c687d8dfcde94aafc3338ec3bee}
+Get architecture's active machine name. 
+\begin{DoxyParams}{Parameters}
+{\em arch} & architecture \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Active machine name. 
+\end{DoxyReturn}
+\hypertarget{arch_8h_a028fd6b5698ea232ca602915d067cd64}{\index{arch.\-h@{arch.\-h}!yasm\-\_\-arch\-\_\-get\-\_\-reg\-\_\-size@{yasm\-\_\-arch\-\_\-get\-\_\-reg\-\_\-size}}
+\index{yasm\-\_\-arch\-\_\-get\-\_\-reg\-\_\-size@{yasm\-\_\-arch\-\_\-get\-\_\-reg\-\_\-size}!arch.h@{arch.\-h}}
+\subsubsection[{yasm\-\_\-arch\-\_\-get\-\_\-reg\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int yasm\-\_\-arch\-\_\-get\-\_\-reg\-\_\-size (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-arch} $\ast$}]{arch, }
+\item[{uintptr\-\_\-t}]{reg}
+\end{DoxyParamCaption}
+)}}\label{arch_8h_a028fd6b5698ea232ca602915d067cd64}
+Get the equivalent size of a register in bits. 
+\begin{DoxyParams}{Parameters}
+{\em arch} & architecture \\
+\hline
+{\em reg} & register \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if there is no suitable equivalent size, otherwise the size. 
+\end{DoxyReturn}
+\hypertarget{arch_8h_a26af7f92b5ea9c7b9a663746de83de35}{\index{arch.\-h@{arch.\-h}!yasm\-\_\-arch\-\_\-intnum\-\_\-tobytes@{yasm\-\_\-arch\-\_\-intnum\-\_\-tobytes}}
+\index{yasm\-\_\-arch\-\_\-intnum\-\_\-tobytes@{yasm\-\_\-arch\-\_\-intnum\-\_\-tobytes}!arch.h@{arch.\-h}}
+\subsubsection[{yasm\-\_\-arch\-\_\-intnum\-\_\-tobytes}]{\setlength{\rightskip}{0pt plus 5cm}int yasm\-\_\-arch\-\_\-intnum\-\_\-tobytes (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-arch} $\ast$}]{arch, }
+\item[{const {\bf yasm\-\_\-intnum} $\ast$}]{intn, }
+\item[{unsigned char $\ast$}]{buf, }
+\item[{size\-\_\-t}]{destsize, }
+\item[{size\-\_\-t}]{valsize, }
+\item[{int}]{shift, }
+\item[{const {\bf yasm\-\_\-bytecode} $\ast$}]{bc, }
+\item[{int}]{warn}
+\end{DoxyParamCaption}
+)}}\label{arch_8h_a26af7f92b5ea9c7b9a663746de83de35}
+Output \hyperlink{structyasm__intnum}{yasm\-\_\-intnum} to buffer. Puts the value into the least significant bits of the destination, or may be shifted into more significant bits by the shift parameter. The destination bits are cleared before being set. 
+\begin{DoxyParams}{Parameters}
+{\em arch} & architecture \\
+\hline
+{\em intn} & integer value \\
+\hline
+{\em buf} & buffer to write into \\
+\hline
+{\em destsize} & destination size (in bytes) \\
+\hline
+{\em valsize} & size (in bits) \\
+\hline
+{\em shift} & left shift (in bits); may be negative to specify right shift (standard warnings include truncation to boundary) \\
+\hline
+{\em bc} & bytecode being output (\char`\"{}parent\char`\"{} of value) \\
+\hline
+{\em warn} & enables standard warnings (value doesn't fit into valsize bits) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nonzero on error. 
+\end{DoxyReturn}
+\hypertarget{arch_8h_afb6a9a676fcc1d959f5dedf3632f3b79}{\index{arch.\-h@{arch.\-h}!yasm\-\_\-arch\-\_\-keyword@{yasm\-\_\-arch\-\_\-keyword}}
+\index{yasm\-\_\-arch\-\_\-keyword@{yasm\-\_\-arch\-\_\-keyword}!arch.h@{arch.\-h}}
+\subsubsection[{yasm\-\_\-arch\-\_\-keyword}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ yasm\-\_\-arch\-\_\-keyword (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-arch} $\ast$}]{arch}
+\end{DoxyParamCaption}
+)}}\label{arch_8h_afb6a9a676fcc1d959f5dedf3632f3b79}
+Get the keyword used to select an architecture. 
+\begin{DoxyParams}{Parameters}
+{\em arch} & architecture \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Architecture keyword. 
+\end{DoxyReturn}
+\hypertarget{arch_8h_a59cdef038169de55f73eb37a0f87ddbc}{\index{arch.\-h@{arch.\-h}!yasm\-\_\-arch\-\_\-min\-\_\-insn\-\_\-len@{yasm\-\_\-arch\-\_\-min\-\_\-insn\-\_\-len}}
+\index{yasm\-\_\-arch\-\_\-min\-\_\-insn\-\_\-len@{yasm\-\_\-arch\-\_\-min\-\_\-insn\-\_\-len}!arch.h@{arch.\-h}}
+\subsubsection[{yasm\-\_\-arch\-\_\-min\-\_\-insn\-\_\-len}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int yasm\-\_\-arch\-\_\-min\-\_\-insn\-\_\-len (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-arch} $\ast$}]{arch}
+\end{DoxyParamCaption}
+)}}\label{arch_8h_a59cdef038169de55f73eb37a0f87ddbc}
+Get the minimum instruction length of an architecture. 
+\begin{DoxyParams}{Parameters}
+{\em arch} & architecture \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Minimum instruction length (in bytes). 
+\end{DoxyReturn}
+\hypertarget{arch_8h_a900a62f7862b711046f55203e52acb87}{\index{arch.\-h@{arch.\-h}!yasm\-\_\-arch\-\_\-name@{yasm\-\_\-arch\-\_\-name}}
+\index{yasm\-\_\-arch\-\_\-name@{yasm\-\_\-arch\-\_\-name}!arch.h@{arch.\-h}}
+\subsubsection[{yasm\-\_\-arch\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ yasm\-\_\-arch\-\_\-name (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-arch} $\ast$}]{arch}
+\end{DoxyParamCaption}
+)}}\label{arch_8h_a900a62f7862b711046f55203e52acb87}
+Get the one-\/line description of an architecture. 
+\begin{DoxyParams}{Parameters}
+{\em arch} & architecture \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+One-\/line description of architecture. 
+\end{DoxyReturn}
+\hypertarget{arch_8h_aebc146ab82bc5436dda1309ee6e03973}{\index{arch.\-h@{arch.\-h}!yasm\-\_\-arch\-\_\-parse\-\_\-check\-\_\-insnprefix@{yasm\-\_\-arch\-\_\-parse\-\_\-check\-\_\-insnprefix}}
+\index{yasm\-\_\-arch\-\_\-parse\-\_\-check\-\_\-insnprefix@{yasm\-\_\-arch\-\_\-parse\-\_\-check\-\_\-insnprefix}!arch.h@{arch.\-h}}
+\subsubsection[{yasm\-\_\-arch\-\_\-parse\-\_\-check\-\_\-insnprefix}]{\setlength{\rightskip}{0pt plus 5cm}{\bf yasm\-\_\-arch\-\_\-insnprefix} yasm\-\_\-arch\-\_\-parse\-\_\-check\-\_\-insnprefix (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-arch} $\ast$}]{arch, }
+\item[{const char $\ast$}]{id, }
+\item[{size\-\_\-t}]{id\-\_\-len, }
+\item[{unsigned long}]{line, }
+\item[{{\bf yasm\-\_\-bytecode} $\ast$$\ast$}]{bc, }
+\item[{uintptr\-\_\-t $\ast$}]{prefix}
+\end{DoxyParamCaption}
+)}}\label{arch_8h_aebc146ab82bc5436dda1309ee6e03973}
+Check an generic identifier to see if it matches architecture specific names for instructions or instruction prefixes. Unrecognized identifiers should return \hyperlink{arch_8h_ac21db64e3ba86dfe84f8028f8c14cb2aa330bd61725c0ea3f0301222039af33f5}{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-N\-O\-T\-I\-N\-S\-N\-P\-R\-E\-F\-I\-X} so they can be treated as normal symbols. Any additional data beyond just the type (almost always necessary) should be returned into the space provided by the data parameter. 
+\begin{DoxyParams}{Parameters}
+{\em arch} & architecture \\
+\hline
+{\em id} & identifier as in the input file \\
+\hline
+{\em id\-\_\-len} & length of id string \\
+\hline
+{\em line} & virtual line \\
+\hline
+{\em bc} & for instructions, yasm\-\_\-insn-\/based bytecode is returned (and N\-U\-L\-L otherwise) \\
+\hline
+{\em prefix} & for prefixes, yasm\-\_\-arch-\/specific value is returned (and 0 otherwise) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Identifier type (\hyperlink{arch_8h_ac21db64e3ba86dfe84f8028f8c14cb2aa330bd61725c0ea3f0301222039af33f5}{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-N\-O\-T\-I\-N\-S\-N\-P\-R\-E\-F\-I\-X} if unrecognized) 
+\end{DoxyReturn}
+\hypertarget{arch_8h_ae5629c839eb94f1635d8cf52bc1a2fae}{\index{arch.\-h@{arch.\-h}!yasm\-\_\-arch\-\_\-parse\-\_\-check\-\_\-regtmod@{yasm\-\_\-arch\-\_\-parse\-\_\-check\-\_\-regtmod}}
+\index{yasm\-\_\-arch\-\_\-parse\-\_\-check\-\_\-regtmod@{yasm\-\_\-arch\-\_\-parse\-\_\-check\-\_\-regtmod}!arch.h@{arch.\-h}}
+\subsubsection[{yasm\-\_\-arch\-\_\-parse\-\_\-check\-\_\-regtmod}]{\setlength{\rightskip}{0pt plus 5cm}{\bf yasm\-\_\-arch\-\_\-regtmod} yasm\-\_\-arch\-\_\-parse\-\_\-check\-\_\-regtmod (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-arch} $\ast$}]{arch, }
+\item[{const char $\ast$}]{id, }
+\item[{size\-\_\-t}]{id\-\_\-len, }
+\item[{uintptr\-\_\-t $\ast$}]{data}
+\end{DoxyParamCaption}
+)}}\label{arch_8h_ae5629c839eb94f1635d8cf52bc1a2fae}
+Check an generic identifier to see if it matches architecture specific names for registers or target modifiers. Unrecognized identifiers should return \hyperlink{arch_8h_a1261e0e39e12f0e4490924676c591376a7ebb7a25bb58a03bb20a15be9206bf66}{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-N\-O\-T\-R\-E\-G\-T\-M\-O\-D}. Any additional data beyond just the type (almost always necessary) should be returned into the space provided by the data parameter. 
+\begin{DoxyParams}{Parameters}
+{\em arch} & architecture \\
+\hline
+{\em id} & identifier as in the input file \\
+\hline
+{\em id\-\_\-len} & length of id string \\
+\hline
+{\em data} & extra identification information (yasm\-\_\-arch-\/specific) \mbox{[}output\mbox{]} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Identifier type (\hyperlink{arch_8h_a1261e0e39e12f0e4490924676c591376a7ebb7a25bb58a03bb20a15be9206bf66}{Y\-A\-S\-M\-\_\-\-A\-R\-C\-H\-\_\-\-N\-O\-T\-R\-E\-G\-T\-M\-O\-D} if unrecognized) 
+\end{DoxyReturn}
+\hypertarget{arch_8h_aba11eeccc9e706a2ce6e1e33eb9e7b64}{\index{arch.\-h@{arch.\-h}!yasm\-\_\-arch\-\_\-reg\-\_\-print@{yasm\-\_\-arch\-\_\-reg\-\_\-print}}
+\index{yasm\-\_\-arch\-\_\-reg\-\_\-print@{yasm\-\_\-arch\-\_\-reg\-\_\-print}!arch.h@{arch.\-h}}
+\subsubsection[{yasm\-\_\-arch\-\_\-reg\-\_\-print}]{\setlength{\rightskip}{0pt plus 5cm}void yasm\-\_\-arch\-\_\-reg\-\_\-print (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-arch} $\ast$}]{arch, }
+\item[{uintptr\-\_\-t}]{reg, }
+\item[{F\-I\-L\-E $\ast$}]{f}
+\end{DoxyParamCaption}
+)}}\label{arch_8h_aba11eeccc9e706a2ce6e1e33eb9e7b64}
+Print a register. For debugging purposes. 
+\begin{DoxyParams}{Parameters}
+{\em arch} & architecture \\
+\hline
+{\em reg} & register \\
+\hline
+{\em f} & file \\
+\hline
+\end{DoxyParams}
+\hypertarget{arch_8h_a36f66dab0dda54a462a0ffde3a0ffd3f}{\index{arch.\-h@{arch.\-h}!yasm\-\_\-arch\-\_\-reggroup\-\_\-get\-\_\-reg@{yasm\-\_\-arch\-\_\-reggroup\-\_\-get\-\_\-reg}}
+\index{yasm\-\_\-arch\-\_\-reggroup\-\_\-get\-\_\-reg@{yasm\-\_\-arch\-\_\-reggroup\-\_\-get\-\_\-reg}!arch.h@{arch.\-h}}
+\subsubsection[{yasm\-\_\-arch\-\_\-reggroup\-\_\-get\-\_\-reg}]{\setlength{\rightskip}{0pt plus 5cm}uintptr\-\_\-t yasm\-\_\-arch\-\_\-reggroup\-\_\-get\-\_\-reg (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-arch} $\ast$}]{arch, }
+\item[{uintptr\-\_\-t}]{reggroup, }
+\item[{unsigned long}]{regindex}
+\end{DoxyParamCaption}
+)}}\label{arch_8h_a36f66dab0dda54a462a0ffde3a0ffd3f}
+Get a specific register of a register group, based on the register group and the index within the group. 
+\begin{DoxyParams}{Parameters}
+{\em arch} & architecture \\
+\hline
+{\em reggroup} & register group \\
+\hline
+{\em regindex} & register index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if regindex is not valid for that register group, otherwise the specific register value. 
+\end{DoxyReturn}
+\hypertarget{arch_8h_a36b6f88e9baf65e7de03a63afed67f3f}{\index{arch.\-h@{arch.\-h}!yasm\-\_\-arch\-\_\-segreg\-\_\-print@{yasm\-\_\-arch\-\_\-segreg\-\_\-print}}
+\index{yasm\-\_\-arch\-\_\-segreg\-\_\-print@{yasm\-\_\-arch\-\_\-segreg\-\_\-print}!arch.h@{arch.\-h}}
+\subsubsection[{yasm\-\_\-arch\-\_\-segreg\-\_\-print}]{\setlength{\rightskip}{0pt plus 5cm}void yasm\-\_\-arch\-\_\-segreg\-\_\-print (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-arch} $\ast$}]{arch, }
+\item[{uintptr\-\_\-t}]{segreg, }
+\item[{F\-I\-L\-E $\ast$}]{f}
+\end{DoxyParamCaption}
+)}}\label{arch_8h_a36b6f88e9baf65e7de03a63afed67f3f}
+Print a segment register. For debugging purposes. 
+\begin{DoxyParams}{Parameters}
+{\em arch} & architecture \\
+\hline
+{\em segreg} & segment register \\
+\hline
+{\em f} & file \\
+\hline
+\end{DoxyParams}
+\hypertarget{arch_8h_a06d7d1d8a7e999c8188e9fa6ae88fe0e}{\index{arch.\-h@{arch.\-h}!yasm\-\_\-arch\-\_\-set\-\_\-var@{yasm\-\_\-arch\-\_\-set\-\_\-var}}
+\index{yasm\-\_\-arch\-\_\-set\-\_\-var@{yasm\-\_\-arch\-\_\-set\-\_\-var}!arch.h@{arch.\-h}}
+\subsubsection[{yasm\-\_\-arch\-\_\-set\-\_\-var}]{\setlength{\rightskip}{0pt plus 5cm}int yasm\-\_\-arch\-\_\-set\-\_\-var (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-arch} $\ast$}]{arch, }
+\item[{const char $\ast$}]{var, }
+\item[{unsigned long}]{val}
+\end{DoxyParamCaption}
+)}}\label{arch_8h_a06d7d1d8a7e999c8188e9fa6ae88fe0e}
+Set any arch-\/specific variables. For example, \char`\"{}mode\-\_\-bits\char`\"{} in x86. 
+\begin{DoxyParams}{Parameters}
+{\em arch} & architecture \\
+\hline
+{\em var} & variable name \\
+\hline
+{\em val} & value to set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Zero on success, non-\/zero on failure (variable does not exist). 
+\end{DoxyReturn}
+\hypertarget{arch_8h_a7812ab1f993e1327fd1c1acafa63ca1e}{\index{arch.\-h@{arch.\-h}!yasm\-\_\-arch\-\_\-wordsize@{yasm\-\_\-arch\-\_\-wordsize}}
+\index{yasm\-\_\-arch\-\_\-wordsize@{yasm\-\_\-arch\-\_\-wordsize}!arch.h@{arch.\-h}}
+\subsubsection[{yasm\-\_\-arch\-\_\-wordsize}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int yasm\-\_\-arch\-\_\-wordsize (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-arch} $\ast$}]{arch}
+\end{DoxyParamCaption}
+)}}\label{arch_8h_a7812ab1f993e1327fd1c1acafa63ca1e}
+Get the word size of an architecture. 
+\begin{DoxyParams}{Parameters}
+{\em arch} & architecture \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Word size (in bits). 
+\end{DoxyReturn}

@@ -1,0 +1,63 @@
+\hypertarget{structyasm__expr____item}{\section{yasm\-\_\-expr\-\_\-\-\_\-item Struct Reference}
+\label{structyasm__expr____item}\index{yasm\-\_\-expr\-\_\-\-\_\-item@{yasm\-\_\-expr\-\_\-\-\_\-item}}
+}
+
+
+{\ttfamily \#include $<$expr.\-h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{expr_8h_a0b38be0745b4fdb9edd60a1698f7ca0b}{yasm\-\_\-expr\-\_\-\-\_\-type} \hyperlink{structyasm__expr____item_a267df87d11012e9046df717f33f413b0}{type}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\hyperlink{structyasm__bytecode}{yasm\_bytecode} $\ast$ \hyperlink{structyasm__expr____item_a8b0b9a18440fe185f304a45229ee5921}{precbc}\\
+\>\hyperlink{structyasm__symrec}{yasm\_symrec} $\ast$ \hyperlink{structyasm__expr____item_a281ff29799f1620de3a1fb327c507c5f}{sym}\\
+\>\hyperlink{structyasm__expr}{yasm\_expr} $\ast$ \hyperlink{structyasm__expr____item_a774cdf884a1590ccc1af42c90e04155f}{expn}\\
+\>\hyperlink{structyasm__intnum}{yasm\_intnum} $\ast$ \hyperlink{structyasm__expr____item_a326176864071cb8e352077ca16e98b50}{intn}\\
+\>\hyperlink{structyasm__floatnum}{yasm\_floatnum} $\ast$ \hyperlink{structyasm__expr____item_a1be033f053639350332156389e0dda43}{flt}\\
+\>uintptr\_t \hyperlink{structyasm__expr____item_a397bae2de73a33c8913308ff90012329}{reg}\\
+\>unsigned int \hyperlink{structyasm__expr____item_afd018d97c98b7b24cf695e70b1bf3871}{subst}\\
+\} \hyperlink{structyasm__expr____item_a92f56293ae09d1ddd23c0f793759dedd}{data}\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Expression item. 
+
+\subsection{Member Data Documentation}
+\hypertarget{structyasm__expr____item_a92f56293ae09d1ddd23c0f793759dedd}{\index{yasm\-\_\-expr\-\_\-\-\_\-item@{yasm\-\_\-expr\-\_\-\-\_\-item}!data@{data}}
+\index{data@{data}!yasm_expr__item@{yasm\-\_\-expr\-\_\-\-\_\-item}}
+\subsubsection[{data}]{\setlength{\rightskip}{0pt plus 5cm}union \{ ... \}   yasm\-\_\-expr\-\_\-\-\_\-item\-::data}}\label{structyasm__expr____item_a92f56293ae09d1ddd23c0f793759dedd}
+Expression item data. Correct value depends on type. \hypertarget{structyasm__expr____item_a774cdf884a1590ccc1af42c90e04155f}{\index{yasm\-\_\-expr\-\_\-\-\_\-item@{yasm\-\_\-expr\-\_\-\-\_\-item}!expn@{expn}}
+\index{expn@{expn}!yasm_expr__item@{yasm\-\_\-expr\-\_\-\-\_\-item}}
+\subsubsection[{expn}]{\setlength{\rightskip}{0pt plus 5cm}{\bf yasm\-\_\-expr}$\ast$ yasm\-\_\-expr\-\_\-\-\_\-item\-::expn}}\label{structyasm__expr____item_a774cdf884a1590ccc1af42c90e04155f}
+Subexpression (Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-E\-X\-P\-R) \hypertarget{structyasm__expr____item_a1be033f053639350332156389e0dda43}{\index{yasm\-\_\-expr\-\_\-\-\_\-item@{yasm\-\_\-expr\-\_\-\-\_\-item}!flt@{flt}}
+\index{flt@{flt}!yasm_expr__item@{yasm\-\_\-expr\-\_\-\-\_\-item}}
+\subsubsection[{flt}]{\setlength{\rightskip}{0pt plus 5cm}{\bf yasm\-\_\-floatnum}$\ast$ yasm\-\_\-expr\-\_\-\-\_\-item\-::flt}}\label{structyasm__expr____item_a1be033f053639350332156389e0dda43}
+Floating point value (Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-F\-L\-O\-A\-T) \hypertarget{structyasm__expr____item_a326176864071cb8e352077ca16e98b50}{\index{yasm\-\_\-expr\-\_\-\-\_\-item@{yasm\-\_\-expr\-\_\-\-\_\-item}!intn@{intn}}
+\index{intn@{intn}!yasm_expr__item@{yasm\-\_\-expr\-\_\-\-\_\-item}}
+\subsubsection[{intn}]{\setlength{\rightskip}{0pt plus 5cm}{\bf yasm\-\_\-intnum}$\ast$ yasm\-\_\-expr\-\_\-\-\_\-item\-::intn}}\label{structyasm__expr____item_a326176864071cb8e352077ca16e98b50}
+Integer value (Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-I\-N\-T) \hypertarget{structyasm__expr____item_a8b0b9a18440fe185f304a45229ee5921}{\index{yasm\-\_\-expr\-\_\-\-\_\-item@{yasm\-\_\-expr\-\_\-\-\_\-item}!precbc@{precbc}}
+\index{precbc@{precbc}!yasm_expr__item@{yasm\-\_\-expr\-\_\-\-\_\-item}}
+\subsubsection[{precbc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf yasm\-\_\-bytecode}$\ast$ yasm\-\_\-expr\-\_\-\-\_\-item\-::precbc}}\label{structyasm__expr____item_a8b0b9a18440fe185f304a45229ee5921}
+Direct bytecode ref (Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-P\-R\-E\-C\-B\-C) \hypertarget{structyasm__expr____item_a397bae2de73a33c8913308ff90012329}{\index{yasm\-\_\-expr\-\_\-\-\_\-item@{yasm\-\_\-expr\-\_\-\-\_\-item}!reg@{reg}}
+\index{reg@{reg}!yasm_expr__item@{yasm\-\_\-expr\-\_\-\-\_\-item}}
+\subsubsection[{reg}]{\setlength{\rightskip}{0pt plus 5cm}uintptr\-\_\-t yasm\-\_\-expr\-\_\-\-\_\-item\-::reg}}\label{structyasm__expr____item_a397bae2de73a33c8913308ff90012329}
+Register (Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-R\-E\-G) \hypertarget{structyasm__expr____item_afd018d97c98b7b24cf695e70b1bf3871}{\index{yasm\-\_\-expr\-\_\-\-\_\-item@{yasm\-\_\-expr\-\_\-\-\_\-item}!subst@{subst}}
+\index{subst@{subst}!yasm_expr__item@{yasm\-\_\-expr\-\_\-\-\_\-item}}
+\subsubsection[{subst}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int yasm\-\_\-expr\-\_\-\-\_\-item\-::subst}}\label{structyasm__expr____item_afd018d97c98b7b24cf695e70b1bf3871}
+Subst placeholder (Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-U\-B\-S\-T) \hypertarget{structyasm__expr____item_a281ff29799f1620de3a1fb327c507c5f}{\index{yasm\-\_\-expr\-\_\-\-\_\-item@{yasm\-\_\-expr\-\_\-\-\_\-item}!sym@{sym}}
+\index{sym@{sym}!yasm_expr__item@{yasm\-\_\-expr\-\_\-\-\_\-item}}
+\subsubsection[{sym}]{\setlength{\rightskip}{0pt plus 5cm}{\bf yasm\-\_\-symrec}$\ast$ yasm\-\_\-expr\-\_\-\-\_\-item\-::sym}}\label{structyasm__expr____item_a281ff29799f1620de3a1fb327c507c5f}
+Symbol (Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-Y\-M) \hypertarget{structyasm__expr____item_a267df87d11012e9046df717f33f413b0}{\index{yasm\-\_\-expr\-\_\-\-\_\-item@{yasm\-\_\-expr\-\_\-\-\_\-item}!type@{type}}
+\index{type@{type}!yasm_expr__item@{yasm\-\_\-expr\-\_\-\-\_\-item}}
+\subsubsection[{type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf yasm\-\_\-expr\-\_\-\-\_\-type} yasm\-\_\-expr\-\_\-\-\_\-item\-::type}}\label{structyasm__expr____item_a267df87d11012e9046df717f33f413b0}
+Type 
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{expr_8h}{expr.\-h}\end{DoxyCompactItemize}

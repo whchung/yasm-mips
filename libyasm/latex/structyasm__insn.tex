@@ -1,0 +1,62 @@
+\hypertarget{structyasm__insn}{\section{yasm\-\_\-insn Struct Reference}
+\label{structyasm__insn}\index{yasm\-\_\-insn@{yasm\-\_\-insn}}
+}
+
+
+{\ttfamily \#include $<$insn.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structyasm__insn_ac5ad8faa40b4f2d29277d0cd09301acf}{S\-T\-A\-I\-L\-Q\-\_\-\-H\-E\-A\-D} (yasm\-\_\-insn\-\_\-operands, \hyperlink{structyasm__insn__operand}{yasm\-\_\-insn\-\_\-operand}) operands
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uintptr\-\_\-t $\ast$ \hyperlink{structyasm__insn_a948dae24d2851a148b09df5dab8738ae}{prefixes}
+\item 
+uintptr\-\_\-t $\ast$ \hyperlink{structyasm__insn_ab06d761894e4d0684c85388e574f9ce6}{segregs}
+\item 
+unsigned int \hyperlink{structyasm__insn_a9ac9742d8c980c7e09ed6e2a7be54d68}{num\-\_\-operands}
+\item 
+unsigned int \hyperlink{structyasm__insn_a197439fed907e61b04a9f154cfa64379}{num\-\_\-prefixes}
+\item 
+unsigned int \hyperlink{structyasm__insn_a453de6522b676b79e5259a3d931eb786}{num\-\_\-segregs}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Base structure for \char`\"{}instruction\char`\"{} bytecodes. These are the mnenomic (rather than raw) representation of instructions. As with all base structures, must be present as the first element in any \hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} implementation of mnenomic instruction bytecodes. 
+
+\subsection{Member Function Documentation}
+\hypertarget{structyasm__insn_ac5ad8faa40b4f2d29277d0cd09301acf}{\index{yasm\-\_\-insn@{yasm\-\_\-insn}!S\-T\-A\-I\-L\-Q\-\_\-\-H\-E\-A\-D@{S\-T\-A\-I\-L\-Q\-\_\-\-H\-E\-A\-D}}
+\index{S\-T\-A\-I\-L\-Q\-\_\-\-H\-E\-A\-D@{S\-T\-A\-I\-L\-Q\-\_\-\-H\-E\-A\-D}!yasm_insn@{yasm\-\_\-insn}}
+\subsubsection[{S\-T\-A\-I\-L\-Q\-\_\-\-H\-E\-A\-D}]{\setlength{\rightskip}{0pt plus 5cm}yasm\-\_\-insn\-::\-S\-T\-A\-I\-L\-Q\-\_\-\-H\-E\-A\-D (
+\begin{DoxyParamCaption}
+\item[{yasm\-\_\-insn\-\_\-operands}]{, }
+\item[{{\bf yasm\-\_\-insn\-\_\-operand}}]{}
+\end{DoxyParamCaption}
+)}}\label{structyasm__insn_ac5ad8faa40b4f2d29277d0cd09301acf}
+Linked list of operands. 
+
+\subsection{Member Data Documentation}
+\hypertarget{structyasm__insn_a9ac9742d8c980c7e09ed6e2a7be54d68}{\index{yasm\-\_\-insn@{yasm\-\_\-insn}!num\-\_\-operands@{num\-\_\-operands}}
+\index{num\-\_\-operands@{num\-\_\-operands}!yasm_insn@{yasm\-\_\-insn}}
+\subsubsection[{num\-\_\-operands}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int yasm\-\_\-insn\-::num\-\_\-operands}}\label{structyasm__insn_a9ac9742d8c980c7e09ed6e2a7be54d68}
+Number of operands. \hypertarget{structyasm__insn_a197439fed907e61b04a9f154cfa64379}{\index{yasm\-\_\-insn@{yasm\-\_\-insn}!num\-\_\-prefixes@{num\-\_\-prefixes}}
+\index{num\-\_\-prefixes@{num\-\_\-prefixes}!yasm_insn@{yasm\-\_\-insn}}
+\subsubsection[{num\-\_\-prefixes}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int yasm\-\_\-insn\-::num\-\_\-prefixes}}\label{structyasm__insn_a197439fed907e61b04a9f154cfa64379}
+Number of prefixes. \hypertarget{structyasm__insn_a453de6522b676b79e5259a3d931eb786}{\index{yasm\-\_\-insn@{yasm\-\_\-insn}!num\-\_\-segregs@{num\-\_\-segregs}}
+\index{num\-\_\-segregs@{num\-\_\-segregs}!yasm_insn@{yasm\-\_\-insn}}
+\subsubsection[{num\-\_\-segregs}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int yasm\-\_\-insn\-::num\-\_\-segregs}}\label{structyasm__insn_a453de6522b676b79e5259a3d931eb786}
+Number of segment prefixes. \hypertarget{structyasm__insn_a948dae24d2851a148b09df5dab8738ae}{\index{yasm\-\_\-insn@{yasm\-\_\-insn}!prefixes@{prefixes}}
+\index{prefixes@{prefixes}!yasm_insn@{yasm\-\_\-insn}}
+\subsubsection[{prefixes}]{\setlength{\rightskip}{0pt plus 5cm}uintptr\-\_\-t$\ast$ yasm\-\_\-insn\-::prefixes}}\label{structyasm__insn_a948dae24d2851a148b09df5dab8738ae}
+Array of prefixes. \hypertarget{structyasm__insn_ab06d761894e4d0684c85388e574f9ce6}{\index{yasm\-\_\-insn@{yasm\-\_\-insn}!segregs@{segregs}}
+\index{segregs@{segregs}!yasm_insn@{yasm\-\_\-insn}}
+\subsubsection[{segregs}]{\setlength{\rightskip}{0pt plus 5cm}uintptr\-\_\-t$\ast$ yasm\-\_\-insn\-::segregs}}\label{structyasm__insn_ab06d761894e4d0684c85388e574f9ce6}
+Array of segment prefixes. 
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{insn_8h}{insn.\-h}\end{DoxyCompactItemize}

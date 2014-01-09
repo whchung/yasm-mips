@@ -1,0 +1,557 @@
+\hypertarget{coretype_8h}{\section{coretype.\-h File Reference}
+\label{coretype_8h}\index{coretype.\-h@{coretype.\-h}}
+}
+
+
+Y\-A\-S\-M core types and utility functions.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structyasm__stdmac}{yasm\-\_\-stdmac}
+\item 
+struct \hyperlink{structyasm__assoc__data__callback}{yasm\-\_\-assoc\-\_\-data\-\_\-callback}
+\item 
+struct \hyperlink{structyasm__value}{yasm\-\_\-value}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{coretype_8h_a49672a9f0bbf31d5fe92e7b4e2f2dc60}{\#define {\bfseries Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L}}\label{coretype_8h_a49672a9f0bbf31d5fe92e7b4e2f2dc60}
+
+\item 
+\#define \hyperlink{coretype_8h_a7c8b9d29d2f9656127289c4e8df98908}{Y\-A\-S\-M\-\_\-\-V\-A\-L\-U\-E\-\_\-\-R\-S\-H\-I\-F\-T\-\_\-\-M\-A\-X}~127
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} \hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch}
+\item 
+typedef struct \hyperlink{coretype_8h_aa84094d121bb4afca049e6c35efc2c92}{yasm\-\_\-preproc} \hyperlink{coretype_8h_aa84094d121bb4afca049e6c35efc2c92}{yasm\-\_\-preproc}
+\item 
+typedef struct \hyperlink{coretype_8h_a1be1025e28df6e0be72fa323088d0017}{yasm\-\_\-parser} \hyperlink{coretype_8h_a1be1025e28df6e0be72fa323088d0017}{yasm\-\_\-parser}
+\item 
+typedef struct \hyperlink{coretype_8h_a391681636b57724e337bf97f9832adb7}{yasm\-\_\-objfmt} \hyperlink{coretype_8h_a391681636b57724e337bf97f9832adb7}{yasm\-\_\-objfmt}
+\item 
+typedef struct \hyperlink{coretype_8h_ac8215052ae972b3462380abe1fa5291a}{yasm\-\_\-dbgfmt} \hyperlink{coretype_8h_ac8215052ae972b3462380abe1fa5291a}{yasm\-\_\-dbgfmt}
+\item 
+typedef struct \hyperlink{coretype_8h_ae7dd230a0e386f070ca54f9d270eae26}{yasm\-\_\-listfmt} \hyperlink{coretype_8h_ae7dd230a0e386f070ca54f9d270eae26}{yasm\-\_\-listfmt}
+\item 
+typedef struct \hyperlink{structyasm__objfmt__module}{yasm\-\_\-objfmt\-\_\-module} \hyperlink{coretype_8h_a4b7980694a5e095c26653cc3d00ea98d}{yasm\-\_\-objfmt\-\_\-module}
+\item 
+typedef struct \hyperlink{structyasm__dbgfmt__module}{yasm\-\_\-dbgfmt\-\_\-module} \hyperlink{coretype_8h_a5305811ca1d218ebca9c41a143b183c4}{yasm\-\_\-dbgfmt\-\_\-module}
+\item 
+typedef struct \hyperlink{structyasm__stdmac}{yasm\-\_\-stdmac} \hyperlink{coretype_8h_a973d12d59833f2b7dbf544f0e8b748c0}{yasm\-\_\-stdmac}
+\item 
+typedef struct \\*
+\hyperlink{structyasm__assoc__data__callback}{yasm\-\_\-assoc\-\_\-data\-\_\-callback} \hyperlink{coretype_8h_a3b957678a45c6230cf86ba7923ce2cd5}{yasm\-\_\-assoc\-\_\-data\-\_\-callback}
+\item 
+typedef struct \hyperlink{structyasm__errwarns}{yasm\-\_\-errwarns} \hyperlink{coretype_8h_ab799e47bbbc077f2cc1e6ff8cca3ffe4}{yasm\-\_\-errwarns}
+\item 
+typedef struct \hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} \hyperlink{coretype_8h_a0a698bcffb7fcceb285b750e14bb535e}{yasm\-\_\-bytecode}
+\item 
+typedef struct \hyperlink{structyasm__object}{yasm\-\_\-object} \hyperlink{coretype_8h_a36f5c212bf1ed9ef01dcec8eca003cc2}{yasm\-\_\-object}
+\item 
+typedef struct \hyperlink{structyasm__section}{yasm\-\_\-section} \hyperlink{coretype_8h_ac52125d576ae35f3b7aab5dba4084977}{yasm\-\_\-section}
+\item 
+typedef struct \hyperlink{structyasm__symtab}{yasm\-\_\-symtab} \hyperlink{coretype_8h_aa5ffbfa8204f0edb3cf84fca63beadf8}{yasm\-\_\-symtab}
+\item 
+typedef struct \hyperlink{structyasm__symrec}{yasm\-\_\-symrec} \hyperlink{coretype_8h_ab882376faae469891a4ff41b7ab13a1f}{yasm\-\_\-symrec}
+\item 
+typedef struct \hyperlink{structyasm__expr}{yasm\-\_\-expr} \hyperlink{coretype_8h_a8f7b2759b68cd0d19639fbce50920064}{yasm\-\_\-expr}
+\item 
+typedef struct \hyperlink{structyasm__intnum}{yasm\-\_\-intnum} \hyperlink{coretype_8h_aa373e27a868e95acaa027a8a07cb1927}{yasm\-\_\-intnum}
+\item 
+typedef struct \hyperlink{structyasm__floatnum}{yasm\-\_\-floatnum} \hyperlink{coretype_8h_adba7e7aae213e4162bd27ef89ba62a58}{yasm\-\_\-floatnum}
+\item 
+typedef struct \hyperlink{structyasm__value}{yasm\-\_\-value} \hyperlink{coretype_8h_a035e3b439d05aae98c71fd12cdb17c07}{yasm\-\_\-value}
+\item 
+typedef struct \hyperlink{structyasm__linemap}{yasm\-\_\-linemap} \hyperlink{coretype_8h_a3c8c8e31f4c264010df3a333ae2e3fdd}{yasm\-\_\-linemap}
+\item 
+typedef struct \hyperlink{structyasm__valparam}{yasm\-\_\-valparam} \hyperlink{coretype_8h_a616d77790a841ee02475d7b7253a4167}{yasm\-\_\-valparam}
+\item 
+typedef struct \hyperlink{coretype_8h_ab1c6ed70512ed01b56479b23e5ece9bc}{yasm\-\_\-valparamhead} \hyperlink{coretype_8h_ab1c6ed70512ed01b56479b23e5ece9bc}{yasm\-\_\-valparamhead}
+\item 
+typedef struct \hyperlink{structyasm__directive}{yasm\-\_\-directive} \hyperlink{coretype_8h_ad0b601965c79794b636640b9bb7b2a6d}{yasm\-\_\-directive}
+\item 
+typedef struct \hyperlink{structyasm__effaddr}{yasm\-\_\-effaddr} \hyperlink{coretype_8h_a35091ef5095e3e442e3550a1341871e0}{yasm\-\_\-effaddr}
+\item 
+typedef struct \hyperlink{structyasm__insn}{yasm\-\_\-insn} \hyperlink{coretype_8h_a98733f37921ad1b60435020067a61c0a}{yasm\-\_\-insn}
+\item 
+typedef enum \hyperlink{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0d}{yasm\-\_\-expr\-\_\-op} \hyperlink{coretype_8h_aa1fde7635a67c39e4e20e4d308aa29e2}{yasm\-\_\-expr\-\_\-op}
+\item 
+typedef int($\ast$ \hyperlink{coretype_8h_aa826d76bab04c68a929446c75b8ddfe2}{yasm\-\_\-output\-\_\-value\-\_\-func} )(\hyperlink{structyasm__value}{yasm\-\_\-value} $\ast$value, unsigned char $\ast$buf, unsigned int destsize, unsigned long offset, \hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$bc, int \hyperlink{structwarn}{warn}, void $\ast$d)
+\item 
+typedef int($\ast$ \hyperlink{coretype_8h_a442d0350d9968d01d694bf35bbdd0e2f}{yasm\-\_\-output\-\_\-reloc\-\_\-func} )(\hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$sym, \hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$bc, unsigned char $\ast$buf, unsigned int destsize, unsigned int valsize, int \hyperlink{structwarn}{warn}, void $\ast$d)
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0d}{yasm\-\_\-expr\-\_\-op} \{ \\*
+\hyperlink{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0daf0ea42a5850497ce9bf1e3161401afee}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-I\-D\-E\-N\-T}, 
+\hyperlink{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0daac8a8a7442bab8c2f6e515b2d0dfe564}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-A\-D\-D}, 
+\hyperlink{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0daada24a6cd3b2109aa1e898f7431ca977}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-U\-B}, 
+\hyperlink{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da4ba6fdf365f553ba8f72263f57c859f9}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-M\-U\-L}, 
+\\*
+\hyperlink{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da8d3c29ec9764e66dcc2cd8e1127bfc75}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-D\-I\-V}, 
+\hyperlink{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da2e46e42a4a4358e06bffd9ad0fb79eb6}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-I\-G\-N\-D\-I\-V}, 
+\hyperlink{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da354d3ef4e67018790b8abd0570dbb53e}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-M\-O\-D}, 
+\hyperlink{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da326df1a6f73f9009c5144eeaebf61641}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-I\-G\-N\-M\-O\-D}, 
+\\*
+\hyperlink{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da270cb1b9e2b53cfc994e421c95b7a115}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-N\-E\-G}, 
+\hyperlink{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da0b2e171af634646e3221415723cec25a}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-N\-O\-T}, 
+\hyperlink{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0dabe7872cce40d965dbcebabac8872da79}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-O\-R}, 
+\hyperlink{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da83ff2387f6a897e17f4cd9a2e8ae46dc}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-A\-N\-D}, 
+\\*
+\hyperlink{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da4ab9f8d0a629a836e757508841c25465}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-X\-O\-R}, 
+\hyperlink{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0dad9d5480da36fb6f6d33f87507a44ce21}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-X\-N\-O\-R}, 
+\hyperlink{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0dad4fad45f4dcfc991fb088394f086914e}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-N\-O\-R}, 
+\hyperlink{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da46bcd247a169bca7794c7f35da751368}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-H\-L}, 
+\\*
+\hyperlink{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0daa423b0f60e131f80239bf107f92eda4e}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-H\-R}, 
+\hyperlink{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0dae2a1b0f1cde1aca787c3df5cf3476410}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-O\-R}, 
+\hyperlink{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da921006f62ef7ec810bc133382a11a509}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-A\-N\-D}, 
+\hyperlink{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da63cca7323a733abd52d080d7ecffd639}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-N\-O\-T}, 
+\\*
+\hyperlink{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da70f5fbfe919708b4b50a30dae35466ee}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-X\-O\-R}, 
+\hyperlink{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da7d2e16bfc472447897e18c6573ec8787}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-X\-N\-O\-R}, 
+\hyperlink{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da2c9b2e214cd43d588e7b358940fc6013}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-N\-O\-R}, 
+\hyperlink{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0daed059dba3bcd8f23e463c907a2d38841}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-T}, 
+\\*
+\hyperlink{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0dab0e4fd15d2b2c36c1f7f7a9ea8eaa688}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-G\-T}, 
+\hyperlink{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da76138b8137a88aba3383f7f2bad48029}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-E\-Q}, 
+\hyperlink{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da048a92b7fb6a0b6f9bedad3babb17bb7}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-E}, 
+\hyperlink{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da7697bc84e780559282f0664e6127ce8e}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-G\-E}, 
+\\*
+\hyperlink{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da7bddd4370623697b4585d27f4ece76fd}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-N\-E}, 
+\hyperlink{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da73b200d75e1471a4fb039fd1327b7d93}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-N\-O\-N\-N\-U\-M}, 
+\hyperlink{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da88e8cd6c16d925c8ef8891fa0bef3411}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-E\-G}, 
+\hyperlink{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da65af86c97275760ec69a07c8bfb681a1}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-W\-R\-T}, 
+\\*
+\hyperlink{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0dae7e3d7dd7dfd81dbb77ef964edd5a93b}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-E\-G\-O\-F\-F}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int \hyperlink{coretype_8h_a401ef5cd42a1f12e59bfae138b610ff4}{yasm\-\_\-\-\_\-mergesort} (void $\ast$base, size\-\_\-t nmemb, size\-\_\-t size, int($\ast$compar)(const void $\ast$, const void $\ast$))
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L char $\ast$ \hyperlink{coretype_8h_a571bbf985efed5bd7dd7130bc6ce1f7f}{yasm\-\_\-\-\_\-strsep} (char $\ast$$\ast$stringp, const char $\ast$delim)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int \hyperlink{coretype_8h_af0bb0f16d45a60b8b9dd6e0ac4d6a162}{yasm\-\_\-\-\_\-strcasecmp} (const char $\ast$s1, const char $\ast$s2)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int \hyperlink{coretype_8h_a827036c3fe9e59a9596aed3c73d059e0}{yasm\-\_\-\-\_\-strncasecmp} (const char $\ast$s1, const char $\ast$s2, size\-\_\-t n)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L char $\ast$ \hyperlink{coretype_8h_a002f40e7754ca5b3b327e1f5601915b0}{yasm\-\_\-\-\_\-xstrdup} (const char $\ast$str)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L char $\ast$ \hyperlink{coretype_8h_a717bd37d0ac8e809adff109ec7c4bac1}{yasm\-\_\-\-\_\-xstrndup} (const char $\ast$str, size\-\_\-t max)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void $\ast$($\ast$ \hyperlink{coretype_8h_a2c9d32f0fb84a06bbefc180848588646}{yasm\-\_\-xmalloc} )(size\-\_\-t size)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void $\ast$($\ast$ \hyperlink{coretype_8h_a128f95009903251b6fe5b930a73ddd10}{yasm\-\_\-xcalloc} )(size\-\_\-t nelem, size\-\_\-t elsize)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void $\ast$($\ast$ \hyperlink{coretype_8h_a1675c049347096bc887eaa478444d255}{yasm\-\_\-xrealloc} )(void $\ast$oldmem, size\-\_\-t size)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void($\ast$ \hyperlink{coretype_8h_ad4c6ecb91344a9d31bffe42f6e17371b}{yasm\-\_\-xfree} )(void $\ast$p)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Y\-A\-S\-M core types and utility functions. Copyright (C) 2001-\/2007 Peter Johnson
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\-:
+\begin{DoxyItemize}
+\item Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+\item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+\end{DoxyItemize}
+
+T\-H\-I\-S S\-O\-F\-T\-W\-A\-R\-E I\-S P\-R\-O\-V\-I\-D\-E\-D B\-Y T\-H\-E A\-U\-T\-H\-O\-R A\-N\-D O\-T\-H\-E\-R C\-O\-N\-T\-R\-I\-B\-U\-T\-O\-R\-S ``\-A\-S I\-S'' A\-N\-D A\-N\-Y E\-X\-P\-R\-E\-S\-S O\-R I\-M\-P\-L\-I\-E\-D W\-A\-R\-R\-A\-N\-T\-I\-E\-S, I\-N\-C\-L\-U\-D\-I\-N\-G, B\-U\-T N\-O\-T L\-I\-M\-I\-T\-E\-D T\-O, T\-H\-E I\-M\-P\-L\-I\-E\-D W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-F M\-E\-R\-C\-H\-A\-N\-T\-A\-B\-I\-L\-I\-T\-Y A\-N\-D F\-I\-T\-N\-E\-S\-S F\-O\-R A P\-A\-R\-T\-I\-C\-U\-L\-A\-R P\-U\-R\-P\-O\-S\-E A\-R\-E D\-I\-S\-C\-L\-A\-I\-M\-E\-D. I\-N N\-O E\-V\-E\-N\-T S\-H\-A\-L\-L T\-H\-E A\-U\-T\-H\-O\-R O\-R O\-T\-H\-E\-R C\-O\-N\-T\-R\-I\-B\-U\-T\-O\-R\-S B\-E L\-I\-A\-B\-L\-E F\-O\-R A\-N\-Y D\-I\-R\-E\-C\-T, I\-N\-D\-I\-R\-E\-C\-T, I\-N\-C\-I\-D\-E\-N\-T\-A\-L, S\-P\-E\-C\-I\-A\-L, E\-X\-E\-M\-P\-L\-A\-R\-Y, O\-R C\-O\-N\-S\-E\-Q\-U\-E\-N\-T\-I\-A\-L D\-A\-M\-A\-G\-E\-S (I\-N\-C\-L\-U\-D\-I\-N\-G, B\-U\-T N\-O\-T L\-I\-M\-I\-T\-E\-D T\-O, P\-R\-O\-C\-U\-R\-E\-M\-E\-N\-T O\-F S\-U\-B\-S\-T\-I\-T\-U\-T\-E G\-O\-O\-D\-S O\-R S\-E\-R\-V\-I\-C\-E\-S; L\-O\-S\-S O\-F U\-S\-E, D\-A\-T\-A, O\-R P\-R\-O\-F\-I\-T\-S; O\-R B\-U\-S\-I\-N\-E\-S\-S I\-N\-T\-E\-R\-R\-U\-P\-T\-I\-O\-N) H\-O\-W\-E\-V\-E\-R C\-A\-U\-S\-E\-D A\-N\-D O\-N A\-N\-Y T\-H\-E\-O\-R\-Y O\-F L\-I\-A\-B\-I\-L\-I\-T\-Y, W\-H\-E\-T\-H\-E\-R I\-N C\-O\-N\-T\-R\-A\-C\-T, S\-T\-R\-I\-C\-T L\-I\-A\-B\-I\-L\-I\-T\-Y, O\-R T\-O\-R\-T (I\-N\-C\-L\-U\-D\-I\-N\-G N\-E\-G\-L\-I\-G\-E\-N\-C\-E O\-R O\-T\-H\-E\-R\-W\-I\-S\-E) A\-R\-I\-S\-I\-N\-G I\-N A\-N\-Y W\-A\-Y O\-U\-T O\-F T\-H\-E U\-S\-E O\-F T\-H\-I\-S S\-O\-F\-T\-W\-A\-R\-E, E\-V\-E\-N I\-F A\-D\-V\-I\-S\-E\-D O\-F T\-H\-E P\-O\-S\-S\-I\-B\-I\-L\-I\-T\-Y O\-F S\-U\-C\-H D\-A\-M\-A\-G\-E.  
+
+\subsection{Macro Definition Documentation}
+\hypertarget{coretype_8h_a7c8b9d29d2f9656127289c4e8df98908}{\index{coretype.\-h@{coretype.\-h}!Y\-A\-S\-M\-\_\-\-V\-A\-L\-U\-E\-\_\-\-R\-S\-H\-I\-F\-T\-\_\-\-M\-A\-X@{Y\-A\-S\-M\-\_\-\-V\-A\-L\-U\-E\-\_\-\-R\-S\-H\-I\-F\-T\-\_\-\-M\-A\-X}}
+\index{Y\-A\-S\-M\-\_\-\-V\-A\-L\-U\-E\-\_\-\-R\-S\-H\-I\-F\-T\-\_\-\-M\-A\-X@{Y\-A\-S\-M\-\_\-\-V\-A\-L\-U\-E\-\_\-\-R\-S\-H\-I\-F\-T\-\_\-\-M\-A\-X}!coretype.h@{coretype.\-h}}
+\subsubsection[{Y\-A\-S\-M\-\_\-\-V\-A\-L\-U\-E\-\_\-\-R\-S\-H\-I\-F\-T\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-A\-S\-M\-\_\-\-V\-A\-L\-U\-E\-\_\-\-R\-S\-H\-I\-F\-T\-\_\-\-M\-A\-X~127}}\label{coretype_8h_a7c8b9d29d2f9656127289c4e8df98908}
+Maximum value of \hyperlink{structyasm__value_a475cbc7240df61e11ac2e5da267d2153}{yasm\-\_\-value.\-rshift} 
+
+\subsection{Typedef Documentation}
+\hypertarget{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-arch@{yasm\-\_\-arch}}
+\index{yasm\-\_\-arch@{yasm\-\_\-arch}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-arch}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf yasm\-\_\-arch} {\bf yasm\-\_\-arch}}}\label{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}
+Architecture instance (mostly opaque type). \begin{DoxySeeAlso}{See Also}
+\hyperlink{arch_8h}{arch.\-h} for details. 
+\end{DoxySeeAlso}
+\hypertarget{coretype_8h_a3b957678a45c6230cf86ba7923ce2cd5}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-assoc\-\_\-data\-\_\-callback@{yasm\-\_\-assoc\-\_\-data\-\_\-callback}}
+\index{yasm\-\_\-assoc\-\_\-data\-\_\-callback@{yasm\-\_\-assoc\-\_\-data\-\_\-callback}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-assoc\-\_\-data\-\_\-callback}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf yasm\-\_\-assoc\-\_\-data\-\_\-callback}  {\bf yasm\-\_\-assoc\-\_\-data\-\_\-callback}}}\label{coretype_8h_a3b957678a45c6230cf86ba7923ce2cd5}
+Y\-A\-S\-M associated data callback structure. Many data structures can have arbitrary data associated with them. \hypertarget{coretype_8h_a0a698bcffb7fcceb285b750e14bb535e}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-bytecode@{yasm\-\_\-bytecode}}
+\index{yasm\-\_\-bytecode@{yasm\-\_\-bytecode}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-bytecode}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf yasm\-\_\-bytecode} {\bf yasm\-\_\-bytecode}}}\label{coretype_8h_a0a698bcffb7fcceb285b750e14bb535e}
+Bytecode. \begin{DoxySeeAlso}{See Also}
+\hyperlink{bytecode_8h}{bytecode.\-h} for details and related functions. 
+\end{DoxySeeAlso}
+\hypertarget{coretype_8h_ac8215052ae972b3462380abe1fa5291a}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-dbgfmt@{yasm\-\_\-dbgfmt}}
+\index{yasm\-\_\-dbgfmt@{yasm\-\_\-dbgfmt}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-dbgfmt}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf yasm\-\_\-dbgfmt} {\bf yasm\-\_\-dbgfmt}}}\label{coretype_8h_ac8215052ae972b3462380abe1fa5291a}
+Debug format interface. \begin{DoxySeeAlso}{See Also}
+\hyperlink{dbgfmt_8h}{dbgfmt.\-h} for details. 
+\end{DoxySeeAlso}
+\hypertarget{coretype_8h_a5305811ca1d218ebca9c41a143b183c4}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-dbgfmt\-\_\-module@{yasm\-\_\-dbgfmt\-\_\-module}}
+\index{yasm\-\_\-dbgfmt\-\_\-module@{yasm\-\_\-dbgfmt\-\_\-module}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-dbgfmt\-\_\-module}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf yasm\-\_\-dbgfmt\-\_\-module} {\bf yasm\-\_\-dbgfmt\-\_\-module}}}\label{coretype_8h_a5305811ca1d218ebca9c41a143b183c4}
+Debug format module interface. \begin{DoxySeeAlso}{See Also}
+\hyperlink{dbgfmt_8h}{dbgfmt.\-h} for details. 
+\end{DoxySeeAlso}
+\hypertarget{coretype_8h_ad0b601965c79794b636640b9bb7b2a6d}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-directive@{yasm\-\_\-directive}}
+\index{yasm\-\_\-directive@{yasm\-\_\-directive}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-directive}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf yasm\-\_\-directive} {\bf yasm\-\_\-directive}}}\label{coretype_8h_ad0b601965c79794b636640b9bb7b2a6d}
+Directive list entry. \begin{DoxySeeAlso}{See Also}
+\hyperlink{valparam_8h}{valparam.\-h} for details and related functions. 
+\end{DoxySeeAlso}
+\hypertarget{coretype_8h_a35091ef5095e3e442e3550a1341871e0}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-effaddr@{yasm\-\_\-effaddr}}
+\index{yasm\-\_\-effaddr@{yasm\-\_\-effaddr}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-effaddr}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf yasm\-\_\-effaddr} {\bf yasm\-\_\-effaddr}}}\label{coretype_8h_a35091ef5095e3e442e3550a1341871e0}
+An effective address. \begin{DoxySeeAlso}{See Also}
+\hyperlink{insn_8h}{insn.\-h} for related functions. 
+\end{DoxySeeAlso}
+\hypertarget{coretype_8h_ab799e47bbbc077f2cc1e6ff8cca3ffe4}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-errwarns@{yasm\-\_\-errwarns}}
+\index{yasm\-\_\-errwarns@{yasm\-\_\-errwarns}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-errwarns}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf yasm\-\_\-errwarns} {\bf yasm\-\_\-errwarns}}}\label{coretype_8h_ab799e47bbbc077f2cc1e6ff8cca3ffe4}
+Set of collected error/warnings (opaque type). \begin{DoxySeeAlso}{See Also}
+\hyperlink{errwarn_8h}{errwarn.\-h} for details. 
+\end{DoxySeeAlso}
+\hypertarget{coretype_8h_a8f7b2759b68cd0d19639fbce50920064}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-expr@{yasm\-\_\-expr}}
+\index{yasm\-\_\-expr@{yasm\-\_\-expr}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-expr}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf yasm\-\_\-expr} {\bf yasm\-\_\-expr}}}\label{coretype_8h_a8f7b2759b68cd0d19639fbce50920064}
+Expression. \begin{DoxySeeAlso}{See Also}
+\hyperlink{expr_8h}{expr.\-h} for details and related functions. 
+\end{DoxySeeAlso}
+\hypertarget{coretype_8h_aa1fde7635a67c39e4e20e4d308aa29e2}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-expr\-\_\-op@{yasm\-\_\-expr\-\_\-op}}
+\index{yasm\-\_\-expr\-\_\-op@{yasm\-\_\-expr\-\_\-op}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-expr\-\_\-op}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf yasm\-\_\-expr\-\_\-op}  {\bf yasm\-\_\-expr\-\_\-op}}}\label{coretype_8h_aa1fde7635a67c39e4e20e4d308aa29e2}
+Expression operators usable in \hyperlink{structyasm__expr}{yasm\-\_\-expr} expressions. \hypertarget{coretype_8h_adba7e7aae213e4162bd27ef89ba62a58}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-floatnum@{yasm\-\_\-floatnum}}
+\index{yasm\-\_\-floatnum@{yasm\-\_\-floatnum}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-floatnum}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf yasm\-\_\-floatnum} {\bf yasm\-\_\-floatnum}}}\label{coretype_8h_adba7e7aae213e4162bd27ef89ba62a58}
+Floating point value (opaque type). \begin{DoxySeeAlso}{See Also}
+\hyperlink{floatnum_8h}{floatnum.\-h} for related functions. 
+\end{DoxySeeAlso}
+\hypertarget{coretype_8h_a98733f37921ad1b60435020067a61c0a}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-insn@{yasm\-\_\-insn}}
+\index{yasm\-\_\-insn@{yasm\-\_\-insn}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-insn}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf yasm\-\_\-insn} {\bf yasm\-\_\-insn}}}\label{coretype_8h_a98733f37921ad1b60435020067a61c0a}
+An instruction. \begin{DoxySeeAlso}{See Also}
+\hyperlink{insn_8h}{insn.\-h} for related functions. 
+\end{DoxySeeAlso}
+\hypertarget{coretype_8h_aa373e27a868e95acaa027a8a07cb1927}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-intnum@{yasm\-\_\-intnum}}
+\index{yasm\-\_\-intnum@{yasm\-\_\-intnum}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-intnum}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf yasm\-\_\-intnum} {\bf yasm\-\_\-intnum}}}\label{coretype_8h_aa373e27a868e95acaa027a8a07cb1927}
+Integer value (opaque type). \begin{DoxySeeAlso}{See Also}
+\hyperlink{intnum_8h}{intnum.\-h} for related functions. 
+\end{DoxySeeAlso}
+\hypertarget{coretype_8h_a3c8c8e31f4c264010df3a333ae2e3fdd}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-linemap@{yasm\-\_\-linemap}}
+\index{yasm\-\_\-linemap@{yasm\-\_\-linemap}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-linemap}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf yasm\-\_\-linemap} {\bf yasm\-\_\-linemap}}}\label{coretype_8h_a3c8c8e31f4c264010df3a333ae2e3fdd}
+Line number mapping repository (opaque type). \begin{DoxySeeAlso}{See Also}
+\hyperlink{linemap_8h}{linemap.\-h} for related functions. 
+\end{DoxySeeAlso}
+\hypertarget{coretype_8h_ae7dd230a0e386f070ca54f9d270eae26}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-listfmt@{yasm\-\_\-listfmt}}
+\index{yasm\-\_\-listfmt@{yasm\-\_\-listfmt}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-listfmt}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf yasm\-\_\-listfmt} {\bf yasm\-\_\-listfmt}}}\label{coretype_8h_ae7dd230a0e386f070ca54f9d270eae26}
+List format interface. \begin{DoxySeeAlso}{See Also}
+\hyperlink{listfmt_8h}{listfmt.\-h} for details. 
+\end{DoxySeeAlso}
+\hypertarget{coretype_8h_a36f5c212bf1ed9ef01dcec8eca003cc2}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-object@{yasm\-\_\-object}}
+\index{yasm\-\_\-object@{yasm\-\_\-object}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-object}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf yasm\-\_\-object} {\bf yasm\-\_\-object}}}\label{coretype_8h_a36f5c212bf1ed9ef01dcec8eca003cc2}
+Object. \begin{DoxySeeAlso}{See Also}
+\hyperlink{section_8h}{section.\-h} for details and related functions. 
+\end{DoxySeeAlso}
+\hypertarget{coretype_8h_a391681636b57724e337bf97f9832adb7}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-objfmt@{yasm\-\_\-objfmt}}
+\index{yasm\-\_\-objfmt@{yasm\-\_\-objfmt}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-objfmt}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf yasm\-\_\-objfmt} {\bf yasm\-\_\-objfmt}}}\label{coretype_8h_a391681636b57724e337bf97f9832adb7}
+Object format interface. \begin{DoxySeeAlso}{See Also}
+\hyperlink{objfmt_8h}{objfmt.\-h} for details. 
+\end{DoxySeeAlso}
+\hypertarget{coretype_8h_a4b7980694a5e095c26653cc3d00ea98d}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-objfmt\-\_\-module@{yasm\-\_\-objfmt\-\_\-module}}
+\index{yasm\-\_\-objfmt\-\_\-module@{yasm\-\_\-objfmt\-\_\-module}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-objfmt\-\_\-module}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf yasm\-\_\-objfmt\-\_\-module} {\bf yasm\-\_\-objfmt\-\_\-module}}}\label{coretype_8h_a4b7980694a5e095c26653cc3d00ea98d}
+Object format module interface. \begin{DoxySeeAlso}{See Also}
+\hyperlink{objfmt_8h}{objfmt.\-h} for details. 
+\end{DoxySeeAlso}
+\hypertarget{coretype_8h_a442d0350d9968d01d694bf35bbdd0e2f}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-output\-\_\-reloc\-\_\-func@{yasm\-\_\-output\-\_\-reloc\-\_\-func}}
+\index{yasm\-\_\-output\-\_\-reloc\-\_\-func@{yasm\-\_\-output\-\_\-reloc\-\_\-func}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-output\-\_\-reloc\-\_\-func}]{\setlength{\rightskip}{0pt plus 5cm}typedef int($\ast$ yasm\-\_\-output\-\_\-reloc\-\_\-func)({\bf yasm\-\_\-symrec} $\ast$sym, {\bf yasm\-\_\-bytecode} $\ast$bc, unsigned char $\ast$buf, unsigned int destsize, unsigned int valsize, int {\bf warn}, void $\ast$d)}}\label{coretype_8h_a442d0350d9968d01d694bf35bbdd0e2f}
+Convert a symbol reference to its byte representation. Usually implemented by object formats and debug formats to keep track of relocations generated by themselves. 
+\begin{DoxyParams}{Parameters}
+{\em sym} & symbol \\
+\hline
+{\em bc} & current bytecode (usually passed into higher-\/level calling function) \\
+\hline
+{\em buf} & buffer for byte representation \\
+\hline
+{\em destsize} & destination size (in bytes) \\
+\hline
+{\em valsize} & size (in bits) \\
+\hline
+{\em warn} & enables standard warnings\-: zero for none; nonzero for overflow/underflow floating point warnings; negative for signed integer warnings, positive for unsigned integer warnings \\
+\hline
+{\em d} & objfmt-\/specific data (passed into higher-\/level calling function) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nonzero if an error occurred, 0 otherwise. 
+\end{DoxyReturn}
+\hypertarget{coretype_8h_aa826d76bab04c68a929446c75b8ddfe2}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-output\-\_\-value\-\_\-func@{yasm\-\_\-output\-\_\-value\-\_\-func}}
+\index{yasm\-\_\-output\-\_\-value\-\_\-func@{yasm\-\_\-output\-\_\-value\-\_\-func}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-output\-\_\-value\-\_\-func}]{\setlength{\rightskip}{0pt plus 5cm}typedef int($\ast$ yasm\-\_\-output\-\_\-value\-\_\-func)({\bf yasm\-\_\-value} $\ast$value,unsigned char $\ast$buf, unsigned int destsize, unsigned long offset, {\bf yasm\-\_\-bytecode} $\ast$bc, int {\bf warn},void $\ast$d)}}\label{coretype_8h_aa826d76bab04c68a929446c75b8ddfe2}
+Convert \hyperlink{structyasm__value}{yasm\-\_\-value} to its byte representation. Usually implemented by object formats to keep track of relocations and verify legal expressions. Must put the value into the least significant bits of the destination, unless shifted into more significant bits by the shift parameter. The destination bits must be cleared before being set. 
+\begin{DoxyParams}{Parameters}
+{\em value} & value \\
+\hline
+{\em buf} & buffer for byte representation \\
+\hline
+{\em destsize} & destination size (in bytes) \\
+\hline
+{\em offset} & offset (in bytes) of the expr contents from the start of the bytecode (needed for relative) \\
+\hline
+{\em bc} & current bytecode (usually passed into higher-\/level calling function) \\
+\hline
+{\em warn} & enables standard warnings\-: zero for none; nonzero for overflow/underflow floating point warnings \\
+\hline
+{\em d} & objfmt-\/specific data (passed into higher-\/level calling function) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nonzero if an error occurred, 0 otherwise. 
+\end{DoxyReturn}
+\hypertarget{coretype_8h_a1be1025e28df6e0be72fa323088d0017}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-parser@{yasm\-\_\-parser}}
+\index{yasm\-\_\-parser@{yasm\-\_\-parser}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-parser}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf yasm\-\_\-parser} {\bf yasm\-\_\-parser}}}\label{coretype_8h_a1be1025e28df6e0be72fa323088d0017}
+Parser instance (mostly opaque type). \begin{DoxySeeAlso}{See Also}
+\hyperlink{parser_8h}{parser.\-h} for details. 
+\end{DoxySeeAlso}
+\hypertarget{coretype_8h_aa84094d121bb4afca049e6c35efc2c92}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-preproc@{yasm\-\_\-preproc}}
+\index{yasm\-\_\-preproc@{yasm\-\_\-preproc}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-preproc}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf yasm\-\_\-preproc} {\bf yasm\-\_\-preproc}}}\label{coretype_8h_aa84094d121bb4afca049e6c35efc2c92}
+Preprocessor interface. \begin{DoxySeeAlso}{See Also}
+\hyperlink{preproc_8h}{preproc.\-h} for details. 
+\end{DoxySeeAlso}
+\hypertarget{coretype_8h_ac52125d576ae35f3b7aab5dba4084977}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-section@{yasm\-\_\-section}}
+\index{yasm\-\_\-section@{yasm\-\_\-section}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-section}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf yasm\-\_\-section} {\bf yasm\-\_\-section}}}\label{coretype_8h_ac52125d576ae35f3b7aab5dba4084977}
+Section (opaque type). \begin{DoxySeeAlso}{See Also}
+\hyperlink{section_8h}{section.\-h} for related functions. 
+\end{DoxySeeAlso}
+\hypertarget{coretype_8h_a973d12d59833f2b7dbf544f0e8b748c0}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-stdmac@{yasm\-\_\-stdmac}}
+\index{yasm\-\_\-stdmac@{yasm\-\_\-stdmac}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-stdmac}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf yasm\-\_\-stdmac}  {\bf yasm\-\_\-stdmac}}}\label{coretype_8h_a973d12d59833f2b7dbf544f0e8b748c0}
+Standard macro structure for modules that allows association of a set of standard macros with a parser/preprocessor combination. A N\-U\-L\-L-\/terminated array of these structures is used in a number of module interfaces. \hypertarget{coretype_8h_ab882376faae469891a4ff41b7ab13a1f}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-symrec@{yasm\-\_\-symrec}}
+\index{yasm\-\_\-symrec@{yasm\-\_\-symrec}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-symrec}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf yasm\-\_\-symrec} {\bf yasm\-\_\-symrec}}}\label{coretype_8h_ab882376faae469891a4ff41b7ab13a1f}
+Symbol record (opaque type). \begin{DoxySeeAlso}{See Also}
+\hyperlink{symrec_8h}{symrec.\-h} for related functions. 
+\end{DoxySeeAlso}
+\hypertarget{coretype_8h_aa5ffbfa8204f0edb3cf84fca63beadf8}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-symtab@{yasm\-\_\-symtab}}
+\index{yasm\-\_\-symtab@{yasm\-\_\-symtab}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-symtab}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf yasm\-\_\-symtab} {\bf yasm\-\_\-symtab}}}\label{coretype_8h_aa5ffbfa8204f0edb3cf84fca63beadf8}
+Symbol table (opaque type). \begin{DoxySeeAlso}{See Also}
+\hyperlink{symrec_8h}{symrec.\-h} for related functions. 
+\end{DoxySeeAlso}
+\hypertarget{coretype_8h_a616d77790a841ee02475d7b7253a4167}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-valparam@{yasm\-\_\-valparam}}
+\index{yasm\-\_\-valparam@{yasm\-\_\-valparam}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-valparam}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf yasm\-\_\-valparam} {\bf yasm\-\_\-valparam}}}\label{coretype_8h_a616d77790a841ee02475d7b7253a4167}
+Value/parameter pair (opaque type). \begin{DoxySeeAlso}{See Also}
+\hyperlink{valparam_8h}{valparam.\-h} for related functions. 
+\end{DoxySeeAlso}
+\hypertarget{coretype_8h_ab1c6ed70512ed01b56479b23e5ece9bc}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-valparamhead@{yasm\-\_\-valparamhead}}
+\index{yasm\-\_\-valparamhead@{yasm\-\_\-valparamhead}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-valparamhead}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf yasm\-\_\-valparamhead} {\bf yasm\-\_\-valparamhead}}}\label{coretype_8h_ab1c6ed70512ed01b56479b23e5ece9bc}
+List of value/parameters (opaque type). \begin{DoxySeeAlso}{See Also}
+\hyperlink{valparam_8h}{valparam.\-h} for related functions. 
+\end{DoxySeeAlso}
+\hypertarget{coretype_8h_a035e3b439d05aae98c71fd12cdb17c07}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-value@{yasm\-\_\-value}}
+\index{yasm\-\_\-value@{yasm\-\_\-value}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-value}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf yasm\-\_\-value}  {\bf yasm\-\_\-value}}}\label{coretype_8h_a035e3b439d05aae98c71fd12cdb17c07}
+A value. May be absolute or relative. Outside the parser, \hyperlink{structyasm__expr}{yasm\-\_\-expr} should only be used for absolute exprs. Anything that could contain a relocatable value should use this structure instead. \begin{DoxySeeAlso}{See Also}
+\hyperlink{value_8h}{value.\-h} for related functions. 
+\end{DoxySeeAlso}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0d}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-expr\-\_\-op@{yasm\-\_\-expr\-\_\-op}}
+\index{yasm\-\_\-expr\-\_\-op@{yasm\-\_\-expr\-\_\-op}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-expr\-\_\-op}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf yasm\-\_\-expr\-\_\-op}}}\label{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0d}
+Expression operators usable in \hyperlink{structyasm__expr}{yasm\-\_\-expr} expressions. \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-I\-D\-E\-N\-T@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-I\-D\-E\-N\-T}!coretype.\-h@{coretype.\-h}}\index{coretype.\-h@{coretype.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-I\-D\-E\-N\-T@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-I\-D\-E\-N\-T}}\item[{\em 
+\hypertarget{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0daf0ea42a5850497ce9bf1e3161401afee}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-I\-D\-E\-N\-T}\label{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0daf0ea42a5850497ce9bf1e3161401afee}
+}]No operation, just a value. \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-A\-D\-D@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-A\-D\-D}!coretype.\-h@{coretype.\-h}}\index{coretype.\-h@{coretype.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-A\-D\-D@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-A\-D\-D}}\item[{\em 
+\hypertarget{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0daac8a8a7442bab8c2f6e515b2d0dfe564}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-A\-D\-D}\label{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0daac8a8a7442bab8c2f6e515b2d0dfe564}
+}]Arithmetic addition (+). \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-U\-B@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-U\-B}!coretype.\-h@{coretype.\-h}}\index{coretype.\-h@{coretype.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-U\-B@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-U\-B}}\item[{\em 
+\hypertarget{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0daada24a6cd3b2109aa1e898f7431ca977}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-U\-B}\label{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0daada24a6cd3b2109aa1e898f7431ca977}
+}]Arithmetic subtraction (-\/). \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-M\-U\-L@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-M\-U\-L}!coretype.\-h@{coretype.\-h}}\index{coretype.\-h@{coretype.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-M\-U\-L@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-M\-U\-L}}\item[{\em 
+\hypertarget{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da4ba6fdf365f553ba8f72263f57c859f9}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-M\-U\-L}\label{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da4ba6fdf365f553ba8f72263f57c859f9}
+}]Arithmetic multiplication ($\ast$). \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-D\-I\-V@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-D\-I\-V}!coretype.\-h@{coretype.\-h}}\index{coretype.\-h@{coretype.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-D\-I\-V@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-D\-I\-V}}\item[{\em 
+\hypertarget{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da8d3c29ec9764e66dcc2cd8e1127bfc75}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-D\-I\-V}\label{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da8d3c29ec9764e66dcc2cd8e1127bfc75}
+}]Arithmetic unsigned division. \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-I\-G\-N\-D\-I\-V@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-I\-G\-N\-D\-I\-V}!coretype.\-h@{coretype.\-h}}\index{coretype.\-h@{coretype.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-I\-G\-N\-D\-I\-V@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-I\-G\-N\-D\-I\-V}}\item[{\em 
+\hypertarget{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da2e46e42a4a4358e06bffd9ad0fb79eb6}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-I\-G\-N\-D\-I\-V}\label{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da2e46e42a4a4358e06bffd9ad0fb79eb6}
+}]Arithmetic signed division. \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-M\-O\-D@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-M\-O\-D}!coretype.\-h@{coretype.\-h}}\index{coretype.\-h@{coretype.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-M\-O\-D@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-M\-O\-D}}\item[{\em 
+\hypertarget{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da354d3ef4e67018790b8abd0570dbb53e}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-M\-O\-D}\label{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da354d3ef4e67018790b8abd0570dbb53e}
+}]Arithmetic unsigned modulus. \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-I\-G\-N\-M\-O\-D@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-I\-G\-N\-M\-O\-D}!coretype.\-h@{coretype.\-h}}\index{coretype.\-h@{coretype.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-I\-G\-N\-M\-O\-D@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-I\-G\-N\-M\-O\-D}}\item[{\em 
+\hypertarget{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da326df1a6f73f9009c5144eeaebf61641}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-I\-G\-N\-M\-O\-D}\label{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da326df1a6f73f9009c5144eeaebf61641}
+}]Arithmetic signed modulus. \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-N\-E\-G@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-N\-E\-G}!coretype.\-h@{coretype.\-h}}\index{coretype.\-h@{coretype.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-N\-E\-G@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-N\-E\-G}}\item[{\em 
+\hypertarget{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da270cb1b9e2b53cfc994e421c95b7a115}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-N\-E\-G}\label{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da270cb1b9e2b53cfc994e421c95b7a115}
+}]Arithmetic negation (-\/). \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-N\-O\-T@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-N\-O\-T}!coretype.\-h@{coretype.\-h}}\index{coretype.\-h@{coretype.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-N\-O\-T@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-N\-O\-T}}\item[{\em 
+\hypertarget{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da0b2e171af634646e3221415723cec25a}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-N\-O\-T}\label{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da0b2e171af634646e3221415723cec25a}
+}]Bitwise negation. \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-O\-R@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-O\-R}!coretype.\-h@{coretype.\-h}}\index{coretype.\-h@{coretype.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-O\-R@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-O\-R}}\item[{\em 
+\hypertarget{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0dabe7872cce40d965dbcebabac8872da79}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-O\-R}\label{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0dabe7872cce40d965dbcebabac8872da79}
+}]Bitwise O\-R. \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-A\-N\-D@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-A\-N\-D}!coretype.\-h@{coretype.\-h}}\index{coretype.\-h@{coretype.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-A\-N\-D@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-A\-N\-D}}\item[{\em 
+\hypertarget{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da83ff2387f6a897e17f4cd9a2e8ae46dc}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-A\-N\-D}\label{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da83ff2387f6a897e17f4cd9a2e8ae46dc}
+}]Bitwise A\-N\-D. \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-X\-O\-R@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-X\-O\-R}!coretype.\-h@{coretype.\-h}}\index{coretype.\-h@{coretype.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-X\-O\-R@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-X\-O\-R}}\item[{\em 
+\hypertarget{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da4ab9f8d0a629a836e757508841c25465}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-X\-O\-R}\label{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da4ab9f8d0a629a836e757508841c25465}
+}]Bitwise X\-O\-R. \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-X\-N\-O\-R@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-X\-N\-O\-R}!coretype.\-h@{coretype.\-h}}\index{coretype.\-h@{coretype.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-X\-N\-O\-R@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-X\-N\-O\-R}}\item[{\em 
+\hypertarget{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0dad9d5480da36fb6f6d33f87507a44ce21}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-X\-N\-O\-R}\label{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0dad9d5480da36fb6f6d33f87507a44ce21}
+}]Bitwise X\-N\-O\-R. \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-N\-O\-R@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-N\-O\-R}!coretype.\-h@{coretype.\-h}}\index{coretype.\-h@{coretype.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-N\-O\-R@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-N\-O\-R}}\item[{\em 
+\hypertarget{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0dad4fad45f4dcfc991fb088394f086914e}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-N\-O\-R}\label{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0dad4fad45f4dcfc991fb088394f086914e}
+}]Bitwise N\-O\-R. \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-H\-L@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-H\-L}!coretype.\-h@{coretype.\-h}}\index{coretype.\-h@{coretype.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-H\-L@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-H\-L}}\item[{\em 
+\hypertarget{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da46bcd247a169bca7794c7f35da751368}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-H\-L}\label{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da46bcd247a169bca7794c7f35da751368}
+}]Shift left (logical). \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-H\-R@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-H\-R}!coretype.\-h@{coretype.\-h}}\index{coretype.\-h@{coretype.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-H\-R@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-H\-R}}\item[{\em 
+\hypertarget{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0daa423b0f60e131f80239bf107f92eda4e}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-H\-R}\label{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0daa423b0f60e131f80239bf107f92eda4e}
+}]Shift right (logical). \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-O\-R@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-O\-R}!coretype.\-h@{coretype.\-h}}\index{coretype.\-h@{coretype.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-O\-R@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-O\-R}}\item[{\em 
+\hypertarget{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0dae2a1b0f1cde1aca787c3df5cf3476410}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-O\-R}\label{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0dae2a1b0f1cde1aca787c3df5cf3476410}
+}]Logical O\-R. \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-A\-N\-D@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-A\-N\-D}!coretype.\-h@{coretype.\-h}}\index{coretype.\-h@{coretype.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-A\-N\-D@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-A\-N\-D}}\item[{\em 
+\hypertarget{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da921006f62ef7ec810bc133382a11a509}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-A\-N\-D}\label{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da921006f62ef7ec810bc133382a11a509}
+}]Logical A\-N\-D. \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-N\-O\-T@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-N\-O\-T}!coretype.\-h@{coretype.\-h}}\index{coretype.\-h@{coretype.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-N\-O\-T@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-N\-O\-T}}\item[{\em 
+\hypertarget{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da63cca7323a733abd52d080d7ecffd639}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-N\-O\-T}\label{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da63cca7323a733abd52d080d7ecffd639}
+}]Logical negation. \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-X\-O\-R@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-X\-O\-R}!coretype.\-h@{coretype.\-h}}\index{coretype.\-h@{coretype.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-X\-O\-R@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-X\-O\-R}}\item[{\em 
+\hypertarget{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da70f5fbfe919708b4b50a30dae35466ee}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-X\-O\-R}\label{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da70f5fbfe919708b4b50a30dae35466ee}
+}]Logical X\-O\-R. \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-X\-N\-O\-R@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-X\-N\-O\-R}!coretype.\-h@{coretype.\-h}}\index{coretype.\-h@{coretype.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-X\-N\-O\-R@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-X\-N\-O\-R}}\item[{\em 
+\hypertarget{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da7d2e16bfc472447897e18c6573ec8787}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-X\-N\-O\-R}\label{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da7d2e16bfc472447897e18c6573ec8787}
+}]Logical X\-N\-O\-R. \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-N\-O\-R@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-N\-O\-R}!coretype.\-h@{coretype.\-h}}\index{coretype.\-h@{coretype.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-N\-O\-R@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-N\-O\-R}}\item[{\em 
+\hypertarget{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da2c9b2e214cd43d588e7b358940fc6013}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-N\-O\-R}\label{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da2c9b2e214cd43d588e7b358940fc6013}
+}]Logical N\-O\-R. \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-T@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-T}!coretype.\-h@{coretype.\-h}}\index{coretype.\-h@{coretype.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-T@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-T}}\item[{\em 
+\hypertarget{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0daed059dba3bcd8f23e463c907a2d38841}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-T}\label{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0daed059dba3bcd8f23e463c907a2d38841}
+}]Less than comparison. \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-G\-T@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-G\-T}!coretype.\-h@{coretype.\-h}}\index{coretype.\-h@{coretype.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-G\-T@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-G\-T}}\item[{\em 
+\hypertarget{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0dab0e4fd15d2b2c36c1f7f7a9ea8eaa688}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-G\-T}\label{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0dab0e4fd15d2b2c36c1f7f7a9ea8eaa688}
+}]Greater than comparison. \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-E\-Q@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-E\-Q}!coretype.\-h@{coretype.\-h}}\index{coretype.\-h@{coretype.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-E\-Q@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-E\-Q}}\item[{\em 
+\hypertarget{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da76138b8137a88aba3383f7f2bad48029}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-E\-Q}\label{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da76138b8137a88aba3383f7f2bad48029}
+}]Equality comparison. \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-E@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-E}!coretype.\-h@{coretype.\-h}}\index{coretype.\-h@{coretype.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-E@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-E}}\item[{\em 
+\hypertarget{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da048a92b7fb6a0b6f9bedad3babb17bb7}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-L\-E}\label{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da048a92b7fb6a0b6f9bedad3babb17bb7}
+}]Less than or equal to comparison. \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-G\-E@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-G\-E}!coretype.\-h@{coretype.\-h}}\index{coretype.\-h@{coretype.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-G\-E@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-G\-E}}\item[{\em 
+\hypertarget{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da7697bc84e780559282f0664e6127ce8e}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-G\-E}\label{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da7697bc84e780559282f0664e6127ce8e}
+}]Greater than or equal to comparison. \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-N\-E@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-N\-E}!coretype.\-h@{coretype.\-h}}\index{coretype.\-h@{coretype.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-N\-E@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-N\-E}}\item[{\em 
+\hypertarget{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da7bddd4370623697b4585d27f4ece76fd}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-N\-E}\label{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da7bddd4370623697b4585d27f4ece76fd}
+}]Not equal comparison. \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-N\-O\-N\-N\-U\-M@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-N\-O\-N\-N\-U\-M}!coretype.\-h@{coretype.\-h}}\index{coretype.\-h@{coretype.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-N\-O\-N\-N\-U\-M@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-N\-O\-N\-N\-U\-M}}\item[{\em 
+\hypertarget{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da73b200d75e1471a4fb039fd1327b7d93}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-N\-O\-N\-N\-U\-M}\label{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da73b200d75e1471a4fb039fd1327b7d93}
+}]Start of non-\/numeric operations (not an op). \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-E\-G@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-E\-G}!coretype.\-h@{coretype.\-h}}\index{coretype.\-h@{coretype.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-E\-G@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-E\-G}}\item[{\em 
+\hypertarget{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da88e8cd6c16d925c8ef8891fa0bef3411}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-E\-G}\label{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da88e8cd6c16d925c8ef8891fa0bef3411}
+}]S\-E\-G operator (gets segment portion of address). \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-W\-R\-T@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-W\-R\-T}!coretype.\-h@{coretype.\-h}}\index{coretype.\-h@{coretype.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-W\-R\-T@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-W\-R\-T}}\item[{\em 
+\hypertarget{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da65af86c97275760ec69a07c8bfb681a1}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-W\-R\-T}\label{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0da65af86c97275760ec69a07c8bfb681a1}
+}]W\-R\-T operator (gets offset of address relative to some other segment). \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-E\-G\-O\-F\-F@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-E\-G\-O\-F\-F}!coretype.\-h@{coretype.\-h}}\index{coretype.\-h@{coretype.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-E\-G\-O\-F\-F@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-E\-G\-O\-F\-F}}\item[{\em 
+\hypertarget{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0dae7e3d7dd7dfd81dbb77ef964edd5a93b}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-E\-G\-O\-F\-F}\label{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0dae7e3d7dd7dfd81dbb77ef964edd5a93b}
+}]The '\-:' in segment\-:offset. \end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{coretype_8h_a401ef5cd42a1f12e59bfae138b610ff4}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-\-\_\-mergesort@{yasm\-\_\-\-\_\-mergesort}}
+\index{yasm\-\_\-\-\_\-mergesort@{yasm\-\_\-\-\_\-mergesort}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-\-\_\-mergesort}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int yasm\-\_\-\-\_\-mergesort (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{base, }
+\item[{size\-\_\-t}]{nmemb, }
+\item[{size\-\_\-t}]{size, }
+\item[{int($\ast$)(const void $\ast$, const void $\ast$)}]{compar}
+\end{DoxyParamCaption}
+)}}\label{coretype_8h_a401ef5cd42a1f12e59bfae138b610ff4}
+Sort an array using merge sort algorithm. \hypertarget{coretype_8h_af0bb0f16d45a60b8b9dd6e0ac4d6a162}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-\-\_\-strcasecmp@{yasm\-\_\-\-\_\-strcasecmp}}
+\index{yasm\-\_\-\-\_\-strcasecmp@{yasm\-\_\-\-\_\-strcasecmp}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-\-\_\-strcasecmp}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int yasm\-\_\-\-\_\-strcasecmp (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{s1, }
+\item[{const char $\ast$}]{s2}
+\end{DoxyParamCaption}
+)}}\label{coretype_8h_af0bb0f16d45a60b8b9dd6e0ac4d6a162}
+Compare two strings, ignoring case differences. \hypertarget{coretype_8h_a827036c3fe9e59a9596aed3c73d059e0}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-\-\_\-strncasecmp@{yasm\-\_\-\-\_\-strncasecmp}}
+\index{yasm\-\_\-\-\_\-strncasecmp@{yasm\-\_\-\-\_\-strncasecmp}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-\-\_\-strncasecmp}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int yasm\-\_\-\-\_\-strncasecmp (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{s1, }
+\item[{const char $\ast$}]{s2, }
+\item[{size\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)}}\label{coretype_8h_a827036c3fe9e59a9596aed3c73d059e0}
+Compare portion of two strings, ignoring case differences. \hypertarget{coretype_8h_a571bbf985efed5bd7dd7130bc6ce1f7f}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-\-\_\-strsep@{yasm\-\_\-\-\_\-strsep}}
+\index{yasm\-\_\-\-\_\-strsep@{yasm\-\_\-\-\_\-strsep}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-\-\_\-strsep}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L char$\ast$ yasm\-\_\-\-\_\-strsep (
+\begin{DoxyParamCaption}
+\item[{char $\ast$$\ast$}]{stringp, }
+\item[{const char $\ast$}]{delim}
+\end{DoxyParamCaption}
+)}}\label{coretype_8h_a571bbf985efed5bd7dd7130bc6ce1f7f}
+Separate string by delimiters. \hypertarget{coretype_8h_a002f40e7754ca5b3b327e1f5601915b0}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-\-\_\-xstrdup@{yasm\-\_\-\-\_\-xstrdup}}
+\index{yasm\-\_\-\-\_\-xstrdup@{yasm\-\_\-\-\_\-xstrdup}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-\-\_\-xstrdup}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L char$\ast$ yasm\-\_\-\-\_\-xstrdup (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}}\label{coretype_8h_a002f40e7754ca5b3b327e1f5601915b0}
+strdup() implementation using \hyperlink{coretype_8h_a2c9d32f0fb84a06bbefc180848588646}{yasm\-\_\-xmalloc()}. \hypertarget{coretype_8h_a717bd37d0ac8e809adff109ec7c4bac1}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-\-\_\-xstrndup@{yasm\-\_\-\-\_\-xstrndup}}
+\index{yasm\-\_\-\-\_\-xstrndup@{yasm\-\_\-\-\_\-xstrndup}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-\-\_\-xstrndup}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L char$\ast$ yasm\-\_\-\-\_\-xstrndup (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{str, }
+\item[{size\-\_\-t}]{max}
+\end{DoxyParamCaption}
+)}}\label{coretype_8h_a717bd37d0ac8e809adff109ec7c4bac1}
+strndup() implementation using \hyperlink{coretype_8h_a2c9d32f0fb84a06bbefc180848588646}{yasm\-\_\-xmalloc()}. 
+
+\subsection{Variable Documentation}
+\hypertarget{coretype_8h_a128f95009903251b6fe5b930a73ddd10}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-xcalloc@{yasm\-\_\-xcalloc}}
+\index{yasm\-\_\-xcalloc@{yasm\-\_\-xcalloc}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-xcalloc}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void$\ast$($\ast$ yasm\-\_\-xcalloc)(size\-\_\-t nelem, size\-\_\-t elsize)}}\label{coretype_8h_a128f95009903251b6fe5b930a73ddd10}
+Error-\/checking memory allocation (with clear-\/to-\/0). A default implementation is provided that calls \hyperlink{errwarn_8h_a630e865d851fb0f8969e533d3a02d0e5}{yasm\-\_\-fatal()} on allocation errors. A replacement should {\itshape never} return N\-U\-L\-L. 
+\begin{DoxyParams}{Parameters}
+{\em size} & number of elements to allocate \\
+\hline
+{\em elsize} & size (in bytes) of each element \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Allocated and cleared memory block. 
+\end{DoxyReturn}
+\hypertarget{coretype_8h_ad4c6ecb91344a9d31bffe42f6e17371b}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-xfree@{yasm\-\_\-xfree}}
+\index{yasm\-\_\-xfree@{yasm\-\_\-xfree}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-xfree}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void($\ast$ yasm\-\_\-xfree)(void $\ast$p)}}\label{coretype_8h_ad4c6ecb91344a9d31bffe42f6e17371b}
+Error-\/checking memory deallocation. A default implementation is provided that calls \hyperlink{errwarn_8h_a630e865d851fb0f8969e533d3a02d0e5}{yasm\-\_\-fatal()} on allocation errors. 
+\begin{DoxyParams}{Parameters}
+{\em p} & memory block to free \\
+\hline
+\end{DoxyParams}
+\hypertarget{coretype_8h_a2c9d32f0fb84a06bbefc180848588646}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-xmalloc@{yasm\-\_\-xmalloc}}
+\index{yasm\-\_\-xmalloc@{yasm\-\_\-xmalloc}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-xmalloc}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void$\ast$($\ast$ yasm\-\_\-xmalloc)(size\-\_\-t size)}}\label{coretype_8h_a2c9d32f0fb84a06bbefc180848588646}
+Error-\/checking memory allocation. A default implementation is provided that calls \hyperlink{errwarn_8h_a630e865d851fb0f8969e533d3a02d0e5}{yasm\-\_\-fatal()} on allocation errors. A replacement should {\itshape never} return N\-U\-L\-L. 
+\begin{DoxyParams}{Parameters}
+{\em size} & number of bytes to allocate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Allocated memory block. 
+\end{DoxyReturn}
+\hypertarget{coretype_8h_a1675c049347096bc887eaa478444d255}{\index{coretype.\-h@{coretype.\-h}!yasm\-\_\-xrealloc@{yasm\-\_\-xrealloc}}
+\index{yasm\-\_\-xrealloc@{yasm\-\_\-xrealloc}!coretype.h@{coretype.\-h}}
+\subsubsection[{yasm\-\_\-xrealloc}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void$\ast$($\ast$ yasm\-\_\-xrealloc)(void $\ast$oldmem, size\-\_\-t size)}}\label{coretype_8h_a1675c049347096bc887eaa478444d255}
+Error-\/checking memory reallocation. A default implementation is provided that calls \hyperlink{errwarn_8h_a630e865d851fb0f8969e533d3a02d0e5}{yasm\-\_\-fatal()} on allocation errors. A replacement should {\itshape never} return N\-U\-L\-L. 
+\begin{DoxyParams}{Parameters}
+{\em oldmem} & memory block to resize \\
+\hline
+{\em elsize} & new size, in bytes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Re-\/allocated memory block. 
+\end{DoxyReturn}

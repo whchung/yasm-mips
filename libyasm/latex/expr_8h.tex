@@ -1,0 +1,705 @@
+\hypertarget{expr_8h}{\section{expr.\-h File Reference}
+\label{expr_8h}\index{expr.\-h@{expr.\-h}}
+}
+
+
+Y\-A\-S\-M expression interface.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structyasm__expr____item}{yasm\-\_\-expr\-\_\-\-\_\-item}
+\item 
+struct \hyperlink{structyasm__expr}{yasm\-\_\-expr}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{expr_8h_a49672a9f0bbf31d5fe92e7b4e2f2dc60}{\#define {\bfseries Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L}}\label{expr_8h_a49672a9f0bbf31d5fe92e7b4e2f2dc60}
+
+\item 
+\#define \hyperlink{expr_8h_a38e4506afb7e6b397d143d2abcc07a9a}{yasm\-\_\-expr\-\_\-create\-\_\-tree}(l, o, r, i)~\hyperlink{expr_8h_a8dee839ed8a3290640126e7a83ac89da}{yasm\-\_\-expr\-\_\-create} ((o), \hyperlink{expr_8h_aa2198dfd4eb7aa38d64faef2b147d093}{yasm\-\_\-expr\-\_\-expr}(l), \hyperlink{expr_8h_aa2198dfd4eb7aa38d64faef2b147d093}{yasm\-\_\-expr\-\_\-expr}(r), i)
+\item 
+\#define \hyperlink{expr_8h_af572809e4bf05d028baf37a3cc4cc404}{yasm\-\_\-expr\-\_\-create\-\_\-branch}(o, r, i)~\hyperlink{expr_8h_a8dee839ed8a3290640126e7a83ac89da}{yasm\-\_\-expr\-\_\-create} ((o), \hyperlink{expr_8h_aa2198dfd4eb7aa38d64faef2b147d093}{yasm\-\_\-expr\-\_\-expr}(r), (\hyperlink{structyasm__expr____item}{yasm\-\_\-expr\-\_\-\-\_\-item} $\ast$)N\-U\-L\-L, i)
+\item 
+\#define \hyperlink{expr_8h_a34a66de74cf6ab9afc0a14291b9ead06}{yasm\-\_\-expr\-\_\-create\-\_\-ident}(r, i)~\hyperlink{expr_8h_a8dee839ed8a3290640126e7a83ac89da}{yasm\-\_\-expr\-\_\-create} (\hyperlink{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0daf0ea42a5850497ce9bf1e3161401afee}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-I\-D\-E\-N\-T}, (r), (\hyperlink{structyasm__expr____item}{yasm\-\_\-expr\-\_\-\-\_\-item} $\ast$)N\-U\-L\-L, i)
+\item 
+\hypertarget{expr_8h_ae452bd279b3cb8852335f0c3b58fabb4}{\#define {\bfseries yasm\-\_\-expr\-\_\-copy}(e)~\hyperlink{expr_8h_a477282faaa88f5bb96876d0e2077245d}{yasm\-\_\-expr\-\_\-\-\_\-copy\-\_\-except}(e, -\/1)}\label{expr_8h_ae452bd279b3cb8852335f0c3b58fabb4}
+
+\item 
+\#define \hyperlink{expr_8h_a769e284465bf68ba218bcc1e00bdb0b9}{yasm\-\_\-expr\-\_\-simplify}(e, cbd)~\hyperlink{expr_8h_af2ff204b1f168c07e6c75a9cf8a7354e}{yasm\-\_\-expr\-\_\-\-\_\-level\-\_\-tree}(e, 1, 1, 1, cbd, N\-U\-L\-L, N\-U\-L\-L)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \hyperlink{expr_8h_a0b38be0745b4fdb9edd60a1698f7ca0b}{yasm\-\_\-expr\-\_\-\-\_\-type} \hyperlink{expr_8h_aedeaaa78fdd07ed990b7a7ca29f490e0}{yasm\-\_\-expr\-\_\-\-\_\-type}
+\item 
+typedef struct \hyperlink{structyasm__expr____item}{yasm\-\_\-expr\-\_\-\-\_\-item} \hyperlink{expr_8h_a5555e561fd8fd0d50ee0c167cb79b26d}{yasm\-\_\-expr\-\_\-\-\_\-item}
+\item 
+typedef \hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$($\ast$ \hyperlink{expr_8h_ab7dc547b20fea47e3774c47edd3f54a9}{yasm\-\_\-expr\-\_\-xform\-\_\-func} )(\hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$e, void $\ast$d)
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{expr_8h_a0b38be0745b4fdb9edd60a1698f7ca0b}{yasm\-\_\-expr\-\_\-\-\_\-type} \{ \\*
+\hyperlink{expr_8h_a0b38be0745b4fdb9edd60a1698f7ca0baa84d003f72240b39e627386faf87d3f9}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-N\-O\-N\-E} = 0, 
+\hyperlink{expr_8h_a0b38be0745b4fdb9edd60a1698f7ca0ba3e93d05ed869439ef4e7ea6b33e3ad3d}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-R\-E\-G} = 1$<$$<$0, 
+\hyperlink{expr_8h_a0b38be0745b4fdb9edd60a1698f7ca0baa7dbbee3293a2bd7b49c6bc34271df9f}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-I\-N\-T} = 1$<$$<$1, 
+\hyperlink{expr_8h_a0b38be0745b4fdb9edd60a1698f7ca0ba01e0975c100e152f607a83a212905785}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-U\-B\-S\-T} = 1$<$$<$2, 
+\\*
+\hyperlink{expr_8h_a0b38be0745b4fdb9edd60a1698f7ca0bab4c103409dcf618d5bd4995afeae39d8}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-F\-L\-O\-A\-T} = 1$<$$<$3, 
+\hyperlink{expr_8h_a0b38be0745b4fdb9edd60a1698f7ca0baed635fe3c4bb71bbe2f1866dc7ddec05}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-Y\-M} = 1$<$$<$4, 
+\hyperlink{expr_8h_a0b38be0745b4fdb9edd60a1698f7ca0ba32c52315915a9a975d95beba2044c832}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-P\-R\-E\-C\-B\-C} = 1$<$$<$5, 
+\hyperlink{expr_8h_a0b38be0745b4fdb9edd60a1698f7ca0ba8f0cbe2df466128000743c1512e40f96}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-E\-X\-P\-R} = 1$<$$<$6
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$ \hyperlink{expr_8h_a8dee839ed8a3290640126e7a83ac89da}{yasm\-\_\-expr\-\_\-create} (\hyperlink{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0d}{yasm\-\_\-expr\-\_\-op} op, \hyperlink{structyasm__expr____item}{yasm\-\_\-expr\-\_\-\-\_\-item} $\ast$a, \hyperlink{structyasm__expr____item}{yasm\-\_\-expr\-\_\-\-\_\-item} $\ast$b, unsigned long line)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__expr____item}{yasm\-\_\-expr\-\_\-\-\_\-item} $\ast$ \hyperlink{expr_8h_aa495b0dfa0bee4bc0c44564d656d5cfe}{yasm\-\_\-expr\-\_\-precbc} (\hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$precbc)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__expr____item}{yasm\-\_\-expr\-\_\-\-\_\-item} $\ast$ \hyperlink{expr_8h_a608ef149b77e8c1b00b4ed4a7fe4ae67}{yasm\-\_\-expr\-\_\-sym} (\hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$sym)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__expr____item}{yasm\-\_\-expr\-\_\-\-\_\-item} $\ast$ \hyperlink{expr_8h_aa2198dfd4eb7aa38d64faef2b147d093}{yasm\-\_\-expr\-\_\-expr} (\hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$e)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__expr____item}{yasm\-\_\-expr\-\_\-\-\_\-item} $\ast$ \hyperlink{expr_8h_a21b032d8d0402d33076955b51ba9bc2a}{yasm\-\_\-expr\-\_\-int} (\hyperlink{structyasm__intnum}{yasm\-\_\-intnum} $\ast$intn)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__expr____item}{yasm\-\_\-expr\-\_\-\-\_\-item} $\ast$ \hyperlink{expr_8h_a863adf515164877fc1779d9359da4175}{yasm\-\_\-expr\-\_\-float} (\hyperlink{structyasm__floatnum}{yasm\-\_\-floatnum} $\ast$flt)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__expr____item}{yasm\-\_\-expr\-\_\-\-\_\-item} $\ast$ \hyperlink{expr_8h_a3350657426afccb0d522d9b5dc136d7e}{yasm\-\_\-expr\-\_\-reg} (uintptr\-\_\-t reg)
+\item 
+\hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$ \hyperlink{expr_8h_a4cb03e36c5ed8de78237058445e3d166}{yasm\-\_\-expr\-\_\-copy} (const \hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$e)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{expr_8h_aada9af3460b2d32396d515f3a7f6ae97}{yasm\-\_\-expr\-\_\-destroy} (\hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$e)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int \hyperlink{expr_8h_a948bf70f9fa12524b3fb0bdcccebea37}{yasm\-\_\-expr\-\_\-is\-\_\-op} (const \hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$e, \hyperlink{coretype_8h_af8de22ca487f38e2b239f7ceb9aabb0d}{yasm\-\_\-expr\-\_\-op} op)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$ \hyperlink{expr_8h_af2ff204b1f168c07e6c75a9cf8a7354e}{yasm\-\_\-expr\-\_\-\-\_\-level\-\_\-tree} (\hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$e, int fold\-\_\-const, int simplify\-\_\-ident, int simplify\-\_\-reg\-\_\-mul, int calc\-\_\-bc\-\_\-dist, \hyperlink{expr_8h_ab7dc547b20fea47e3774c47edd3f54a9}{yasm\-\_\-expr\-\_\-xform\-\_\-func} expr\-\_\-xform\-\_\-extra, void $\ast$expr\-\_\-xform\-\_\-extra\-\_\-data)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$ \hyperlink{expr_8h_a3e6b85f467c7ad8c7f48ec57b51b99c8}{yasm\-\_\-expr\-\_\-extract\-\_\-deep\-\_\-segoff} (\hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$$\ast$ep)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$ \hyperlink{expr_8h_a67a31055103bfaa932a775d5466c49c4}{yasm\-\_\-expr\-\_\-extract\-\_\-segoff} (\hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$$\ast$ep)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$ \hyperlink{expr_8h_a0e46e29646d566f0a87b167ce5608ad9}{yasm\-\_\-expr\-\_\-extract\-\_\-wrt} (\hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$$\ast$ep)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__intnum}{yasm\-\_\-intnum} $\ast$ \hyperlink{expr_8h_a10a654bdb22c753d5fd5821d0db28ded}{yasm\-\_\-expr\-\_\-get\-\_\-intnum} (\hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$$\ast$ep, int calc\-\_\-bc\-\_\-dist)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L const \hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$ \hyperlink{expr_8h_aa309447e17a81441944b712e803b8613}{yasm\-\_\-expr\-\_\-get\-\_\-symrec} (\hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$$\ast$ep, int simplify)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L const uintptr\-\_\-t $\ast$ \hyperlink{expr_8h_a6cab8544011338adbf8ce4cbb5f65ea1}{yasm\-\_\-expr\-\_\-get\-\_\-reg} (\hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$$\ast$ep, int simplify)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{expr_8h_a8673764a37c5aed757d1ad74143be7ea}{yasm\-\_\-expr\-\_\-print} (const \hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$e, F\-I\-L\-E $\ast$f)
+\item 
+unsigned int \hyperlink{expr_8h_a9d6f750cf00d48d09a09cc4c9336d759}{yasm\-\_\-expr\-\_\-size} (const \hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$e)
+\item 
+const char $\ast$ \hyperlink{expr_8h_aaa5f1c96c3ac7d4cd03e6c0cfc701692}{yasm\-\_\-expr\-\_\-segment} (const \hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$e)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int \hyperlink{expr_8h_af24a9b0b793a664aeb1a5c4391fc87cd}{yasm\-\_\-expr\-\_\-\-\_\-traverse\-\_\-leaves\-\_\-in\-\_\-const} (const \hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$e, void $\ast$d, int($\ast$func)(const \hyperlink{structyasm__expr____item}{yasm\-\_\-expr\-\_\-\-\_\-item} $\ast$ei, void $\ast$d))
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int \hyperlink{expr_8h_a4681ba1800f01ea4edbe7af969712b44}{yasm\-\_\-expr\-\_\-\-\_\-traverse\-\_\-leaves\-\_\-in} (\hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$e, void $\ast$d, int($\ast$func)(\hyperlink{structyasm__expr____item}{yasm\-\_\-expr\-\_\-\-\_\-item} $\ast$ei, void $\ast$d))
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{expr_8h_a9f20964a29b0afe0b840c1d3cb738630}{yasm\-\_\-expr\-\_\-\-\_\-order\-\_\-terms} (\hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$e)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$ \hyperlink{expr_8h_a477282faaa88f5bb96876d0e2077245d}{yasm\-\_\-expr\-\_\-\-\_\-copy\-\_\-except} (const \hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$e, int except)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int \hyperlink{expr_8h_a22a22a915fa95a4d5255f4ed332df265}{yasm\-\_\-expr\-\_\-\-\_\-contains} (const \hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$e, \hyperlink{expr_8h_a0b38be0745b4fdb9edd60a1698f7ca0b}{yasm\-\_\-expr\-\_\-\-\_\-type} t)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int \hyperlink{expr_8h_a06cf6d0ced878555d6b5c47d30958500}{yasm\-\_\-expr\-\_\-\-\_\-bc\-\_\-dist\-\_\-subst} (\hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$$\ast$ep, void $\ast$cbd, void($\ast$callback)(unsigned int subst, \hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$precbc, \hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$precbc2, void $\ast$cbd))
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int \hyperlink{expr_8h_abee422618c175a8869e416ab3bce8d71}{yasm\-\_\-expr\-\_\-\-\_\-subst} (\hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$e, unsigned int num\-\_\-items, const \hyperlink{structyasm__expr____item}{yasm\-\_\-expr\-\_\-\-\_\-item} $\ast$items)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Y\-A\-S\-M expression interface. Copyright (C) 2001-\/2007 Michael Urman, Peter Johnson
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\-:
+\begin{DoxyItemize}
+\item Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+\item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+\end{DoxyItemize}
+
+T\-H\-I\-S S\-O\-F\-T\-W\-A\-R\-E I\-S P\-R\-O\-V\-I\-D\-E\-D B\-Y T\-H\-E A\-U\-T\-H\-O\-R A\-N\-D O\-T\-H\-E\-R C\-O\-N\-T\-R\-I\-B\-U\-T\-O\-R\-S ``\-A\-S I\-S'' A\-N\-D A\-N\-Y E\-X\-P\-R\-E\-S\-S O\-R I\-M\-P\-L\-I\-E\-D W\-A\-R\-R\-A\-N\-T\-I\-E\-S, I\-N\-C\-L\-U\-D\-I\-N\-G, B\-U\-T N\-O\-T L\-I\-M\-I\-T\-E\-D T\-O, T\-H\-E I\-M\-P\-L\-I\-E\-D W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-F M\-E\-R\-C\-H\-A\-N\-T\-A\-B\-I\-L\-I\-T\-Y A\-N\-D F\-I\-T\-N\-E\-S\-S F\-O\-R A P\-A\-R\-T\-I\-C\-U\-L\-A\-R P\-U\-R\-P\-O\-S\-E A\-R\-E D\-I\-S\-C\-L\-A\-I\-M\-E\-D. I\-N N\-O E\-V\-E\-N\-T S\-H\-A\-L\-L T\-H\-E A\-U\-T\-H\-O\-R O\-R O\-T\-H\-E\-R C\-O\-N\-T\-R\-I\-B\-U\-T\-O\-R\-S B\-E L\-I\-A\-B\-L\-E F\-O\-R A\-N\-Y D\-I\-R\-E\-C\-T, I\-N\-D\-I\-R\-E\-C\-T, I\-N\-C\-I\-D\-E\-N\-T\-A\-L, S\-P\-E\-C\-I\-A\-L, E\-X\-E\-M\-P\-L\-A\-R\-Y, O\-R C\-O\-N\-S\-E\-Q\-U\-E\-N\-T\-I\-A\-L D\-A\-M\-A\-G\-E\-S (I\-N\-C\-L\-U\-D\-I\-N\-G, B\-U\-T N\-O\-T L\-I\-M\-I\-T\-E\-D T\-O, P\-R\-O\-C\-U\-R\-E\-M\-E\-N\-T O\-F S\-U\-B\-S\-T\-I\-T\-U\-T\-E G\-O\-O\-D\-S O\-R S\-E\-R\-V\-I\-C\-E\-S; L\-O\-S\-S O\-F U\-S\-E, D\-A\-T\-A, O\-R P\-R\-O\-F\-I\-T\-S; O\-R B\-U\-S\-I\-N\-E\-S\-S I\-N\-T\-E\-R\-R\-U\-P\-T\-I\-O\-N) H\-O\-W\-E\-V\-E\-R C\-A\-U\-S\-E\-D A\-N\-D O\-N A\-N\-Y T\-H\-E\-O\-R\-Y O\-F L\-I\-A\-B\-I\-L\-I\-T\-Y, W\-H\-E\-T\-H\-E\-R I\-N C\-O\-N\-T\-R\-A\-C\-T, S\-T\-R\-I\-C\-T L\-I\-A\-B\-I\-L\-I\-T\-Y, O\-R T\-O\-R\-T (I\-N\-C\-L\-U\-D\-I\-N\-G N\-E\-G\-L\-I\-G\-E\-N\-C\-E O\-R O\-T\-H\-E\-R\-W\-I\-S\-E) A\-R\-I\-S\-I\-N\-G I\-N A\-N\-Y W\-A\-Y O\-U\-T O\-F T\-H\-E U\-S\-E O\-F T\-H\-I\-S S\-O\-F\-T\-W\-A\-R\-E, E\-V\-E\-N I\-F A\-D\-V\-I\-S\-E\-D O\-F T\-H\-E P\-O\-S\-S\-I\-B\-I\-L\-I\-T\-Y O\-F S\-U\-C\-H D\-A\-M\-A\-G\-E.  
+
+\subsection{Macro Definition Documentation}
+\hypertarget{expr_8h_af572809e4bf05d028baf37a3cc4cc404}{\index{expr.\-h@{expr.\-h}!yasm\-\_\-expr\-\_\-create\-\_\-branch@{yasm\-\_\-expr\-\_\-create\-\_\-branch}}
+\index{yasm\-\_\-expr\-\_\-create\-\_\-branch@{yasm\-\_\-expr\-\_\-create\-\_\-branch}!expr.h@{expr.\-h}}
+\subsubsection[{yasm\-\_\-expr\-\_\-create\-\_\-branch}]{\setlength{\rightskip}{0pt plus 5cm}\#define yasm\-\_\-expr\-\_\-create\-\_\-branch(
+\begin{DoxyParamCaption}
+\item[{}]{o, }
+\item[{}]{r, }
+\item[{}]{i}
+\end{DoxyParamCaption}
+)~{\bf yasm\-\_\-expr\-\_\-create} ((o), {\bf yasm\-\_\-expr\-\_\-expr}(r), ({\bf yasm\-\_\-expr\-\_\-\-\_\-item} $\ast$)N\-U\-L\-L, i)}}\label{expr_8h_af572809e4bf05d028baf37a3cc4cc404}
+Create a new expression branch e=op r. 
+\begin{DoxyParams}{Parameters}
+{\em o} & operation \\
+\hline
+{\em r} & expression for right side of new expression \\
+\hline
+{\em i} & line index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly allocated expression. 
+\end{DoxyReturn}
+\hypertarget{expr_8h_a34a66de74cf6ab9afc0a14291b9ead06}{\index{expr.\-h@{expr.\-h}!yasm\-\_\-expr\-\_\-create\-\_\-ident@{yasm\-\_\-expr\-\_\-create\-\_\-ident}}
+\index{yasm\-\_\-expr\-\_\-create\-\_\-ident@{yasm\-\_\-expr\-\_\-create\-\_\-ident}!expr.h@{expr.\-h}}
+\subsubsection[{yasm\-\_\-expr\-\_\-create\-\_\-ident}]{\setlength{\rightskip}{0pt plus 5cm}\#define yasm\-\_\-expr\-\_\-create\-\_\-ident(
+\begin{DoxyParamCaption}
+\item[{}]{r, }
+\item[{}]{i}
+\end{DoxyParamCaption}
+)~{\bf yasm\-\_\-expr\-\_\-create} ({\bf Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-I\-D\-E\-N\-T}, (r), ({\bf yasm\-\_\-expr\-\_\-\-\_\-item} $\ast$)N\-U\-L\-L, i)}}\label{expr_8h_a34a66de74cf6ab9afc0a14291b9ead06}
+Create a new expression identity e=r. 
+\begin{DoxyParams}{Parameters}
+{\em r} & expression for identity within new expression \\
+\hline
+{\em i} & line index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly allocated expression. 
+\end{DoxyReturn}
+\hypertarget{expr_8h_a38e4506afb7e6b397d143d2abcc07a9a}{\index{expr.\-h@{expr.\-h}!yasm\-\_\-expr\-\_\-create\-\_\-tree@{yasm\-\_\-expr\-\_\-create\-\_\-tree}}
+\index{yasm\-\_\-expr\-\_\-create\-\_\-tree@{yasm\-\_\-expr\-\_\-create\-\_\-tree}!expr.h@{expr.\-h}}
+\subsubsection[{yasm\-\_\-expr\-\_\-create\-\_\-tree}]{\setlength{\rightskip}{0pt plus 5cm}\#define yasm\-\_\-expr\-\_\-create\-\_\-tree(
+\begin{DoxyParamCaption}
+\item[{}]{l, }
+\item[{}]{o, }
+\item[{}]{r, }
+\item[{}]{i}
+\end{DoxyParamCaption}
+)~{\bf yasm\-\_\-expr\-\_\-create} ((o), {\bf yasm\-\_\-expr\-\_\-expr}(l), {\bf yasm\-\_\-expr\-\_\-expr}(r), i)}}\label{expr_8h_a38e4506afb7e6b397d143d2abcc07a9a}
+Create a new expression tree e=l op r. 
+\begin{DoxyParams}{Parameters}
+{\em l} & expression for left side of new expression \\
+\hline
+{\em o} & operation \\
+\hline
+{\em r} & expression for right side of new expression \\
+\hline
+{\em i} & line index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly allocated expression. 
+\end{DoxyReturn}
+\hypertarget{expr_8h_a769e284465bf68ba218bcc1e00bdb0b9}{\index{expr.\-h@{expr.\-h}!yasm\-\_\-expr\-\_\-simplify@{yasm\-\_\-expr\-\_\-simplify}}
+\index{yasm\-\_\-expr\-\_\-simplify@{yasm\-\_\-expr\-\_\-simplify}!expr.h@{expr.\-h}}
+\subsubsection[{yasm\-\_\-expr\-\_\-simplify}]{\setlength{\rightskip}{0pt plus 5cm}\#define yasm\-\_\-expr\-\_\-simplify(
+\begin{DoxyParamCaption}
+\item[{}]{e, }
+\item[{}]{cbd}
+\end{DoxyParamCaption}
+)~{\bf yasm\-\_\-expr\-\_\-\-\_\-level\-\_\-tree}(e, 1, 1, 1, cbd, N\-U\-L\-L, N\-U\-L\-L)}}\label{expr_8h_a769e284465bf68ba218bcc1e00bdb0b9}
+Simplify an expression as much as possible. Eliminates extraneous branches and simplifies integer-\/only subexpressions. Simplified version of \hyperlink{expr_8h_af2ff204b1f168c07e6c75a9cf8a7354e}{yasm\-\_\-expr\-\_\-\-\_\-level\-\_\-tree()}. 
+\begin{DoxyParams}{Parameters}
+{\em e} & expression \\
+\hline
+{\em cbd} & if distance between bytecodes should be calculated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Simplified expression. 
+\end{DoxyReturn}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{expr_8h_a5555e561fd8fd0d50ee0c167cb79b26d}{\index{expr.\-h@{expr.\-h}!yasm\-\_\-expr\-\_\-\-\_\-item@{yasm\-\_\-expr\-\_\-\-\_\-item}}
+\index{yasm\-\_\-expr\-\_\-\-\_\-item@{yasm\-\_\-expr\-\_\-\-\_\-item}!expr.h@{expr.\-h}}
+\subsubsection[{yasm\-\_\-expr\-\_\-\-\_\-item}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf yasm\-\_\-expr\-\_\-\-\_\-item}  {\bf yasm\-\_\-expr\-\_\-\-\_\-item}}}\label{expr_8h_a5555e561fd8fd0d50ee0c167cb79b26d}
+Expression item. \hypertarget{expr_8h_aedeaaa78fdd07ed990b7a7ca29f490e0}{\index{expr.\-h@{expr.\-h}!yasm\-\_\-expr\-\_\-\-\_\-type@{yasm\-\_\-expr\-\_\-\-\_\-type}}
+\index{yasm\-\_\-expr\-\_\-\-\_\-type@{yasm\-\_\-expr\-\_\-\-\_\-type}!expr.h@{expr.\-h}}
+\subsubsection[{yasm\-\_\-expr\-\_\-\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf yasm\-\_\-expr\-\_\-\-\_\-type}  {\bf yasm\-\_\-expr\-\_\-\-\_\-type}}}\label{expr_8h_aedeaaa78fdd07ed990b7a7ca29f490e0}
+Type of an expression item. Types are listed in canonical sorting order. See expr\-\_\-order\-\_\-terms(). Note \hyperlink{expr_8h_a0b38be0745b4fdb9edd60a1698f7ca0ba32c52315915a9a975d95beba2044c832}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-P\-R\-E\-C\-B\-C} must be used carefully (in a-\/b pairs), as only symrecs can become the relative term in a \hyperlink{structyasm__value}{yasm\-\_\-value}. \hypertarget{expr_8h_ab7dc547b20fea47e3774c47edd3f54a9}{\index{expr.\-h@{expr.\-h}!yasm\-\_\-expr\-\_\-xform\-\_\-func@{yasm\-\_\-expr\-\_\-xform\-\_\-func}}
+\index{yasm\-\_\-expr\-\_\-xform\-\_\-func@{yasm\-\_\-expr\-\_\-xform\-\_\-func}!expr.h@{expr.\-h}}
+\subsubsection[{yasm\-\_\-expr\-\_\-xform\-\_\-func}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf yasm\-\_\-expr}$\ast$($\ast$ yasm\-\_\-expr\-\_\-xform\-\_\-func)({\bf yasm\-\_\-expr} $\ast$e,void $\ast$d)}}\label{expr_8h_ab7dc547b20fea47e3774c47edd3f54a9}
+Extra transformation function for \hyperlink{expr_8h_af2ff204b1f168c07e6c75a9cf8a7354e}{yasm\-\_\-expr\-\_\-\-\_\-level\-\_\-tree()}. 
+\begin{DoxyParams}{Parameters}
+{\em e} & expression being simplified \\
+\hline
+{\em d} & data provided as expr\-\_\-xform\-\_\-extra\-\_\-data to \hyperlink{expr_8h_af2ff204b1f168c07e6c75a9cf8a7354e}{yasm\-\_\-expr\-\_\-\-\_\-level\-\_\-tree()} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Transformed e. 
+\end{DoxyReturn}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{expr_8h_a0b38be0745b4fdb9edd60a1698f7ca0b}{\index{expr.\-h@{expr.\-h}!yasm\-\_\-expr\-\_\-\-\_\-type@{yasm\-\_\-expr\-\_\-\-\_\-type}}
+\index{yasm\-\_\-expr\-\_\-\-\_\-type@{yasm\-\_\-expr\-\_\-\-\_\-type}!expr.h@{expr.\-h}}
+\subsubsection[{yasm\-\_\-expr\-\_\-\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf yasm\-\_\-expr\-\_\-\-\_\-type}}}\label{expr_8h_a0b38be0745b4fdb9edd60a1698f7ca0b}
+Type of an expression item. Types are listed in canonical sorting order. See expr\-\_\-order\-\_\-terms(). Note \hyperlink{expr_8h_a0b38be0745b4fdb9edd60a1698f7ca0ba32c52315915a9a975d95beba2044c832}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-P\-R\-E\-C\-B\-C} must be used carefully (in a-\/b pairs), as only symrecs can become the relative term in a \hyperlink{structyasm__value}{yasm\-\_\-value}. \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-N\-O\-N\-E@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-N\-O\-N\-E}!expr.\-h@{expr.\-h}}\index{expr.\-h@{expr.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-N\-O\-N\-E@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-N\-O\-N\-E}}\item[{\em 
+\hypertarget{expr_8h_a0b38be0745b4fdb9edd60a1698f7ca0baa84d003f72240b39e627386faf87d3f9}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-N\-O\-N\-E}\label{expr_8h_a0b38be0745b4fdb9edd60a1698f7ca0baa84d003f72240b39e627386faf87d3f9}
+}]Nothing \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-R\-E\-G@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-R\-E\-G}!expr.\-h@{expr.\-h}}\index{expr.\-h@{expr.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-R\-E\-G@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-R\-E\-G}}\item[{\em 
+\hypertarget{expr_8h_a0b38be0745b4fdb9edd60a1698f7ca0ba3e93d05ed869439ef4e7ea6b33e3ad3d}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-R\-E\-G}\label{expr_8h_a0b38be0745b4fdb9edd60a1698f7ca0ba3e93d05ed869439ef4e7ea6b33e3ad3d}
+}]Register \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-I\-N\-T@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-I\-N\-T}!expr.\-h@{expr.\-h}}\index{expr.\-h@{expr.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-I\-N\-T@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-I\-N\-T}}\item[{\em 
+\hypertarget{expr_8h_a0b38be0745b4fdb9edd60a1698f7ca0baa7dbbee3293a2bd7b49c6bc34271df9f}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-I\-N\-T}\label{expr_8h_a0b38be0745b4fdb9edd60a1698f7ca0baa7dbbee3293a2bd7b49c6bc34271df9f}
+}]Integer value \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-U\-B\-S\-T@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-U\-B\-S\-T}!expr.\-h@{expr.\-h}}\index{expr.\-h@{expr.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-U\-B\-S\-T@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-U\-B\-S\-T}}\item[{\em 
+\hypertarget{expr_8h_a0b38be0745b4fdb9edd60a1698f7ca0ba01e0975c100e152f607a83a212905785}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-U\-B\-S\-T}\label{expr_8h_a0b38be0745b4fdb9edd60a1698f7ca0ba01e0975c100e152f607a83a212905785}
+}]Substitution placeholder \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-F\-L\-O\-A\-T@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-F\-L\-O\-A\-T}!expr.\-h@{expr.\-h}}\index{expr.\-h@{expr.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-F\-L\-O\-A\-T@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-F\-L\-O\-A\-T}}\item[{\em 
+\hypertarget{expr_8h_a0b38be0745b4fdb9edd60a1698f7ca0bab4c103409dcf618d5bd4995afeae39d8}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-F\-L\-O\-A\-T}\label{expr_8h_a0b38be0745b4fdb9edd60a1698f7ca0bab4c103409dcf618d5bd4995afeae39d8}
+}]Floating point value \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-Y\-M@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-Y\-M}!expr.\-h@{expr.\-h}}\index{expr.\-h@{expr.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-Y\-M@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-Y\-M}}\item[{\em 
+\hypertarget{expr_8h_a0b38be0745b4fdb9edd60a1698f7ca0baed635fe3c4bb71bbe2f1866dc7ddec05}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-Y\-M}\label{expr_8h_a0b38be0745b4fdb9edd60a1698f7ca0baed635fe3c4bb71bbe2f1866dc7ddec05}
+}]Symbol \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-P\-R\-E\-C\-B\-C@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-P\-R\-E\-C\-B\-C}!expr.\-h@{expr.\-h}}\index{expr.\-h@{expr.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-P\-R\-E\-C\-B\-C@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-P\-R\-E\-C\-B\-C}}\item[{\em 
+\hypertarget{expr_8h_a0b38be0745b4fdb9edd60a1698f7ca0ba32c52315915a9a975d95beba2044c832}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-P\-R\-E\-C\-B\-C}\label{expr_8h_a0b38be0745b4fdb9edd60a1698f7ca0ba32c52315915a9a975d95beba2044c832}
+}]Direct bytecode ref (rather than via sym) \index{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-E\-X\-P\-R@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-E\-X\-P\-R}!expr.\-h@{expr.\-h}}\index{expr.\-h@{expr.\-h}!Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-E\-X\-P\-R@{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-E\-X\-P\-R}}\item[{\em 
+\hypertarget{expr_8h_a0b38be0745b4fdb9edd60a1698f7ca0ba8f0cbe2df466128000743c1512e40f96}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-E\-X\-P\-R}\label{expr_8h_a0b38be0745b4fdb9edd60a1698f7ca0ba8f0cbe2df466128000743c1512e40f96}
+}]Subexpression \end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{expr_8h_a06cf6d0ced878555d6b5c47d30958500}{\index{expr.\-h@{expr.\-h}!yasm\-\_\-expr\-\_\-\-\_\-bc\-\_\-dist\-\_\-subst@{yasm\-\_\-expr\-\_\-\-\_\-bc\-\_\-dist\-\_\-subst}}
+\index{yasm\-\_\-expr\-\_\-\-\_\-bc\-\_\-dist\-\_\-subst@{yasm\-\_\-expr\-\_\-\-\_\-bc\-\_\-dist\-\_\-subst}!expr.h@{expr.\-h}}
+\subsubsection[{yasm\-\_\-expr\-\_\-\-\_\-bc\-\_\-dist\-\_\-subst}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int yasm\-\_\-expr\-\_\-\-\_\-bc\-\_\-dist\-\_\-subst (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-expr} $\ast$$\ast$}]{ep, }
+\item[{void $\ast$}]{cbd, }
+\item[{void($\ast$)(unsigned int subst, {\bf yasm\-\_\-bytecode} $\ast$precbc, {\bf yasm\-\_\-bytecode} $\ast$precbc2, void $\ast$cbd)}]{callback}
+\end{DoxyParamCaption}
+)}}\label{expr_8h_a06cf6d0ced878555d6b5c47d30958500}
+Transform symrec-\/symrec terms in expression into \hyperlink{expr_8h_a0b38be0745b4fdb9edd60a1698f7ca0ba01e0975c100e152f607a83a212905785}{Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-U\-B\-S\-T} items. Calls the callback function for each symrec-\/symrec term. 
+\begin{DoxyParams}{Parameters}
+{\em ep} & expression (pointer to) \\
+\hline
+{\em cbd} & callback data passed to callback function \\
+\hline
+{\em callback} & callback function\-: given subst index for bytecode pair, bytecode pair (bc2-\/bc1), and cbd (callback data) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of transformations made. 
+\end{DoxyReturn}
+\hypertarget{expr_8h_a22a22a915fa95a4d5255f4ed332df265}{\index{expr.\-h@{expr.\-h}!yasm\-\_\-expr\-\_\-\-\_\-contains@{yasm\-\_\-expr\-\_\-\-\_\-contains}}
+\index{yasm\-\_\-expr\-\_\-\-\_\-contains@{yasm\-\_\-expr\-\_\-\-\_\-contains}!expr.h@{expr.\-h}}
+\subsubsection[{yasm\-\_\-expr\-\_\-\-\_\-contains}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int yasm\-\_\-expr\-\_\-\-\_\-contains (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-expr} $\ast$}]{e, }
+\item[{{\bf yasm\-\_\-expr\-\_\-\-\_\-type}}]{t}
+\end{DoxyParamCaption}
+)}}\label{expr_8h_a22a22a915fa95a4d5255f4ed332df265}
+Test if expression contains an item. Searches recursively into subexpressions. 
+\begin{DoxyParams}{Parameters}
+{\em e} & expression \\
+\hline
+{\em t} & type of item to look for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nonzero if expression contains an item of type t, zero if not. 
+\end{DoxyReturn}
+\hypertarget{expr_8h_a477282faaa88f5bb96876d0e2077245d}{\index{expr.\-h@{expr.\-h}!yasm\-\_\-expr\-\_\-\-\_\-copy\-\_\-except@{yasm\-\_\-expr\-\_\-\-\_\-copy\-\_\-except}}
+\index{yasm\-\_\-expr\-\_\-\-\_\-copy\-\_\-except@{yasm\-\_\-expr\-\_\-\-\_\-copy\-\_\-except}!expr.h@{expr.\-h}}
+\subsubsection[{yasm\-\_\-expr\-\_\-\-\_\-copy\-\_\-except}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-expr}$\ast$ yasm\-\_\-expr\-\_\-\-\_\-copy\-\_\-except (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-expr} $\ast$}]{e, }
+\item[{int}]{except}
+\end{DoxyParamCaption}
+)}}\label{expr_8h_a477282faaa88f5bb96876d0e2077245d}
+Copy entire expression E\-X\-C\-E\-P\-T for index \char`\"{}except\char`\"{} at {\itshape top level only}. 
+\begin{DoxyParams}{Parameters}
+{\em e} & expression \\
+\hline
+{\em except} & term index not to copy; -\/1 to copy all terms \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly allocated copy of expression. 
+\end{DoxyReturn}
+\hypertarget{expr_8h_af2ff204b1f168c07e6c75a9cf8a7354e}{\index{expr.\-h@{expr.\-h}!yasm\-\_\-expr\-\_\-\-\_\-level\-\_\-tree@{yasm\-\_\-expr\-\_\-\-\_\-level\-\_\-tree}}
+\index{yasm\-\_\-expr\-\_\-\-\_\-level\-\_\-tree@{yasm\-\_\-expr\-\_\-\-\_\-level\-\_\-tree}!expr.h@{expr.\-h}}
+\subsubsection[{yasm\-\_\-expr\-\_\-\-\_\-level\-\_\-tree}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-expr}$\ast$ yasm\-\_\-expr\-\_\-\-\_\-level\-\_\-tree (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-expr} $\ast$}]{e, }
+\item[{int}]{fold\-\_\-const, }
+\item[{int}]{simplify\-\_\-ident, }
+\item[{int}]{simplify\-\_\-reg\-\_\-mul, }
+\item[{int}]{calc\-\_\-bc\-\_\-dist, }
+\item[{{\bf yasm\-\_\-expr\-\_\-xform\-\_\-func}}]{expr\-\_\-xform\-\_\-extra, }
+\item[{void $\ast$}]{expr\-\_\-xform\-\_\-extra\-\_\-data}
+\end{DoxyParamCaption}
+)}}\label{expr_8h_af2ff204b1f168c07e6c75a9cf8a7354e}
+Level an entire expression tree. \hypertarget{expr_8h_a9f20964a29b0afe0b840c1d3cb738630}{\index{expr.\-h@{expr.\-h}!yasm\-\_\-expr\-\_\-\-\_\-order\-\_\-terms@{yasm\-\_\-expr\-\_\-\-\_\-order\-\_\-terms}}
+\index{yasm\-\_\-expr\-\_\-\-\_\-order\-\_\-terms@{yasm\-\_\-expr\-\_\-\-\_\-order\-\_\-terms}!expr.h@{expr.\-h}}
+\subsubsection[{yasm\-\_\-expr\-\_\-\-\_\-order\-\_\-terms}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-expr\-\_\-\-\_\-order\-\_\-terms (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-expr} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}}\label{expr_8h_a9f20964a29b0afe0b840c1d3cb738630}
+Reorder terms of e into canonical order. Only reorders if reordering doesn't change meaning of expression. (eg, doesn't reorder S\-U\-B). Canonical order\-: R\-E\-G, I\-N\-T, F\-L\-O\-A\-T, S\-Y\-M, E\-X\-P\-R. Multiple terms of a single type are kept in the same order as in the original expression. 
+\begin{DoxyParams}{Parameters}
+{\em e} & expression \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Only performs reordering on {\itshape one} level (no recursion). 
+\end{DoxyNote}
+\hypertarget{expr_8h_abee422618c175a8869e416ab3bce8d71}{\index{expr.\-h@{expr.\-h}!yasm\-\_\-expr\-\_\-\-\_\-subst@{yasm\-\_\-expr\-\_\-\-\_\-subst}}
+\index{yasm\-\_\-expr\-\_\-\-\_\-subst@{yasm\-\_\-expr\-\_\-\-\_\-subst}!expr.h@{expr.\-h}}
+\subsubsection[{yasm\-\_\-expr\-\_\-\-\_\-subst}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int yasm\-\_\-expr\-\_\-\-\_\-subst (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-expr} $\ast$}]{e, }
+\item[{unsigned int}]{num\-\_\-items, }
+\item[{const {\bf yasm\-\_\-expr\-\_\-\-\_\-item} $\ast$}]{items}
+\end{DoxyParamCaption}
+)}}\label{expr_8h_abee422618c175a8869e416ab3bce8d71}
+Substitute items into expr Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-U\-B\-S\-T items (by index). Items are copied, so caller is responsible for freeing array of items. 
+\begin{DoxyParams}{Parameters}
+{\em e} & expression \\
+\hline
+{\em num\-\_\-items} & number of items in items array \\
+\hline
+{\em items} & items array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on error (index out of range). 
+\end{DoxyReturn}
+\hypertarget{expr_8h_a4681ba1800f01ea4edbe7af969712b44}{\index{expr.\-h@{expr.\-h}!yasm\-\_\-expr\-\_\-\-\_\-traverse\-\_\-leaves\-\_\-in@{yasm\-\_\-expr\-\_\-\-\_\-traverse\-\_\-leaves\-\_\-in}}
+\index{yasm\-\_\-expr\-\_\-\-\_\-traverse\-\_\-leaves\-\_\-in@{yasm\-\_\-expr\-\_\-\-\_\-traverse\-\_\-leaves\-\_\-in}!expr.h@{expr.\-h}}
+\subsubsection[{yasm\-\_\-expr\-\_\-\-\_\-traverse\-\_\-leaves\-\_\-in}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int yasm\-\_\-expr\-\_\-\-\_\-traverse\-\_\-leaves\-\_\-in (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-expr} $\ast$}]{e, }
+\item[{void $\ast$}]{d, }
+\item[{int($\ast$)({\bf yasm\-\_\-expr\-\_\-\-\_\-item} $\ast$ei, void $\ast$d)}]{func}
+\end{DoxyParamCaption}
+)}}\label{expr_8h_a4681ba1800f01ea4edbe7af969712b44}
+Traverse over expression tree in order. Calls func for each leaf (non-\/operation). 
+\begin{DoxyParams}{Parameters}
+{\em e} & expression \\
+\hline
+{\em d} & data passed to each call to func \\
+\hline
+{\em func} & callback function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Stops early (and returns 1) if func returns 1. Otherwise returns 0. 
+\end{DoxyReturn}
+\hypertarget{expr_8h_af24a9b0b793a664aeb1a5c4391fc87cd}{\index{expr.\-h@{expr.\-h}!yasm\-\_\-expr\-\_\-\-\_\-traverse\-\_\-leaves\-\_\-in\-\_\-const@{yasm\-\_\-expr\-\_\-\-\_\-traverse\-\_\-leaves\-\_\-in\-\_\-const}}
+\index{yasm\-\_\-expr\-\_\-\-\_\-traverse\-\_\-leaves\-\_\-in\-\_\-const@{yasm\-\_\-expr\-\_\-\-\_\-traverse\-\_\-leaves\-\_\-in\-\_\-const}!expr.h@{expr.\-h}}
+\subsubsection[{yasm\-\_\-expr\-\_\-\-\_\-traverse\-\_\-leaves\-\_\-in\-\_\-const}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int yasm\-\_\-expr\-\_\-\-\_\-traverse\-\_\-leaves\-\_\-in\-\_\-const (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-expr} $\ast$}]{e, }
+\item[{void $\ast$}]{d, }
+\item[{int($\ast$)(const {\bf yasm\-\_\-expr\-\_\-\-\_\-item} $\ast$ei, void $\ast$d)}]{func}
+\end{DoxyParamCaption}
+)}}\label{expr_8h_af24a9b0b793a664aeb1a5c4391fc87cd}
+Traverse over expression tree in order (const version). Calls func for each leaf (non-\/operation). 
+\begin{DoxyParams}{Parameters}
+{\em e} & expression \\
+\hline
+{\em d} & data passed to each call to func \\
+\hline
+{\em func} & callback function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Stops early (and returns 1) if func returns 1. Otherwise returns 0. 
+\end{DoxyReturn}
+\hypertarget{expr_8h_a4cb03e36c5ed8de78237058445e3d166}{\index{expr.\-h@{expr.\-h}!yasm\-\_\-expr\-\_\-copy@{yasm\-\_\-expr\-\_\-copy}}
+\index{yasm\-\_\-expr\-\_\-copy@{yasm\-\_\-expr\-\_\-copy}!expr.h@{expr.\-h}}
+\subsubsection[{yasm\-\_\-expr\-\_\-copy}]{\setlength{\rightskip}{0pt plus 5cm}{\bf yasm\-\_\-expr}$\ast$ yasm\-\_\-expr\-\_\-copy (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-expr} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}}\label{expr_8h_a4cb03e36c5ed8de78237058445e3d166}
+Duplicate an expression. 
+\begin{DoxyParams}{Parameters}
+{\em e} & expression \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly allocated expression identical to e. 
+\end{DoxyReturn}
+\hypertarget{expr_8h_a8dee839ed8a3290640126e7a83ac89da}{\index{expr.\-h@{expr.\-h}!yasm\-\_\-expr\-\_\-create@{yasm\-\_\-expr\-\_\-create}}
+\index{yasm\-\_\-expr\-\_\-create@{yasm\-\_\-expr\-\_\-create}!expr.h@{expr.\-h}}
+\subsubsection[{yasm\-\_\-expr\-\_\-create}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-expr}$\ast$ yasm\-\_\-expr\-\_\-create (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-expr\-\_\-op}}]{op, }
+\item[{{\bf yasm\-\_\-expr\-\_\-\-\_\-item} $\ast$}]{a, }
+\item[{{\bf yasm\-\_\-expr\-\_\-\-\_\-item} $\ast$}]{b, }
+\item[{unsigned long}]{line}
+\end{DoxyParamCaption}
+)}}\label{expr_8h_a8dee839ed8a3290640126e7a83ac89da}
+Create a new expression e=a op b. 
+\begin{DoxyParams}{Parameters}
+{\em op} & operation \\
+\hline
+{\em a} & expression item a \\
+\hline
+{\em b} & expression item b (optional depending on op) \\
+\hline
+{\em line} & virtual line (where expression defined) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly allocated expression. 
+\end{DoxyReturn}
+\hypertarget{expr_8h_aada9af3460b2d32396d515f3a7f6ae97}{\index{expr.\-h@{expr.\-h}!yasm\-\_\-expr\-\_\-destroy@{yasm\-\_\-expr\-\_\-destroy}}
+\index{yasm\-\_\-expr\-\_\-destroy@{yasm\-\_\-expr\-\_\-destroy}!expr.h@{expr.\-h}}
+\subsubsection[{yasm\-\_\-expr\-\_\-destroy}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-expr\-\_\-destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-expr} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}}\label{expr_8h_aada9af3460b2d32396d515f3a7f6ae97}
+Destroy (free allocated memory for) an expression. 
+\begin{DoxyParams}{Parameters}
+{\em e} & expression \\
+\hline
+\end{DoxyParams}
+\hypertarget{expr_8h_aa2198dfd4eb7aa38d64faef2b147d093}{\index{expr.\-h@{expr.\-h}!yasm\-\_\-expr\-\_\-expr@{yasm\-\_\-expr\-\_\-expr}}
+\index{yasm\-\_\-expr\-\_\-expr@{yasm\-\_\-expr\-\_\-expr}!expr.h@{expr.\-h}}
+\subsubsection[{yasm\-\_\-expr\-\_\-expr}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-expr\-\_\-\-\_\-item}$\ast$ yasm\-\_\-expr\-\_\-expr (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-expr} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}}\label{expr_8h_aa2198dfd4eb7aa38d64faef2b147d093}
+Create a new expression expression item. 
+\begin{DoxyParams}{Parameters}
+{\em e} & expression \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly allocated expression item. 
+\end{DoxyReturn}
+\hypertarget{expr_8h_a3e6b85f467c7ad8c7f48ec57b51b99c8}{\index{expr.\-h@{expr.\-h}!yasm\-\_\-expr\-\_\-extract\-\_\-deep\-\_\-segoff@{yasm\-\_\-expr\-\_\-extract\-\_\-deep\-\_\-segoff}}
+\index{yasm\-\_\-expr\-\_\-extract\-\_\-deep\-\_\-segoff@{yasm\-\_\-expr\-\_\-extract\-\_\-deep\-\_\-segoff}!expr.h@{expr.\-h}}
+\subsubsection[{yasm\-\_\-expr\-\_\-extract\-\_\-deep\-\_\-segoff}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-expr}$\ast$ yasm\-\_\-expr\-\_\-extract\-\_\-deep\-\_\-segoff (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-expr} $\ast$$\ast$}]{ep}
+\end{DoxyParamCaption}
+)}}\label{expr_8h_a3e6b85f467c7ad8c7f48ec57b51b99c8}
+Extract the segment portion of an expression containing S\-E\-G\-:O\-F\-F, leaving the offset. 
+\begin{DoxyParams}{Parameters}
+{\em ep} & expression (pointer to) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+N\-U\-L\-L if unable to extract a segment (expr does not contain a Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-E\-G\-O\-F\-F operator), otherwise the segment expression. The input expression is modified such that on return, it's the offset expression. 
+\end{DoxyReturn}
+\hypertarget{expr_8h_a67a31055103bfaa932a775d5466c49c4}{\index{expr.\-h@{expr.\-h}!yasm\-\_\-expr\-\_\-extract\-\_\-segoff@{yasm\-\_\-expr\-\_\-extract\-\_\-segoff}}
+\index{yasm\-\_\-expr\-\_\-extract\-\_\-segoff@{yasm\-\_\-expr\-\_\-extract\-\_\-segoff}!expr.h@{expr.\-h}}
+\subsubsection[{yasm\-\_\-expr\-\_\-extract\-\_\-segoff}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-expr}$\ast$ yasm\-\_\-expr\-\_\-extract\-\_\-segoff (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-expr} $\ast$$\ast$}]{ep}
+\end{DoxyParamCaption}
+)}}\label{expr_8h_a67a31055103bfaa932a775d5466c49c4}
+Extract the segment portion of a S\-E\-G\-:O\-F\-F expression, leaving the offset. 
+\begin{DoxyParams}{Parameters}
+{\em ep} & expression (pointer to) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+N\-U\-L\-L if unable to extract a segment (Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-S\-E\-G\-O\-F\-F not the top-\/level operator), otherwise the segment expression. The input expression is modified such that on return, it's the offset expression. 
+\end{DoxyReturn}
+\hypertarget{expr_8h_a0e46e29646d566f0a87b167ce5608ad9}{\index{expr.\-h@{expr.\-h}!yasm\-\_\-expr\-\_\-extract\-\_\-wrt@{yasm\-\_\-expr\-\_\-extract\-\_\-wrt}}
+\index{yasm\-\_\-expr\-\_\-extract\-\_\-wrt@{yasm\-\_\-expr\-\_\-extract\-\_\-wrt}!expr.h@{expr.\-h}}
+\subsubsection[{yasm\-\_\-expr\-\_\-extract\-\_\-wrt}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-expr}$\ast$ yasm\-\_\-expr\-\_\-extract\-\_\-wrt (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-expr} $\ast$$\ast$}]{ep}
+\end{DoxyParamCaption}
+)}}\label{expr_8h_a0e46e29646d566f0a87b167ce5608ad9}
+Extract the right portion (y) of a x W\-R\-T y expression, leaving the left portion (x). 
+\begin{DoxyParams}{Parameters}
+{\em ep} & expression (pointer to) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+N\-U\-L\-L if unable to extract (Y\-A\-S\-M\-\_\-\-E\-X\-P\-R\-\_\-\-W\-R\-T not the top-\/level operator), otherwise the right side of the W\-R\-T expression. The input expression is modified such that on return, it's the left side of the W\-R\-T expression. 
+\end{DoxyReturn}
+\hypertarget{expr_8h_a863adf515164877fc1779d9359da4175}{\index{expr.\-h@{expr.\-h}!yasm\-\_\-expr\-\_\-float@{yasm\-\_\-expr\-\_\-float}}
+\index{yasm\-\_\-expr\-\_\-float@{yasm\-\_\-expr\-\_\-float}!expr.h@{expr.\-h}}
+\subsubsection[{yasm\-\_\-expr\-\_\-float}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-expr\-\_\-\-\_\-item}$\ast$ yasm\-\_\-expr\-\_\-float (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-floatnum} $\ast$}]{flt}
+\end{DoxyParamCaption}
+)}}\label{expr_8h_a863adf515164877fc1779d9359da4175}
+Create a new floatnum expression item. 
+\begin{DoxyParams}{Parameters}
+{\em flt} & floatnum \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly allocated expression item. 
+\end{DoxyReturn}
+\hypertarget{expr_8h_a10a654bdb22c753d5fd5821d0db28ded}{\index{expr.\-h@{expr.\-h}!yasm\-\_\-expr\-\_\-get\-\_\-intnum@{yasm\-\_\-expr\-\_\-get\-\_\-intnum}}
+\index{yasm\-\_\-expr\-\_\-get\-\_\-intnum@{yasm\-\_\-expr\-\_\-get\-\_\-intnum}!expr.h@{expr.\-h}}
+\subsubsection[{yasm\-\_\-expr\-\_\-get\-\_\-intnum}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-intnum}$\ast$ yasm\-\_\-expr\-\_\-get\-\_\-intnum (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-expr} $\ast$$\ast$}]{ep, }
+\item[{int}]{calc\-\_\-bc\-\_\-dist}
+\end{DoxyParamCaption}
+)}}\label{expr_8h_a10a654bdb22c753d5fd5821d0db28ded}
+Get the integer value of an expression if it's just an integer. 
+\begin{DoxyParams}{Parameters}
+{\em ep} & expression (pointer to) \\
+\hline
+{\em calc\-\_\-bc\-\_\-dist} & nonzero if distances between bytecodes should be calculated, 0 if N\-U\-L\-L should be returned in this case \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+N\-U\-L\-L if the expression is too complex (contains anything other than integers, ie floats, non-\/valued labels, registers); otherwise the intnum value of the expression. 
+\end{DoxyReturn}
+\hypertarget{expr_8h_a6cab8544011338adbf8ce4cbb5f65ea1}{\index{expr.\-h@{expr.\-h}!yasm\-\_\-expr\-\_\-get\-\_\-reg@{yasm\-\_\-expr\-\_\-get\-\_\-reg}}
+\index{yasm\-\_\-expr\-\_\-get\-\_\-reg@{yasm\-\_\-expr\-\_\-get\-\_\-reg}!expr.h@{expr.\-h}}
+\subsubsection[{yasm\-\_\-expr\-\_\-get\-\_\-reg}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L const uintptr\-\_\-t$\ast$ yasm\-\_\-expr\-\_\-get\-\_\-reg (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-expr} $\ast$$\ast$}]{ep, }
+\item[{int}]{simplify}
+\end{DoxyParamCaption}
+)}}\label{expr_8h_a6cab8544011338adbf8ce4cbb5f65ea1}
+Get the register value of an expression if it's just a register. 
+\begin{DoxyParams}{Parameters}
+{\em ep} & expression (pointer to) \\
+\hline
+{\em simplify} & if nonzero, simplify the expression first \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+N\-U\-L\-L if the expression is too complex; otherwise the register value of the expression. 
+\end{DoxyReturn}
+\hypertarget{expr_8h_aa309447e17a81441944b712e803b8613}{\index{expr.\-h@{expr.\-h}!yasm\-\_\-expr\-\_\-get\-\_\-symrec@{yasm\-\_\-expr\-\_\-get\-\_\-symrec}}
+\index{yasm\-\_\-expr\-\_\-get\-\_\-symrec@{yasm\-\_\-expr\-\_\-get\-\_\-symrec}!expr.h@{expr.\-h}}
+\subsubsection[{yasm\-\_\-expr\-\_\-get\-\_\-symrec}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L const {\bf yasm\-\_\-symrec}$\ast$ yasm\-\_\-expr\-\_\-get\-\_\-symrec (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-expr} $\ast$$\ast$}]{ep, }
+\item[{int}]{simplify}
+\end{DoxyParamCaption}
+)}}\label{expr_8h_aa309447e17a81441944b712e803b8613}
+Get the symbol value of an expression if it's just a symbol. 
+\begin{DoxyParams}{Parameters}
+{\em ep} & expression (pointer to) \\
+\hline
+{\em simplify} & if nonzero, simplify the expression first \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+N\-U\-L\-L if the expression is too complex; otherwise the symbol value of the expression. 
+\end{DoxyReturn}
+\hypertarget{expr_8h_a21b032d8d0402d33076955b51ba9bc2a}{\index{expr.\-h@{expr.\-h}!yasm\-\_\-expr\-\_\-int@{yasm\-\_\-expr\-\_\-int}}
+\index{yasm\-\_\-expr\-\_\-int@{yasm\-\_\-expr\-\_\-int}!expr.h@{expr.\-h}}
+\subsubsection[{yasm\-\_\-expr\-\_\-int}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-expr\-\_\-\-\_\-item}$\ast$ yasm\-\_\-expr\-\_\-int (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-intnum} $\ast$}]{intn}
+\end{DoxyParamCaption}
+)}}\label{expr_8h_a21b032d8d0402d33076955b51ba9bc2a}
+Create a new intnum expression item. 
+\begin{DoxyParams}{Parameters}
+{\em intn} & intnum \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly allocated expression item. 
+\end{DoxyReturn}
+\hypertarget{expr_8h_a948bf70f9fa12524b3fb0bdcccebea37}{\index{expr.\-h@{expr.\-h}!yasm\-\_\-expr\-\_\-is\-\_\-op@{yasm\-\_\-expr\-\_\-is\-\_\-op}}
+\index{yasm\-\_\-expr\-\_\-is\-\_\-op@{yasm\-\_\-expr\-\_\-is\-\_\-op}!expr.h@{expr.\-h}}
+\subsubsection[{yasm\-\_\-expr\-\_\-is\-\_\-op}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int yasm\-\_\-expr\-\_\-is\-\_\-op (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-expr} $\ast$}]{e, }
+\item[{{\bf yasm\-\_\-expr\-\_\-op}}]{op}
+\end{DoxyParamCaption}
+)}}\label{expr_8h_a948bf70f9fa12524b3fb0bdcccebea37}
+Determine if an expression is a specified operation (at the top level). 
+\begin{DoxyParams}{Parameters}
+{\em e} & expression \\
+\hline
+{\em op} & operator \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nonzero if the expression was the specified operation at the top level, zero otherwise. 
+\end{DoxyReturn}
+\hypertarget{expr_8h_aa495b0dfa0bee4bc0c44564d656d5cfe}{\index{expr.\-h@{expr.\-h}!yasm\-\_\-expr\-\_\-precbc@{yasm\-\_\-expr\-\_\-precbc}}
+\index{yasm\-\_\-expr\-\_\-precbc@{yasm\-\_\-expr\-\_\-precbc}!expr.h@{expr.\-h}}
+\subsubsection[{yasm\-\_\-expr\-\_\-precbc}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-expr\-\_\-\-\_\-item}$\ast$ yasm\-\_\-expr\-\_\-precbc (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-bytecode} $\ast$}]{precbc}
+\end{DoxyParamCaption}
+)}}\label{expr_8h_aa495b0dfa0bee4bc0c44564d656d5cfe}
+Create a new preceding-\/bytecode expression item. 
+\begin{DoxyParams}{Parameters}
+{\em precbc} & preceding bytecode \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly allocated expression item. 
+\end{DoxyReturn}
+\hypertarget{expr_8h_a8673764a37c5aed757d1ad74143be7ea}{\index{expr.\-h@{expr.\-h}!yasm\-\_\-expr\-\_\-print@{yasm\-\_\-expr\-\_\-print}}
+\index{yasm\-\_\-expr\-\_\-print@{yasm\-\_\-expr\-\_\-print}!expr.h@{expr.\-h}}
+\subsubsection[{yasm\-\_\-expr\-\_\-print}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-expr\-\_\-print (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-expr} $\ast$}]{e, }
+\item[{F\-I\-L\-E $\ast$}]{f}
+\end{DoxyParamCaption}
+)}}\label{expr_8h_a8673764a37c5aed757d1ad74143be7ea}
+Print an expression. For debugging purposes. 
+\begin{DoxyParams}{Parameters}
+{\em e} & expression \\
+\hline
+{\em f} & file \\
+\hline
+\end{DoxyParams}
+\hypertarget{expr_8h_a3350657426afccb0d522d9b5dc136d7e}{\index{expr.\-h@{expr.\-h}!yasm\-\_\-expr\-\_\-reg@{yasm\-\_\-expr\-\_\-reg}}
+\index{yasm\-\_\-expr\-\_\-reg@{yasm\-\_\-expr\-\_\-reg}!expr.h@{expr.\-h}}
+\subsubsection[{yasm\-\_\-expr\-\_\-reg}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-expr\-\_\-\-\_\-item}$\ast$ yasm\-\_\-expr\-\_\-reg (
+\begin{DoxyParamCaption}
+\item[{uintptr\-\_\-t}]{reg}
+\end{DoxyParamCaption}
+)}}\label{expr_8h_a3350657426afccb0d522d9b5dc136d7e}
+Create a new register expression item. 
+\begin{DoxyParams}{Parameters}
+{\em reg} & register \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly allocated expression item. 
+\end{DoxyReturn}
+\hypertarget{expr_8h_aaa5f1c96c3ac7d4cd03e6c0cfc701692}{\index{expr.\-h@{expr.\-h}!yasm\-\_\-expr\-\_\-segment@{yasm\-\_\-expr\-\_\-segment}}
+\index{yasm\-\_\-expr\-\_\-segment@{yasm\-\_\-expr\-\_\-segment}!expr.h@{expr.\-h}}
+\subsubsection[{yasm\-\_\-expr\-\_\-segment}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ yasm\-\_\-expr\-\_\-segment (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-expr} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}}\label{expr_8h_aaa5f1c96c3ac7d4cd03e6c0cfc701692}
+Return the segment of an expression, if the user provided it 
+\begin{DoxyParams}{Parameters}
+{\em e} & expression \\
+\hline
+\end{DoxyParams}
+\hypertarget{expr_8h_a9d6f750cf00d48d09a09cc4c9336d759}{\index{expr.\-h@{expr.\-h}!yasm\-\_\-expr\-\_\-size@{yasm\-\_\-expr\-\_\-size}}
+\index{yasm\-\_\-expr\-\_\-size@{yasm\-\_\-expr\-\_\-size}!expr.h@{expr.\-h}}
+\subsubsection[{yasm\-\_\-expr\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int yasm\-\_\-expr\-\_\-size (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-expr} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}}\label{expr_8h_a9d6f750cf00d48d09a09cc4c9336d759}
+Return the size of an expression, if the user provided it 
+\begin{DoxyParams}{Parameters}
+{\em e} & expression \\
+\hline
+\end{DoxyParams}
+\hypertarget{expr_8h_a608ef149b77e8c1b00b4ed4a7fe4ae67}{\index{expr.\-h@{expr.\-h}!yasm\-\_\-expr\-\_\-sym@{yasm\-\_\-expr\-\_\-sym}}
+\index{yasm\-\_\-expr\-\_\-sym@{yasm\-\_\-expr\-\_\-sym}!expr.h@{expr.\-h}}
+\subsubsection[{yasm\-\_\-expr\-\_\-sym}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-expr\-\_\-\-\_\-item}$\ast$ yasm\-\_\-expr\-\_\-sym (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-symrec} $\ast$}]{sym}
+\end{DoxyParamCaption}
+)}}\label{expr_8h_a608ef149b77e8c1b00b4ed4a7fe4ae67}
+Create a new symbol expression item. 
+\begin{DoxyParams}{Parameters}
+{\em sym} & symbol \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly allocated expression item. 
+\end{DoxyReturn}

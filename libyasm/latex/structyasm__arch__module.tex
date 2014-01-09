@@ -1,0 +1,149 @@
+\hypertarget{structyasm__arch__module}{\section{yasm\-\_\-arch\-\_\-module Struct Reference}
+\label{structyasm__arch__module}\index{yasm\-\_\-arch\-\_\-module@{yasm\-\_\-arch\-\_\-module}}
+}
+
+
+{\ttfamily \#include $<$arch.\-h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \hyperlink{structyasm__arch__module_af315f36d9f1ffdeb14de19b816ab8ab0}{name}
+\item 
+const char $\ast$ \hyperlink{structyasm__arch__module_adb00b33e390ee35db27e80cf415b7404}{keyword}
+\item 
+const \hyperlink{structyasm__directive}{yasm\-\_\-directive} $\ast$ \hyperlink{structyasm__arch__module_a4619ed342e98203bfc1edcdeb9eec65c}{directives}
+\item 
+\hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$($\ast$ \hyperlink{structyasm__arch__module_a1c8c7a915d05db99e62b54a82d764231}{create} )(const char $\ast$machine, const char $\ast$parser, \hyperlink{arch_8h_a6c9e33e39484739985d931045ca2faa2}{yasm\-\_\-arch\-\_\-create\-\_\-error} $\ast$error)
+\item 
+void($\ast$ \hyperlink{structyasm__arch__module_a60d0078567b6c0a25f3e9f29fb710d0b}{destroy} )(\hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch)
+\item 
+const char $\ast$($\ast$ \hyperlink{structyasm__arch__module_ad28eebf86539d87b4efabc55dbd47713}{get\-\_\-machine} )(const \hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch)
+\item 
+unsigned int($\ast$ \hyperlink{structyasm__arch__module_a3f82738da091b9e2967e795f4d59de76}{get\-\_\-address\-\_\-size} )(const \hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch)
+\item 
+int($\ast$ \hyperlink{structyasm__arch__module_a8479f90a6dc66a0e092149d39bb0240e}{set\-\_\-var} )(\hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch, const char $\ast$var, unsigned long val)
+\item 
+\hyperlink{arch_8h_ac21db64e3ba86dfe84f8028f8c14cb2a}{yasm\-\_\-arch\-\_\-insnprefix}($\ast$ \hyperlink{structyasm__arch__module_a3dde1b6ec44c7d351f795ddafd364c48}{parse\-\_\-check\-\_\-insnprefix} )(\hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch, const char $\ast$id, size\-\_\-t id\-\_\-len, unsigned long line, \hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$$\ast$bc, uintptr\-\_\-t $\ast$prefix)
+\item 
+\hyperlink{arch_8h_a1261e0e39e12f0e4490924676c591376}{yasm\-\_\-arch\-\_\-regtmod}($\ast$ \hyperlink{structyasm__arch__module_a3ebd6e4bda71c110b9455b3965c148dd}{parse\-\_\-check\-\_\-regtmod} )(\hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch, const char $\ast$id, size\-\_\-t id\-\_\-len, uintptr\-\_\-t $\ast$data)
+\item 
+const unsigned char $\ast$$\ast$($\ast$ \hyperlink{structyasm__arch__module_abb1c7db4c07489d563408f13526e7ef0}{get\-\_\-fill} )(const \hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch)
+\item 
+int($\ast$ \hyperlink{structyasm__arch__module_adccc4dbe8cfed3b9a647622b70489468}{floatnum\-\_\-tobytes} )(\hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch, const \hyperlink{structyasm__floatnum}{yasm\-\_\-floatnum} $\ast$flt, unsigned char $\ast$buf, size\-\_\-t destsize, size\-\_\-t valsize, size\-\_\-t shift, int \hyperlink{structwarn}{warn})
+\item 
+int($\ast$ \hyperlink{structyasm__arch__module_a07202501842115d0216311060c3ede71}{intnum\-\_\-tobytes} )(\hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch, const \hyperlink{structyasm__intnum}{yasm\-\_\-intnum} $\ast$intn, unsigned char $\ast$buf, size\-\_\-t destsize, size\-\_\-t valsize, int shift, const \hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$bc, int \hyperlink{structwarn}{warn})
+\item 
+unsigned int($\ast$ \hyperlink{structyasm__arch__module_ab2fe2c571343ff116fad50c18f320ebd}{get\-\_\-reg\-\_\-size} )(\hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch, uintptr\-\_\-t reg)
+\item 
+uintptr\-\_\-t($\ast$ \hyperlink{structyasm__arch__module_a482192e63715c1c9e92fe96ecb42c097}{reggroup\-\_\-get\-\_\-reg} )(\hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch, uintptr\-\_\-t reggroup, unsigned long regindex)
+\item 
+void($\ast$ \hyperlink{structyasm__arch__module_a6dc5cfaa6ddd2c654abf3599ba219ef0}{reg\-\_\-print} )(\hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch, uintptr\-\_\-t reg, F\-I\-L\-E $\ast$f)
+\item 
+void($\ast$ \hyperlink{structyasm__arch__module_a0cc2000fdd21f86497271c6957f0a833}{segreg\-\_\-print} )(\hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch, uintptr\-\_\-t segreg, F\-I\-L\-E $\ast$f)
+\item 
+\hyperlink{structyasm__effaddr}{yasm\-\_\-effaddr} $\ast$($\ast$ \hyperlink{structyasm__arch__module_ac41bf595c524eed5dfebb16514eefad3}{ea\-\_\-create} )(\hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch, \hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$e)
+\item 
+void($\ast$ \hyperlink{structyasm__arch__module_acfe30289d9c3300986fe4f73c92ca644}{ea\-\_\-destroy} )(\hyperlink{structyasm__effaddr}{yasm\-\_\-effaddr} $\ast$ea)
+\item 
+void($\ast$ \hyperlink{structyasm__arch__module_a70b26bcf811aabae77bccd78594ca731}{ea\-\_\-print} )(const \hyperlink{structyasm__effaddr}{yasm\-\_\-effaddr} $\ast$ea, F\-I\-L\-E $\ast$f, int indent\-\_\-level)
+\item 
+\hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$($\ast$ \hyperlink{structyasm__arch__module_aded6d7577574b5fdb988cff2d062fde4}{create\-\_\-empty\-\_\-insn} )(\hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch, unsigned long line)
+\item 
+const \hyperlink{structyasm__arch__machine}{yasm\-\_\-arch\-\_\-machine} $\ast$ \hyperlink{structyasm__arch__module_aa9831300bb203ec3cdb35862b6187ebc}{machines}
+\item 
+const char $\ast$ \hyperlink{structyasm__arch__module_ab935f77e9d4fafaf06c3561219ed7e3c}{default\-\_\-machine\-\_\-keyword}
+\item 
+unsigned int \hyperlink{structyasm__arch__module_ac83222855b248fc10ccfd393279fe9a4}{wordsize}
+\item 
+unsigned int \hyperlink{structyasm__arch__module_a0ca18842f63879a3311ac9f6fe35b8df}{min\-\_\-insn\-\_\-len}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Y\-A\-S\-M architecture module interface. \begin{DoxyNote}{Note}
+All \char`\"{}data\char`\"{} in parser-\/related functions (yasm\-\_\-arch\-\_\-parse\-\_\-$\ast$) needs to start the parse initialized to 0 to make it okay for a parser-\/related function to use/check previously stored data to see if it's been called before on the same piece of data. 
+\end{DoxyNote}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structyasm__arch__module_a1c8c7a915d05db99e62b54a82d764231}{\index{yasm\-\_\-arch\-\_\-module@{yasm\-\_\-arch\-\_\-module}!create@{create}}
+\index{create@{create}!yasm_arch_module@{yasm\-\_\-arch\-\_\-module}}
+\subsubsection[{create}]{\setlength{\rightskip}{0pt plus 5cm}{\bf yasm\-\_\-arch}$\ast$($\ast$ yasm\-\_\-arch\-\_\-module\-::create)(const char $\ast$machine, const char $\ast$parser,{\bf yasm\-\_\-arch\-\_\-create\-\_\-error} $\ast$error)}}\label{structyasm__arch__module_a1c8c7a915d05db99e62b54a82d764231}
+Create architecture. Module-\/level implementation of \hyperlink{arch_8h_ac1aa673ef18339096cf4e2b387078bb3}{yasm\-\_\-arch\-\_\-create()}. Call \hyperlink{arch_8h_ac1aa673ef18339096cf4e2b387078bb3}{yasm\-\_\-arch\-\_\-create()} instead of calling this function. \hypertarget{structyasm__arch__module_aded6d7577574b5fdb988cff2d062fde4}{\index{yasm\-\_\-arch\-\_\-module@{yasm\-\_\-arch\-\_\-module}!create\-\_\-empty\-\_\-insn@{create\-\_\-empty\-\_\-insn}}
+\index{create\-\_\-empty\-\_\-insn@{create\-\_\-empty\-\_\-insn}!yasm_arch_module@{yasm\-\_\-arch\-\_\-module}}
+\subsubsection[{create\-\_\-empty\-\_\-insn}]{\setlength{\rightskip}{0pt plus 5cm}{\bf yasm\-\_\-bytecode}$\ast$($\ast$ yasm\-\_\-arch\-\_\-module\-::create\-\_\-empty\-\_\-insn)({\bf yasm\-\_\-arch} $\ast$arch, unsigned long line)}}\label{structyasm__arch__module_aded6d7577574b5fdb988cff2d062fde4}
+Module-\/level implementation of \hyperlink{arch_8h_ac9134bbe90f137ddcbca2266713156e9}{yasm\-\_\-arch\-\_\-create\-\_\-empty\-\_\-insn()}. Call \hyperlink{arch_8h_ac9134bbe90f137ddcbca2266713156e9}{yasm\-\_\-arch\-\_\-create\-\_\-empty\-\_\-insn()} instead of calling this function. \hypertarget{structyasm__arch__module_ab935f77e9d4fafaf06c3561219ed7e3c}{\index{yasm\-\_\-arch\-\_\-module@{yasm\-\_\-arch\-\_\-module}!default\-\_\-machine\-\_\-keyword@{default\-\_\-machine\-\_\-keyword}}
+\index{default\-\_\-machine\-\_\-keyword@{default\-\_\-machine\-\_\-keyword}!yasm_arch_module@{yasm\-\_\-arch\-\_\-module}}
+\subsubsection[{default\-\_\-machine\-\_\-keyword}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ yasm\-\_\-arch\-\_\-module\-::default\-\_\-machine\-\_\-keyword}}\label{structyasm__arch__module_ab935f77e9d4fafaf06c3561219ed7e3c}
+Default machine keyword. Call \hyperlink{arch_8h_a140c8c687d8dfcde94aafc3338ec3bee}{yasm\-\_\-arch\-\_\-get\-\_\-machine()} to get the active machine of a particular \hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch}. \hypertarget{structyasm__arch__module_a60d0078567b6c0a25f3e9f29fb710d0b}{\index{yasm\-\_\-arch\-\_\-module@{yasm\-\_\-arch\-\_\-module}!destroy@{destroy}}
+\index{destroy@{destroy}!yasm_arch_module@{yasm\-\_\-arch\-\_\-module}}
+\subsubsection[{destroy}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ yasm\-\_\-arch\-\_\-module\-::destroy)({\bf yasm\-\_\-arch} $\ast$arch)}}\label{structyasm__arch__module_a60d0078567b6c0a25f3e9f29fb710d0b}
+Module-\/level implementation of \hyperlink{arch_8h_aa8c55848aa8e698d5a1b1291d440fee4}{yasm\-\_\-arch\-\_\-destroy()}. Call \hyperlink{arch_8h_aa8c55848aa8e698d5a1b1291d440fee4}{yasm\-\_\-arch\-\_\-destroy()} instead of calling this function. \hypertarget{structyasm__arch__module_a4619ed342e98203bfc1edcdeb9eec65c}{\index{yasm\-\_\-arch\-\_\-module@{yasm\-\_\-arch\-\_\-module}!directives@{directives}}
+\index{directives@{directives}!yasm_arch_module@{yasm\-\_\-arch\-\_\-module}}
+\subsubsection[{directives}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf yasm\-\_\-directive}$\ast$ yasm\-\_\-arch\-\_\-module\-::directives}}\label{structyasm__arch__module_a4619ed342e98203bfc1edcdeb9eec65c}
+N\-U\-L\-L-\/terminated list of directives. N\-U\-L\-L if none. \hypertarget{structyasm__arch__module_ac41bf595c524eed5dfebb16514eefad3}{\index{yasm\-\_\-arch\-\_\-module@{yasm\-\_\-arch\-\_\-module}!ea\-\_\-create@{ea\-\_\-create}}
+\index{ea\-\_\-create@{ea\-\_\-create}!yasm_arch_module@{yasm\-\_\-arch\-\_\-module}}
+\subsubsection[{ea\-\_\-create}]{\setlength{\rightskip}{0pt plus 5cm}{\bf yasm\-\_\-effaddr}$\ast$($\ast$ yasm\-\_\-arch\-\_\-module\-::ea\-\_\-create)({\bf yasm\-\_\-arch} $\ast$arch,{\bf yasm\-\_\-expr} $\ast$e)}}\label{structyasm__arch__module_ac41bf595c524eed5dfebb16514eefad3}
+Module-\/level implementation of \hyperlink{arch_8h_a6da9f655b142d8b112ae286277b6b1ca}{yasm\-\_\-arch\-\_\-ea\-\_\-create()}. Call \hyperlink{arch_8h_a6da9f655b142d8b112ae286277b6b1ca}{yasm\-\_\-arch\-\_\-ea\-\_\-create()} instead of calling this function. \hypertarget{structyasm__arch__module_acfe30289d9c3300986fe4f73c92ca644}{\index{yasm\-\_\-arch\-\_\-module@{yasm\-\_\-arch\-\_\-module}!ea\-\_\-destroy@{ea\-\_\-destroy}}
+\index{ea\-\_\-destroy@{ea\-\_\-destroy}!yasm_arch_module@{yasm\-\_\-arch\-\_\-module}}
+\subsubsection[{ea\-\_\-destroy}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ yasm\-\_\-arch\-\_\-module\-::ea\-\_\-destroy)({\bf yasm\-\_\-effaddr} $\ast$ea)}}\label{structyasm__arch__module_acfe30289d9c3300986fe4f73c92ca644}
+Module-\/level implementation of \hyperlink{arch_8h_a535b9daa3638a8f8f5540cbc643170f3}{yasm\-\_\-arch\-\_\-ea\-\_\-destroy()}. Call \hyperlink{arch_8h_a535b9daa3638a8f8f5540cbc643170f3}{yasm\-\_\-arch\-\_\-ea\-\_\-destroy()} instead of calling this function. \hypertarget{structyasm__arch__module_a70b26bcf811aabae77bccd78594ca731}{\index{yasm\-\_\-arch\-\_\-module@{yasm\-\_\-arch\-\_\-module}!ea\-\_\-print@{ea\-\_\-print}}
+\index{ea\-\_\-print@{ea\-\_\-print}!yasm_arch_module@{yasm\-\_\-arch\-\_\-module}}
+\subsubsection[{ea\-\_\-print}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ yasm\-\_\-arch\-\_\-module\-::ea\-\_\-print)(const {\bf yasm\-\_\-effaddr} $\ast$ea, F\-I\-L\-E $\ast$f, int indent\-\_\-level)}}\label{structyasm__arch__module_a70b26bcf811aabae77bccd78594ca731}
+Module-\/level implementation of \hyperlink{arch_8h_afaa5797a072eb925e3fc4f24f6a7b376}{yasm\-\_\-arch\-\_\-ea\-\_\-print()}. Call \hyperlink{arch_8h_afaa5797a072eb925e3fc4f24f6a7b376}{yasm\-\_\-arch\-\_\-ea\-\_\-print()} instead of calling this function. \hypertarget{structyasm__arch__module_adccc4dbe8cfed3b9a647622b70489468}{\index{yasm\-\_\-arch\-\_\-module@{yasm\-\_\-arch\-\_\-module}!floatnum\-\_\-tobytes@{floatnum\-\_\-tobytes}}
+\index{floatnum\-\_\-tobytes@{floatnum\-\_\-tobytes}!yasm_arch_module@{yasm\-\_\-arch\-\_\-module}}
+\subsubsection[{floatnum\-\_\-tobytes}]{\setlength{\rightskip}{0pt plus 5cm}int($\ast$ yasm\-\_\-arch\-\_\-module\-::floatnum\-\_\-tobytes)({\bf yasm\-\_\-arch} $\ast$arch, const {\bf yasm\-\_\-floatnum} $\ast$flt, unsigned char $\ast$buf, size\-\_\-t destsize, size\-\_\-t valsize, size\-\_\-t shift, int {\bf warn})}}\label{structyasm__arch__module_adccc4dbe8cfed3b9a647622b70489468}
+Module-\/level implementation of \hyperlink{arch_8h_a443bebaf0b9d66277efa056568f683a5}{yasm\-\_\-arch\-\_\-floatnum\-\_\-tobytes()}. Call \hyperlink{arch_8h_a443bebaf0b9d66277efa056568f683a5}{yasm\-\_\-arch\-\_\-floatnum\-\_\-tobytes()} instead of calling this function. \hypertarget{structyasm__arch__module_a3f82738da091b9e2967e795f4d59de76}{\index{yasm\-\_\-arch\-\_\-module@{yasm\-\_\-arch\-\_\-module}!get\-\_\-address\-\_\-size@{get\-\_\-address\-\_\-size}}
+\index{get\-\_\-address\-\_\-size@{get\-\_\-address\-\_\-size}!yasm_arch_module@{yasm\-\_\-arch\-\_\-module}}
+\subsubsection[{get\-\_\-address\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int($\ast$ yasm\-\_\-arch\-\_\-module\-::get\-\_\-address\-\_\-size)(const {\bf yasm\-\_\-arch} $\ast$arch)}}\label{structyasm__arch__module_a3f82738da091b9e2967e795f4d59de76}
+Module-\/level implementation of \hyperlink{arch_8h_a544b276b9840e0bc39d0e6bdd27003c3}{yasm\-\_\-arch\-\_\-get\-\_\-address\-\_\-size()}. Call \hyperlink{arch_8h_a544b276b9840e0bc39d0e6bdd27003c3}{yasm\-\_\-arch\-\_\-get\-\_\-address\-\_\-size()} instead of calling this function. \hypertarget{structyasm__arch__module_abb1c7db4c07489d563408f13526e7ef0}{\index{yasm\-\_\-arch\-\_\-module@{yasm\-\_\-arch\-\_\-module}!get\-\_\-fill@{get\-\_\-fill}}
+\index{get\-\_\-fill@{get\-\_\-fill}!yasm_arch_module@{yasm\-\_\-arch\-\_\-module}}
+\subsubsection[{get\-\_\-fill}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned char$\ast$$\ast$($\ast$ yasm\-\_\-arch\-\_\-module\-::get\-\_\-fill)(const {\bf yasm\-\_\-arch} $\ast$arch)}}\label{structyasm__arch__module_abb1c7db4c07489d563408f13526e7ef0}
+Module-\/level implementation of \hyperlink{arch_8h_a858df4dae177c2f755ebea857133c98f}{yasm\-\_\-arch\-\_\-get\-\_\-fill()}. Call \hyperlink{arch_8h_a858df4dae177c2f755ebea857133c98f}{yasm\-\_\-arch\-\_\-get\-\_\-fill()} instead of calling this function. \hypertarget{structyasm__arch__module_ad28eebf86539d87b4efabc55dbd47713}{\index{yasm\-\_\-arch\-\_\-module@{yasm\-\_\-arch\-\_\-module}!get\-\_\-machine@{get\-\_\-machine}}
+\index{get\-\_\-machine@{get\-\_\-machine}!yasm_arch_module@{yasm\-\_\-arch\-\_\-module}}
+\subsubsection[{get\-\_\-machine}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$($\ast$ yasm\-\_\-arch\-\_\-module\-::get\-\_\-machine)(const {\bf yasm\-\_\-arch} $\ast$arch)}}\label{structyasm__arch__module_ad28eebf86539d87b4efabc55dbd47713}
+Module-\/level implementation of \hyperlink{arch_8h_a140c8c687d8dfcde94aafc3338ec3bee}{yasm\-\_\-arch\-\_\-get\-\_\-machine()}. Call \hyperlink{arch_8h_a140c8c687d8dfcde94aafc3338ec3bee}{yasm\-\_\-arch\-\_\-get\-\_\-machine()} instead of calling this function. \hypertarget{structyasm__arch__module_ab2fe2c571343ff116fad50c18f320ebd}{\index{yasm\-\_\-arch\-\_\-module@{yasm\-\_\-arch\-\_\-module}!get\-\_\-reg\-\_\-size@{get\-\_\-reg\-\_\-size}}
+\index{get\-\_\-reg\-\_\-size@{get\-\_\-reg\-\_\-size}!yasm_arch_module@{yasm\-\_\-arch\-\_\-module}}
+\subsubsection[{get\-\_\-reg\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int($\ast$ yasm\-\_\-arch\-\_\-module\-::get\-\_\-reg\-\_\-size)({\bf yasm\-\_\-arch} $\ast$arch, uintptr\-\_\-t reg)}}\label{structyasm__arch__module_ab2fe2c571343ff116fad50c18f320ebd}
+Module-\/level implementation of \hyperlink{arch_8h_a028fd6b5698ea232ca602915d067cd64}{yasm\-\_\-arch\-\_\-get\-\_\-reg\-\_\-size()}. Call \hyperlink{arch_8h_a028fd6b5698ea232ca602915d067cd64}{yasm\-\_\-arch\-\_\-get\-\_\-reg\-\_\-size()} instead of calling this function. \hypertarget{structyasm__arch__module_a07202501842115d0216311060c3ede71}{\index{yasm\-\_\-arch\-\_\-module@{yasm\-\_\-arch\-\_\-module}!intnum\-\_\-tobytes@{intnum\-\_\-tobytes}}
+\index{intnum\-\_\-tobytes@{intnum\-\_\-tobytes}!yasm_arch_module@{yasm\-\_\-arch\-\_\-module}}
+\subsubsection[{intnum\-\_\-tobytes}]{\setlength{\rightskip}{0pt plus 5cm}int($\ast$ yasm\-\_\-arch\-\_\-module\-::intnum\-\_\-tobytes)({\bf yasm\-\_\-arch} $\ast$arch, const {\bf yasm\-\_\-intnum} $\ast$intn, unsigned char $\ast$buf, size\-\_\-t destsize, size\-\_\-t valsize, int shift, const {\bf yasm\-\_\-bytecode} $\ast$bc, int {\bf warn})}}\label{structyasm__arch__module_a07202501842115d0216311060c3ede71}
+Module-\/level implementation of \hyperlink{arch_8h_a26af7f92b5ea9c7b9a663746de83de35}{yasm\-\_\-arch\-\_\-intnum\-\_\-tobytes()}. Call \hyperlink{arch_8h_a26af7f92b5ea9c7b9a663746de83de35}{yasm\-\_\-arch\-\_\-intnum\-\_\-tobytes()} instead of calling this function. \hypertarget{structyasm__arch__module_adb00b33e390ee35db27e80cf415b7404}{\index{yasm\-\_\-arch\-\_\-module@{yasm\-\_\-arch\-\_\-module}!keyword@{keyword}}
+\index{keyword@{keyword}!yasm_arch_module@{yasm\-\_\-arch\-\_\-module}}
+\subsubsection[{keyword}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ yasm\-\_\-arch\-\_\-module\-::keyword}}\label{structyasm__arch__module_adb00b33e390ee35db27e80cf415b7404}
+Keyword used to select architecture. Call \hyperlink{arch_8h_afb6a9a676fcc1d959f5dedf3632f3b79}{yasm\-\_\-arch\-\_\-keyword()} to get the keyword of a particular \hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch}. \hypertarget{structyasm__arch__module_aa9831300bb203ec3cdb35862b6187ebc}{\index{yasm\-\_\-arch\-\_\-module@{yasm\-\_\-arch\-\_\-module}!machines@{machines}}
+\index{machines@{machines}!yasm_arch_module@{yasm\-\_\-arch\-\_\-module}}
+\subsubsection[{machines}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf yasm\-\_\-arch\-\_\-machine}$\ast$ yasm\-\_\-arch\-\_\-module\-::machines}}\label{structyasm__arch__module_aa9831300bb203ec3cdb35862b6187ebc}
+N\-U\-L\-L-\/terminated list of machines for this architecture. Call \hyperlink{arch_8h_a140c8c687d8dfcde94aafc3338ec3bee}{yasm\-\_\-arch\-\_\-get\-\_\-machine()} to get the active machine of a particular \hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch}. \hypertarget{structyasm__arch__module_a0ca18842f63879a3311ac9f6fe35b8df}{\index{yasm\-\_\-arch\-\_\-module@{yasm\-\_\-arch\-\_\-module}!min\-\_\-insn\-\_\-len@{min\-\_\-insn\-\_\-len}}
+\index{min\-\_\-insn\-\_\-len@{min\-\_\-insn\-\_\-len}!yasm_arch_module@{yasm\-\_\-arch\-\_\-module}}
+\subsubsection[{min\-\_\-insn\-\_\-len}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int yasm\-\_\-arch\-\_\-module\-::min\-\_\-insn\-\_\-len}}\label{structyasm__arch__module_a0ca18842f63879a3311ac9f6fe35b8df}
+Worst case minimum instruction length in bytes. Call \hyperlink{arch_8h_a59cdef038169de55f73eb37a0f87ddbc}{yasm\-\_\-arch\-\_\-min\-\_\-insn\-\_\-len()} to get the minimum instruction length of a particular \hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch}. \hypertarget{structyasm__arch__module_af315f36d9f1ffdeb14de19b816ab8ab0}{\index{yasm\-\_\-arch\-\_\-module@{yasm\-\_\-arch\-\_\-module}!name@{name}}
+\index{name@{name}!yasm_arch_module@{yasm\-\_\-arch\-\_\-module}}
+\subsubsection[{name}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ yasm\-\_\-arch\-\_\-module\-::name}}\label{structyasm__arch__module_af315f36d9f1ffdeb14de19b816ab8ab0}
+One-\/line description of the architecture. Call \hyperlink{arch_8h_a900a62f7862b711046f55203e52acb87}{yasm\-\_\-arch\-\_\-name()} to get the name of a particular \hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch}. \hypertarget{structyasm__arch__module_a3dde1b6ec44c7d351f795ddafd364c48}{\index{yasm\-\_\-arch\-\_\-module@{yasm\-\_\-arch\-\_\-module}!parse\-\_\-check\-\_\-insnprefix@{parse\-\_\-check\-\_\-insnprefix}}
+\index{parse\-\_\-check\-\_\-insnprefix@{parse\-\_\-check\-\_\-insnprefix}!yasm_arch_module@{yasm\-\_\-arch\-\_\-module}}
+\subsubsection[{parse\-\_\-check\-\_\-insnprefix}]{\setlength{\rightskip}{0pt plus 5cm}{\bf yasm\-\_\-arch\-\_\-insnprefix}($\ast$ yasm\-\_\-arch\-\_\-module\-::parse\-\_\-check\-\_\-insnprefix)({\bf yasm\-\_\-arch} $\ast$arch, const char $\ast$id, size\-\_\-t id\-\_\-len, unsigned long line,{\bf yasm\-\_\-bytecode} $\ast$$\ast$bc,uintptr\-\_\-t $\ast$prefix)}}\label{structyasm__arch__module_a3dde1b6ec44c7d351f795ddafd364c48}
+Module-\/level implementation of \hyperlink{arch_8h_aebc146ab82bc5436dda1309ee6e03973}{yasm\-\_\-arch\-\_\-parse\-\_\-check\-\_\-insnprefix()}. Call \hyperlink{arch_8h_aebc146ab82bc5436dda1309ee6e03973}{yasm\-\_\-arch\-\_\-parse\-\_\-check\-\_\-insnprefix()} instead of calling this function. \hypertarget{structyasm__arch__module_a3ebd6e4bda71c110b9455b3965c148dd}{\index{yasm\-\_\-arch\-\_\-module@{yasm\-\_\-arch\-\_\-module}!parse\-\_\-check\-\_\-regtmod@{parse\-\_\-check\-\_\-regtmod}}
+\index{parse\-\_\-check\-\_\-regtmod@{parse\-\_\-check\-\_\-regtmod}!yasm_arch_module@{yasm\-\_\-arch\-\_\-module}}
+\subsubsection[{parse\-\_\-check\-\_\-regtmod}]{\setlength{\rightskip}{0pt plus 5cm}{\bf yasm\-\_\-arch\-\_\-regtmod}($\ast$ yasm\-\_\-arch\-\_\-module\-::parse\-\_\-check\-\_\-regtmod)({\bf yasm\-\_\-arch} $\ast$arch, const char $\ast$id, size\-\_\-t id\-\_\-len,uintptr\-\_\-t $\ast$data)}}\label{structyasm__arch__module_a3ebd6e4bda71c110b9455b3965c148dd}
+Module-\/level implementation of \hyperlink{arch_8h_ae5629c839eb94f1635d8cf52bc1a2fae}{yasm\-\_\-arch\-\_\-parse\-\_\-check\-\_\-regtmod()}. Call \hyperlink{arch_8h_ae5629c839eb94f1635d8cf52bc1a2fae}{yasm\-\_\-arch\-\_\-parse\-\_\-check\-\_\-regtmod()} instead of calling this function. \hypertarget{structyasm__arch__module_a6dc5cfaa6ddd2c654abf3599ba219ef0}{\index{yasm\-\_\-arch\-\_\-module@{yasm\-\_\-arch\-\_\-module}!reg\-\_\-print@{reg\-\_\-print}}
+\index{reg\-\_\-print@{reg\-\_\-print}!yasm_arch_module@{yasm\-\_\-arch\-\_\-module}}
+\subsubsection[{reg\-\_\-print}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ yasm\-\_\-arch\-\_\-module\-::reg\-\_\-print)({\bf yasm\-\_\-arch} $\ast$arch, uintptr\-\_\-t reg, F\-I\-L\-E $\ast$f)}}\label{structyasm__arch__module_a6dc5cfaa6ddd2c654abf3599ba219ef0}
+Module-\/level implementation of \hyperlink{arch_8h_aba11eeccc9e706a2ce6e1e33eb9e7b64}{yasm\-\_\-arch\-\_\-reg\-\_\-print()}. Call \hyperlink{arch_8h_aba11eeccc9e706a2ce6e1e33eb9e7b64}{yasm\-\_\-arch\-\_\-reg\-\_\-print()} instead of calling this function. \hypertarget{structyasm__arch__module_a482192e63715c1c9e92fe96ecb42c097}{\index{yasm\-\_\-arch\-\_\-module@{yasm\-\_\-arch\-\_\-module}!reggroup\-\_\-get\-\_\-reg@{reggroup\-\_\-get\-\_\-reg}}
+\index{reggroup\-\_\-get\-\_\-reg@{reggroup\-\_\-get\-\_\-reg}!yasm_arch_module@{yasm\-\_\-arch\-\_\-module}}
+\subsubsection[{reggroup\-\_\-get\-\_\-reg}]{\setlength{\rightskip}{0pt plus 5cm}uintptr\-\_\-t($\ast$ yasm\-\_\-arch\-\_\-module\-::reggroup\-\_\-get\-\_\-reg)({\bf yasm\-\_\-arch} $\ast$arch, uintptr\-\_\-t reggroup, unsigned long regindex)}}\label{structyasm__arch__module_a482192e63715c1c9e92fe96ecb42c097}
+Module-\/level implementation of \hyperlink{arch_8h_a36f66dab0dda54a462a0ffde3a0ffd3f}{yasm\-\_\-arch\-\_\-reggroup\-\_\-get\-\_\-reg()}. Call \hyperlink{arch_8h_a36f66dab0dda54a462a0ffde3a0ffd3f}{yasm\-\_\-arch\-\_\-reggroup\-\_\-get\-\_\-reg()} instead of calling this function. \hypertarget{structyasm__arch__module_a0cc2000fdd21f86497271c6957f0a833}{\index{yasm\-\_\-arch\-\_\-module@{yasm\-\_\-arch\-\_\-module}!segreg\-\_\-print@{segreg\-\_\-print}}
+\index{segreg\-\_\-print@{segreg\-\_\-print}!yasm_arch_module@{yasm\-\_\-arch\-\_\-module}}
+\subsubsection[{segreg\-\_\-print}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ yasm\-\_\-arch\-\_\-module\-::segreg\-\_\-print)({\bf yasm\-\_\-arch} $\ast$arch, uintptr\-\_\-t segreg, F\-I\-L\-E $\ast$f)}}\label{structyasm__arch__module_a0cc2000fdd21f86497271c6957f0a833}
+Module-\/level implementation of \hyperlink{arch_8h_a36b6f88e9baf65e7de03a63afed67f3f}{yasm\-\_\-arch\-\_\-segreg\-\_\-print()}. Call \hyperlink{arch_8h_a36b6f88e9baf65e7de03a63afed67f3f}{yasm\-\_\-arch\-\_\-segreg\-\_\-print()} instead of calling this function. \hypertarget{structyasm__arch__module_a8479f90a6dc66a0e092149d39bb0240e}{\index{yasm\-\_\-arch\-\_\-module@{yasm\-\_\-arch\-\_\-module}!set\-\_\-var@{set\-\_\-var}}
+\index{set\-\_\-var@{set\-\_\-var}!yasm_arch_module@{yasm\-\_\-arch\-\_\-module}}
+\subsubsection[{set\-\_\-var}]{\setlength{\rightskip}{0pt plus 5cm}int($\ast$ yasm\-\_\-arch\-\_\-module\-::set\-\_\-var)({\bf yasm\-\_\-arch} $\ast$arch, const char $\ast$var, unsigned long val)}}\label{structyasm__arch__module_a8479f90a6dc66a0e092149d39bb0240e}
+Module-\/level implementation of \hyperlink{arch_8h_a06d7d1d8a7e999c8188e9fa6ae88fe0e}{yasm\-\_\-arch\-\_\-set\-\_\-var()}. Call \hyperlink{arch_8h_a06d7d1d8a7e999c8188e9fa6ae88fe0e}{yasm\-\_\-arch\-\_\-set\-\_\-var()} instead of calling this function. \hypertarget{structyasm__arch__module_ac83222855b248fc10ccfd393279fe9a4}{\index{yasm\-\_\-arch\-\_\-module@{yasm\-\_\-arch\-\_\-module}!wordsize@{wordsize}}
+\index{wordsize@{wordsize}!yasm_arch_module@{yasm\-\_\-arch\-\_\-module}}
+\subsubsection[{wordsize}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int yasm\-\_\-arch\-\_\-module\-::wordsize}}\label{structyasm__arch__module_ac83222855b248fc10ccfd393279fe9a4}
+Canonical \char`\"{}word\char`\"{} size in bits. Call \hyperlink{arch_8h_a7812ab1f993e1327fd1c1acafa63ca1e}{yasm\-\_\-arch\-\_\-wordsize()} to get the word size of a particular \hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch}. 
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{arch_8h}{arch.\-h}\end{DoxyCompactItemize}

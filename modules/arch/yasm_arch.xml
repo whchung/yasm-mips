@@ -375,6 +375,12 @@
  </refsect1>
 
  <refsect1>
+  <title>MIPS Architecture</title>
+
+  <para>An experimental port of MIPS architecture.</para>
+ </refsect1>
+
+ <refsect1>
   <title>See Also</title>
 
   <para><citerefentry>

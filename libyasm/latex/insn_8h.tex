@@ -1,0 +1,305 @@
+\hypertarget{insn_8h}{\section{insn.\-h File Reference}
+\label{insn_8h}\index{insn.\-h@{insn.\-h}}
+}
+
+
+Y\-A\-S\-M mnenomic instruction.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structyasm__effaddr}{yasm\-\_\-effaddr}
+\item 
+struct \hyperlink{structyasm__insn__operand}{yasm\-\_\-insn\-\_\-operand}
+\item 
+struct \hyperlink{structyasm__insn}{yasm\-\_\-insn}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{insn_8h_a49672a9f0bbf31d5fe92e7b4e2f2dc60}{\#define {\bfseries Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L}}\label{insn_8h_a49672a9f0bbf31d5fe92e7b4e2f2dc60}
+
+\item 
+\hypertarget{insn_8h_a341ae03fea893512441fca598df4a11b}{\#define {\bfseries yasm\-\_\-insn\-\_\-ops\-\_\-first}(insn)~S\-T\-A\-I\-L\-Q\-\_\-\-F\-I\-R\-S\-T(\&((insn)-\/$>$operands))}\label{insn_8h_a341ae03fea893512441fca598df4a11b}
+
+\item 
+\hypertarget{insn_8h_af3c60c6da2c202ca02f148ac0c0ec7c7}{\#define {\bfseries yasm\-\_\-insn\-\_\-op\-\_\-next}(cur)~S\-T\-A\-I\-L\-Q\-\_\-\-N\-E\-X\-T(cur, link)}\label{insn_8h_af3c60c6da2c202ca02f148ac0c0ec7c7}
+
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structyasm__insn__operand}{yasm\-\_\-insn\-\_\-operand} \hyperlink{insn_8h_ad3064fae34c3f8e575861d4d46acf7e6}{yasm\-\_\-insn\-\_\-operand}
+\item 
+typedef enum \hyperlink{insn_8h_a740d0e5d68764af16755bd41f2f0f514}{yasm\-\_\-insn\-\_\-operand\-\_\-type} \hyperlink{insn_8h_a48a1c96223530595a24963a5e001d386}{yasm\-\_\-insn\-\_\-operand\-\_\-type}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{insn_8h_a740d0e5d68764af16755bd41f2f0f514}{yasm\-\_\-insn\-\_\-operand\-\_\-type} \{ \hyperlink{insn_8h_a740d0e5d68764af16755bd41f2f0f514a0bcd4594d8b76aa0e3fea78692058b80}{Y\-A\-S\-M\-\_\-\-I\-N\-S\-N\-\_\-\-\_\-\-O\-P\-E\-R\-A\-N\-D\-\_\-\-R\-E\-G} = 1, 
+\hyperlink{insn_8h_a740d0e5d68764af16755bd41f2f0f514ab6bc42ec202b589febf66e47af3673c4}{Y\-A\-S\-M\-\_\-\-I\-N\-S\-N\-\_\-\-\_\-\-O\-P\-E\-R\-A\-N\-D\-\_\-\-S\-E\-G\-R\-E\-G}, 
+\hyperlink{insn_8h_a740d0e5d68764af16755bd41f2f0f514a187645eb30add460b691d63d734ef479}{Y\-A\-S\-M\-\_\-\-I\-N\-S\-N\-\_\-\-\_\-\-O\-P\-E\-R\-A\-N\-D\-\_\-\-M\-E\-M\-O\-R\-Y}, 
+\hyperlink{insn_8h_a740d0e5d68764af16755bd41f2f0f514aebd58c1341357266c022a5f081e2d8f9}{Y\-A\-S\-M\-\_\-\-I\-N\-S\-N\-\_\-\-\_\-\-O\-P\-E\-R\-A\-N\-D\-\_\-\-I\-M\-M}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{insn_8h_a56f43bfa4b3df079deca22c17d5d7f0b}{yasm\-\_\-ea\-\_\-set\-\_\-segreg} (\hyperlink{structyasm__effaddr}{yasm\-\_\-effaddr} $\ast$ea, uintptr\-\_\-t segreg)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__insn__operand}{yasm\-\_\-insn\-\_\-operand} $\ast$ \hyperlink{insn_8h_a7e1f4d4d4002f662d9c028471620aa2e}{yasm\-\_\-operand\-\_\-create\-\_\-reg} (uintptr\-\_\-t reg)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__insn__operand}{yasm\-\_\-insn\-\_\-operand} $\ast$ \hyperlink{insn_8h_aae2bfa88bb73f6fb005b1f867822c436}{yasm\-\_\-operand\-\_\-create\-\_\-segreg} (uintptr\-\_\-t segreg)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__insn__operand}{yasm\-\_\-insn\-\_\-operand} $\ast$ \hyperlink{insn_8h_a6bf87baf591aee5a0d3c9001d145f269}{yasm\-\_\-operand\-\_\-create\-\_\-mem} (\hyperlink{structyasm__effaddr}{yasm\-\_\-effaddr} $\ast$ea)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__insn__operand}{yasm\-\_\-insn\-\_\-operand} $\ast$ \hyperlink{insn_8h_a973b974d926c15ad69c8d3b72337f23f}{yasm\-\_\-operand\-\_\-create\-\_\-imm} (\hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$val)
+\item 
+\hyperlink{structyasm__insn__operand}{yasm\-\_\-insn\-\_\-operand} $\ast$ \hyperlink{insn_8h_a20ff3930180a373e0e08e87e0c21d122}{yasm\-\_\-insn\-\_\-ops\-\_\-first} (\hyperlink{structyasm__insn}{yasm\-\_\-insn} $\ast$insn)
+\item 
+\hyperlink{structyasm__insn__operand}{yasm\-\_\-insn\-\_\-operand} $\ast$ \hyperlink{insn_8h_a0af753ef09ccbc629fe9773e89907c81}{yasm\-\_\-insn\-\_\-op\-\_\-next} (\hyperlink{structyasm__insn__operand}{yasm\-\_\-insn\-\_\-operand} $\ast$op)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__insn__operand}{yasm\-\_\-insn\-\_\-operand} $\ast$ \hyperlink{insn_8h_a79e5e337858a0f9b9b2dbdb595326fa7}{yasm\-\_\-insn\-\_\-ops\-\_\-append} (\hyperlink{structyasm__insn}{yasm\-\_\-insn} $\ast$insn, \hyperlink{structyasm__insn__operand}{yasm\-\_\-insn\-\_\-operand} $\ast$op)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{insn_8h_aa72954960e5bf1513c189d4477372950}{yasm\-\_\-insn\-\_\-add\-\_\-prefix} (\hyperlink{structyasm__insn}{yasm\-\_\-insn} $\ast$insn, uintptr\-\_\-t prefix)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{insn_8h_ab152fc9e39c0f166a978d512ac6f1c7a}{yasm\-\_\-insn\-\_\-add\-\_\-seg\-\_\-prefix} (\hyperlink{structyasm__insn}{yasm\-\_\-insn} $\ast$insn, uintptr\-\_\-t segreg)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{insn_8h_a6dd1fcedec5428f9eac1f5c8d33ca083}{yasm\-\_\-insn\-\_\-initialize} (\hyperlink{structyasm__insn}{yasm\-\_\-insn} $\ast$insn)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{insn_8h_a4fc899176bb12c67cfb8d9dcb5635a9b}{yasm\-\_\-insn\-\_\-delete} (\hyperlink{structyasm__insn}{yasm\-\_\-insn} $\ast$insn, void($\ast$ea\-\_\-destroy)(\hyperlink{structyasm__effaddr}{yasm\-\_\-effaddr} $\ast$))
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{insn_8h_a65a14d19a70b28e460b0851b267b5456}{yasm\-\_\-insn\-\_\-print} (const \hyperlink{structyasm__insn}{yasm\-\_\-insn} $\ast$insn, F\-I\-L\-E $\ast$f, int indent\-\_\-level)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{insn_8h_afde66f1bd2032b72fca6be5d278e468a}{yasm\-\_\-insn\-\_\-finalize} (\hyperlink{structyasm__insn}{yasm\-\_\-insn} $\ast$insn)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Y\-A\-S\-M mnenomic instruction. Copyright (C) 2002-\/2007 Peter Johnson
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\-:
+\begin{DoxyItemize}
+\item Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+\item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+\end{DoxyItemize}
+
+T\-H\-I\-S S\-O\-F\-T\-W\-A\-R\-E I\-S P\-R\-O\-V\-I\-D\-E\-D B\-Y T\-H\-E A\-U\-T\-H\-O\-R A\-N\-D O\-T\-H\-E\-R C\-O\-N\-T\-R\-I\-B\-U\-T\-O\-R\-S ``\-A\-S I\-S'' A\-N\-D A\-N\-Y E\-X\-P\-R\-E\-S\-S O\-R I\-M\-P\-L\-I\-E\-D W\-A\-R\-R\-A\-N\-T\-I\-E\-S, I\-N\-C\-L\-U\-D\-I\-N\-G, B\-U\-T N\-O\-T L\-I\-M\-I\-T\-E\-D T\-O, T\-H\-E I\-M\-P\-L\-I\-E\-D W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-F M\-E\-R\-C\-H\-A\-N\-T\-A\-B\-I\-L\-I\-T\-Y A\-N\-D F\-I\-T\-N\-E\-S\-S F\-O\-R A P\-A\-R\-T\-I\-C\-U\-L\-A\-R P\-U\-R\-P\-O\-S\-E A\-R\-E D\-I\-S\-C\-L\-A\-I\-M\-E\-D. I\-N N\-O E\-V\-E\-N\-T S\-H\-A\-L\-L T\-H\-E A\-U\-T\-H\-O\-R O\-R O\-T\-H\-E\-R C\-O\-N\-T\-R\-I\-B\-U\-T\-O\-R\-S B\-E L\-I\-A\-B\-L\-E F\-O\-R A\-N\-Y D\-I\-R\-E\-C\-T, I\-N\-D\-I\-R\-E\-C\-T, I\-N\-C\-I\-D\-E\-N\-T\-A\-L, S\-P\-E\-C\-I\-A\-L, E\-X\-E\-M\-P\-L\-A\-R\-Y, O\-R C\-O\-N\-S\-E\-Q\-U\-E\-N\-T\-I\-A\-L D\-A\-M\-A\-G\-E\-S (I\-N\-C\-L\-U\-D\-I\-N\-G, B\-U\-T N\-O\-T L\-I\-M\-I\-T\-E\-D T\-O, P\-R\-O\-C\-U\-R\-E\-M\-E\-N\-T O\-F S\-U\-B\-S\-T\-I\-T\-U\-T\-E G\-O\-O\-D\-S O\-R S\-E\-R\-V\-I\-C\-E\-S; L\-O\-S\-S O\-F U\-S\-E, D\-A\-T\-A, O\-R P\-R\-O\-F\-I\-T\-S; O\-R B\-U\-S\-I\-N\-E\-S\-S I\-N\-T\-E\-R\-R\-U\-P\-T\-I\-O\-N) H\-O\-W\-E\-V\-E\-R C\-A\-U\-S\-E\-D A\-N\-D O\-N A\-N\-Y T\-H\-E\-O\-R\-Y O\-F L\-I\-A\-B\-I\-L\-I\-T\-Y, W\-H\-E\-T\-H\-E\-R I\-N C\-O\-N\-T\-R\-A\-C\-T, S\-T\-R\-I\-C\-T L\-I\-A\-B\-I\-L\-I\-T\-Y, O\-R T\-O\-R\-T (I\-N\-C\-L\-U\-D\-I\-N\-G N\-E\-G\-L\-I\-G\-E\-N\-C\-E O\-R O\-T\-H\-E\-R\-W\-I\-S\-E) A\-R\-I\-S\-I\-N\-G I\-N A\-N\-Y W\-A\-Y O\-U\-T O\-F T\-H\-E U\-S\-E O\-F T\-H\-I\-S S\-O\-F\-T\-W\-A\-R\-E, E\-V\-E\-N I\-F A\-D\-V\-I\-S\-E\-D O\-F T\-H\-E P\-O\-S\-S\-I\-B\-I\-L\-I\-T\-Y O\-F S\-U\-C\-H D\-A\-M\-A\-G\-E.  
+
+\subsection{Typedef Documentation}
+\hypertarget{insn_8h_ad3064fae34c3f8e575861d4d46acf7e6}{\index{insn.\-h@{insn.\-h}!yasm\-\_\-insn\-\_\-operand@{yasm\-\_\-insn\-\_\-operand}}
+\index{yasm\-\_\-insn\-\_\-operand@{yasm\-\_\-insn\-\_\-operand}!insn.h@{insn.\-h}}
+\subsubsection[{yasm\-\_\-insn\-\_\-operand}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf yasm\-\_\-insn\-\_\-operand} {\bf yasm\-\_\-insn\-\_\-operand}}}\label{insn_8h_ad3064fae34c3f8e575861d4d46acf7e6}
+An instruction operand (opaque type). \hypertarget{insn_8h_a48a1c96223530595a24963a5e001d386}{\index{insn.\-h@{insn.\-h}!yasm\-\_\-insn\-\_\-operand\-\_\-type@{yasm\-\_\-insn\-\_\-operand\-\_\-type}}
+\index{yasm\-\_\-insn\-\_\-operand\-\_\-type@{yasm\-\_\-insn\-\_\-operand\-\_\-type}!insn.h@{insn.\-h}}
+\subsubsection[{yasm\-\_\-insn\-\_\-operand\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf yasm\-\_\-insn\-\_\-operand\-\_\-type}  {\bf yasm\-\_\-insn\-\_\-operand\-\_\-type}}}\label{insn_8h_a48a1c96223530595a24963a5e001d386}
+The type of an instruction operand. 
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{insn_8h_a740d0e5d68764af16755bd41f2f0f514}{\index{insn.\-h@{insn.\-h}!yasm\-\_\-insn\-\_\-operand\-\_\-type@{yasm\-\_\-insn\-\_\-operand\-\_\-type}}
+\index{yasm\-\_\-insn\-\_\-operand\-\_\-type@{yasm\-\_\-insn\-\_\-operand\-\_\-type}!insn.h@{insn.\-h}}
+\subsubsection[{yasm\-\_\-insn\-\_\-operand\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf yasm\-\_\-insn\-\_\-operand\-\_\-type}}}\label{insn_8h_a740d0e5d68764af16755bd41f2f0f514}
+The type of an instruction operand. \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Y\-A\-S\-M\-\_\-\-I\-N\-S\-N\-\_\-\-\_\-\-O\-P\-E\-R\-A\-N\-D\-\_\-\-R\-E\-G@{Y\-A\-S\-M\-\_\-\-I\-N\-S\-N\-\_\-\-\_\-\-O\-P\-E\-R\-A\-N\-D\-\_\-\-R\-E\-G}!insn.\-h@{insn.\-h}}\index{insn.\-h@{insn.\-h}!Y\-A\-S\-M\-\_\-\-I\-N\-S\-N\-\_\-\-\_\-\-O\-P\-E\-R\-A\-N\-D\-\_\-\-R\-E\-G@{Y\-A\-S\-M\-\_\-\-I\-N\-S\-N\-\_\-\-\_\-\-O\-P\-E\-R\-A\-N\-D\-\_\-\-R\-E\-G}}\item[{\em 
+\hypertarget{insn_8h_a740d0e5d68764af16755bd41f2f0f514a0bcd4594d8b76aa0e3fea78692058b80}{Y\-A\-S\-M\-\_\-\-I\-N\-S\-N\-\_\-\-\_\-\-O\-P\-E\-R\-A\-N\-D\-\_\-\-R\-E\-G}\label{insn_8h_a740d0e5d68764af16755bd41f2f0f514a0bcd4594d8b76aa0e3fea78692058b80}
+}]A register. \index{Y\-A\-S\-M\-\_\-\-I\-N\-S\-N\-\_\-\-\_\-\-O\-P\-E\-R\-A\-N\-D\-\_\-\-S\-E\-G\-R\-E\-G@{Y\-A\-S\-M\-\_\-\-I\-N\-S\-N\-\_\-\-\_\-\-O\-P\-E\-R\-A\-N\-D\-\_\-\-S\-E\-G\-R\-E\-G}!insn.\-h@{insn.\-h}}\index{insn.\-h@{insn.\-h}!Y\-A\-S\-M\-\_\-\-I\-N\-S\-N\-\_\-\-\_\-\-O\-P\-E\-R\-A\-N\-D\-\_\-\-S\-E\-G\-R\-E\-G@{Y\-A\-S\-M\-\_\-\-I\-N\-S\-N\-\_\-\-\_\-\-O\-P\-E\-R\-A\-N\-D\-\_\-\-S\-E\-G\-R\-E\-G}}\item[{\em 
+\hypertarget{insn_8h_a740d0e5d68764af16755bd41f2f0f514ab6bc42ec202b589febf66e47af3673c4}{Y\-A\-S\-M\-\_\-\-I\-N\-S\-N\-\_\-\-\_\-\-O\-P\-E\-R\-A\-N\-D\-\_\-\-S\-E\-G\-R\-E\-G}\label{insn_8h_a740d0e5d68764af16755bd41f2f0f514ab6bc42ec202b589febf66e47af3673c4}
+}]A segment register. \index{Y\-A\-S\-M\-\_\-\-I\-N\-S\-N\-\_\-\-\_\-\-O\-P\-E\-R\-A\-N\-D\-\_\-\-M\-E\-M\-O\-R\-Y@{Y\-A\-S\-M\-\_\-\-I\-N\-S\-N\-\_\-\-\_\-\-O\-P\-E\-R\-A\-N\-D\-\_\-\-M\-E\-M\-O\-R\-Y}!insn.\-h@{insn.\-h}}\index{insn.\-h@{insn.\-h}!Y\-A\-S\-M\-\_\-\-I\-N\-S\-N\-\_\-\-\_\-\-O\-P\-E\-R\-A\-N\-D\-\_\-\-M\-E\-M\-O\-R\-Y@{Y\-A\-S\-M\-\_\-\-I\-N\-S\-N\-\_\-\-\_\-\-O\-P\-E\-R\-A\-N\-D\-\_\-\-M\-E\-M\-O\-R\-Y}}\item[{\em 
+\hypertarget{insn_8h_a740d0e5d68764af16755bd41f2f0f514a187645eb30add460b691d63d734ef479}{Y\-A\-S\-M\-\_\-\-I\-N\-S\-N\-\_\-\-\_\-\-O\-P\-E\-R\-A\-N\-D\-\_\-\-M\-E\-M\-O\-R\-Y}\label{insn_8h_a740d0e5d68764af16755bd41f2f0f514a187645eb30add460b691d63d734ef479}
+}]An effective address (memory reference). \index{Y\-A\-S\-M\-\_\-\-I\-N\-S\-N\-\_\-\-\_\-\-O\-P\-E\-R\-A\-N\-D\-\_\-\-I\-M\-M@{Y\-A\-S\-M\-\_\-\-I\-N\-S\-N\-\_\-\-\_\-\-O\-P\-E\-R\-A\-N\-D\-\_\-\-I\-M\-M}!insn.\-h@{insn.\-h}}\index{insn.\-h@{insn.\-h}!Y\-A\-S\-M\-\_\-\-I\-N\-S\-N\-\_\-\-\_\-\-O\-P\-E\-R\-A\-N\-D\-\_\-\-I\-M\-M@{Y\-A\-S\-M\-\_\-\-I\-N\-S\-N\-\_\-\-\_\-\-O\-P\-E\-R\-A\-N\-D\-\_\-\-I\-M\-M}}\item[{\em 
+\hypertarget{insn_8h_a740d0e5d68764af16755bd41f2f0f514aebd58c1341357266c022a5f081e2d8f9}{Y\-A\-S\-M\-\_\-\-I\-N\-S\-N\-\_\-\-\_\-\-O\-P\-E\-R\-A\-N\-D\-\_\-\-I\-M\-M}\label{insn_8h_a740d0e5d68764af16755bd41f2f0f514aebd58c1341357266c022a5f081e2d8f9}
+}]An immediate or jump target. \end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{insn_8h_a56f43bfa4b3df079deca22c17d5d7f0b}{\index{insn.\-h@{insn.\-h}!yasm\-\_\-ea\-\_\-set\-\_\-segreg@{yasm\-\_\-ea\-\_\-set\-\_\-segreg}}
+\index{yasm\-\_\-ea\-\_\-set\-\_\-segreg@{yasm\-\_\-ea\-\_\-set\-\_\-segreg}!insn.h@{insn.\-h}}
+\subsubsection[{yasm\-\_\-ea\-\_\-set\-\_\-segreg}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-ea\-\_\-set\-\_\-segreg (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-effaddr} $\ast$}]{ea, }
+\item[{uintptr\-\_\-t}]{segreg}
+\end{DoxyParamCaption}
+)}}\label{insn_8h_a56f43bfa4b3df079deca22c17d5d7f0b}
+Set segment override for an effective address. Some architectures (such as x86) support segment overrides on effective addresses. A override of an override will result in a warning. 
+\begin{DoxyParams}{Parameters}
+{\em ea} & effective address \\
+\hline
+{\em segreg} & segment register (0 if none) \\
+\hline
+\end{DoxyParams}
+\hypertarget{insn_8h_aa72954960e5bf1513c189d4477372950}{\index{insn.\-h@{insn.\-h}!yasm\-\_\-insn\-\_\-add\-\_\-prefix@{yasm\-\_\-insn\-\_\-add\-\_\-prefix}}
+\index{yasm\-\_\-insn\-\_\-add\-\_\-prefix@{yasm\-\_\-insn\-\_\-add\-\_\-prefix}!insn.h@{insn.\-h}}
+\subsubsection[{yasm\-\_\-insn\-\_\-add\-\_\-prefix}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-insn\-\_\-add\-\_\-prefix (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-insn} $\ast$}]{insn, }
+\item[{uintptr\-\_\-t}]{prefix}
+\end{DoxyParamCaption}
+)}}\label{insn_8h_aa72954960e5bf1513c189d4477372950}
+Associate a prefix with an instruction. 
+\begin{DoxyParams}{Parameters}
+{\em insn} & instruction \\
+\hline
+{\em prefix} & data that identifies the prefix \\
+\hline
+\end{DoxyParams}
+\hypertarget{insn_8h_ab152fc9e39c0f166a978d512ac6f1c7a}{\index{insn.\-h@{insn.\-h}!yasm\-\_\-insn\-\_\-add\-\_\-seg\-\_\-prefix@{yasm\-\_\-insn\-\_\-add\-\_\-seg\-\_\-prefix}}
+\index{yasm\-\_\-insn\-\_\-add\-\_\-seg\-\_\-prefix@{yasm\-\_\-insn\-\_\-add\-\_\-seg\-\_\-prefix}!insn.h@{insn.\-h}}
+\subsubsection[{yasm\-\_\-insn\-\_\-add\-\_\-seg\-\_\-prefix}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-insn\-\_\-add\-\_\-seg\-\_\-prefix (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-insn} $\ast$}]{insn, }
+\item[{uintptr\-\_\-t}]{segreg}
+\end{DoxyParamCaption}
+)}}\label{insn_8h_ab152fc9e39c0f166a978d512ac6f1c7a}
+Associate a segment prefix with an instruction. 
+\begin{DoxyParams}{Parameters}
+{\em insn} & instruction \\
+\hline
+{\em segreg} & data that identifies the segment register \\
+\hline
+\end{DoxyParams}
+\hypertarget{insn_8h_a4fc899176bb12c67cfb8d9dcb5635a9b}{\index{insn.\-h@{insn.\-h}!yasm\-\_\-insn\-\_\-delete@{yasm\-\_\-insn\-\_\-delete}}
+\index{yasm\-\_\-insn\-\_\-delete@{yasm\-\_\-insn\-\_\-delete}!insn.h@{insn.\-h}}
+\subsubsection[{yasm\-\_\-insn\-\_\-delete}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-insn\-\_\-delete (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-insn} $\ast$}]{insn, }
+\item[{void($\ast$)({\bf yasm\-\_\-effaddr} $\ast$)}]{ea\-\_\-destroy}
+\end{DoxyParamCaption}
+)}}\label{insn_8h_a4fc899176bb12c67cfb8d9dcb5635a9b}
+Delete the common parts of an instruction. \hypertarget{insn_8h_afde66f1bd2032b72fca6be5d278e468a}{\index{insn.\-h@{insn.\-h}!yasm\-\_\-insn\-\_\-finalize@{yasm\-\_\-insn\-\_\-finalize}}
+\index{yasm\-\_\-insn\-\_\-finalize@{yasm\-\_\-insn\-\_\-finalize}!insn.h@{insn.\-h}}
+\subsubsection[{yasm\-\_\-insn\-\_\-finalize}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-insn\-\_\-finalize (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-insn} $\ast$}]{insn}
+\end{DoxyParamCaption}
+)}}\label{insn_8h_afde66f1bd2032b72fca6be5d278e468a}
+Finalize the common parts of an instruction. \hypertarget{insn_8h_a6dd1fcedec5428f9eac1f5c8d33ca083}{\index{insn.\-h@{insn.\-h}!yasm\-\_\-insn\-\_\-initialize@{yasm\-\_\-insn\-\_\-initialize}}
+\index{yasm\-\_\-insn\-\_\-initialize@{yasm\-\_\-insn\-\_\-initialize}!insn.h@{insn.\-h}}
+\subsubsection[{yasm\-\_\-insn\-\_\-initialize}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-insn\-\_\-initialize (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-insn} $\ast$}]{insn}
+\end{DoxyParamCaption}
+)}}\label{insn_8h_a6dd1fcedec5428f9eac1f5c8d33ca083}
+Initialize the common parts of an instruction. \hypertarget{insn_8h_a0af753ef09ccbc629fe9773e89907c81}{\index{insn.\-h@{insn.\-h}!yasm\-\_\-insn\-\_\-op\-\_\-next@{yasm\-\_\-insn\-\_\-op\-\_\-next}}
+\index{yasm\-\_\-insn\-\_\-op\-\_\-next@{yasm\-\_\-insn\-\_\-op\-\_\-next}!insn.h@{insn.\-h}}
+\subsubsection[{yasm\-\_\-insn\-\_\-op\-\_\-next}]{\setlength{\rightskip}{0pt plus 5cm}{\bf yasm\-\_\-insn\-\_\-operand}$\ast$ yasm\-\_\-insn\-\_\-op\-\_\-next (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-insn\-\_\-operand} $\ast$}]{op}
+\end{DoxyParamCaption}
+)}}\label{insn_8h_a0af753ef09ccbc629fe9773e89907c81}
+Get the next operand in an instruction. 
+\begin{DoxyParams}{Parameters}
+{\em op} & previous operand \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Next operand (N\-U\-L\-L if op was the last operand). 
+\end{DoxyReturn}
+\hypertarget{insn_8h_a79e5e337858a0f9b9b2dbdb595326fa7}{\index{insn.\-h@{insn.\-h}!yasm\-\_\-insn\-\_\-ops\-\_\-append@{yasm\-\_\-insn\-\_\-ops\-\_\-append}}
+\index{yasm\-\_\-insn\-\_\-ops\-\_\-append@{yasm\-\_\-insn\-\_\-ops\-\_\-append}!insn.h@{insn.\-h}}
+\subsubsection[{yasm\-\_\-insn\-\_\-ops\-\_\-append}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-insn\-\_\-operand}$\ast$ yasm\-\_\-insn\-\_\-ops\-\_\-append (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-insn} $\ast$}]{insn, }
+\item[{{\bf yasm\-\_\-insn\-\_\-operand} $\ast$}]{op}
+\end{DoxyParamCaption}
+)}}\label{insn_8h_a79e5e337858a0f9b9b2dbdb595326fa7}
+Add operand to the end of an instruction. \begin{DoxyNote}{Note}
+Does not make a copy of the operand; so don't pass this function static or local variables, and discard the op pointer after calling this function. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em insn} & instruction \\
+\hline
+{\em op} & operand (may be N\-U\-L\-L) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If operand was actually appended (it wasn't N\-U\-L\-L), the operand; otherwise N\-U\-L\-L. 
+\end{DoxyReturn}
+\hypertarget{insn_8h_a20ff3930180a373e0e08e87e0c21d122}{\index{insn.\-h@{insn.\-h}!yasm\-\_\-insn\-\_\-ops\-\_\-first@{yasm\-\_\-insn\-\_\-ops\-\_\-first}}
+\index{yasm\-\_\-insn\-\_\-ops\-\_\-first@{yasm\-\_\-insn\-\_\-ops\-\_\-first}!insn.h@{insn.\-h}}
+\subsubsection[{yasm\-\_\-insn\-\_\-ops\-\_\-first}]{\setlength{\rightskip}{0pt plus 5cm}{\bf yasm\-\_\-insn\-\_\-operand}$\ast$ yasm\-\_\-insn\-\_\-ops\-\_\-first (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-insn} $\ast$}]{insn}
+\end{DoxyParamCaption}
+)}}\label{insn_8h_a20ff3930180a373e0e08e87e0c21d122}
+Get the first operand in an instruction. 
+\begin{DoxyParams}{Parameters}
+{\em insn} & instruction \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+First operand (N\-U\-L\-L if no operands). 
+\end{DoxyReturn}
+\hypertarget{insn_8h_a65a14d19a70b28e460b0851b267b5456}{\index{insn.\-h@{insn.\-h}!yasm\-\_\-insn\-\_\-print@{yasm\-\_\-insn\-\_\-print}}
+\index{yasm\-\_\-insn\-\_\-print@{yasm\-\_\-insn\-\_\-print}!insn.h@{insn.\-h}}
+\subsubsection[{yasm\-\_\-insn\-\_\-print}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-insn\-\_\-print (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-insn} $\ast$}]{insn, }
+\item[{F\-I\-L\-E $\ast$}]{f, }
+\item[{int}]{indent\-\_\-level}
+\end{DoxyParamCaption}
+)}}\label{insn_8h_a65a14d19a70b28e460b0851b267b5456}
+Print a list of instruction operands. For debugging purposes. \hypertarget{insn_8h_a973b974d926c15ad69c8d3b72337f23f}{\index{insn.\-h@{insn.\-h}!yasm\-\_\-operand\-\_\-create\-\_\-imm@{yasm\-\_\-operand\-\_\-create\-\_\-imm}}
+\index{yasm\-\_\-operand\-\_\-create\-\_\-imm@{yasm\-\_\-operand\-\_\-create\-\_\-imm}!insn.h@{insn.\-h}}
+\subsubsection[{yasm\-\_\-operand\-\_\-create\-\_\-imm}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-insn\-\_\-operand}$\ast$ yasm\-\_\-operand\-\_\-create\-\_\-imm (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-expr} $\ast$}]{val}
+\end{DoxyParamCaption}
+)}}\label{insn_8h_a973b974d926c15ad69c8d3b72337f23f}
+Create an instruction operand from an immediate expression. Looks for cases of a single register and creates a register variant of \hyperlink{structyasm__insn__operand}{yasm\-\_\-insn\-\_\-operand}. 
+\begin{DoxyParams}{Parameters}
+{\em val} & immediate expression \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly allocated operand. 
+\end{DoxyReturn}
+\hypertarget{insn_8h_a6bf87baf591aee5a0d3c9001d145f269}{\index{insn.\-h@{insn.\-h}!yasm\-\_\-operand\-\_\-create\-\_\-mem@{yasm\-\_\-operand\-\_\-create\-\_\-mem}}
+\index{yasm\-\_\-operand\-\_\-create\-\_\-mem@{yasm\-\_\-operand\-\_\-create\-\_\-mem}!insn.h@{insn.\-h}}
+\subsubsection[{yasm\-\_\-operand\-\_\-create\-\_\-mem}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-insn\-\_\-operand}$\ast$ yasm\-\_\-operand\-\_\-create\-\_\-mem (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-effaddr} $\ast$}]{ea}
+\end{DoxyParamCaption}
+)}}\label{insn_8h_a6bf87baf591aee5a0d3c9001d145f269}
+Create an instruction operand from an effective address. 
+\begin{DoxyParams}{Parameters}
+{\em ea} & effective address \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly allocated operand. 
+\end{DoxyReturn}
+\hypertarget{insn_8h_a7e1f4d4d4002f662d9c028471620aa2e}{\index{insn.\-h@{insn.\-h}!yasm\-\_\-operand\-\_\-create\-\_\-reg@{yasm\-\_\-operand\-\_\-create\-\_\-reg}}
+\index{yasm\-\_\-operand\-\_\-create\-\_\-reg@{yasm\-\_\-operand\-\_\-create\-\_\-reg}!insn.h@{insn.\-h}}
+\subsubsection[{yasm\-\_\-operand\-\_\-create\-\_\-reg}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-insn\-\_\-operand}$\ast$ yasm\-\_\-operand\-\_\-create\-\_\-reg (
+\begin{DoxyParamCaption}
+\item[{uintptr\-\_\-t}]{reg}
+\end{DoxyParamCaption}
+)}}\label{insn_8h_a7e1f4d4d4002f662d9c028471620aa2e}
+Create an instruction operand from a register. 
+\begin{DoxyParams}{Parameters}
+{\em reg} & register \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly allocated operand. 
+\end{DoxyReturn}
+\hypertarget{insn_8h_aae2bfa88bb73f6fb005b1f867822c436}{\index{insn.\-h@{insn.\-h}!yasm\-\_\-operand\-\_\-create\-\_\-segreg@{yasm\-\_\-operand\-\_\-create\-\_\-segreg}}
+\index{yasm\-\_\-operand\-\_\-create\-\_\-segreg@{yasm\-\_\-operand\-\_\-create\-\_\-segreg}!insn.h@{insn.\-h}}
+\subsubsection[{yasm\-\_\-operand\-\_\-create\-\_\-segreg}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-insn\-\_\-operand}$\ast$ yasm\-\_\-operand\-\_\-create\-\_\-segreg (
+\begin{DoxyParamCaption}
+\item[{uintptr\-\_\-t}]{segreg}
+\end{DoxyParamCaption}
+)}}\label{insn_8h_aae2bfa88bb73f6fb005b1f867822c436}
+Create an instruction operand from a segment register. 
+\begin{DoxyParams}{Parameters}
+{\em segreg} & segment register \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly allocated operand. 
+\end{DoxyReturn}

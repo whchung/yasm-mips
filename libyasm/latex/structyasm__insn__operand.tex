@@ -1,0 +1,87 @@
+\hypertarget{structyasm__insn__operand}{\section{yasm\-\_\-insn\-\_\-operand Struct Reference}
+\label{structyasm__insn__operand}\index{yasm\-\_\-insn\-\_\-operand@{yasm\-\_\-insn\-\_\-operand}}
+}
+
+
+{\ttfamily \#include $<$insn.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structyasm__insn__operand_a0a2715124710cf75517a43bce24ceecd}{S\-T\-A\-I\-L\-Q\-\_\-\-E\-N\-T\-R\-Y} (\hyperlink{structyasm__insn__operand}{yasm\-\_\-insn\-\_\-operand}) link
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>uintptr\_t \hyperlink{structyasm__insn__operand_a212cb5db883ebf1f1ecc5972ee7ba85b}{reg}\\
+\>\hyperlink{structyasm__effaddr}{yasm\_effaddr} $\ast$ \hyperlink{structyasm__insn__operand_a5da6f0008883b0ff45c15cf2b62b8681}{ea}\\
+\>\hyperlink{structyasm__expr}{yasm\_expr} $\ast$ \hyperlink{structyasm__insn__operand_af9d95be1e0d44cd63c9f2f9eb7eb4096}{val}\\
+\} \hyperlink{structyasm__insn__operand_ac68778c6b44bd99608852f865a4586a9}{data}\\
+
+\end{tabbing}\item 
+\hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$ \hyperlink{structyasm__insn__operand_ab099b11f4b22240a783e1e4eec1f186f}{seg}
+\item 
+uintptr\-\_\-t \hyperlink{structyasm__insn__operand_a33caa5eb90eee1ef2fee73618796096a}{targetmod}
+\item 
+unsigned int \hyperlink{structyasm__insn__operand_ad6a8305ba606635ded3270169854963b}{size}\-:16
+\item 
+unsigned int \hyperlink{structyasm__insn__operand_a817439e55bbb3e6c81a2ef08e96fc5cf}{deref}\-:1
+\item 
+unsigned int \hyperlink{structyasm__insn__operand_a9115b46ccbd8239fd7c634d783e25a03}{strict}\-:1
+\item 
+unsigned int \hyperlink{structyasm__insn__operand_ae12aee95f5ee1e89d39a38ef84f6a638}{type}\-:4
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An instruction operand. 
+
+\subsection{Member Function Documentation}
+\hypertarget{structyasm__insn__operand_a0a2715124710cf75517a43bce24ceecd}{\index{yasm\-\_\-insn\-\_\-operand@{yasm\-\_\-insn\-\_\-operand}!S\-T\-A\-I\-L\-Q\-\_\-\-E\-N\-T\-R\-Y@{S\-T\-A\-I\-L\-Q\-\_\-\-E\-N\-T\-R\-Y}}
+\index{S\-T\-A\-I\-L\-Q\-\_\-\-E\-N\-T\-R\-Y@{S\-T\-A\-I\-L\-Q\-\_\-\-E\-N\-T\-R\-Y}!yasm_insn_operand@{yasm\-\_\-insn\-\_\-operand}}
+\subsubsection[{S\-T\-A\-I\-L\-Q\-\_\-\-E\-N\-T\-R\-Y}]{\setlength{\rightskip}{0pt plus 5cm}yasm\-\_\-insn\-\_\-operand\-::\-S\-T\-A\-I\-L\-Q\-\_\-\-E\-N\-T\-R\-Y (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-insn\-\_\-operand}}]{}
+\end{DoxyParamCaption}
+)}}\label{structyasm__insn__operand_a0a2715124710cf75517a43bce24ceecd}
+Link for building linked list of operands. 
+
+\subsection{Member Data Documentation}
+\hypertarget{structyasm__insn__operand_ac68778c6b44bd99608852f865a4586a9}{\index{yasm\-\_\-insn\-\_\-operand@{yasm\-\_\-insn\-\_\-operand}!data@{data}}
+\index{data@{data}!yasm_insn_operand@{yasm\-\_\-insn\-\_\-operand}}
+\subsubsection[{data}]{\setlength{\rightskip}{0pt plus 5cm}union \{ ... \}   yasm\-\_\-insn\-\_\-operand\-::data}}\label{structyasm__insn__operand_ac68778c6b44bd99608852f865a4586a9}
+Operand data. \hypertarget{structyasm__insn__operand_a817439e55bbb3e6c81a2ef08e96fc5cf}{\index{yasm\-\_\-insn\-\_\-operand@{yasm\-\_\-insn\-\_\-operand}!deref@{deref}}
+\index{deref@{deref}!yasm_insn_operand@{yasm\-\_\-insn\-\_\-operand}}
+\subsubsection[{deref}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int yasm\-\_\-insn\-\_\-operand\-::deref}}\label{structyasm__insn__operand_a817439e55bbb3e6c81a2ef08e96fc5cf}
+Nonzero if dereference. Used for \char`\"{}$\ast$foo\char`\"{} in G\-A\-S. The reason for this is that by default in G\-A\-S, an unprefixed value is a memory address, except for jumps/calls, in which case it needs a \char`\"{}$\ast$\char`\"{} prefix to become a memory address (otherwise it's an immediate). This isn't knowable in the parser stage, so the parser sets this flag to indicate the \char`\"{}$\ast$\char`\"{} prefix has been used, and the arch needs to adjust the operand type appropriately depending on the instruction type. \hypertarget{structyasm__insn__operand_a5da6f0008883b0ff45c15cf2b62b8681}{\index{yasm\-\_\-insn\-\_\-operand@{yasm\-\_\-insn\-\_\-operand}!ea@{ea}}
+\index{ea@{ea}!yasm_insn_operand@{yasm\-\_\-insn\-\_\-operand}}
+\subsubsection[{ea}]{\setlength{\rightskip}{0pt plus 5cm}{\bf yasm\-\_\-effaddr}$\ast$ yasm\-\_\-insn\-\_\-operand\-::ea}}\label{structyasm__insn__operand_a5da6f0008883b0ff45c15cf2b62b8681}
+Effective address for memory references. \hypertarget{structyasm__insn__operand_a212cb5db883ebf1f1ecc5972ee7ba85b}{\index{yasm\-\_\-insn\-\_\-operand@{yasm\-\_\-insn\-\_\-operand}!reg@{reg}}
+\index{reg@{reg}!yasm_insn_operand@{yasm\-\_\-insn\-\_\-operand}}
+\subsubsection[{reg}]{\setlength{\rightskip}{0pt plus 5cm}uintptr\-\_\-t yasm\-\_\-insn\-\_\-operand\-::reg}}\label{structyasm__insn__operand_a212cb5db883ebf1f1ecc5972ee7ba85b}
+Arch data for reg/segreg. \hypertarget{structyasm__insn__operand_ab099b11f4b22240a783e1e4eec1f186f}{\index{yasm\-\_\-insn\-\_\-operand@{yasm\-\_\-insn\-\_\-operand}!seg@{seg}}
+\index{seg@{seg}!yasm_insn_operand@{yasm\-\_\-insn\-\_\-operand}}
+\subsubsection[{seg}]{\setlength{\rightskip}{0pt plus 5cm}{\bf yasm\-\_\-expr}$\ast$ yasm\-\_\-insn\-\_\-operand\-::seg}}\label{structyasm__insn__operand_ab099b11f4b22240a783e1e4eec1f186f}
+Segment expression \hypertarget{structyasm__insn__operand_ad6a8305ba606635ded3270169854963b}{\index{yasm\-\_\-insn\-\_\-operand@{yasm\-\_\-insn\-\_\-operand}!size@{size}}
+\index{size@{size}!yasm_insn_operand@{yasm\-\_\-insn\-\_\-operand}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int yasm\-\_\-insn\-\_\-operand\-::size}}\label{structyasm__insn__operand_ad6a8305ba606635ded3270169854963b}
+Specified size of the operand, in bits. 0 if not user-\/specified. \hypertarget{structyasm__insn__operand_a9115b46ccbd8239fd7c634d783e25a03}{\index{yasm\-\_\-insn\-\_\-operand@{yasm\-\_\-insn\-\_\-operand}!strict@{strict}}
+\index{strict@{strict}!yasm_insn_operand@{yasm\-\_\-insn\-\_\-operand}}
+\subsubsection[{strict}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int yasm\-\_\-insn\-\_\-operand\-::strict}}\label{structyasm__insn__operand_a9115b46ccbd8239fd7c634d783e25a03}
+Nonzero if strict. Used for \char`\"{}strict foo\char`\"{} in N\-A\-S\-M. This is used to inhibit optimization on otherwise \char`\"{}sized\char`\"{} values. For example, the user may just want to be explicit with the size on \char`\"{}push dword 4\char`\"{}, but not actually want to force the immediate size to 4 bytes (rather wanting the optimizer to optimize it down to 1 byte as though \char`\"{}dword\char`\"{} was not specified). To indicate the immediate should actually be forced to 4 bytes, the user needs to write \char`\"{}push strict dword 4\char`\"{}, which sets this flag. \hypertarget{structyasm__insn__operand_a33caa5eb90eee1ef2fee73618796096a}{\index{yasm\-\_\-insn\-\_\-operand@{yasm\-\_\-insn\-\_\-operand}!targetmod@{targetmod}}
+\index{targetmod@{targetmod}!yasm_insn_operand@{yasm\-\_\-insn\-\_\-operand}}
+\subsubsection[{targetmod}]{\setlength{\rightskip}{0pt plus 5cm}uintptr\-\_\-t yasm\-\_\-insn\-\_\-operand\-::targetmod}}\label{structyasm__insn__operand_a33caa5eb90eee1ef2fee73618796096a}
+Arch target modifier, 0 if none. \hypertarget{structyasm__insn__operand_ae12aee95f5ee1e89d39a38ef84f6a638}{\index{yasm\-\_\-insn\-\_\-operand@{yasm\-\_\-insn\-\_\-operand}!type@{type}}
+\index{type@{type}!yasm_insn_operand@{yasm\-\_\-insn\-\_\-operand}}
+\subsubsection[{type}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int yasm\-\_\-insn\-\_\-operand\-::type}}\label{structyasm__insn__operand_ae12aee95f5ee1e89d39a38ef84f6a638}
+Operand type. \hypertarget{structyasm__insn__operand_af9d95be1e0d44cd63c9f2f9eb7eb4096}{\index{yasm\-\_\-insn\-\_\-operand@{yasm\-\_\-insn\-\_\-operand}!val@{val}}
+\index{val@{val}!yasm_insn_operand@{yasm\-\_\-insn\-\_\-operand}}
+\subsubsection[{val}]{\setlength{\rightskip}{0pt plus 5cm}{\bf yasm\-\_\-expr}$\ast$ yasm\-\_\-insn\-\_\-operand\-::val}}\label{structyasm__insn__operand_af9d95be1e0d44cd63c9f2f9eb7eb4096}
+Value of immediate or jump target. 
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{insn_8h}{insn.\-h}\end{DoxyCompactItemize}

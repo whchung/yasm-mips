@@ -1,0 +1,916 @@
+\hypertarget{bytecode_8h}{\section{bytecode.\-h File Reference}
+\label{bytecode_8h}\index{bytecode.\-h@{bytecode.\-h}}
+}
+
+
+Y\-A\-S\-M bytecode interface.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structyasm__bytecode__callback}{yasm\-\_\-bytecode\-\_\-callback}
+\item 
+struct \hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{bytecode_8h_a49672a9f0bbf31d5fe92e7b4e2f2dc60}{\#define {\bfseries Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L}}\label{bytecode_8h_a49672a9f0bbf31d5fe92e7b4e2f2dc60}
+
+\item 
+\#define \hyperlink{bytecode_8h_aaefc0a871e88aeb42a8b9d7614f15893}{yasm\-\_\-bc\-\_\-\-\_\-next}(bc)~S\-T\-A\-I\-L\-Q\-\_\-\-N\-E\-X\-T(bc, link)
+\item 
+\#define {\bfseries yasm\-\_\-dv\-\_\-create\-\_\-string}(s, l)
+\item 
+\hypertarget{bytecode_8h_a33ae5d11b634d3a1fee0c8b7b0df1a2a}{\#define {\bfseries yasm\-\_\-dvs\-\_\-initialize}(headp)~S\-T\-A\-I\-L\-Q\-\_\-\-I\-N\-I\-T(headp)}\label{bytecode_8h_a33ae5d11b634d3a1fee0c8b7b0df1a2a}
+
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structyasm__dataval}{yasm\-\_\-dataval} \hyperlink{bytecode_8h_a920e2b8abe5cb633dc6c5073d8047b8c}{yasm\-\_\-dataval}
+\item 
+typedef struct \hyperlink{bytecode_8h_a16269c7339747342414e0259bb6246d5}{yasm\-\_\-datavalhead} \hyperlink{bytecode_8h_a16269c7339747342414e0259bb6246d5}{yasm\-\_\-datavalhead}
+\item 
+typedef void($\ast$ \hyperlink{bytecode_8h_a911868d562d60ee4fdddc07c1799f8db}{yasm\-\_\-bc\-\_\-add\-\_\-span\-\_\-func} )(void $\ast$add\-\_\-span\-\_\-data, \hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$bc, int id, const \hyperlink{structyasm__value}{yasm\-\_\-value} $\ast$value, long neg\-\_\-thres, long pos\-\_\-thres)
+\item 
+typedef struct \\*
+\hyperlink{structyasm__bytecode__callback}{yasm\-\_\-bytecode\-\_\-callback} \hyperlink{bytecode_8h_a987624489be95712cdaf8b62b2708b66}{yasm\-\_\-bytecode\-\_\-callback}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bytecode_8h_a240bc4cef664cd4fe8f3cae5c17f18c1}{S\-T\-A\-I\-L\-Q\-\_\-\-H\-E\-A\-D} (\hyperlink{bytecode_8h_a16269c7339747342414e0259bb6246d5}{yasm\-\_\-datavalhead}, \hyperlink{structyasm__dataval}{yasm\-\_\-dataval})
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$ \hyperlink{bytecode_8h_af171c8666fc8b3545b212f6baf75151f}{yasm\-\_\-bc\-\_\-create\-\_\-common} (const \hyperlink{structyasm__bytecode__callback}{yasm\-\_\-bytecode\-\_\-callback} $\ast$callback, void $\ast$contents, unsigned long line)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{bytecode_8h_a40409768b3f84ba6c07e5c5b8852dd32}{yasm\-\_\-bc\-\_\-transform} (\hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$bc, const \hyperlink{structyasm__bytecode__callback}{yasm\-\_\-bytecode\-\_\-callback} $\ast$callback, void $\ast$contents)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{bytecode_8h_a33cf5b45d66526bdbaf202155a5de69a}{yasm\-\_\-bc\-\_\-finalize\-\_\-common} (\hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$bc, \hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$prev\-\_\-bc)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int \hyperlink{bytecode_8h_acfbeea52e017aff1fd67662a1a3577ad}{yasm\-\_\-bc\-\_\-calc\-\_\-len\-\_\-common} (\hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$bc, \hyperlink{bytecode_8h_a911868d562d60ee4fdddc07c1799f8db}{yasm\-\_\-bc\-\_\-add\-\_\-span\-\_\-func} add\-\_\-span, void $\ast$add\-\_\-span\-\_\-data)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int \hyperlink{bytecode_8h_a9a579accd211672dbca0661b4f7038a3}{yasm\-\_\-bc\-\_\-expand\-\_\-common} (\hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$bc, int span, long old\-\_\-val, long new\-\_\-val, long $\ast$neg\-\_\-thres, long $\ast$pos\-\_\-thres)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int \hyperlink{bytecode_8h_abd8b827a2ce2f0312d001f05e63c8cc1}{yasm\-\_\-bc\-\_\-tobytes\-\_\-common} (\hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$bc, unsigned char $\ast$$\ast$bufp, unsigned char $\ast$bufstart, void $\ast$d, \hyperlink{coretype_8h_aa826d76bab04c68a929446c75b8ddfe2}{yasm\-\_\-output\-\_\-value\-\_\-func} output\-\_\-value, \hyperlink{coretype_8h_a442d0350d9968d01d694bf35bbdd0e2f}{yasm\-\_\-output\-\_\-reloc\-\_\-func} output\-\_\-reloc)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{bytecode_8h_a67fd96c751c7b2b118715660c7ba4592}{yasm\-\_\-bc\-\_\-set\-\_\-multiple} (\hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$bc, \hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$e)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$ \hyperlink{bytecode_8h_ac4a99ad515342a0cadbc302ccb8be8bb}{yasm\-\_\-bc\-\_\-create\-\_\-data} (\hyperlink{bytecode_8h_a16269c7339747342414e0259bb6246d5}{yasm\-\_\-datavalhead} $\ast$datahead, unsigned int size, int append\-\_\-zero, \hyperlink{coretype_8h_a8e0de61d73c940f0e7b6ef12e0dc1c70}{yasm\-\_\-arch} $\ast$arch, unsigned long line)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$ \hyperlink{bytecode_8h_a6f27c1ba7ec1a45843c2ad8a00cb3c47}{yasm\-\_\-bc\-\_\-create\-\_\-leb128} (\hyperlink{bytecode_8h_a16269c7339747342414e0259bb6246d5}{yasm\-\_\-datavalhead} $\ast$datahead, int sign, unsigned long line)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$ \hyperlink{bytecode_8h_a1c348dc4df52ae0a1b5144eb910694c7}{yasm\-\_\-bc\-\_\-create\-\_\-reserve} (\hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$numitems, unsigned int itemsize, unsigned long line)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L const \hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$ \hyperlink{bytecode_8h_accb40e7eb0fbb0b5d135a0e3bcc76fba}{yasm\-\_\-bc\-\_\-reserve\-\_\-numitems} (\hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$bc, unsigned int $\ast$itemsize)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$ \hyperlink{bytecode_8h_a16a9e9f0ce2dedf0df74005f2b78a3de}{yasm\-\_\-bc\-\_\-create\-\_\-incbin} (char $\ast$filename, \hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$start, \hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$maxlen, \hyperlink{structyasm__linemap}{yasm\-\_\-linemap} $\ast$linemap, unsigned long line)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$ \hyperlink{bytecode_8h_a1545721779be46507f748ea2423cb442}{yasm\-\_\-bc\-\_\-create\-\_\-align} (\hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$boundary, \hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$fill, \hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$maxskip, const unsigned char $\ast$$\ast$code\-\_\-fill, unsigned long line)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$ \hyperlink{bytecode_8h_abf0836f160ecb7e17a6cfa1f90c945d3}{yasm\-\_\-bc\-\_\-create\-\_\-org} (unsigned long start, unsigned long fill, unsigned long line)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__section}{yasm\-\_\-section} $\ast$ \hyperlink{bytecode_8h_a466859d168ea2b756851d680d77b9f97}{yasm\-\_\-bc\-\_\-get\-\_\-section} (\hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$bc)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{bytecode_8h_a67ac2b6a6599601229428879bee3eef3}{yasm\-\_\-bc\-\_\-\-\_\-add\-\_\-symrec} (\hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$bc, \hyperlink{structyasm__symrec}{yasm\-\_\-symrec} $\ast$sym)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{bytecode_8h_aff895602e22b16f456ad06c2a81752f0}{yasm\-\_\-bc\-\_\-destroy} (\hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$bc)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{bytecode_8h_ae86f7e4760a21d0c2b0ee46537dae750}{yasm\-\_\-bc\-\_\-print} (const \hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$bc, F\-I\-L\-E $\ast$f, int indent\-\_\-level)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{bytecode_8h_aa2c45590aa983607da0c455131d71892}{yasm\-\_\-bc\-\_\-finalize} (\hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$bc, \hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$prev\-\_\-bc)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__intnum}{yasm\-\_\-intnum} $\ast$ \hyperlink{bytecode_8h_aa9854e9d3a1893e768f9febf8480ecda}{yasm\-\_\-calc\-\_\-bc\-\_\-dist} (\hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$precbc1, \hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$precbc2)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L unsigned long \hyperlink{bytecode_8h_aa72e2b99942b7eb25fdd8afadfe13d32}{yasm\-\_\-bc\-\_\-next\-\_\-offset} (\hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$precbc)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int \hyperlink{bytecode_8h_a1bd21a2115bcd9ccf74401e149ce0a96}{yasm\-\_\-bc\-\_\-elem\-\_\-size} (\hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$bc)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int \hyperlink{bytecode_8h_ae1193a627ea3a3b127c8953791bb68a9}{yasm\-\_\-bc\-\_\-calc\-\_\-len} (\hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$bc, \hyperlink{bytecode_8h_a911868d562d60ee4fdddc07c1799f8db}{yasm\-\_\-bc\-\_\-add\-\_\-span\-\_\-func} add\-\_\-span, void $\ast$add\-\_\-span\-\_\-data)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int \hyperlink{bytecode_8h_aae0bdad12f49fcdd19be484c20abfb6a}{yasm\-\_\-bc\-\_\-expand} (\hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$bc, int span, long old\-\_\-val, long new\-\_\-val, long $\ast$neg\-\_\-thres, long $\ast$pos\-\_\-thres)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L unsigned char $\ast$ \hyperlink{bytecode_8h_a332b5476c9d9b0d99667a35b201a4c20}{yasm\-\_\-bc\-\_\-tobytes} (\hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$bc, unsigned char $\ast$buf, unsigned long $\ast$bufsize, int $\ast$gap, void $\ast$d, \hyperlink{coretype_8h_aa826d76bab04c68a929446c75b8ddfe2}{yasm\-\_\-output\-\_\-value\-\_\-func} output\-\_\-value, \hyperlink{coretype_8h_a442d0350d9968d01d694bf35bbdd0e2f}{yasm\-\_\-output\-\_\-reloc\-\_\-func} output\-\_\-reloc)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int \hyperlink{bytecode_8h_a3451ff122d335d85a5f9094ad28ec3c2}{yasm\-\_\-bc\-\_\-get\-\_\-multiple} (\hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$bc, long $\ast$multiple, int calc\-\_\-bc\-\_\-dist)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L const \hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$ \hyperlink{bytecode_8h_ab0c330fa4751bad4265caa8e3a94c0d1}{yasm\-\_\-bc\-\_\-get\-\_\-multiple\-\_\-expr} (const \hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$bc)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__insn}{yasm\-\_\-insn} $\ast$ \hyperlink{bytecode_8h_aa2092dbd7184d65b3b2acc704bd36a83}{yasm\-\_\-bc\-\_\-get\-\_\-insn} (\hyperlink{structyasm__bytecode}{yasm\-\_\-bytecode} $\ast$bc)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__dataval}{yasm\-\_\-dataval} $\ast$ \hyperlink{bytecode_8h_a481c068a83da63de646614d9cd572772}{yasm\-\_\-dv\-\_\-create\-\_\-expr} (\hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$expn)
+\item 
+\hyperlink{structyasm__dataval}{yasm\-\_\-dataval} $\ast$ \hyperlink{bytecode_8h_ad48e2bfa6a6495c802d419970789c60b}{yasm\-\_\-dv\-\_\-create\-\_\-string} (char $\ast$contents, size\-\_\-t len)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__dataval}{yasm\-\_\-dataval} $\ast$ \hyperlink{bytecode_8h_a29b35c4d897831a85b0563be48305241}{yasm\-\_\-dv\-\_\-create\-\_\-raw} (unsigned char $\ast$contents, unsigned long len)
+\item 
+\hyperlink{structyasm__dataval}{yasm\-\_\-dataval} $\ast$ \hyperlink{bytecode_8h_a82eb734d143cade4ad7ef0a695da1079}{yasm\-\_\-dv\-\_\-create\-\_\-reserve} (void)
+\item 
+\hyperlink{structyasm__value}{yasm\-\_\-value} $\ast$ \hyperlink{bytecode_8h_a365b3faa1d66b33d1e25abf729d81546}{yasm\-\_\-dv\-\_\-get\-\_\-value} (\hyperlink{structyasm__dataval}{yasm\-\_\-dataval} $\ast$dv)
+\item 
+void \hyperlink{bytecode_8h_aad12940ea6620da746128baea2c14186}{yasm\-\_\-dv\-\_\-set\-\_\-multiple} (\hyperlink{structyasm__dataval}{yasm\-\_\-dataval} $\ast$dv, \hyperlink{structyasm__expr}{yasm\-\_\-expr} $\ast$e)
+\item 
+int \hyperlink{bytecode_8h_a3fccecd741c7b03caf5bac83575dd49c}{yasm\-\_\-dv\-\_\-get\-\_\-multiple} (\hyperlink{structyasm__dataval}{yasm\-\_\-dataval} $\ast$dv, unsigned long $\ast$multiple)
+\item 
+void \hyperlink{bytecode_8h_a2fac6f5d77a011333ceb61490baf66dd}{yasm\-\_\-dvs\-\_\-initialize} (\hyperlink{bytecode_8h_a16269c7339747342414e0259bb6246d5}{yasm\-\_\-datavalhead} $\ast$headp)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{bytecode_8h_aa6a5c4249c950ab7798125d484d4b4a0}{yasm\-\_\-dvs\-\_\-delete} (\hyperlink{bytecode_8h_a16269c7339747342414e0259bb6246d5}{yasm\-\_\-datavalhead} $\ast$headp)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L \hyperlink{structyasm__dataval}{yasm\-\_\-dataval} $\ast$ \hyperlink{bytecode_8h_a73adce88c216e23d6d89cc171e2db350}{yasm\-\_\-dvs\-\_\-append} (\hyperlink{bytecode_8h_a16269c7339747342414e0259bb6246d5}{yasm\-\_\-datavalhead} $\ast$headp, \hyperlink{structyasm__dataval}{yasm\-\_\-dataval} $\ast$dv)
+\item 
+Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void \hyperlink{bytecode_8h_a1bba4ac6ea5f35dbc188a0ecb4ca65a4}{yasm\-\_\-dvs\-\_\-print} (const \hyperlink{bytecode_8h_a16269c7339747342414e0259bb6246d5}{yasm\-\_\-datavalhead} $\ast$headp, F\-I\-L\-E $\ast$f, int indent\-\_\-level)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Y\-A\-S\-M bytecode interface. Copyright (C) 2001-\/2007 Peter Johnson
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\-:
+\begin{DoxyItemize}
+\item Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+\item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+\end{DoxyItemize}
+
+T\-H\-I\-S S\-O\-F\-T\-W\-A\-R\-E I\-S P\-R\-O\-V\-I\-D\-E\-D B\-Y T\-H\-E A\-U\-T\-H\-O\-R A\-N\-D O\-T\-H\-E\-R C\-O\-N\-T\-R\-I\-B\-U\-T\-O\-R\-S ``\-A\-S I\-S'' A\-N\-D A\-N\-Y E\-X\-P\-R\-E\-S\-S O\-R I\-M\-P\-L\-I\-E\-D W\-A\-R\-R\-A\-N\-T\-I\-E\-S, I\-N\-C\-L\-U\-D\-I\-N\-G, B\-U\-T N\-O\-T L\-I\-M\-I\-T\-E\-D T\-O, T\-H\-E I\-M\-P\-L\-I\-E\-D W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-F M\-E\-R\-C\-H\-A\-N\-T\-A\-B\-I\-L\-I\-T\-Y A\-N\-D F\-I\-T\-N\-E\-S\-S F\-O\-R A P\-A\-R\-T\-I\-C\-U\-L\-A\-R P\-U\-R\-P\-O\-S\-E A\-R\-E D\-I\-S\-C\-L\-A\-I\-M\-E\-D. I\-N N\-O E\-V\-E\-N\-T S\-H\-A\-L\-L T\-H\-E A\-U\-T\-H\-O\-R O\-R O\-T\-H\-E\-R C\-O\-N\-T\-R\-I\-B\-U\-T\-O\-R\-S B\-E L\-I\-A\-B\-L\-E F\-O\-R A\-N\-Y D\-I\-R\-E\-C\-T, I\-N\-D\-I\-R\-E\-C\-T, I\-N\-C\-I\-D\-E\-N\-T\-A\-L, S\-P\-E\-C\-I\-A\-L, E\-X\-E\-M\-P\-L\-A\-R\-Y, O\-R C\-O\-N\-S\-E\-Q\-U\-E\-N\-T\-I\-A\-L D\-A\-M\-A\-G\-E\-S (I\-N\-C\-L\-U\-D\-I\-N\-G, B\-U\-T N\-O\-T L\-I\-M\-I\-T\-E\-D T\-O, P\-R\-O\-C\-U\-R\-E\-M\-E\-N\-T O\-F S\-U\-B\-S\-T\-I\-T\-U\-T\-E G\-O\-O\-D\-S O\-R S\-E\-R\-V\-I\-C\-E\-S; L\-O\-S\-S O\-F U\-S\-E, D\-A\-T\-A, O\-R P\-R\-O\-F\-I\-T\-S; O\-R B\-U\-S\-I\-N\-E\-S\-S I\-N\-T\-E\-R\-R\-U\-P\-T\-I\-O\-N) H\-O\-W\-E\-V\-E\-R C\-A\-U\-S\-E\-D A\-N\-D O\-N A\-N\-Y T\-H\-E\-O\-R\-Y O\-F L\-I\-A\-B\-I\-L\-I\-T\-Y, W\-H\-E\-T\-H\-E\-R I\-N C\-O\-N\-T\-R\-A\-C\-T, S\-T\-R\-I\-C\-T L\-I\-A\-B\-I\-L\-I\-T\-Y, O\-R T\-O\-R\-T (I\-N\-C\-L\-U\-D\-I\-N\-G N\-E\-G\-L\-I\-G\-E\-N\-C\-E O\-R O\-T\-H\-E\-R\-W\-I\-S\-E) A\-R\-I\-S\-I\-N\-G I\-N A\-N\-Y W\-A\-Y O\-U\-T O\-F T\-H\-E U\-S\-E O\-F T\-H\-I\-S S\-O\-F\-T\-W\-A\-R\-E, E\-V\-E\-N I\-F A\-D\-V\-I\-S\-E\-D O\-F T\-H\-E P\-O\-S\-S\-I\-B\-I\-L\-I\-T\-Y O\-F S\-U\-C\-H D\-A\-M\-A\-G\-E.  
+
+\subsection{Macro Definition Documentation}
+\hypertarget{bytecode_8h_aaefc0a871e88aeb42a8b9d7614f15893}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-bc\-\_\-\-\_\-next@{yasm\-\_\-bc\-\_\-\-\_\-next}}
+\index{yasm\-\_\-bc\-\_\-\-\_\-next@{yasm\-\_\-bc\-\_\-\-\_\-next}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-bc\-\_\-\-\_\-next}]{\setlength{\rightskip}{0pt plus 5cm}\#define yasm\-\_\-bc\-\_\-\-\_\-next(
+\begin{DoxyParamCaption}
+\item[{}]{bc}
+\end{DoxyParamCaption}
+)~S\-T\-A\-I\-L\-Q\-\_\-\-N\-E\-X\-T(bc, link)}}\label{bytecode_8h_aaefc0a871e88aeb42a8b9d7614f15893}
+Get the next bytecode in a linked list of bytecodes. 
+\begin{DoxyParams}{Parameters}
+{\em bc} & bytecode \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Next bytecode. 
+\end{DoxyReturn}
+\hypertarget{bytecode_8h_a7ff6781b9e5134c5603eb0961e33aac4}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-dv\-\_\-create\-\_\-string@{yasm\-\_\-dv\-\_\-create\-\_\-string}}
+\index{yasm\-\_\-dv\-\_\-create\-\_\-string@{yasm\-\_\-dv\-\_\-create\-\_\-string}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-dv\-\_\-create\-\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}\#define yasm\-\_\-dv\-\_\-create\-\_\-string(
+\begin{DoxyParamCaption}
+\item[{}]{s, }
+\item[{}]{l}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_a7ff6781b9e5134c5603eb0961e33aac4}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\hyperlink{bytecode_8h_a29b35c4d897831a85b0563be48305241}{yasm\_dv\_create\_raw}((\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} *)(s), \(\backslash\)
+                                                       (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long})(l))
+\end{DoxyCode}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{bytecode_8h_a911868d562d60ee4fdddc07c1799f8db}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-bc\-\_\-add\-\_\-span\-\_\-func@{yasm\-\_\-bc\-\_\-add\-\_\-span\-\_\-func}}
+\index{yasm\-\_\-bc\-\_\-add\-\_\-span\-\_\-func@{yasm\-\_\-bc\-\_\-add\-\_\-span\-\_\-func}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-bc\-\_\-add\-\_\-span\-\_\-func}]{\setlength{\rightskip}{0pt plus 5cm}typedef void($\ast$ yasm\-\_\-bc\-\_\-add\-\_\-span\-\_\-func)(void $\ast$add\-\_\-span\-\_\-data, {\bf yasm\-\_\-bytecode} $\ast$bc, int id, const {\bf yasm\-\_\-value} $\ast$value, long neg\-\_\-thres, long pos\-\_\-thres)}}\label{bytecode_8h_a911868d562d60ee4fdddc07c1799f8db}
+Add a dependent span for a bytecode. 
+\begin{DoxyParams}{Parameters}
+{\em add\-\_\-span\-\_\-data} & add\-\_\-span\-\_\-data passed into bc\-\_\-calc\-\_\-len() \\
+\hline
+{\em bc} & bytecode containing span \\
+\hline
+{\em id} & non-\/zero identifier for span; may be any non-\/zero value if $<$0, expand is called for any change; if $>$0, expand is only called when exceeds threshold \\
+\hline
+{\em value} & dependent value for bytecode expansion \\
+\hline
+{\em neg\-\_\-thres} & negative threshold for long/short decision \\
+\hline
+{\em pos\-\_\-thres} & positive threshold for long/short decision \\
+\hline
+\end{DoxyParams}
+\hypertarget{bytecode_8h_a987624489be95712cdaf8b62b2708b66}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-bytecode\-\_\-callback@{yasm\-\_\-bytecode\-\_\-callback}}
+\index{yasm\-\_\-bytecode\-\_\-callback@{yasm\-\_\-bytecode\-\_\-callback}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-bytecode\-\_\-callback}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf yasm\-\_\-bytecode\-\_\-callback}  {\bf yasm\-\_\-bytecode\-\_\-callback}}}\label{bytecode_8h_a987624489be95712cdaf8b62b2708b66}
+Bytecode callback structure. Any implementation of a specific bytecode must implement these functions and this callback structure. The bytecode implementation-\/specific data is stored in \hyperlink{structyasm__bytecode_a00b5eeb6ac2908972964ec3daef631c1}{yasm\-\_\-bytecode.\-contents}. \hypertarget{bytecode_8h_a920e2b8abe5cb633dc6c5073d8047b8c}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-dataval@{yasm\-\_\-dataval}}
+\index{yasm\-\_\-dataval@{yasm\-\_\-dataval}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-dataval}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf yasm\-\_\-dataval} {\bf yasm\-\_\-dataval}}}\label{bytecode_8h_a920e2b8abe5cb633dc6c5073d8047b8c}
+A data value (opaque type). \hypertarget{bytecode_8h_a16269c7339747342414e0259bb6246d5}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-datavalhead@{yasm\-\_\-datavalhead}}
+\index{yasm\-\_\-datavalhead@{yasm\-\_\-datavalhead}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-datavalhead}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf yasm\-\_\-datavalhead} {\bf yasm\-\_\-datavalhead}}}\label{bytecode_8h_a16269c7339747342414e0259bb6246d5}
+A list of data values. 
+
+\subsection{Function Documentation}
+\hypertarget{bytecode_8h_a240bc4cef664cd4fe8f3cae5c17f18c1}{\index{bytecode.\-h@{bytecode.\-h}!S\-T\-A\-I\-L\-Q\-\_\-\-H\-E\-A\-D@{S\-T\-A\-I\-L\-Q\-\_\-\-H\-E\-A\-D}}
+\index{S\-T\-A\-I\-L\-Q\-\_\-\-H\-E\-A\-D@{S\-T\-A\-I\-L\-Q\-\_\-\-H\-E\-A\-D}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{S\-T\-A\-I\-L\-Q\-\_\-\-H\-E\-A\-D}]{\setlength{\rightskip}{0pt plus 5cm}S\-T\-A\-I\-L\-Q\-\_\-\-H\-E\-A\-D (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-datavalhead}}]{, }
+\item[{{\bf yasm\-\_\-dataval}}]{}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_a240bc4cef664cd4fe8f3cae5c17f18c1}
+Linked list of data values. \hypertarget{bytecode_8h_a67ac2b6a6599601229428879bee3eef3}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-bc\-\_\-\-\_\-add\-\_\-symrec@{yasm\-\_\-bc\-\_\-\-\_\-add\-\_\-symrec}}
+\index{yasm\-\_\-bc\-\_\-\-\_\-add\-\_\-symrec@{yasm\-\_\-bc\-\_\-\-\_\-add\-\_\-symrec}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-bc\-\_\-\-\_\-add\-\_\-symrec}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-bc\-\_\-\-\_\-add\-\_\-symrec (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-bytecode} $\ast$}]{bc, }
+\item[{{\bf yasm\-\_\-symrec} $\ast$}]{sym}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_a67ac2b6a6599601229428879bee3eef3}
+Add to the list of symrecs that reference a bytecode. For symrec use only. 
+\begin{DoxyParams}{Parameters}
+{\em bc} & bytecode \\
+\hline
+{\em sym} & symbol \\
+\hline
+\end{DoxyParams}
+\hypertarget{bytecode_8h_ae1193a627ea3a3b127c8953791bb68a9}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-bc\-\_\-calc\-\_\-len@{yasm\-\_\-bc\-\_\-calc\-\_\-len}}
+\index{yasm\-\_\-bc\-\_\-calc\-\_\-len@{yasm\-\_\-bc\-\_\-calc\-\_\-len}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-bc\-\_\-calc\-\_\-len}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int yasm\-\_\-bc\-\_\-calc\-\_\-len (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-bytecode} $\ast$}]{bc, }
+\item[{{\bf yasm\-\_\-bc\-\_\-add\-\_\-span\-\_\-func}}]{add\-\_\-span, }
+\item[{void $\ast$}]{add\-\_\-span\-\_\-data}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_ae1193a627ea3a3b127c8953791bb68a9}
+Resolve E\-Q\-Us in a bytecode and calculate its minimum size. Generates dependent bytecode spans for cases where, if the length spanned increases, it could cause the bytecode size to increase. Any bytecode multiple is N\-O\-T included in the length or spans generation; this must be handled at a higher level. 
+\begin{DoxyParams}{Parameters}
+{\em bc} & bytecode \\
+\hline
+{\em add\-\_\-span} & function to call to add a span \\
+\hline
+{\em add\-\_\-span\-\_\-data} & extra data to be passed to add\-\_\-span function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if no error occurred, nonzero if there was an error recognized (and output) during execution. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+May store to bytecode updated expressions and the short length. 
+\end{DoxyNote}
+\hypertarget{bytecode_8h_acfbeea52e017aff1fd67662a1a3577ad}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-bc\-\_\-calc\-\_\-len\-\_\-common@{yasm\-\_\-bc\-\_\-calc\-\_\-len\-\_\-common}}
+\index{yasm\-\_\-bc\-\_\-calc\-\_\-len\-\_\-common@{yasm\-\_\-bc\-\_\-calc\-\_\-len\-\_\-common}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-bc\-\_\-calc\-\_\-len\-\_\-common}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int yasm\-\_\-bc\-\_\-calc\-\_\-len\-\_\-common (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-bytecode} $\ast$}]{bc, }
+\item[{{\bf yasm\-\_\-bc\-\_\-add\-\_\-span\-\_\-func}}]{add\-\_\-span, }
+\item[{void $\ast$}]{add\-\_\-span\-\_\-data}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_acfbeea52e017aff1fd67662a1a3577ad}
+Common bytecode callback calc\-\_\-len function, for where the bytecode has no calculatable length. Causes an internal error if called. \hypertarget{bytecode_8h_a1545721779be46507f748ea2423cb442}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-bc\-\_\-create\-\_\-align@{yasm\-\_\-bc\-\_\-create\-\_\-align}}
+\index{yasm\-\_\-bc\-\_\-create\-\_\-align@{yasm\-\_\-bc\-\_\-create\-\_\-align}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-bc\-\_\-create\-\_\-align}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-bytecode}$\ast$ yasm\-\_\-bc\-\_\-create\-\_\-align (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-expr} $\ast$}]{boundary, }
+\item[{{\bf yasm\-\_\-expr} $\ast$}]{fill, }
+\item[{{\bf yasm\-\_\-expr} $\ast$}]{maxskip, }
+\item[{const unsigned char $\ast$$\ast$}]{code\-\_\-fill, }
+\item[{unsigned long}]{line}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_a1545721779be46507f748ea2423cb442}
+Create a bytecode that aligns the following bytecode to a boundary. 
+\begin{DoxyParams}{Parameters}
+{\em boundary} & byte alignment (must be a power of two) \\
+\hline
+{\em fill} & fill data (if N\-U\-L\-L, code\-\_\-fill or 0 is used) \\
+\hline
+{\em maxskip} & maximum number of bytes to skip \\
+\hline
+{\em code\-\_\-fill} & code fill data (if N\-U\-L\-L, 0 is used) \\
+\hline
+{\em line} & virtual line (from \hyperlink{structyasm__linemap}{yasm\-\_\-linemap}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly allocated bytecode. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The precedence on generated fill is as follows\-:
+\begin{DoxyItemize}
+\item from fill parameter (if not N\-U\-L\-L)
+\item from code\-\_\-fill parameter (if not N\-U\-L\-L)
+\item 0 
+\end{DoxyItemize}
+\end{DoxyNote}
+\hypertarget{bytecode_8h_af171c8666fc8b3545b212f6baf75151f}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-bc\-\_\-create\-\_\-common@{yasm\-\_\-bc\-\_\-create\-\_\-common}}
+\index{yasm\-\_\-bc\-\_\-create\-\_\-common@{yasm\-\_\-bc\-\_\-create\-\_\-common}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-bc\-\_\-create\-\_\-common}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-bytecode}$\ast$ yasm\-\_\-bc\-\_\-create\-\_\-common (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-bytecode\-\_\-callback} $\ast$}]{callback, }
+\item[{void $\ast$}]{contents, }
+\item[{unsigned long}]{line}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_af171c8666fc8b3545b212f6baf75151f}
+Create a bytecode of any specified type. 
+\begin{DoxyParams}{Parameters}
+{\em callback} & bytecode callback functions, if N\-U\-L\-L, creates empty bytecode (may not be resolved or output) \\
+\hline
+{\em contents} & type-\/specific data \\
+\hline
+{\em line} & virtual line (from \hyperlink{structyasm__linemap}{yasm\-\_\-linemap}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly allocated bytecode of the specified type. 
+\end{DoxyReturn}
+\hypertarget{bytecode_8h_ac4a99ad515342a0cadbc302ccb8be8bb}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-bc\-\_\-create\-\_\-data@{yasm\-\_\-bc\-\_\-create\-\_\-data}}
+\index{yasm\-\_\-bc\-\_\-create\-\_\-data@{yasm\-\_\-bc\-\_\-create\-\_\-data}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-bc\-\_\-create\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-bytecode}$\ast$ yasm\-\_\-bc\-\_\-create\-\_\-data (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-datavalhead} $\ast$}]{datahead, }
+\item[{unsigned int}]{size, }
+\item[{int}]{append\-\_\-zero, }
+\item[{{\bf yasm\-\_\-arch} $\ast$}]{arch, }
+\item[{unsigned long}]{line}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_ac4a99ad515342a0cadbc302ccb8be8bb}
+Create a bytecode containing data value(s). 
+\begin{DoxyParams}{Parameters}
+{\em datahead} & list of data values (kept, do not free) \\
+\hline
+{\em size} & storage size (in bytes) for each data value \\
+\hline
+{\em append\-\_\-zero} & append a single zero byte after each data value (if non-\/zero) \\
+\hline
+{\em arch} & architecture (optional); if provided, data items are directly simplified to bytes if possible \\
+\hline
+{\em line} & virtual line (from \hyperlink{structyasm__linemap}{yasm\-\_\-linemap}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly allocated bytecode. 
+\end{DoxyReturn}
+\hypertarget{bytecode_8h_a16a9e9f0ce2dedf0df74005f2b78a3de}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-bc\-\_\-create\-\_\-incbin@{yasm\-\_\-bc\-\_\-create\-\_\-incbin}}
+\index{yasm\-\_\-bc\-\_\-create\-\_\-incbin@{yasm\-\_\-bc\-\_\-create\-\_\-incbin}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-bc\-\_\-create\-\_\-incbin}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-bytecode}$\ast$ yasm\-\_\-bc\-\_\-create\-\_\-incbin (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{filename, }
+\item[{{\bf yasm\-\_\-expr} $\ast$}]{start, }
+\item[{{\bf yasm\-\_\-expr} $\ast$}]{maxlen, }
+\item[{{\bf yasm\-\_\-linemap} $\ast$}]{linemap, }
+\item[{unsigned long}]{line}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_a16a9e9f0ce2dedf0df74005f2b78a3de}
+Create a bytecode that includes a binary file verbatim. 
+\begin{DoxyParams}{Parameters}
+{\em filename} & path to binary file (kept, do not free) \\
+\hline
+{\em start} & starting location in file (in bytes) to read data from (kept, do not free); may be N\-U\-L\-L to indicate 0 \\
+\hline
+{\em maxlen} & maximum number of bytes to read from the file (kept, do do not free); may be N\-U\-L\-L to indicate no maximum \\
+\hline
+{\em linemap} & line mapping repository \\
+\hline
+{\em line} & virtual line (from \hyperlink{structyasm__linemap}{yasm\-\_\-linemap}) for the bytecode \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly allocated bytecode. 
+\end{DoxyReturn}
+\hypertarget{bytecode_8h_a6f27c1ba7ec1a45843c2ad8a00cb3c47}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-bc\-\_\-create\-\_\-leb128@{yasm\-\_\-bc\-\_\-create\-\_\-leb128}}
+\index{yasm\-\_\-bc\-\_\-create\-\_\-leb128@{yasm\-\_\-bc\-\_\-create\-\_\-leb128}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-bc\-\_\-create\-\_\-leb128}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-bytecode}$\ast$ yasm\-\_\-bc\-\_\-create\-\_\-leb128 (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-datavalhead} $\ast$}]{datahead, }
+\item[{int}]{sign, }
+\item[{unsigned long}]{line}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_a6f27c1ba7ec1a45843c2ad8a00cb3c47}
+Create a bytecode containing L\-E\-B128-\/encoded data value(s). 
+\begin{DoxyParams}{Parameters}
+{\em datahead} & list of data values (kept, do not free) \\
+\hline
+{\em sign} & signedness (1=signed, 0=unsigned) of each data value \\
+\hline
+{\em line} & virtual line (from \hyperlink{structyasm__linemap}{yasm\-\_\-linemap}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly allocated bytecode. 
+\end{DoxyReturn}
+\hypertarget{bytecode_8h_abf0836f160ecb7e17a6cfa1f90c945d3}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-bc\-\_\-create\-\_\-org@{yasm\-\_\-bc\-\_\-create\-\_\-org}}
+\index{yasm\-\_\-bc\-\_\-create\-\_\-org@{yasm\-\_\-bc\-\_\-create\-\_\-org}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-bc\-\_\-create\-\_\-org}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-bytecode}$\ast$ yasm\-\_\-bc\-\_\-create\-\_\-org (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{start, }
+\item[{unsigned long}]{fill, }
+\item[{unsigned long}]{line}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_abf0836f160ecb7e17a6cfa1f90c945d3}
+Create a bytecode that puts the following bytecode at a fixed section offset. 
+\begin{DoxyParams}{Parameters}
+{\em start} & section offset of following bytecode \\
+\hline
+{\em fill} & fill value \\
+\hline
+{\em line} & virtual line (from \hyperlink{structyasm__linemap}{yasm\-\_\-linemap}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly allocated bytecode. 
+\end{DoxyReturn}
+\hypertarget{bytecode_8h_a1c348dc4df52ae0a1b5144eb910694c7}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-bc\-\_\-create\-\_\-reserve@{yasm\-\_\-bc\-\_\-create\-\_\-reserve}}
+\index{yasm\-\_\-bc\-\_\-create\-\_\-reserve@{yasm\-\_\-bc\-\_\-create\-\_\-reserve}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-bc\-\_\-create\-\_\-reserve}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-bytecode}$\ast$ yasm\-\_\-bc\-\_\-create\-\_\-reserve (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-expr} $\ast$}]{numitems, }
+\item[{unsigned int}]{itemsize, }
+\item[{unsigned long}]{line}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_a1c348dc4df52ae0a1b5144eb910694c7}
+Create a bytecode reserving space. 
+\begin{DoxyParams}{Parameters}
+{\em numitems} & number of reserve \char`\"{}items\char`\"{} (kept, do not free) \\
+\hline
+{\em itemsize} & reserved size (in bytes) for each item \\
+\hline
+{\em line} & virtual line (from \hyperlink{structyasm__linemap}{yasm\-\_\-linemap}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly allocated bytecode. 
+\end{DoxyReturn}
+\hypertarget{bytecode_8h_aff895602e22b16f456ad06c2a81752f0}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-bc\-\_\-destroy@{yasm\-\_\-bc\-\_\-destroy}}
+\index{yasm\-\_\-bc\-\_\-destroy@{yasm\-\_\-bc\-\_\-destroy}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-bc\-\_\-destroy}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-bc\-\_\-destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-bytecode} $\ast$}]{bc}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_aff895602e22b16f456ad06c2a81752f0}
+Delete (free allocated memory for) a bytecode. 
+\begin{DoxyParams}{Parameters}
+{\em bc} & bytecode (only pointer to it); may be N\-U\-L\-L \\
+\hline
+\end{DoxyParams}
+\hypertarget{bytecode_8h_a1bd21a2115bcd9ccf74401e149ce0a96}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-bc\-\_\-elem\-\_\-size@{yasm\-\_\-bc\-\_\-elem\-\_\-size}}
+\index{yasm\-\_\-bc\-\_\-elem\-\_\-size@{yasm\-\_\-bc\-\_\-elem\-\_\-size}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-bc\-\_\-elem\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int yasm\-\_\-bc\-\_\-elem\-\_\-size (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-bytecode} $\ast$}]{bc}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_a1bd21a2115bcd9ccf74401e149ce0a96}
+Return elemens size of a data bytecode. Returns the size of each elements of a data bytecode, for proper dereference of symbols attached to it. 
+\begin{DoxyParams}{Parameters}
+{\em bc} & bytecode \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if element size is unknown 
+\end{DoxyReturn}
+\hypertarget{bytecode_8h_aae0bdad12f49fcdd19be484c20abfb6a}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-bc\-\_\-expand@{yasm\-\_\-bc\-\_\-expand}}
+\index{yasm\-\_\-bc\-\_\-expand@{yasm\-\_\-bc\-\_\-expand}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-bc\-\_\-expand}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int yasm\-\_\-bc\-\_\-expand (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-bytecode} $\ast$}]{bc, }
+\item[{int}]{span, }
+\item[{long}]{old\-\_\-val, }
+\item[{long}]{new\-\_\-val, }
+\item[{long $\ast$}]{neg\-\_\-thres, }
+\item[{long $\ast$}]{pos\-\_\-thres}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_aae0bdad12f49fcdd19be484c20abfb6a}
+Recalculate a bytecode's length based on an expanded span length. 
+\begin{DoxyParams}{Parameters}
+{\em bc} & bytecode \\
+\hline
+{\em span} & span I\-D (as given to yasm\-\_\-bc\-\_\-add\-\_\-span\-\_\-func in yasm\-\_\-bc\-\_\-calc\-\_\-len) \\
+\hline
+{\em old\-\_\-val} & previous span value \\
+\hline
+{\em new\-\_\-val} & new span value \\
+\hline
+{\em neg\-\_\-thres} & negative threshold for long/short decision (returned) \\
+\hline
+{\em pos\-\_\-thres} & positive threshold for long/short decision (returned) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if bc no longer dependent on this span's length, negative if there was an error recognized (and output) during execution, and positive if bc size may increase for this span further based on the new negative and positive thresholds returned. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+May store to bytecode updated expressions and the updated length. 
+\end{DoxyNote}
+\hypertarget{bytecode_8h_a9a579accd211672dbca0661b4f7038a3}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-bc\-\_\-expand\-\_\-common@{yasm\-\_\-bc\-\_\-expand\-\_\-common}}
+\index{yasm\-\_\-bc\-\_\-expand\-\_\-common@{yasm\-\_\-bc\-\_\-expand\-\_\-common}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-bc\-\_\-expand\-\_\-common}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int yasm\-\_\-bc\-\_\-expand\-\_\-common (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-bytecode} $\ast$}]{bc, }
+\item[{int}]{span, }
+\item[{long}]{old\-\_\-val, }
+\item[{long}]{new\-\_\-val, }
+\item[{long $\ast$}]{neg\-\_\-thres, }
+\item[{long $\ast$}]{pos\-\_\-thres}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_a9a579accd211672dbca0661b4f7038a3}
+Common bytecode callback expand function, for where the bytecode is always short (calc\-\_\-len never calls add\-\_\-span). Causes an internal error if called. \hypertarget{bytecode_8h_aa2c45590aa983607da0c455131d71892}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-bc\-\_\-finalize@{yasm\-\_\-bc\-\_\-finalize}}
+\index{yasm\-\_\-bc\-\_\-finalize@{yasm\-\_\-bc\-\_\-finalize}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-bc\-\_\-finalize}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-bc\-\_\-finalize (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-bytecode} $\ast$}]{bc, }
+\item[{{\bf yasm\-\_\-bytecode} $\ast$}]{prev\-\_\-bc}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_aa2c45590aa983607da0c455131d71892}
+Finalize a bytecode after parsing. 
+\begin{DoxyParams}{Parameters}
+{\em bc} & bytecode \\
+\hline
+{\em prev\-\_\-bc} & bytecode directly preceding bc in a list of bytecodes \\
+\hline
+\end{DoxyParams}
+\hypertarget{bytecode_8h_a33cf5b45d66526bdbaf202155a5de69a}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-bc\-\_\-finalize\-\_\-common@{yasm\-\_\-bc\-\_\-finalize\-\_\-common}}
+\index{yasm\-\_\-bc\-\_\-finalize\-\_\-common@{yasm\-\_\-bc\-\_\-finalize\-\_\-common}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-bc\-\_\-finalize\-\_\-common}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-bc\-\_\-finalize\-\_\-common (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-bytecode} $\ast$}]{bc, }
+\item[{{\bf yasm\-\_\-bytecode} $\ast$}]{prev\-\_\-bc}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_a33cf5b45d66526bdbaf202155a5de69a}
+Common bytecode callback finalize function, for where no finalization is ever required for this type of bytecode. \hypertarget{bytecode_8h_aa2092dbd7184d65b3b2acc704bd36a83}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-bc\-\_\-get\-\_\-insn@{yasm\-\_\-bc\-\_\-get\-\_\-insn}}
+\index{yasm\-\_\-bc\-\_\-get\-\_\-insn@{yasm\-\_\-bc\-\_\-get\-\_\-insn}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-bc\-\_\-get\-\_\-insn}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-insn}$\ast$ yasm\-\_\-bc\-\_\-get\-\_\-insn (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-bytecode} $\ast$}]{bc}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_aa2092dbd7184d65b3b2acc704bd36a83}
+Get a \hyperlink{structyasm__insn}{yasm\-\_\-insn} structure from an instruction bytecode (if possible). 
+\begin{DoxyParams}{Parameters}
+{\em bc} & bytecode \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Instruction details if bytecode is an instruction bytecode, otherwise N\-U\-L\-L. 
+\end{DoxyReturn}
+\hypertarget{bytecode_8h_a3451ff122d335d85a5f9094ad28ec3c2}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-bc\-\_\-get\-\_\-multiple@{yasm\-\_\-bc\-\_\-get\-\_\-multiple}}
+\index{yasm\-\_\-bc\-\_\-get\-\_\-multiple@{yasm\-\_\-bc\-\_\-get\-\_\-multiple}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-bc\-\_\-get\-\_\-multiple}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int yasm\-\_\-bc\-\_\-get\-\_\-multiple (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-bytecode} $\ast$}]{bc, }
+\item[{long $\ast$}]{multiple, }
+\item[{int}]{calc\-\_\-bc\-\_\-dist}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_a3451ff122d335d85a5f9094ad28ec3c2}
+Get the bytecode multiple value as an integer. 
+\begin{DoxyParams}{Parameters}
+{\em bc} & bytecode \\
+\hline
+{\em multiple} & multiple value (output) \\
+\hline
+{\em calc\-\_\-bc\-\_\-dist} & nonzero if distances between bytecodes should be calculated, 0 if error should be returned in this case \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on error (set with yasm\-\_\-error\-\_\-set), 0 on success. 
+\end{DoxyReturn}
+\hypertarget{bytecode_8h_ab0c330fa4751bad4265caa8e3a94c0d1}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-bc\-\_\-get\-\_\-multiple\-\_\-expr@{yasm\-\_\-bc\-\_\-get\-\_\-multiple\-\_\-expr}}
+\index{yasm\-\_\-bc\-\_\-get\-\_\-multiple\-\_\-expr@{yasm\-\_\-bc\-\_\-get\-\_\-multiple\-\_\-expr}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-bc\-\_\-get\-\_\-multiple\-\_\-expr}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L const {\bf yasm\-\_\-expr}$\ast$ yasm\-\_\-bc\-\_\-get\-\_\-multiple\-\_\-expr (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-bytecode} $\ast$}]{bc}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_ab0c330fa4751bad4265caa8e3a94c0d1}
+Get the bytecode multiple value as an expression. 
+\begin{DoxyParams}{Parameters}
+{\em bc} & bytecode \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Bytecode multiple, N\-U\-L\-L if =1. 
+\end{DoxyReturn}
+\hypertarget{bytecode_8h_a466859d168ea2b756851d680d77b9f97}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-bc\-\_\-get\-\_\-section@{yasm\-\_\-bc\-\_\-get\-\_\-section}}
+\index{yasm\-\_\-bc\-\_\-get\-\_\-section@{yasm\-\_\-bc\-\_\-get\-\_\-section}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-bc\-\_\-get\-\_\-section}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-section}$\ast$ yasm\-\_\-bc\-\_\-get\-\_\-section (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-bytecode} $\ast$}]{bc}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_a466859d168ea2b756851d680d77b9f97}
+Get the section that contains a particular bytecode. 
+\begin{DoxyParams}{Parameters}
+{\em bc} & bytecode \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Section containing bc (can be N\-U\-L\-L if bytecode is not part of a section). 
+\end{DoxyReturn}
+\hypertarget{bytecode_8h_aa72e2b99942b7eb25fdd8afadfe13d32}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-bc\-\_\-next\-\_\-offset@{yasm\-\_\-bc\-\_\-next\-\_\-offset}}
+\index{yasm\-\_\-bc\-\_\-next\-\_\-offset@{yasm\-\_\-bc\-\_\-next\-\_\-offset}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-bc\-\_\-next\-\_\-offset}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L unsigned long yasm\-\_\-bc\-\_\-next\-\_\-offset (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-bytecode} $\ast$}]{precbc}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_aa72e2b99942b7eb25fdd8afadfe13d32}
+Get the offset of the next bytecode (the next bytecode doesn't have to actually exist). 
+\begin{DoxyParams}{Parameters}
+{\em precbc} & preceding bytecode \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Offset of the next bytecode in bytes. 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+Only valid /after/ optimization. 
+\end{DoxyWarning}
+\hypertarget{bytecode_8h_ae86f7e4760a21d0c2b0ee46537dae750}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-bc\-\_\-print@{yasm\-\_\-bc\-\_\-print}}
+\index{yasm\-\_\-bc\-\_\-print@{yasm\-\_\-bc\-\_\-print}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-bc\-\_\-print}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-bc\-\_\-print (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-bytecode} $\ast$}]{bc, }
+\item[{F\-I\-L\-E $\ast$}]{f, }
+\item[{int}]{indent\-\_\-level}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_ae86f7e4760a21d0c2b0ee46537dae750}
+Print a bytecode. For debugging purposes. 
+\begin{DoxyParams}{Parameters}
+{\em f} & file \\
+\hline
+{\em indent\-\_\-level} & indentation level \\
+\hline
+{\em bc} & bytecode \\
+\hline
+\end{DoxyParams}
+\hypertarget{bytecode_8h_accb40e7eb0fbb0b5d135a0e3bcc76fba}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-bc\-\_\-reserve\-\_\-numitems@{yasm\-\_\-bc\-\_\-reserve\-\_\-numitems}}
+\index{yasm\-\_\-bc\-\_\-reserve\-\_\-numitems@{yasm\-\_\-bc\-\_\-reserve\-\_\-numitems}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-bc\-\_\-reserve\-\_\-numitems}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L const {\bf yasm\-\_\-expr}$\ast$ yasm\-\_\-bc\-\_\-reserve\-\_\-numitems (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-bytecode} $\ast$}]{bc, }
+\item[{unsigned int $\ast$}]{itemsize}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_accb40e7eb0fbb0b5d135a0e3bcc76fba}
+Get the number of items and itemsize for a reserve bytecode. If bc is not a reserve bytecode, returns N\-U\-L\-L. 
+\begin{DoxyParams}{Parameters}
+{\em bc} & bytecode \\
+\hline
+{\em itemsize} & reserved size (in bytes) for each item (returned) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+N\-U\-L\-L if bc is not a reserve bytecode, otherwise an expression for the number of items to reserve. 
+\end{DoxyReturn}
+\hypertarget{bytecode_8h_a67fd96c751c7b2b118715660c7ba4592}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-bc\-\_\-set\-\_\-multiple@{yasm\-\_\-bc\-\_\-set\-\_\-multiple}}
+\index{yasm\-\_\-bc\-\_\-set\-\_\-multiple@{yasm\-\_\-bc\-\_\-set\-\_\-multiple}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-bc\-\_\-set\-\_\-multiple}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-bc\-\_\-set\-\_\-multiple (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-bytecode} $\ast$}]{bc, }
+\item[{{\bf yasm\-\_\-expr} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_a67fd96c751c7b2b118715660c7ba4592}
+Set multiple field of a bytecode. A bytecode can be repeated a number of times when output. This function sets that multiple. 
+\begin{DoxyParams}{Parameters}
+{\em bc} & bytecode \\
+\hline
+{\em e} & multiple (kept, do not free) \\
+\hline
+\end{DoxyParams}
+\hypertarget{bytecode_8h_a332b5476c9d9b0d99667a35b201a4c20}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-bc\-\_\-tobytes@{yasm\-\_\-bc\-\_\-tobytes}}
+\index{yasm\-\_\-bc\-\_\-tobytes@{yasm\-\_\-bc\-\_\-tobytes}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-bc\-\_\-tobytes}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L unsigned char$\ast$ yasm\-\_\-bc\-\_\-tobytes (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-bytecode} $\ast$}]{bc, }
+\item[{unsigned char $\ast$}]{buf, }
+\item[{unsigned long $\ast$}]{bufsize, }
+\item[{int $\ast$}]{gap, }
+\item[{void $\ast$}]{d, }
+\item[{{\bf yasm\-\_\-output\-\_\-value\-\_\-func}}]{output\-\_\-value, }
+\item[{{\bf yasm\-\_\-output\-\_\-reloc\-\_\-func}}]{output\-\_\-reloc}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_a332b5476c9d9b0d99667a35b201a4c20}
+Convert a bytecode into its byte representation. 
+\begin{DoxyParams}{Parameters}
+{\em bc} & bytecode \\
+\hline
+{\em buf} & byte representation destination buffer \\
+\hline
+{\em bufsize} & size of buf (in bytes) prior to call; size of the generated data after call \\
+\hline
+{\em gap} & if nonzero, indicates the data does not really need to exist in the object file; if nonzero, contents of buf are undefined \mbox{[}output\mbox{]} \\
+\hline
+{\em d} & data to pass to each call to output\-\_\-value/output\-\_\-reloc \\
+\hline
+{\em output\-\_\-value} & function to call to convert values into their byte representation \\
+\hline
+{\em output\-\_\-reloc} & function to call to output relocation entries for a single sym \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly allocated buffer that should be used instead of buf for reading the byte representation, or N\-U\-L\-L if buf was big enough to hold the entire byte representation. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Calling twice on the same bytecode may {\itshape not} produce the same results on the second call, as calling this function may result in non-\/reversible changes to the bytecode. 
+\end{DoxyNote}
+\hypertarget{bytecode_8h_abd8b827a2ce2f0312d001f05e63c8cc1}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-bc\-\_\-tobytes\-\_\-common@{yasm\-\_\-bc\-\_\-tobytes\-\_\-common}}
+\index{yasm\-\_\-bc\-\_\-tobytes\-\_\-common@{yasm\-\_\-bc\-\_\-tobytes\-\_\-common}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-bc\-\_\-tobytes\-\_\-common}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L int yasm\-\_\-bc\-\_\-tobytes\-\_\-common (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-bytecode} $\ast$}]{bc, }
+\item[{unsigned char $\ast$$\ast$}]{bufp, }
+\item[{unsigned char $\ast$}]{bufstart, }
+\item[{void $\ast$}]{d, }
+\item[{{\bf yasm\-\_\-output\-\_\-value\-\_\-func}}]{output\-\_\-value, }
+\item[{{\bf yasm\-\_\-output\-\_\-reloc\-\_\-func}}]{output\-\_\-reloc}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_abd8b827a2ce2f0312d001f05e63c8cc1}
+Common bytecode callback tobytes function, for where the bytecode cannot be converted to bytes. Causes an internal error if called. \hypertarget{bytecode_8h_a40409768b3f84ba6c07e5c5b8852dd32}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-bc\-\_\-transform@{yasm\-\_\-bc\-\_\-transform}}
+\index{yasm\-\_\-bc\-\_\-transform@{yasm\-\_\-bc\-\_\-transform}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-bc\-\_\-transform}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-bc\-\_\-transform (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-bytecode} $\ast$}]{bc, }
+\item[{const {\bf yasm\-\_\-bytecode\-\_\-callback} $\ast$}]{callback, }
+\item[{void $\ast$}]{contents}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_a40409768b3f84ba6c07e5c5b8852dd32}
+Transform a bytecode of any type into a different type. 
+\begin{DoxyParams}{Parameters}
+{\em bc} & bytecode to transform \\
+\hline
+{\em callback} & new bytecode callback function \\
+\hline
+{\em contents} & new type-\/specific data \\
+\hline
+\end{DoxyParams}
+\hypertarget{bytecode_8h_aa9854e9d3a1893e768f9febf8480ecda}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-calc\-\_\-bc\-\_\-dist@{yasm\-\_\-calc\-\_\-bc\-\_\-dist}}
+\index{yasm\-\_\-calc\-\_\-bc\-\_\-dist@{yasm\-\_\-calc\-\_\-bc\-\_\-dist}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-calc\-\_\-bc\-\_\-dist}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-intnum}$\ast$ yasm\-\_\-calc\-\_\-bc\-\_\-dist (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-bytecode} $\ast$}]{precbc1, }
+\item[{{\bf yasm\-\_\-bytecode} $\ast$}]{precbc2}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_aa9854e9d3a1893e768f9febf8480ecda}
+Determine the distance between the starting offsets of two bytecodes. 
+\begin{DoxyParams}{Parameters}
+{\em precbc1} & preceding bytecode to the first bytecode \\
+\hline
+{\em precbc2} & preceding bytecode to the second bytecode \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Distance in bytes between the two bytecodes (bc2-\/bc1), or N\-U\-L\-L if the distance was indeterminate. 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+Only valid /after/ optimization. 
+\end{DoxyWarning}
+\hypertarget{bytecode_8h_a481c068a83da63de646614d9cd572772}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-dv\-\_\-create\-\_\-expr@{yasm\-\_\-dv\-\_\-create\-\_\-expr}}
+\index{yasm\-\_\-dv\-\_\-create\-\_\-expr@{yasm\-\_\-dv\-\_\-create\-\_\-expr}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-dv\-\_\-create\-\_\-expr}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-dataval}$\ast$ yasm\-\_\-dv\-\_\-create\-\_\-expr (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-expr} $\ast$}]{expn}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_a481c068a83da63de646614d9cd572772}
+Create a new data value from an expression. 
+\begin{DoxyParams}{Parameters}
+{\em expn} & expression \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly allocated data value. 
+\end{DoxyReturn}
+\hypertarget{bytecode_8h_a29b35c4d897831a85b0563be48305241}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-dv\-\_\-create\-\_\-raw@{yasm\-\_\-dv\-\_\-create\-\_\-raw}}
+\index{yasm\-\_\-dv\-\_\-create\-\_\-raw@{yasm\-\_\-dv\-\_\-create\-\_\-raw}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-dv\-\_\-create\-\_\-raw}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-dataval}$\ast$ yasm\-\_\-dv\-\_\-create\-\_\-raw (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{contents, }
+\item[{unsigned long}]{len}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_a29b35c4d897831a85b0563be48305241}
+Create a new data value from raw bytes data. 
+\begin{DoxyParams}{Parameters}
+{\em contents} & raw data (may contain N\-U\-Ls) \\
+\hline
+{\em len} & length \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly allocated data value. 
+\end{DoxyReturn}
+\hypertarget{bytecode_8h_a82eb734d143cade4ad7ef0a695da1079}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-dv\-\_\-create\-\_\-reserve@{yasm\-\_\-dv\-\_\-create\-\_\-reserve}}
+\index{yasm\-\_\-dv\-\_\-create\-\_\-reserve@{yasm\-\_\-dv\-\_\-create\-\_\-reserve}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-dv\-\_\-create\-\_\-reserve}]{\setlength{\rightskip}{0pt plus 5cm}{\bf yasm\-\_\-dataval}$\ast$ yasm\-\_\-dv\-\_\-create\-\_\-reserve (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_a82eb734d143cade4ad7ef0a695da1079}
+Create a new uninitialized data value. \begin{DoxyReturn}{Returns}
+Newly allocated data value. 
+\end{DoxyReturn}
+\hypertarget{bytecode_8h_ad48e2bfa6a6495c802d419970789c60b}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-dv\-\_\-create\-\_\-string@{yasm\-\_\-dv\-\_\-create\-\_\-string}}
+\index{yasm\-\_\-dv\-\_\-create\-\_\-string@{yasm\-\_\-dv\-\_\-create\-\_\-string}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-dv\-\_\-create\-\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}{\bf yasm\-\_\-dataval}$\ast$ yasm\-\_\-dv\-\_\-create\-\_\-string (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{contents, }
+\item[{size\-\_\-t}]{len}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_ad48e2bfa6a6495c802d419970789c60b}
+Create a new data value from a string. 
+\begin{DoxyParams}{Parameters}
+{\em contents} & string (may contain N\-U\-Ls) \\
+\hline
+{\em len} & length of string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly allocated data value. 
+\end{DoxyReturn}
+\hypertarget{bytecode_8h_a3fccecd741c7b03caf5bac83575dd49c}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-dv\-\_\-get\-\_\-multiple@{yasm\-\_\-dv\-\_\-get\-\_\-multiple}}
+\index{yasm\-\_\-dv\-\_\-get\-\_\-multiple@{yasm\-\_\-dv\-\_\-get\-\_\-multiple}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-dv\-\_\-get\-\_\-multiple}]{\setlength{\rightskip}{0pt plus 5cm}int yasm\-\_\-dv\-\_\-get\-\_\-multiple (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-dataval} $\ast$}]{dv, }
+\item[{unsigned long $\ast$}]{multiple}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_a3fccecd741c7b03caf5bac83575dd49c}
+Get the data value multiple value as an unsigned long integer. 
+\begin{DoxyParams}{Parameters}
+{\em dv} & data value \\
+\hline
+{\em multiple} & multiple value (output) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on error (set with yasm\-\_\-error\-\_\-set), 0 on success. 
+\end{DoxyReturn}
+\hypertarget{bytecode_8h_a365b3faa1d66b33d1e25abf729d81546}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-dv\-\_\-get\-\_\-value@{yasm\-\_\-dv\-\_\-get\-\_\-value}}
+\index{yasm\-\_\-dv\-\_\-get\-\_\-value@{yasm\-\_\-dv\-\_\-get\-\_\-value}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-dv\-\_\-get\-\_\-value}]{\setlength{\rightskip}{0pt plus 5cm}{\bf yasm\-\_\-value}$\ast$ yasm\-\_\-dv\-\_\-get\-\_\-value (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-dataval} $\ast$}]{dv}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_a365b3faa1d66b33d1e25abf729d81546}
+Get the underlying value of a data value. 
+\begin{DoxyParams}{Parameters}
+{\em dv} & data value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Value, or null if non-\/value (e.\-g. string or raw). 
+\end{DoxyReturn}
+\hypertarget{bytecode_8h_aad12940ea6620da746128baea2c14186}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-dv\-\_\-set\-\_\-multiple@{yasm\-\_\-dv\-\_\-set\-\_\-multiple}}
+\index{yasm\-\_\-dv\-\_\-set\-\_\-multiple@{yasm\-\_\-dv\-\_\-set\-\_\-multiple}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-dv\-\_\-set\-\_\-multiple}]{\setlength{\rightskip}{0pt plus 5cm}void yasm\-\_\-dv\-\_\-set\-\_\-multiple (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-dataval} $\ast$}]{dv, }
+\item[{{\bf yasm\-\_\-expr} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_aad12940ea6620da746128baea2c14186}
+Set multiple field of a data value. A data value can be repeated a number of times when output. This function sets that multiple. 
+\begin{DoxyParams}{Parameters}
+{\em dv} & data value \\
+\hline
+{\em e} & multiple (kept, do not free) \\
+\hline
+\end{DoxyParams}
+\hypertarget{bytecode_8h_a73adce88c216e23d6d89cc171e2db350}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-dvs\-\_\-append@{yasm\-\_\-dvs\-\_\-append}}
+\index{yasm\-\_\-dvs\-\_\-append@{yasm\-\_\-dvs\-\_\-append}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-dvs\-\_\-append}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L {\bf yasm\-\_\-dataval}$\ast$ yasm\-\_\-dvs\-\_\-append (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-datavalhead} $\ast$}]{headp, }
+\item[{{\bf yasm\-\_\-dataval} $\ast$}]{dv}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_a73adce88c216e23d6d89cc171e2db350}
+Add data value to the end of a list of data values. \begin{DoxyNote}{Note}
+Does not make a copy of the data value; so don't pass this function static or local variables, and discard the dv pointer after calling this function. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em headp} & data value list \\
+\hline
+{\em dv} & data value (may be N\-U\-L\-L) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If data value was actually appended (it wasn't N\-U\-L\-L), the data value; otherwise N\-U\-L\-L. 
+\end{DoxyReturn}
+\hypertarget{bytecode_8h_aa6a5c4249c950ab7798125d484d4b4a0}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-dvs\-\_\-delete@{yasm\-\_\-dvs\-\_\-delete}}
+\index{yasm\-\_\-dvs\-\_\-delete@{yasm\-\_\-dvs\-\_\-delete}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-dvs\-\_\-delete}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-dvs\-\_\-delete (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-datavalhead} $\ast$}]{headp}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_aa6a5c4249c950ab7798125d484d4b4a0}
+Delete (free allocated memory for) a list of data values. 
+\begin{DoxyParams}{Parameters}
+{\em headp} & list of data values \\
+\hline
+\end{DoxyParams}
+\hypertarget{bytecode_8h_a2fac6f5d77a011333ceb61490baf66dd}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-dvs\-\_\-initialize@{yasm\-\_\-dvs\-\_\-initialize}}
+\index{yasm\-\_\-dvs\-\_\-initialize@{yasm\-\_\-dvs\-\_\-initialize}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-dvs\-\_\-initialize}]{\setlength{\rightskip}{0pt plus 5cm}void yasm\-\_\-dvs\-\_\-initialize (
+\begin{DoxyParamCaption}
+\item[{{\bf yasm\-\_\-datavalhead} $\ast$}]{headp}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_a2fac6f5d77a011333ceb61490baf66dd}
+Initialize a list of data values. 
+\begin{DoxyParams}{Parameters}
+{\em headp} & list of data values \\
+\hline
+\end{DoxyParams}
+\hypertarget{bytecode_8h_a1bba4ac6ea5f35dbc188a0ecb4ca65a4}{\index{bytecode.\-h@{bytecode.\-h}!yasm\-\_\-dvs\-\_\-print@{yasm\-\_\-dvs\-\_\-print}}
+\index{yasm\-\_\-dvs\-\_\-print@{yasm\-\_\-dvs\-\_\-print}!bytecode.h@{bytecode.\-h}}
+\subsubsection[{yasm\-\_\-dvs\-\_\-print}]{\setlength{\rightskip}{0pt plus 5cm}Y\-A\-S\-M\-\_\-\-L\-I\-B\-\_\-\-D\-E\-C\-L void yasm\-\_\-dvs\-\_\-print (
+\begin{DoxyParamCaption}
+\item[{const {\bf yasm\-\_\-datavalhead} $\ast$}]{headp, }
+\item[{F\-I\-L\-E $\ast$}]{f, }
+\item[{int}]{indent\-\_\-level}
+\end{DoxyParamCaption}
+)}}\label{bytecode_8h_a1bba4ac6ea5f35dbc188a0ecb4ca65a4}
+Print a data value list. For debugging purposes. 
+\begin{DoxyParams}{Parameters}
+{\em f} & file \\
+\hline
+{\em indent\-\_\-level} & indentation level \\
+\hline
+{\em headp} & data value list \\
+\hline
+\end{DoxyParams}
