@@ -90,13 +90,13 @@ mips_floatnum_tobytes(yasm_arch *arch, const yasm_floatnum *flt,
     return 1;
 }
 
-/**
+/*
  * [JC]: TBD
  */
 static const unsigned char **
 mips_get_fill(const yasm_arch *arch)
 {
-    /* NOP pattern is all 0's per LC-3b Assembler 3.50 output */
+    /* NOP pattern is all 0's */
     static const unsigned char *fill[16] = {
         NULL,           /* unused */
         NULL,           /* 1 - illegal; all opcodes are 2 bytes long */
@@ -129,9 +129,6 @@ mips_get_fill(const yasm_arch *arch)
     return fill;
 }
 
-/**
- * [JC]: TBD
- */
 static yasm_effaddr *
 mips_ea_create_expr(yasm_arch *arch, yasm_expr *e)
 {
@@ -147,9 +144,6 @@ mips_ea_create_expr(yasm_arch *arch, yasm_expr *e)
     return ea;
 }
 
-/**
- * [JC]: TBD
- */
 void
 yasm_mips__ea_destroy(/*@only@*/ yasm_effaddr *ea)
 {
@@ -189,10 +183,10 @@ yasm_arch_module yasm_mips_LTX_arch = {
     mips_reggroup_get_reg,
     mips_reg_print,
     NULL,       /*yasm_mips__segreg_print*/
-    mips_ea_create_expr,                        /* [JC]: TBD */
-    yasm_mips__ea_destroy,                      /* [JC]: TBD */
+    mips_ea_create_expr,                     
+    yasm_mips__ea_destroy,                    
     mips_ea_print,
-    yasm_mips__create_empty_insn,               /* [JC]: TBD */
+    yasm_mips__create_empty_insn,
     mips_machines,
     "mips",
     32,

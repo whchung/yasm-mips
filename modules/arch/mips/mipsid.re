@@ -9,80 +9,136 @@
 
 #include "modules/arch/mips/mipsarch.h"
 
+/* utility macro for binary numbers */
+#define B_000000 ( 0)
+#define B_000001 ( 1)
+#define B_000010 ( 2)
+#define B_000011 ( 3)
+#define B_000100 ( 4)
+#define B_000101 ( 5)
+#define B_000110 ( 6)
+#define B_000111 ( 7)
+#define B_001000 ( 8)
+#define B_001001 ( 9)
+#define B_001010 (10)
+#define B_001011 (11)
+#define B_001100 (12)
+#define B_001101 (13)
+#define B_001110 (14)
+#define B_001111 (15)
+#define B_010000 (16)
+#define B_010001 (17)
+#define B_010010 (18)
+#define B_010011 (19)
+#define B_010100 (20)
+#define B_010101 (21)
+#define B_010110 (22)
+#define B_010111 (23)
+#define B_011000 (24)
+#define B_011001 (25)
+#define B_011010 (26)
+#define B_011011 (27)
+#define B_011100 (28)
+#define B_011101 (29)
+#define B_011110 (30)
+#define B_011111 (31)
+#define B_100000 (32)
+#define B_100001 (33)
+#define B_100010 (34)
+#define B_100011 (35)
+#define B_100100 (36)
+#define B_100101 (37)
+#define B_100110 (38)
+#define B_100111 (39)
+#define B_101000 (40)
+#define B_101001 (41)
+#define B_101010 (42)
+#define B_101011 (43)
+#define B_101100 (44)
+#define B_101101 (45)
+#define B_101110 (46)
+#define B_101111 (47)
+#define B_110000 (48)
+#define B_110001 (49)
+#define B_110010 (50)
+#define B_110011 (51)
+#define B_110100 (52)
+#define B_110101 (53)
+#define B_110110 (54)
+#define B_110111 (55)
+#define B_111000 (56)
+#define B_111001 (57)
+#define B_111010 (58)
+#define B_111011 (59)
+#define B_111100 (60)
+#define B_111101 (61)
+#define B_111110 (62)
+#define B_111111 (63)
 
-/* Opcode modifiers.  The opcode bytes are in "reverse" order because the
- * parameters are read from the arch-specific data in LSB->MSB order.
- * (only for asthetic reasons in the lexer code below, no practical reason).
+
+/*
+ * Instruction formats.
  */
-#define MOD_OpHAdd  (1UL<<0)    /* Parameter adds to upper 8 bits of insn */
-#define MOD_OpLAdd  (1UL<<1)    /* Parameter adds to lower 8 bits of insn */
 
-/* Operand types.  These are more detailed than the "general" types for all
- * architectures, as they include the size, for instance.
- * Bit Breakdown (from LSB to MSB):
- *  - 1 bit = general type (must be exact match, except for =3):
- *            0 = immediate
- *            1 = register
+#define INS_R (0)
+#define INS_I (1)
+#define INS_J (2)
+
+#define G_SPECIAL  (B_000000)
+#define G_SPECIAL2 (B_011100)
+#define G_REGIMM   (B_000001)
+
+/*
+ * Operands.
  *
- * MSBs than the above are actions: what to do with the operand if the
- * instruction matches.  Essentially describes what part of the output bytecode
- * gets the operand.  This may require conversion (e.g. a register going into
- * an ea field).  Naturally, only one of each of these may be contained in the
- * operands of a single insn_info structure.
- *  - 2 bits = action:
- *             0 = does nothing (operand data is discarded)
- *             1 = DR field
- *             2 = SR field
- *             3 = immediate
+ * An MIPS32 could take at most 4 operands.
+ *
+ * An operand can be of 3 types: constant, immediate, register.
+ *
+ * Constant operands will be ORed with the constant values.  Contant operands will always be 5-bits.
  *
  * Immediate operands can have different sizes.
- *  - 3 bits = size:
- *             0 = no immediate
- *             1 = 4-bit immediate
- *             2 = 5-bit immediate
- *             3 = 6-bit index, word (16 bit)-multiple
- *             4 = 6-bit index, byte-multiple
- *             5 = 8-bit immediate, word-multiple
- *             6 = 9-bit signed immediate, word-multiple
- *             7 = 9-bit signed offset from next PC ($+2), word-multiple
+ *       5-bits
+ *      16-bits
+ *      26-bits
  */
-#define OPT_Imm         0x0
-#define OPT_Reg         0x1
-#define OPT_MASK        0x1
+#define OPT_None        (0x00)
+#define OPT_Con         (0x80)
+#define OPT_Imm         (0x01)
+#define OPT_Reg         (0x02)
 
-#define OPA_None        (0<<1)
-#define OPA_DR          (1<<1)
-#define OPA_SR          (2<<1)
-#define OPA_Imm         (3<<1)
-#define OPA_MASK        (3<<1)
+#define OPC_Zero        (B_000000)
+#define OPC_BAL         (B_010001)
+#define OPC_BGEZ        (B_000001)
+#define OPC_BGEZAL      (B_010001)
+#define OPC_BLTZ        (B_000000)
+#define OPC_BLTZAL      (B_010000)
+#define OPC_SSNOP       (B_000001)
 
-#define OPI_None        (MIPS_IMM_NONE<<3)
-#define OPI_4           (MIPS_IMM_4<<3)
-#define OPI_5           (MIPS_IMM_5<<3)
-#define OPI_6W          (MIPS_IMM_6_WORD<<3)
-#define OPI_6B          (MIPS_IMM_6_BYTE<<3)
-#define OPI_8           (MIPS_IMM_8<<3)
-#define OPI_9           (MIPS_IMM_9<<3)
-#define OPI_9PC         (MIPS_IMM_9_PC<<3)
-#define OPI_MASK        (7<<3)
+#define OPI_5           (0x04)
+#define OPI_16          (0x08)
+#define OPI_26          (0x10)
 
 typedef struct mips_insn_info {
-    /* Opcode modifiers for variations of instruction.  As each modifier reads
-     * its parameter in LSB->MSB order from the arch-specific data[1] from the
-     * lexer data, and the LSB of the arch-specific data[1] is reserved for the
-     * count of insn_info structures in the instruction grouping, there can
-     * only be a maximum of 3 modifiers.
-     */
-    unsigned int modifiers;
+    /* instruction name */
+    const char *instr;
 
-    /* The basic 2 byte opcode */
-    unsigned int opcode;
+    /* The basic 6-bit opcode */
+    unsigned char opcode;
 
-    /* The number of operands this form of the instruction takes */
-    unsigned char num_operands;
+    /* instruction format */
+    unsigned char format;
+
+    /* The number of non-constant operands this form of the instruction takes */
+    unsigned int num_nonconst_operands;
 
     /* The types of each operand, see above */
-    unsigned int operands[3];
+    unsigned char operands[4];
+
+    /* optional instruction function, only used in R-type instructions
+     * The value will not be used in case of I-type instructions or J-type instructions
+     */
+    unsigned char func;
 } mips_insn_info;
 
 typedef struct mips_id_insn {
@@ -91,8 +147,8 @@ typedef struct mips_id_insn {
     /* instruction parse group - NULL if empty instruction (just prefixes) */
     /*@null@*/ const mips_insn_info *group;
 
-    /* Modifier data */
-    unsigned long mod_data;
+    /* instruction name */
+    const char *instr;
 
     /* Number of elements in the instruction parse group */
     unsigned int num_info:8;
@@ -118,53 +174,101 @@ static const yasm_bytecode_callback mips_id_insn_callback = {
  */
 
 static const mips_insn_info empty_insn[] = {
-    { 0, 0, 0, {0, 0, 0} }
+    { "", B_000000, INS_R, 0, { OPT_None, OPT_None, OPT_None, OPT_None }, B_000000 },
 };
 
-static const mips_insn_info addand_insn[] = {
-    { MOD_OpHAdd, 0x1000, 3,
-      {OPT_Reg|OPA_DR, OPT_Reg|OPA_SR, OPT_Reg|OPA_Imm|OPI_5} },
-    { MOD_OpHAdd, 0x1020, 3,
-      {OPT_Reg|OPA_DR, OPT_Reg|OPA_SR, OPT_Imm|OPA_Imm|OPI_5} }
+static const mips_insn_info arithmetic_insn[] = {
+    { "add",     G_SPECIAL,    INS_R, 3, { OPT_Reg, OPT_Reg, OPT_Reg, OPT_Con | OPC_Zero }, B_100000 },
+    { "addi",    B_001000,     INS_I, 3, { OPT_Reg, OPT_Reg, OPT_Imm | OPI_16, OPT_None }, B_000000 },
+    { "addiu",   B_001001,     INS_I, 3, { OPT_Reg, OPT_Reg, OPT_Imm | OPI_16, OPT_None }, B_000000 },
+    { "addu",    G_SPECIAL,    INS_R, 3, { OPT_Reg, OPT_Reg, OPT_Reg, OPT_Con | OPC_Zero }, B_100001 },
+    { "clo",     G_SPECIAL2,   INS_R, 3, { OPT_Reg, OPT_Reg, OPT_Reg, OPT_Con | OPC_Zero }, B_100001 },
+    { "clz",     G_SPECIAL2,   INS_R, 3, { OPT_Reg, OPT_Reg, OPT_Reg, OPT_Con | OPC_Zero }, B_100000 },
+    { "div",     G_SPECIAL,    INS_R, 2, { OPT_Reg, OPT_Reg, OPT_Con | OPC_Zero, OPT_Con | OPC_Zero }, B_011010 },
+    { "divu",    G_SPECIAL,    INS_R, 2, { OPT_Reg, OPT_Reg, OPT_Con | OPC_Zero, OPT_Con | OPC_Zero }, B_011011 },
+    { "madd",    G_SPECIAL2,   INS_R, 2, { OPT_Reg, OPT_Reg, OPT_Con | OPC_Zero, OPT_Con | OPC_Zero }, B_000000 },
+    { "maddu",   G_SPECIAL2,   INS_R, 2, { OPT_Reg, OPT_Reg, OPT_Con | OPC_Zero, OPT_Con | OPC_Zero }, B_000001 },
+    { "msub",    G_SPECIAL2,   INS_R, 2, { OPT_Reg, OPT_Reg, OPT_Con | OPC_Zero, OPT_Con | OPC_Zero }, B_000100 },
+    { "msubu",   G_SPECIAL2,   INS_R, 2, { OPT_Reg, OPT_Reg, OPT_Con | OPC_Zero, OPT_Con | OPC_Zero }, B_000101 },
+    { "mul",     G_SPECIAL2,   INS_R, 3, { OPT_Reg, OPT_Reg, OPT_Reg, OPT_Con | OPC_Zero }, B_000010 },
+    { "mult",    G_SPECIAL,    INS_R, 2, { OPT_Reg, OPT_Reg, OPT_Con | OPC_Zero, OPT_Con | OPC_Zero }, B_011000 },
+    { "multu",   G_SPECIAL,    INS_R, 2, { OPT_Reg, OPT_Reg, OPT_Con | OPC_Zero, OPT_Con | OPC_Zero }, B_011001 },
+    { "slt",     G_SPECIAL,    INS_R, 3, { OPT_Reg, OPT_Reg, OPT_Reg, OPT_Con | OPC_Zero }, B_101010 },
+    { "slti",    B_001010,     INS_I, 3, { OPT_Reg, OPT_Reg, OPT_Imm | OPI_16, OPT_None }, B_000000 },
+    { "sltiu",   B_001011,     INS_I, 3, { OPT_Reg, OPT_Reg, OPT_Imm | OPI_16, OPT_None  }, B_000000 },
+    { "sltu",    G_SPECIAL,    INS_R, 3, { OPT_Reg, OPT_Reg, OPT_Reg, OPT_Con | OPC_Zero }, B_101011 },
+    { "sub",     G_SPECIAL,    INS_R, 3, { OPT_Reg, OPT_Reg, OPT_Reg, OPT_Con | OPC_Zero }, B_100010 },
+    { "subu",    G_SPECIAL,    INS_R, 3, { OPT_Reg, OPT_Reg, OPT_Reg, OPT_Con | OPC_Zero }, B_100011 },
 };
 
-static const mips_insn_info br_insn[] = {
-    { MOD_OpHAdd, 0x0000, 1, {OPT_Imm|OPA_Imm|OPI_9PC, 0, 0} }
+static const mips_insn_info branchjump_insn[] = {
+    { "b",       B_000100,     INS_I, 1, { OPT_Con | OPC_Zero, OPT_Con | OPC_Zero, OPT_Imm | OPI_16, OPT_None }, B_000000 },
+    { "bal",     G_REGIMM,     INS_I, 1, { OPT_Con | OPC_Zero, OPT_Con | OPC_BAL, OPT_Imm | OPI_16, OPT_None }, B_000000 },
+    { "beq",     B_000100,     INS_I, 3, { OPT_Reg, OPT_Reg, OPT_Imm | OPI_16, OPT_None }, B_000000 },
+    { "bgez",    G_REGIMM,     INS_I, 2, { OPT_Reg, OPT_Con | OPC_BGEZ, OPT_Imm | OPI_16, OPT_None }, B_000000 },
+    { "bgezal",  G_REGIMM,     INS_I, 2, { OPT_Reg, OPT_Con | OPC_BGEZAL, OPT_Imm | OPI_16, OPT_None }, B_000000 },
+    { "bgtz",    B_000111,     INS_I, 2, { OPT_Reg, OPT_Con | OPC_Zero, OPT_Imm | OPI_16, OPT_None }, B_000000 },
+    { "blez",    B_000110,     INS_I, 2, { OPT_Reg, OPT_Con | OPC_Zero, OPT_Imm | OPI_16, OPT_None }, B_000000 },
+    { "bltz",    G_REGIMM,     INS_I, 2, { OPT_Reg, OPT_Con | OPC_BLTZ, OPT_Imm | OPI_16, OPT_None }, B_000000 },
+    { "bltzal",  G_REGIMM,     INS_I, 2, { OPT_Reg, OPT_Con | OPC_BLTZAL, OPT_Imm | OPI_16, OPT_None }, B_000000 },
+    { "bne",     B_000101,     INS_I, 3, { OPT_Reg, OPT_Reg, OPT_Imm | OPI_16, OPT_None }, B_000000 },
+    { "j",       B_000010,     INS_J, 1, { OPT_Imm | OPI_26, OPT_None, OPT_None, OPT_None }, B_000000 },
+    { "jal",     B_000011,     INS_J, 1, { OPT_Imm | OPI_26, OPT_None, OPT_None, OPT_None }, B_000000 },
+    { "jalr",    G_SPECIAL,    INS_R, 2, { OPT_Reg, OPT_Con | OPC_Zero, OPT_Reg, OPT_Con | OPC_Zero }, B_001001 },
+    { "jr",      G_SPECIAL,    INS_R, 1, { OPT_Reg, OPT_Con | OPC_Zero, OPT_Con | OPC_Zero, OPT_Con | OPC_Zero }, B_001000 },
 };
 
-static const mips_insn_info jmp_insn[] = {
-    { 0, 0xC000, 2, {OPT_Reg|OPA_DR, OPT_Imm|OPA_Imm|OPI_9, 0} }
+static const mips_insn_info inscon_insn[] = {
+    { "nop",     G_SPECIAL,    INS_R, 0, { OPT_Con | OPC_Zero, OPT_Con | OPC_Zero, OPT_Con | OPC_Zero, OPT_Con | OPC_Zero }, B_000000 },
+    { "ssnop",   G_SPECIAL,    INS_R, 0, { OPT_Con | OPC_Zero, OPT_Con | OPC_Zero, OPT_Con | OPC_Zero, OPT_Con | OPC_SSNOP }, B_000000 },
 };
 
-static const mips_insn_info lea_insn[] = {
-    { 0, 0xE000, 2, {OPT_Reg|OPA_DR, OPT_Imm|OPA_Imm|OPI_9PC, 0} }
+static const mips_insn_info ldstmem_insn[] = {
+    { "l",       B_100000,     INS_I, 3, { OPT_Reg, OPT_Reg, OPT_Imm | OPI_16, OPT_None }, B_000000 },
+    { "lbu",     B_100100,     INS_I, 3, { OPT_Reg, OPT_Reg, OPT_Imm | OPI_16, OPT_None }, B_000000 },
+    { "lh",      B_100001,     INS_I, 3, { OPT_Reg, OPT_Reg, OPT_Imm | OPI_16, OPT_None }, B_000000 },
+    { "lhu",     B_100101,     INS_I, 3, { OPT_Reg, OPT_Reg, OPT_Imm | OPI_16, OPT_None }, B_000000 },
+    { "ll",      B_110000,     INS_I, 3, { OPT_Reg, OPT_Reg, OPT_Imm | OPI_16, OPT_None }, B_000000 },
+    { "lw",      B_100011,     INS_I, 3, { OPT_Reg, OPT_Reg, OPT_Imm | OPI_16, OPT_None }, B_000000 },
+    { "lwl",     B_100010,     INS_I, 3, { OPT_Reg, OPT_Reg, OPT_Imm | OPI_16, OPT_None }, B_000000 },
+    { "lwr",     B_100110,     INS_I, 3, { OPT_Reg, OPT_Reg, OPT_Imm | OPI_16, OPT_None }, B_000000 },
+    { "pref",    B_110011,     INS_I, 2, { OPT_Reg, OPT_Con | OPC_Zero , OPT_Imm | OPI_16, OPT_None }, B_000000 },
+    { "sb",      B_101000,     INS_I, 3, { OPT_Reg, OPT_Reg, OPT_Imm | OPI_16, OPT_None }, B_000000 },
+    { "sc",      B_111000,     INS_I, 3, { OPT_Reg, OPT_Reg, OPT_Imm | OPI_16, OPT_None }, B_000000 },
+    { "sh",      B_101001,     INS_I, 3, { OPT_Reg, OPT_Reg, OPT_Imm | OPI_16, OPT_None }, B_000000 },
+    { "sw",      B_101011,     INS_I, 3, { OPT_Reg, OPT_Reg, OPT_Imm | OPI_16, OPT_None }, B_000000 },
+    { "swl",     B_101010,     INS_I, 3, { OPT_Reg, OPT_Reg, OPT_Imm | OPI_16, OPT_None }, B_000000 },
+    { "swr",     B_101110,     INS_I, 3, { OPT_Reg, OPT_Reg, OPT_Imm | OPI_16, OPT_None }, B_000000 },
+    { "sync",    G_SPECIAL,    INS_R, 0, { OPT_Con | OPC_Zero, OPT_Con | OPC_Zero, OPT_Con | OPC_Zero, OPT_Con | OPC_Zero }, B_001111 },
 };
 
-static const mips_insn_info ldst_insn[] = {
-    { MOD_OpHAdd, 0x0000, 3,
-      {OPT_Reg|OPA_DR, OPT_Reg|OPA_SR, OPT_Imm|OPA_Imm|OPI_6W} }
+static const mips_insn_info logical_insn[] = {
+    { "and",     G_SPECIAL,    INS_R, 3, { OPT_Reg, OPT_Reg, OPT_Reg, OPT_Con | OPC_Zero }, B_100100 },
+    { "andi",    B_001100,     INS_I, 3, { OPT_Reg, OPT_Reg, OPT_Imm | OPI_16, OPT_None }, B_000000 },
+    { "lui",     B_001111,     INS_I, 2, { OPT_Con | OPC_Zero, OPT_Reg, OPT_Imm | OPI_16, OPT_None }, B_000000 },
+    { "nor",     G_SPECIAL,    INS_R, 3, { OPT_Reg, OPT_Reg, OPT_Reg, OPT_Con | OPC_Zero }, B_100111 },
+    { "or",      G_SPECIAL,    INS_R, 3, { OPT_Reg, OPT_Reg, OPT_Reg, OPT_Con | OPC_Zero }, B_100101 },
+    { "ori",     B_001101,     INS_I, 3, { OPT_Reg, OPT_Reg, OPT_Imm | OPI_16, OPT_None }, B_000000 },
+    { "xor",     G_SPECIAL,    INS_R, 3, { OPT_Reg, OPT_Reg, OPT_Reg, OPT_Con | OPC_Zero }, B_000000 },
+    { "xori",    B_001110,     INS_I, 3, { OPT_Reg, OPT_Reg, OPT_Imm | OPI_16, OPT_None }, B_000000 },
 };
 
-static const mips_insn_info ldstb_insn[] = {
-    { MOD_OpHAdd, 0x0000, 3,
-      {OPT_Reg|OPA_DR, OPT_Reg|OPA_SR, OPT_Imm|OPA_Imm|OPI_6B} }
-};
-
-static const mips_insn_info not_insn[] = {
-    { 0, 0x903F, 2, {OPT_Reg|OPA_DR, OPT_Reg|OPA_SR, 0} }
-};
-
-static const mips_insn_info nooperand_insn[] = {
-    { MOD_OpHAdd, 0x0000, 0, {0, 0, 0} }
+static const mips_insn_info move_insn[] = {
+    { "mfhi",    G_SPECIAL,    INS_R, 1, { OPT_Con | OPC_Zero, OPT_Con | OPC_Zero, OPT_Reg, OPT_Con | OPC_Zero }, B_010000 },
+    { "mflo",    G_SPECIAL,    INS_R, 1, { OPT_Con | OPC_Zero, OPT_Con | OPC_Zero, OPT_Reg, OPT_Con | OPC_Zero }, B_010010 },
+    { "movn",    G_SPECIAL,    INS_R, 3, { OPT_Reg, OPT_Reg, OPT_Reg, OPT_Con | OPC_Zero }, B_001011 },
+    { "movz",    G_SPECIAL,    INS_R, 3, { OPT_Reg, OPT_Reg, OPT_Reg, OPT_Con | OPC_Zero }, B_001010 },
+    { "mthi",    G_SPECIAL,    INS_R, 1, { OPT_Reg, OPT_Con | OPC_Zero, OPT_Con | OPC_Zero, OPT_Con | OPC_Zero }, B_010001 },
+    { "mtlo",    G_SPECIAL,    INS_R, 1, { OPT_Reg, OPT_Con | OPC_Zero, OPT_Con | OPC_Zero, OPT_Con | OPC_Zero }, B_010011 },
 };
 
 static const mips_insn_info shift_insn[] = {
-    { MOD_OpLAdd, 0xD000, 3,
-      {OPT_Reg|OPA_DR, OPT_Reg|OPA_SR, OPT_Imm|OPA_Imm|OPI_4} }
-};
-
-static const mips_insn_info trap_insn[] = {
-    { 0, 0xF000, 1, {OPT_Imm|OPA_Imm|OPI_8, 0, 0} }
+    { "sll",     G_SPECIAL,    INS_R, 3, { OPT_Con | OPC_Zero, OPT_Reg, OPT_Reg, OPT_Imm | OPI_5 }, B_000000 },
+    { "sllv",    G_SPECIAL,    INS_R, 3, { OPT_Reg, OPT_Reg, OPT_Reg, OPT_Con | OPC_Zero }, B_000100 },
+    { "sra",     G_SPECIAL,    INS_R, 3, { OPT_Con | OPC_Zero, OPT_Reg, OPT_Reg, OPT_Imm | OPI_5 }, B_000011 },
+    { "srav",    G_SPECIAL,    INS_R, 3, { OPT_Con | OPC_Zero, OPT_Reg, OPT_Reg, OPT_Imm | OPI_5 }, B_000111 },
+    { "srl",     G_SPECIAL,    INS_R, 3, { OPT_Con | OPC_Zero, OPT_Reg, OPT_Reg, OPT_Imm | OPI_5 }, B_000010 },
+    { "srlv",    G_SPECIAL,    INS_R, 3, { OPT_Con | OPC_Zero, OPT_Reg, OPT_Reg, OPT_Imm | OPI_5 }, B_000110 },
 };
 
 static void
@@ -174,30 +278,26 @@ mips_id_insn_finalize(yasm_bytecode *bc, yasm_bytecode *prev_bc)
     mips_insn *insn;
     int num_info = id_insn->num_info;
     const mips_insn_info *info = id_insn->group;
-    unsigned long mod_data = id_insn->mod_data;
     int found = 0;
     yasm_insn_operand *op;
     int i;
 
     yasm_insn_finalize(&id_insn->insn);
 
-    printf("[%s]\n", __FUNCTION__);
-
+    /* TBD */
+#if 0
     /* Just do a simple linear search through the info array for a match.
      * First match wins.
      */
     for (; num_info>0 && !found; num_info--, info++) {
         int mismatch = 0;
 
-        /* Match # of operands */
-        if (id_insn->insn.num_operands != info->num_operands)
+        /* Match instruction name */
+        if (strcmp(id_insn->instr, info->instr)) {
             continue;
-
-        if (id_insn->insn.num_operands == 0) {
-            found = 1;      /* no operands -> must have a match here. */
-            break;
         }
 
+        /* TBD */
         /* Match each operand type and size */
         for(i = 0, op = yasm_insn_ops_first(&id_insn->insn);
             op && i<info->num_operands && !mismatch;
@@ -225,6 +325,7 @@ mips_id_insn_finalize(yasm_bytecode *bc, yasm_bytecode *prev_bc)
             break;
         }
     }
+#endif
 
     if (!found) {
         /* Didn't find a matching one */
@@ -239,16 +340,8 @@ mips_id_insn_finalize(yasm_bytecode *bc, yasm_bytecode *prev_bc)
     insn->imm_type = MIPS_IMM_NONE;
     insn->opcode = info->opcode;
 
-    /* Apply modifiers */
-    if (info->modifiers & MOD_OpHAdd) {
-        insn->opcode += ((unsigned int)(mod_data & 0xFF))<<8;
-        mod_data >>= 8;
-    }
-    if (info->modifiers & MOD_OpLAdd) {
-        insn->opcode += (unsigned int)(mod_data & 0xFF);
-        /*mod_data >>= 8;*/
-    }
-
+    /* TBD */
+#if 0
     /* Go through operands and assign */
     if (id_insn->insn.num_operands > 0) {
         for(i = 0, op = yasm_insn_ops_first(&id_insn->insn);
@@ -314,6 +407,7 @@ mips_id_insn_finalize(yasm_bytecode *bc, yasm_bytecode *prev_bc)
             insn->imm.curpos_rel = 1;
         }
     }
+#endif
 
     /* Transform the bytecode */
     yasm_mips__bc_transform_insn(bc, insn);
@@ -362,10 +456,10 @@ yasm_mips__parse_check_regtmod(yasm_arch *arch, const char *oid, size_t id_len,
     */
 }
 
-#define RET_INSN(g, m) \
+#define RET_INSN(g, i) \
     do { \
         group = g##_insn; \
-        mod = m; \
+        instr = i; \
         nelems = NELEMS(g##_insn); \
         goto done; \
     } while(0)
@@ -377,7 +471,7 @@ yasm_mips__parse_check_insnprefix(yasm_arch *arch, const char *oid,
 {
     const YYCTYPE *id = (const YYCTYPE *)oid;
     const mips_insn_info *group = empty_insn;
-    unsigned long mod = 0;
+    const char *instr = NULL;
     unsigned int nelems = NELEMS(empty_insn);
     mips_id_insn *id_insn;
 
@@ -388,136 +482,97 @@ yasm_mips__parse_check_insnprefix(yasm_arch *arch, const char *oid,
     /*!re2c
         /* instructions */
 
-        /* (original LC-3b instructions)
-        'add' { RET_INSN(addand, 0x00); }
-        'and' { RET_INSN(addand, 0x40); }
-        'yand' { RET_INSN(addand, 0x40); }
-
-        'br' { RET_INSN(br, 0x00); }
-        'brn' { RET_INSN(br, 0x08); }
-        'brz' { RET_INSN(br, 0x04); }
-        'brp' { RET_INSN(br, 0x02); }
-        'brnz' { RET_INSN(br, 0x0C); }
-        'brnp' { RET_INSN(br, 0x0A); }
-        'brzp' { RET_INSN(br, 0x06); }
-        'brnzp' { RET_INSN(br, 0x0E); }
-        'jsr' { RET_INSN(br, 0x40); }
-
-        'jmp' { RET_INSN(jmp, 0); }
-
-        'lea' { RET_INSN(lea, 0); }
-
-        'ld' { RET_INSN(ldst, 0x20); }
-        'ldi' { RET_INSN(ldst, 0xA0); }
-        'st' { RET_INSN(ldst, 0x30); }
-        'sti' { RET_INSN(ldst, 0xB0); }
-
-        'ldb' { RET_INSN(ldstb, 0x60); }
-        'stb' { RET_INSN(ldstb, 0x70); }
-
-        'not' { RET_INSN(not, 0); }
-
-        'ret' { RET_INSN(nooperand, 0xCE); }
-        'rti' { RET_INSN(nooperand, 0x80); }
-        'nop' { RET_INSN(nooperand, 0); }
-
-        'lshf' { RET_INSN(shift, 0x00); }
-        'rshfl' { RET_INSN(shift, 0x10); }
-        'rshfa' { RET_INSN(shift, 0x30); }
-
-        'trap' { RET_INSN(trap, 0); }
-        */
-
         /*********************/
         /* MIPS instructions */
         /*********************/
 
         /* CPU arithmetic instructions */
-        'add'   { RET_INSN(addand, 0x00); }             /* add word */
-        'addi'  { RET_INSN(addand, 0x00); }             /* add immediate word */
-        'addu'  { RET_INSN(addand, 0x00); }             /* add immediate unsigned word */
-        'clo'   { RET_INSN(addand, 0x00); }             /* count leading ones in word */
-        'clz'   { RET_INSN(addand, 0x00); }             /* count leading zeros in word */
-        'div'   { RET_INSN(addand, 0x00); }             /* divide word */
-        'divu'  { RET_INSN(addand, 0x00); }             /* divide unsigned word */
-        'madd'  { RET_INSN(addand, 0x00); }             /* multiply and add word to HI, LO */
-        'maddu' { RET_INSN(addand, 0x00); }             /* multiply and add unsigned word to HI, LO */
-        'msub'  { RET_INSN(addand, 0x00); }             /* multiply and subtract word to HI, LO */
-        'msubu' { RET_INSN(addand, 0x00); }             /* multiply and subtract unsigned word to HI, LO */
-        'mul'   { RET_INSN(addand, 0x00); }             /* multiply word to GPR */
-        'mult'  { RET_INSN(addand, 0x00); }             /* multiply word */
-        'multu' { RET_INSN(addand, 0x00); }             /* multiply unsigned word */
-        'slt'   { RET_INSN(addand, 0x00); }             /* set on less than */
-        'slti'  { RET_INSN(addand, 0x00); }             /* set on less than immediate */
-        'sltiu' { RET_INSN(addand, 0x00); }             /* set on less than immediate unsigned */
-        'sltu'  { RET_INSN(addand, 0x00); }             /* set on less than unsigned */
-        'sub'   { RET_INSN(addand, 0x00); }             /* subtract word */
-        'subu'  { RET_INSN(addand, 0x00); }             /* subtract word unsigned */
+        'add'   { RET_INSN(arithmetic, "add"); }    /* add word */
+        'addi'  { RET_INSN(arithmetic, "addi"); }   /* add immediate word */
+        'addiu' { RET_INSN(arithmetic, "addiu"); }  /* add immediate unsigned word */
+        'addu'  { RET_INSN(arithmetic, "addu"); }   /* add unsigned word */
+        'clo'   { RET_INSN(arithmetic, "clo"); }    /* count leading ones in word */
+        'clz'   { RET_INSN(arithmetic, "clz"); }    /* count leading zeros in word */
+        'div'   { RET_INSN(arithmetic, "div"); }    /* divide word */
+        'divu'  { RET_INSN(arithmetic, "divu"); }   /* divide unsigned word */
+        'madd'  { RET_INSN(arithmetic, "madd"); }   /* multiply and add word to HI, LO */
+        'maddu' { RET_INSN(arithmetic, "maddu"); }  /* multiply and add unsigned word to HI, LO */
+        'msub'  { RET_INSN(arithmetic, "msub"); }   /* multiply and subtract word to HI, LO */
+        'msubu' { RET_INSN(arithmetic, "msubu"); }  /* multiply and subtract unsigned word to HI, LO */
+        'mul'   { RET_INSN(arithmetic, "mul"); }    /* multiply word to GPR */
+        'mult'  { RET_INSN(arithmetic, "mult"); }   /* multiply word */
+        'multu' { RET_INSN(arithmetic, "multu"); }  /* multiply unsigned word */
+        'slt'   { RET_INSN(arithmetic, "slt"); }    /* set on less than */
+        'slti'  { RET_INSN(arithmetic, "slti"); }   /* set on less than immediate */
+        'sltiu' { RET_INSN(arithmetic, "sltiu"); }  /* set on less than immediate unsigned */
+        'sltu'  { RET_INSN(arithmetic, "sltu"); }   /* set on less than unsigned */
+        'sub'   { RET_INSN(arithmetic, "sub"); }    /* subtract word */
+        'subu'  { RET_INSN(arithmetic, "subu"); }   /* subtract word unsigned */
 
         /* CPU branch and jump instructions */
-        'b'     { RET_INSN(br, 0x00); }                 /* unconditional branch */
-        'ba'    { RET_INSN(br, 0x00); }                 /* branch and link */
-        'beq'   { RET_INSN(br, 0x00); }                 /* branch on equal */
-        'bgez'  { RET_INSN(br, 0x00); }                 /* branch on greater than or equal to zero */
-        'bgezal'{ RET_INSN(br, 0x00); }                 /* branch on greater than or equal to zero and link */
-        'bgtz'  { RET_INSN(br, 0x00); }                 /* branch on greater than zero */
-        'blez'  { RET_INSN(br, 0x00); }                 /* branch on less than or equal to zero */
-        'bltz'  { RET_INSN(br, 0x00); }                 /* branch on less than zero */
-        'bltzal'{ RET_INSN(br, 0x00); }                 /* branch on less than zero and link */
-        'bne'   { RET_INSN(br, 0x00); }                 /* branch on not equal */
-        'j'     { RET_INSN(br, 0x00); }                 /* jump */
-        'jal'   { RET_INSN(br, 0x00); }                 /* jump and link */
-        'jalr'  { RET_INSN(br, 0x00); }                 /* jump and link register */
-        'jr'    { RET_INSN(br, 0x00); }                 /* jump register */
+        'b'     { RET_INSN(branchjump, "b"); }      /* unconditional branch (assembly idiom) */
+        'bal'   { RET_INSN(branchjump, "bal"); }    /* branch and link (assembly idiom) */
+        'beq'   { RET_INSN(branchjump, "beq"); }    /* branch on equal */
+        'bgez'  { RET_INSN(branchjump, "bgez"); }   /* branch on greater than or equal to zero */
+        'bgezal'{ RET_INSN(branchjump, "bgezal"); } /* branch on greater than or equal to zero and link */
+        'bgtz'  { RET_INSN(branchjump, "bgtz"); }   /* branch on greater than zero */
+        'blez'  { RET_INSN(branchjump, "blez"); }   /* branch on less than or equal to zero */
+        'bltz'  { RET_INSN(branchjump, "bltz"); }   /* branch on less than zero */
+        'bltzal'{ RET_INSN(branchjump, "bltzal"); } /* branch on less than zero and link */
+        'bne'   { RET_INSN(branchjump, "bne"); }    /* branch on not equal */
+        'j'     { RET_INSN(branchjump, "j"); }      /* jump */
+        'jal'   { RET_INSN(branchjump, "jal"); }    /* jump and link */
+        'jalr'  { RET_INSN(branchjump, "jalr"); }   /* jump and link register (hint always set to 00000)*/
+        'jr'    { RET_INSN(branchjump, "jr"); }     /* jump register (hint always set to 00000)*/
 
         /* CPU instruction control insutrctions */
-        'nop'   { RET_INSN(addand, 0x00); }             /* no operation */
-        'ssnop' { RET_INSN(addand, 0x00); }             /* superscalar no operation */
+        'nop'   { RET_INSN(inscon,     "nop"); }    /* no operation (assembly idiom) */
+        'ssnop' { RET_INSN(inscon,     "ssnop"); }  /* superscalar no operation (assembly idiom) */
 
         /* CPU load, store, and memory control instructions */
-        'lb'    { RET_INSN(ldst, 0x00); }               /* load byte */
-        'lbu'   { RET_INSN(ldst, 0x00); }               /* load byte unsigned */
-        'lh'    { RET_INSN(ldst, 0x00); }               /* load halfword */
-        'lhu'   { RET_INSN(ldst, 0x00); }               /* load halfword unsigned */
-        'll'    { RET_INSN(ldst, 0x00); }               /* load linked word */
-        'lw'    { RET_INSN(ldst, 0x00); }               /* load word */
-        'lwl'   { RET_INSN(ldst, 0x00); }               /* load word left */
-        'lwr'   { RET_INSN(ldst, 0x00); }               /* load word right */
-        'pref'  { RET_INSN(ldst, 0x00); }               /* prefetch */
-        'sb'    { RET_INSN(ldst, 0x00); }               /* store byte */
-        'sc'    { RET_INSN(ldst, 0x00); }               /* store conditional word */
-        'sd'    { RET_INSN(ldst, 0x00); }               /* store doubleword */
-        'sh'    { RET_INSN(addand, 0x00); }             /* store halfword */
-        'sw'    { RET_INSN(addand, 0x00); }             /* store word */
-        'swl'   { RET_INSN(addand, 0x00); }             /* store word left */
-        'swr'   { RET_INSN(addand, 0x00); }             /* store word right */
-        'sync'  { RET_INSN(addand, 0x00); }             /* synchronize shared memory */
+        'lb'    { RET_INSN(ldstmem,    "lb"); }     /* load byte */
+        'lbu'   { RET_INSN(ldstmem,    "lbu"); }    /* load byte unsigned */
+        'lh'    { RET_INSN(ldstmem,    "lh"); }     /* load halfword */
+        'lhu'   { RET_INSN(ldstmem,    "lhu"); }    /* load halfword unsigned */
+        'll'    { RET_INSN(ldstmem,    "ll"); }     /* load linked word */
+        'lw'    { RET_INSN(ldstmem,    "lw"); }     /* load word */
+        'lwl'   { RET_INSN(ldstmem,    "lwl"); }    /* load word left */
+        'lwr'   { RET_INSN(ldstmem,    "lwr"); }    /* load word right */
+        'pref'  { RET_INSN(ldstmem,    "pref"); }   /* prefetch */
+        'sb'    { RET_INSN(ldstmem,    "sb"); }     /* store byte */
+        'sc'    { RET_INSN(ldstmem,    "sc"); }     /* store conditional word */
+        'sd'    { return YASM_ARCH_NOTINSNPREFIX; } /* (NOT implemented because it was not fully specified in MIPS spec) store doubleword */
+        'sh'    { RET_INSN(ldstmem,    "sh"); }     /* store halfword */
+        'sw'    { RET_INSN(ldstmem,    "sw"); }     /* store word */
+        'swl'   { RET_INSN(ldstmem,    "swl"); }    /* store word left */
+        'swr'   { RET_INSN(ldstmem,    "swr"); }    /* store word right */
+        'sync'  { RET_INSN(ldstmem,    "sync"); }   /* synchronize shared memory */
 
         /* CPU logical instructions */
-        'and'   { RET_INSN(addand, 0x00); }             /* and */
-        'andi'  { RET_INSN(addand, 0x00); }             /* and immediate */
-        'lui'   { RET_INSN(addand, 0x00); }             /* load upper immediate */
-        'nor'   { RET_INSN(addand, 0x00); }             /* not or */
-        'or'    { RET_INSN(addand, 0x00); }             /* or */
-        'ori'   { RET_INSN(addand, 0x00); }             /* or immediate */
-        'xor'   { RET_INSN(addand, 0x00); }             /* exclusive or */
-        'xori'  { RET_INSN(addand, 0x00); }             /* exclusive or immediate */
+        'and'   { RET_INSN(logical,    "and"); }    /* and */
+        'andi'  { RET_INSN(logical,    "andi"); }   /* and immediate */
+        'lui'   { RET_INSN(logical,    "lui"); }    /* load upper immediate */
+        'nor'   { RET_INSN(logical,    "nor"); }    /* not or */
+        'or'    { RET_INSN(logical,    "or"); }     /* or */
+        'ori'   { RET_INSN(logical,    "ori"); }    /* or immediate */
+        'xor'   { RET_INSN(logical,    "xor"); }    /* exclusive or */
+        'xori'  { RET_INSN(logical,    "xori"); }   /* exclusive or immediate */
 
         /* CPU move instructions */
-        'mfhi'  { RET_INSN(addand, 0x00); }             /* move from HI register */
-        'mflo'  { RET_INSN(addand, 0x00); }             /* move from LO register */
-        'movn'  { RET_INSN(addand, 0x00); }             /* move conditional on not zero */
-        'movz'  { RET_INSN(addand, 0x00); }             /* move conditional on zero */
-        'mthi'  { RET_INSN(addand, 0x00); }             /* move to HI register */
-        'mtlo'  { RET_INSN(addand, 0x00); }             /* move to LO register */
+        'mfhi'  { RET_INSN(move,       "mfhi"); }   /* move from HI register */
+        'mflo'  { RET_INSN(move,       "mflo"); }   /* move from LO register */
+        'movn'  { RET_INSN(move,       "movn"); }   /* move conditional on not zero */
+        'movz'  { RET_INSN(move,       "movz"); }   /* move conditional on zero */
+        'mthi'  { RET_INSN(move,       "mthi"); }   /* move to HI register */
+        'mtlo'  { RET_INSN(move,       "mtlo"); }   /* move to LO register */
 
         /* CPU shift instructions */
-        'sll'   { RET_INSN(addand, 0x00); }             /* shift word left logical */
-        'sllv'  { RET_INSN(addand, 0x00); }             /* shift word left logical variable */
-        'sra'   { RET_INSN(addand, 0x00); }             /* shift word right arithmetic */
-        'srav'  { RET_INSN(addand, 0x00); }             /* shift word right arithmetic variable */
-        'srl'   { RET_INSN(addand, 0x00); }             /* shift word right logical */
-        'srlv'  { RET_INSN(addand, 0x00); }             /* shift word right logical variable */
+        'sll'   { RET_INSN(shift,      "sll"); }    /* shift word left logical */
+        'sllv'  { RET_INSN(shift,      "sllv"); }   /* shift word left logical variable */
+        'sra'   { RET_INSN(shift,      "sra"); }    /* shift word right arithmetic */
+        'srav'  { RET_INSN(shift,      "srav"); }   /* shift word right arithmetic variable */
+        'srl'   { RET_INSN(shift,      "srl"); }    /* shift word right logical */
+        'srlv'  { RET_INSN(shift,      "srlv"); }   /* shift word right logical variable */
 
         /********************************/
         /* NOT implemented insturctions */
@@ -681,10 +736,8 @@ done:
     id_insn = yasm_xmalloc(sizeof(mips_id_insn));
     yasm_insn_initialize(&id_insn->insn);
     id_insn->group = group;
-    id_insn->mod_data = mod;
+    id_insn->instr = instr;
     id_insn->num_info = nelems;
-    printf("id = %s\n", oid);
-    printf("[%s], going to use mips_id_insn_callback\n", __FUNCTION__);
     *bc = yasm_bc_create_common(&mips_id_insn_callback, id_insn, line);
     return YASM_ARCH_INSN;
 }
@@ -712,9 +765,8 @@ yasm_mips__create_empty_insn(yasm_arch *arch, unsigned long line)
 
     yasm_insn_initialize(&id_insn->insn);
     id_insn->group = empty_insn;
-    id_insn->mod_data = 0;
+    id_insn->instr = "";
     id_insn->num_info = NELEMS(empty_insn);
-    printf("[%s], going to use mips_id_insn_callback\n", __FUNCTION__);
 
     return yasm_bc_create_common(&mips_id_insn_callback, id_insn, line);
 }

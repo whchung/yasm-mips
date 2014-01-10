@@ -6,7 +6,7 @@
 #ifndef YASM_MIPSARCH_H
 #define YASM_MIPSARCH_H
 
-/**
+/*
  * [JC]: TBD
  */
 /* Types of immediate.  All immediates are stored in the LSBs of the insn. */
@@ -21,7 +21,7 @@ typedef enum mips_imm_type {
     MIPS_IMM_9_PC       /* 9-bit, signed, word-multiple, PC relative */
 } mips_imm_type;
 
-/**
+/*
  * [JC]: TBD
  */
 /* Bytecode types */
@@ -33,14 +33,9 @@ typedef struct mips_insn {
     unsigned int opcode;        /* opcode */
 } mips_insn;
 
-/**
- * [JC]: TBD
- */
+
 void yasm_mips__bc_transform_insn(yasm_bytecode *bc, mips_insn *insn);
 
-/**
- * [JC]: TBD
- */
 yasm_arch_insnprefix yasm_mips__parse_check_insnprefix
     (yasm_arch *arch, const char *id, size_t id_len, unsigned long line,
      /*@out@*/ /*@only@*/ yasm_bytecode **bc, /*@out@*/ uintptr_t *prefix);
@@ -59,15 +54,9 @@ int yasm_mips__intnum_tobytes
      size_t destsize, size_t valsize, int shift, const yasm_bytecode *bc,
      int warn);
 
-/**
- * [JC]: TBD
- */
 /*@only@*/ yasm_bytecode *yasm_mips__create_empty_insn(yasm_arch *arch,
                                                        unsigned long line);
 
-/**
- * [JC]: TBD
- */
 void yasm_mips__ea_destroy(/*@only@*/ yasm_effaddr *ea);
 
 #endif
