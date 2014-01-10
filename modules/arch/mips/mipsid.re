@@ -102,10 +102,11 @@
  *      16-bits
  *      26-bits
  */
-#define OPT_None        (0x00)
-#define OPT_Con         (0x80)
-#define OPT_Imm         (0x01)
-#define OPT_Reg         (0x02)
+#define OPT_None        (0x0)
+#define OPT_Con         (0x1 << 7)
+#define OPT_Imm         (0x1 << 6)
+#define OPT_Reg         (0x1 << 5)
+#define OPT_Mask        (0x7 << 5)
 
 #define OPC_Zero        (B_000000)
 #define OPC_BAL         (B_010001)
@@ -115,9 +116,9 @@
 #define OPC_BLTZAL      (B_010000)
 #define OPC_SSNOP       (B_000001)
 
-#define OPI_5           (0x04)
-#define OPI_16          (0x08)
-#define OPI_26          (0x10)
+#define OPI_5           (0x1 << 0)
+#define OPI_16          (0x1 << 1)
+#define OPI_26          (0x1 << 2)
 
 typedef struct mips_insn_info {
     /* instruction name */
@@ -280,12 +281,10 @@ mips_id_insn_finalize(yasm_bytecode *bc, yasm_bytecode *prev_bc)
     const mips_insn_info *info = id_insn->group;
     int found = 0;
     yasm_insn_operand *op;
-    int i;
+    int iter, count;
 
     yasm_insn_finalize(&id_insn->insn);
 
-    /* TBD */
-#if 0
     /* Just do a simple linear search through the info array for a match.
      * First match wins.
      */
@@ -297,20 +296,36 @@ mips_id_insn_finalize(yasm_bytecode *bc, yasm_bytecode *prev_bc)
             continue;
         }
 
-        /* TBD */
         /* Match each operand type and size */
-        for(i = 0, op = yasm_insn_ops_first(&id_insn->insn);
-            op && i<info->num_operands && !mismatch;
-            op = yasm_insn_op_next(op), i++) {
+        for(count = 0, 
+            iter = 0, 
+            op = yasm_insn_ops_first(&id_insn->insn);
+            
+            op && 
+            (count <= info->num_nonconst_operands) && 
+            !mismatch;
+            
+            iter++) {
+
             /* Check operand type */
-            switch ((int)(info->operands[i] & OPT_MASK)) {
+            switch ((int)(info->operands[iter] & OPT_Mask)) {
                 case OPT_Imm:
-                    if (op->type != YASM_INSN__OPERAND_IMM)
+                    count++;
+                    if (op->type != YASM_INSN__OPERAND_IMM){
                         mismatch = 1;
+                    }
+                    op = yasm_insn_op_next(op);
                     break;
                 case OPT_Reg:
-                    if (op->type != YASM_INSN__OPERAND_REG)
+                    count++;
+                    if (op->type != YASM_INSN__OPERAND_REG) {
                         mismatch = 1;
+                    }
+                    op = yasm_insn_op_next(op);
+                    break;
+                case OPT_Con:
+                    break;
+                case OPT_None:
                     break;
                 default:
                     yasm_internal_error(N_("invalid operand type"));
@@ -320,12 +335,15 @@ mips_id_insn_finalize(yasm_bytecode *bc, yasm_bytecode *prev_bc)
                 break;
         }
 
+        if (count != info->num_nonconst_operands) {
+            mismatch = 1;
+        }
+
         if (!mismatch) {
             found = 1;
             break;
         }
     }
-#endif
 
     if (!found) {
         /* Didn't find a matching one */

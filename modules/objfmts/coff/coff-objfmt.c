@@ -46,6 +46,8 @@
 #define COFF_MACHINE_I386       0x014C
 #define COFF_MACHINE_AMD64      0x8664
 
+#define COFF_MACHINE_MIPS       0xCAFE  /* TBD */
+
 #define COFF_F_LNNO     0x0004      /* line number info NOT present */
 #define COFF_F_LSYMS    0x0008      /* local symbols NOT present */
 #define COFF_F_AR32WR   0x0100      /* 32-bit little endian file */
@@ -278,8 +280,9 @@ coff_common_create(yasm_object *object)
     yasm_objfmt_coff *objfmt_coff = yasm_xmalloc(sizeof(yasm_objfmt_coff));
     yasm_symrec *filesym;
 
-    /* Only support x86 arch */
-    if (yasm__strcasecmp(yasm_arch_keyword(object->arch), "x86") != 0) {
+    /* Only support x86 & mips arch */
+    if ((yasm__strcasecmp(yasm_arch_keyword(object->arch), "x86") != 0) &&
+        (yasm__strcasecmp(yasm_arch_keyword(object->arch), "mips") != 0) ) {
         yasm_xfree(objfmt_coff);
         return NULL;
     }
@@ -308,14 +311,17 @@ coff_objfmt_create(yasm_object *object)
 {
     yasm_objfmt_coff *objfmt_coff = coff_common_create(object);
 
+    printf("[%s]: %s\n", __FUNCTION__, yasm_arch_get_machine(object->arch));
+
     if (objfmt_coff) {
         /* Support x86 and amd64 machines of x86 arch */
-        if (yasm__strcasecmp(yasm_arch_get_machine(object->arch), "x86") == 0)
+        if (yasm__strcasecmp(yasm_arch_get_machine(object->arch), "x86") == 0) {
             objfmt_coff->machine = COFF_MACHINE_I386;
-        else if (yasm__strcasecmp(yasm_arch_get_machine(object->arch),
-                                  "amd64") == 0)
+        } else if (yasm__strcasecmp(yasm_arch_get_machine(object->arch), "amd64") == 0) {
             objfmt_coff->machine = COFF_MACHINE_AMD64;
-        else {
+        } else if (yasm__strcasecmp(yasm_arch_get_machine(object->arch), "mips") == 0) {
+            objfmt_coff->machine = COFF_MACHINE_MIPS;
+        } else {
             yasm_xfree(objfmt_coff);
             return NULL;
         }
@@ -336,16 +342,19 @@ win32_objfmt_create(yasm_object *object)
         /* Support x86 and amd64 machines of x86 arch.
          * (amd64 machine supported for backwards compatibility)
          */
-        if (yasm__strcasecmp(yasm_arch_get_machine(object->arch),
-                             "x86") == 0) {
+        if (yasm__strcasecmp(yasm_arch_get_machine(object->arch), "x86") == 0) {
             objfmt_coff->machine = COFF_MACHINE_I386;
             objfmt_coff->objfmt.module = &yasm_win32_LTX_objfmt;
             objfmt_coff->win64 = 0;
-        } else if (yasm__strcasecmp(yasm_arch_get_machine(object->arch),
-                                    "amd64") == 0) {
+        } else if (yasm__strcasecmp(yasm_arch_get_machine(object->arch), "amd64") == 0) {
             objfmt_coff->machine = COFF_MACHINE_AMD64;
             objfmt_coff->objfmt.module = &yasm_win64_LTX_objfmt;
             objfmt_coff->win64 = 1;
+        } else if (yasm__strcasecmp(yasm_arch_get_machine(object->arch), "mips") == 0) {
+            /* TBD */
+            objfmt_coff->machine = COFF_MACHINE_MIPS;
+            objfmt_coff->objfmt.module = &yasm_win32_LTX_objfmt;
+            objfmt_coff->win64 = 0;
         } else {
             yasm_xfree(objfmt_coff);
             return NULL;
@@ -374,9 +383,10 @@ win64_objfmt_create(yasm_object *object)
 
     if (objfmt_coff) {
         /* Support amd64 machine of x86 arch */
-        if (yasm__strcasecmp(yasm_arch_get_machine(object->arch),
-                             "amd64") == 0) {
+        if (yasm__strcasecmp(yasm_arch_get_machine(object->arch), "amd64") == 0) {
             objfmt_coff->machine = COFF_MACHINE_AMD64;
+        } else if (yasm__strcasecmp(yasm_arch_get_machine(object->arch), "mips") == 0) {
+            objfmt_coff->machine = COFF_MACHINE_MIPS;
         } else {
             yasm_xfree(objfmt_coff);
             return NULL;
