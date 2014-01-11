@@ -181,6 +181,9 @@ mips_bc_insn_tobytes(yasm_bytecode *bc, unsigned char **bufp,
     unsigned int value = 0;
     unsigned int instr = 0x0;
 
+    unsigned char buf[32];
+    memset(buf, 0, sizeof(buf));
+
     printf("instr: o0x%02x ", insn->opcode);
 
     bit_offset -= 6; /* opcode is always 6-bit */
@@ -210,6 +213,13 @@ mips_bc_insn_tobytes(yasm_bytecode *bc, unsigned char **bufp,
                 } else {
                     value = 0; /* TBD, need to caluclate the correct value */
                     printf("[%s] ", yasm_symrec_get_name(insn->operand[iter].rel)); 
+
+                    if (!output_value(&insn->operand[iter], buf, 2, 0, bc, 0, d)) {
+                        printf("0x%02x 0x%02x ", buf[1], buf[0]);
+                    } else {
+                        printf("output value failed! ");
+                    }
+
                 }
                 bit_offset -= 5;
                 instr |= (value << bit_offset);
@@ -221,7 +231,14 @@ mips_bc_insn_tobytes(yasm_bytecode *bc, unsigned char **bufp,
                     printf("i0x%04x ", value);
                 } else {
                     value = 0; /* TBD, need to caluclate the correct value */
-                    printf("[%s] ", yasm_symrec_get_name(insn->operand[iter].rel)); 
+                    printf("[%s] ", yasm_symrec_get_name(insn->operand[iter].rel));
+
+                    if (!output_value(&insn->operand[iter], buf, 2, 0, bc, 0, d)) {
+                        printf("0x%02x 0x%02x ", buf[1], buf[0]);
+                    } else {
+                        printf("output value failed! ");
+                    }
+
                 }
                 bit_offset -= 16;
                 instr |= (value << bit_offset);
@@ -234,6 +251,12 @@ mips_bc_insn_tobytes(yasm_bytecode *bc, unsigned char **bufp,
                 } else {
                     value = 0; /* TBD, need to caluclate the correct value */
                     printf("[%s] ", yasm_symrec_get_name(insn->operand[iter].rel)); 
+
+                    if (!output_value(&insn->operand[iter], buf, 4, 0, bc, 0, d)) {
+                        printf("0x%02x 0x%02x 0x%02x 0x%02x", buf[3], buf[2], buf[1], buf[0]);
+                    } else {
+                        printf("output value failed! ");
+                    }
                 }
                 bit_offset -= 26;
                 instr |= (value << bit_offset);

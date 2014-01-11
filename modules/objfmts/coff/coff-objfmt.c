@@ -46,7 +46,7 @@
 #define COFF_MACHINE_I386       0x014C
 #define COFF_MACHINE_AMD64      0x8664
 
-#define COFF_MACHINE_MIPS       0xCAFE  /* TBD */
+#define COFF_MACHINE_MIPS       0xCAFE   /* [JC]: added for MIPS */
 
 #define COFF_F_LNNO     0x0004      /* line number info NOT present */
 #define COFF_F_LSYMS    0x0008      /* local symbols NOT present */
@@ -319,7 +319,7 @@ coff_objfmt_create(yasm_object *object)
             objfmt_coff->machine = COFF_MACHINE_I386;
         } else if (yasm__strcasecmp(yasm_arch_get_machine(object->arch), "amd64") == 0) {
             objfmt_coff->machine = COFF_MACHINE_AMD64;
-        } else if (yasm__strcasecmp(yasm_arch_get_machine(object->arch), "mips") == 0) {
+        } else if (yasm__strcasecmp(yasm_arch_get_machine(object->arch), "mips") == 0) { /* [JC]: added for MIPS */
             objfmt_coff->machine = COFF_MACHINE_MIPS;
         } else {
             yasm_xfree(objfmt_coff);
@@ -350,8 +350,7 @@ win32_objfmt_create(yasm_object *object)
             objfmt_coff->machine = COFF_MACHINE_AMD64;
             objfmt_coff->objfmt.module = &yasm_win64_LTX_objfmt;
             objfmt_coff->win64 = 1;
-        } else if (yasm__strcasecmp(yasm_arch_get_machine(object->arch), "mips") == 0) {
-            /* TBD */
+        } else if (yasm__strcasecmp(yasm_arch_get_machine(object->arch), "mips") == 0) { /* [JC]: added for MIPS */
             objfmt_coff->machine = COFF_MACHINE_MIPS;
             objfmt_coff->objfmt.module = &yasm_win32_LTX_objfmt;
             objfmt_coff->win64 = 0;
@@ -613,6 +612,14 @@ coff_objfmt_output_value(yasm_value *value, unsigned char *buf,
                                    N_("coff: invalid relocation size"));
                     return 1;
                 }
+            } else if (objfmt_coff->machine == COFF_MACHINE_MIPS) { /* [JC]: added for MIPS */
+                if (valsize == 32)
+                    reloc->type = COFF_RELOC_I386_REL32;
+                else {
+                    yasm_error_set(YASM_ERROR_TYPE,
+                                   N_("coff: invalid relocation size"));
+                    return 1;
+                }
             } else if (objfmt_coff->machine == COFF_MACHINE_AMD64) {
                 if (valsize != 32) {
                     yasm_error_set(YASM_ERROR_TYPE,
@@ -650,6 +657,8 @@ coff_objfmt_output_value(yasm_value *value, unsigned char *buf,
         } else if (value->seg_of) {
             if (objfmt_coff->machine == COFF_MACHINE_I386)
                 reloc->type = COFF_RELOC_I386_SECTION;
+            else if (objfmt_coff->machine == COFF_MACHINE_MIPS) /* [JC]: added for MIPS */
+                reloc->type = COFF_RELOC_I386_SECTION;
             else if (objfmt_coff->machine == COFF_MACHINE_AMD64)
                 reloc->type = COFF_RELOC_AMD64_SECTION;
             else
@@ -657,12 +666,19 @@ coff_objfmt_output_value(yasm_value *value, unsigned char *buf,
         } else if (value->section_rel) {
             if (objfmt_coff->machine == COFF_MACHINE_I386)
                 reloc->type = COFF_RELOC_I386_SECREL;
+            else if (objfmt_coff->machine == COFF_MACHINE_MIPS) /* [JC]: added for MIPS */
+                reloc->type = COFF_RELOC_I386_SECREL;                
             else if (objfmt_coff->machine == COFF_MACHINE_AMD64)
                 reloc->type = COFF_RELOC_AMD64_SECREL;
             else
                 yasm_internal_error(N_("coff objfmt: unrecognized machine"));
         } else {
             if (objfmt_coff->machine == COFF_MACHINE_I386) {
+                if (nobase)
+                    reloc->type = COFF_RELOC_I386_ADDR32NB;
+                else
+                    reloc->type = COFF_RELOC_I386_ADDR32;
+            } else if (objfmt_coff->machine == COFF_MACHINE_MIPS) { /* [JC]: added for MIPS */
                 if (nobase)
                     reloc->type = COFF_RELOC_I386_ADDR32NB;
                 else
