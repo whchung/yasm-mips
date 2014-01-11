@@ -115,10 +115,12 @@
 #define OPC_BLTZ        (B_000000)
 #define OPC_BLTZAL      (B_010000)
 #define OPC_SSNOP       (B_000001)
+#define OPC_Mask        (B_011111)
 
 #define OPI_5           (0x1 << 0)
 #define OPI_16          (0x1 << 1)
 #define OPI_26          (0x1 << 2)
+#define OPI_Mask        (OPI_5 | OPI_16 | OPI_26)
 
 typedef struct mips_insn_info {
     /* instruction name */
@@ -302,10 +304,15 @@ mips_id_insn_finalize(yasm_bytecode *bc, yasm_bytecode *prev_bc)
             op = yasm_insn_ops_first(&id_insn->insn);
             
             op && 
-            (count <= info->num_nonconst_operands) && 
+            (count <= info->num_nonconst_operands) &&
             !mismatch;
             
             iter++) {
+
+            if (iter >= 4) {
+                mismatch = 1;
+                break;
+            }
 
             /* Check operand type */
             switch ((int)(info->operands[iter] & OPT_Mask)) {
@@ -358,74 +365,57 @@ mips_id_insn_finalize(yasm_bytecode *bc, yasm_bytecode *prev_bc)
     insn->imm_type = MIPS_IMM_NONE;
     insn->opcode = info->opcode;
 
-    /* TBD */
-#if 0
+    printf("[INSTRUCTION BEGIN]: %s\n", id_insn->instr);
+
     /* Go through operands and assign */
     if (id_insn->insn.num_operands > 0) {
-        for(i = 0, op = yasm_insn_ops_first(&id_insn->insn);
-            op && i<info->num_operands; op = yasm_insn_op_next(op), i++) {
+        for(iter = 0,
+            op = yasm_insn_ops_first(&id_insn->insn);
+            iter < 4;
+            iter++) {
 
-            switch ((int)(info->operands[i] & OPA_MASK)) {
-                case OPA_None:
-                    /* Throw away the operand contents */
-                    if (op->type == YASM_INSN__OPERAND_IMM)
-                        yasm_expr_destroy(op->data.val);
-                    break;
-                case OPA_DR:
+            switch ((int)(info->operands[iter] & OPT_Mask)) {
+                case OPT_Reg:
                     if (op->type != YASM_INSN__OPERAND_REG)
                         yasm_internal_error(N_("invalid operand conversion"));
-                    insn->opcode |= ((unsigned int)(op->data.reg & 0x7)) << 9;
+
+                    /* Extract register value */
+                    int reg = op->data.reg;
+                    printf("\t[OPERAND REGISTER]: %lu\n", op->data.reg);
+
+                    op = yasm_insn_op_next(op);
                     break;
-                case OPA_SR:
-                    if (op->type != YASM_INSN__OPERAND_REG)
-                        yasm_internal_error(N_("invalid operand conversion"));
-                    insn->opcode |= ((unsigned int)(op->data.reg & 0x7)) << 6;
-                    break;
-                case OPA_Imm:
-                    insn->imm_type = (info->operands[i] & OPI_MASK)>>3;
+                case OPT_Imm:
+                    printf("\t[OPERAND IMMEDIATE]: ");
+                    /* Extract immediate value */
+                    insn->imm_type = info->operands[iter] & OPI_Mask;
                     switch (op->type) {
                         case YASM_INSN__OPERAND_IMM:
-                            if (insn->imm_type == MIPS_IMM_6_WORD
-                                || insn->imm_type == MIPS_IMM_8
-                                || insn->imm_type == MIPS_IMM_9
-                                || insn->imm_type == MIPS_IMM_9_PC)
-                                op->data.val = yasm_expr_create(YASM_EXPR_SHR,
-                                    yasm_expr_expr(op->data.val),
-                                    yasm_expr_int(yasm_intnum_create_uint(1)),
-                                    op->data.val->line);
-                            if (yasm_value_finalize_expr(&insn->imm,
-                                                         op->data.val,
-                                                         prev_bc, 0))
-                                yasm_error_set(YASM_ERROR_TOO_COMPLEX,
-                                    N_("immediate expression too complex"));
-                            break;
-                        case YASM_INSN__OPERAND_REG:
-                            if (yasm_value_finalize_expr(&insn->imm,
-                                    yasm_expr_create_ident(yasm_expr_int(
-                                    yasm_intnum_create_uint(op->data.reg & 0x7)),
-                                    bc->line), prev_bc, 0))
-                                yasm_internal_error(N_("reg expr too complex?"));
+                            yasm_expr_print(op->data.val, stdout);
+                            printf("\n");
                             break;
                         default:
                             yasm_internal_error(N_("invalid operand conversion"));
                     }
+                    /* TBD (why is this line necessary?) Clear so it doesn't get destroyed */
+                    //op->type = YASM_INSN__OPERAND_REG;
+                    op = yasm_insn_op_next(op);
+                    break;
+
+                case OPT_None:
+                    break;
+                case OPT_Con:
+                    /* Extract constant value */
+                    printf("\t[OPERAND CONSTANT]: %d\n", info->operands[iter] & OPC_Mask);
                     break;
                 default:
                     yasm_internal_error(N_("unknown operand action"));
             }
 
-            /* Clear so it doesn't get destroyed */
-            op->type = YASM_INSN__OPERAND_REG;
-        }
-
-        if (insn->imm_type == MIPS_IMM_9_PC) {
-            if (insn->imm.seg_of || insn->imm.rshift > 1
-                || insn->imm.curpos_rel)
-                yasm_error_set(YASM_ERROR_VALUE, N_("invalid jump target"));
-            insn->imm.curpos_rel = 1;
         }
     }
-#endif
+
+    printf("[INSTRUCTION END]: %s\n", id_insn->instr);
 
     /* Transform the bytecode */
     yasm_mips__bc_transform_insn(bc, insn);
