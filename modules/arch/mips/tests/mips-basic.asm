@@ -25,9 +25,6 @@ movn r0, r1, r4
 
 addi r0, r1, wordvar
 addi r0, r1, 101b
-addi r0, r1, 101b
-addi r0, r1, 101b
-addi r0, r1, 101b
 
 label1	; some code
 .loop	; some more code

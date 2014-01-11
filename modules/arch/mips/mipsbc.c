@@ -181,10 +181,10 @@ mips_bc_insn_tobytes(yasm_bytecode *bc, unsigned char **bufp,
     unsigned int value = 0;
     unsigned int instr = 0x0;
 
-    unsigned char buf[32];
+    unsigned char buf[4];
     memset(buf, 0, sizeof(buf));
 
-    printf("instr: o0x%02x ", insn->opcode);
+    //printf("instr: o0x%02x ", insn->opcode);
 
     bit_offset -= 6; /* opcode is always 6-bit */
     instr |= ((unsigned int)insn->opcode << bit_offset);
@@ -195,13 +195,13 @@ mips_bc_insn_tobytes(yasm_bytecode *bc, unsigned char **bufp,
             break;
             case MIPS_OPT_CONST:
                 value = yasm_intnum_get_uint(yasm_value_get_intnum(&insn->operand[iter], bc, 0));
-                printf("c0x%02x ", value);
+                //printf("c0x%02x ", value);
                 bit_offset -= 5;
                 instr |= (value << bit_offset);
             break;
             case MIPS_OPT_REG:
                 value = yasm_intnum_get_uint(yasm_value_get_intnum(&insn->operand[iter], bc, 0));
-                printf("r0x%02x ", value);
+                //printf("r0x%02x ", value);
                 bit_offset -= 5;
                 instr |= (value << bit_offset);
             break;
@@ -209,17 +209,17 @@ mips_bc_insn_tobytes(yasm_bytecode *bc, unsigned char **bufp,
                 delta =  yasm_value_get_intnum(&insn->operand[iter], bc, 0);
                 if (delta) {
                     value = yasm_intnum_get_uint(delta);
-                    printf("i0x%02x ", value);
+                    //printf("i0x%02x ", value);
                 } else {
-                    value = 0; /* TBD, need to caluclate the correct value */
-                    printf("[%s] ", yasm_symrec_get_name(insn->operand[iter].rel)); 
-
+                    //printf("[%s] ", yasm_symrec_get_name(insn->operand[iter].rel)); 
                     if (!output_value(&insn->operand[iter], buf, 2, 0, bc, 0, d)) {
-                        printf("0x%02x 0x%02x ", buf[1], buf[0]);
+                        //printf("0x%02x 0x%02x ", buf[1], buf[0]);
                     } else {
-                        printf("output value failed! ");
+                        //printf("output value failed! ");
+                        yasm_error_set(YASM_ERROR_VALUE, N_("output imm5 value failed"));
+                        return 1;
                     }
-
+                    value = buf[0];
                 }
                 bit_offset -= 5;
                 instr |= (value << bit_offset);
@@ -228,17 +228,17 @@ mips_bc_insn_tobytes(yasm_bytecode *bc, unsigned char **bufp,
                 delta =  yasm_value_get_intnum(&insn->operand[iter], bc, 0);
                 if (delta) {
                     value = yasm_intnum_get_uint(delta);
-                    printf("i0x%04x ", value);
+                    //printf("i0x%04x ", value);
                 } else {
-                    value = 0; /* TBD, need to caluclate the correct value */
-                    printf("[%s] ", yasm_symrec_get_name(insn->operand[iter].rel));
-
+                    //printf("[%s] ", yasm_symrec_get_name(insn->operand[iter].rel));
                     if (!output_value(&insn->operand[iter], buf, 2, 0, bc, 0, d)) {
-                        printf("0x%02x 0x%02x ", buf[1], buf[0]);
+                        //printf("0x%02x 0x%02x ", buf[1], buf[0]);
                     } else {
-                        printf("output value failed! ");
+                        //printf("output value failed! ");
+                        yasm_error_set(YASM_ERROR_VALUE, N_("output imm16 value failed"));
+                        return 1;
                     }
-
+                    value = (buf[1] << 8) | buf[0];
                 }
                 bit_offset -= 16;
                 instr |= (value << bit_offset);
@@ -247,16 +247,17 @@ mips_bc_insn_tobytes(yasm_bytecode *bc, unsigned char **bufp,
                 delta =  yasm_value_get_intnum(&insn->operand[iter], bc, 0);
                 if (delta) {
                     value = yasm_intnum_get_uint(delta);
-                    printf("i0x%06x ", value);
+                    //printf("i0x%06x ", value);
                 } else {
-                    value = 0; /* TBD, need to caluclate the correct value */
-                    printf("[%s] ", yasm_symrec_get_name(insn->operand[iter].rel)); 
-
+                    //printf("[%s] ", yasm_symrec_get_name(insn->operand[iter].rel)); 
                     if (!output_value(&insn->operand[iter], buf, 4, 0, bc, 0, d)) {
-                        printf("0x%02x 0x%02x 0x%02x 0x%02x", buf[3], buf[2], buf[1], buf[0]);
+                        //printf("0x%02x 0x%02x 0x%02x 0x%02x", buf[3], buf[2], buf[1], buf[0]);
                     } else {
-                        printf("output value failed! ");
+                        //printf("output value failed! ");
+                        yasm_error_set(YASM_ERROR_VALUE, N_("output imm26 value failed"));
+                        return 1;
                     }
+                    value = (buf[3] << 24) | (buf[2] << 16) | (buf[1] << 8) | buf[0];
                 }
                 bit_offset -= 26;
                 instr |= (value << bit_offset);
@@ -266,11 +267,11 @@ mips_bc_insn_tobytes(yasm_bytecode *bc, unsigned char **bufp,
         }
     }
     if (bit_offset != 0) {
-        printf("f0x%02x\n", insn->func);
+        //printf("f0x%02x\n", insn->func);
         bit_offset -= 6;
         instr |= (unsigned int)insn->func;
-    } else {
-        printf("\n");
+    //} else {
+        //printf("\n");
     }
 
     /* output instruction */
