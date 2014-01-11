@@ -68,58 +68,74 @@ mips_bc_insn_destroy(void *contents)
 static void
 mips_bc_insn_print(const void *contents, FILE *f, int indent_level)
 {
-    const mips_insn *insn = (const mips_insn *)contents;
+    mips_insn *insn = (mips_insn *)contents;
+    yasm_intnum *delta;
+    int iter;
+    int count = 0;
 
-    /* TBD */
-#if 0
-    fprintf(f, "%*s_Instruction_\n", indent_level, "");
-    fprintf(f, "%*sImmediate Value:", indent_level, "");
-    if (!insn->imm.abs)
-        fprintf(f, " (nil)\n");
-    else {
-        indent_level++;
-        fprintf(f, "\n");
-        yasm_value_print(&insn->imm, f, indent_level);
-        fprintf(f, "%*sType=", indent_level, "");
-        switch (insn->imm_type) {
-            case MIPS_IMM_NONE:
-                fprintf(f, "NONE-SHOULDN'T HAPPEN");
-                break;
-            case MIPS_IMM_4:
-                fprintf(f, "4-bit");
-                break;
-            case MIPS_IMM_5:
-                fprintf(f, "5-bit");
-                break;
-            case MIPS_IMM_6_WORD:
-                fprintf(f, "6-bit, word-multiple");
-                break;
-            case MIPS_IMM_6_BYTE:
-                fprintf(f, "6-bit, byte-multiple");
-                break;
-            case MIPS_IMM_8:
-                fprintf(f, "8-bit, word-multiple");
-                break;
-            case MIPS_IMM_9:
-                fprintf(f, "9-bit, signed, word-multiple");
-                break;
-            case MIPS_IMM_9_PC:
-                fprintf(f, "9-bit, signed, word-multiple, PC-relative");
-                break;
+    /* TBD, need a better way to find how to print jump targets */
+    fprintf(f, "instr: o0x%02x ", insn->opcode);
+    count += 6; /* opcode is always 6-bit */
+    for (iter = 0; iter < 4; iter++) {
+        switch (insn->operand_type[iter]) {
+            case MIPS_OPT_NONE:
+            break;
+            case MIPS_OPT_CONST:
+                count += 5;
+                delta =  yasm_value_get_intnum(&insn->operand[iter], NULL, 0);
+                if (delta) {
+                    fprintf(f, "%*sc0x%02lx ", indent_level, "", yasm_intnum_get_uint(yasm_value_get_intnum(&insn->operand[iter], NULL, 0)));
+                } else { 
+                    yasm_value_print(&insn->operand[iter], stdout, indent_level); 
+                }
+            break;
+            case MIPS_OPT_REG:
+                count += 5;
+                delta =  yasm_value_get_intnum(&insn->operand[iter], NULL, 0);
+                if (delta) {
+                    fprintf(f, "%*sr0x%02lx ", indent_level, "", yasm_intnum_get_uint(yasm_value_get_intnum(&insn->operand[iter], NULL, 0)));
+                } else { 
+                    yasm_value_print(&insn->operand[iter], stdout, indent_level); 
+                }
+            break;
+            case MIPS_OPT_IMM_5:
+                count += 5;
+                delta =  yasm_value_get_intnum(&insn->operand[iter], NULL, 0);
+                if (delta) {
+                    fprintf(f, "%*si0x%02lx ", indent_level, "", yasm_intnum_get_uint(yasm_value_get_intnum(&insn->operand[iter], NULL, 0)));
+                } else { 
+                    yasm_value_print(&insn->operand[iter], stdout, indent_level); 
+                }
+            break;
+            case MIPS_OPT_IMM_16:
+                count += 16;
+                delta =  yasm_value_get_intnum(&insn->operand[iter], NULL, 0);
+                if (delta) {
+                    fprintf(f, "%*si0x%04lx ", indent_level, "", yasm_intnum_get_uint(yasm_value_get_intnum(&insn->operand[iter], NULL, 0)));
+                } else { 
+                    yasm_value_print(&insn->operand[iter], stdout, indent_level); 
+                }
+            break;
+            case MIPS_OPT_IMM_26:
+                count += 26;
+                delta =  yasm_value_get_intnum(&insn->operand[iter], NULL, 0);
+                if (delta) {
+                    fprintf(f, "%*si0x%04lx ", indent_level, "", yasm_intnum_get_uint(yasm_value_get_intnum(&insn->operand[iter], NULL, 0)));
+                } else { 
+                    yasm_value_print(&insn->operand[iter], stdout, indent_level); 
+                }
+            break;
+            default:
+            break;
         }
-        indent_level--;
     }
-    /* FIXME
-    fprintf(f, "\n%*sOrigin=", indent_level, "");
-    if (insn->origin) {
-        fprintf(f, "\n");
-        yasm_symrec_print(insn->origin, f, indent_level+1);
-    } else
-        fprintf(f, "(nil)\n");
-    */
-    fprintf(f, "%*sOpcode: %04x\n", indent_level, "",
-            (unsigned int)insn->opcode);
-#endif
+    if (count != 32) {
+        fprintf(f, "%*sf0x%02x\n", indent_level, "", insn->func);
+        count += 6;
+    } else {
+        fprintf(f, "%*s\n", indent_level, "");
+    }
+    /* count should always be 32 here */
 }
 
 /*
@@ -130,8 +146,7 @@ mips_bc_insn_calc_len(yasm_bytecode *bc, yasm_bc_add_span_func add_span,
                       void *add_span_data)
 {
     /* TBD, really need to understand how this works */
-    printf("[%s]\n", __FUNCTION__);
-    
+
     /* Fixed size instruction length */
     bc->len += 4;
 
@@ -161,6 +176,53 @@ mips_bc_insn_tobytes(yasm_bytecode *bc, unsigned char **bufp,
     mips_insn *insn = (mips_insn *)bc->contents;
     /*@only@*/ yasm_intnum *delta;
     unsigned long buf_off = (unsigned long)(*bufp - bufstart);
+    int iter;
+    int count = 0;
+
+    printf("instr: o0x%02x ", insn->opcode);
+    count += 6; /* opcode is always 6-bit */
+    for (iter = 0; iter < 4; iter++) {
+        switch (insn->operand_type[iter]) {
+            case MIPS_OPT_NONE:
+            break;
+            case MIPS_OPT_CONST:
+                count += 5;
+                //yasm_value_print(&insn->operand[iter], stdout, 0);
+                printf("c0x%02lx ", yasm_intnum_get_uint(yasm_value_get_intnum(&insn->operand[iter], bc, 0)));
+            break;
+            case MIPS_OPT_REG:
+                count += 5;
+                //yasm_value_print(&insn->operand[iter], stdout, 0);        
+                printf("r0x%02lx ", yasm_intnum_get_uint(yasm_value_get_intnum(&insn->operand[iter], bc, 0)));
+            break;
+            case MIPS_OPT_IMM_5:
+                count += 5;
+                //yasm_value_print(&insn->operand[iter], stdout, 0);
+                delta =  yasm_value_get_intnum(&insn->operand[iter], bc, 0);
+                if (delta) { printf("i0x%02lx ", yasm_intnum_get_uint(delta)); } else { yasm_value_print(&insn->operand[iter], stdout, 1); }
+            break;
+            case MIPS_OPT_IMM_16:
+                count += 16;
+                //yasm_value_print(&insn->operand[iter], stdout, 0);        
+                delta =  yasm_value_get_intnum(&insn->operand[iter], bc, 0);
+                if (delta) { printf("i0x%04lx ", yasm_intnum_get_uint(delta)); } else { yasm_value_print(&insn->operand[iter], stdout, 1); }
+            break;
+            case MIPS_OPT_IMM_26:
+                count += 26;
+                //yasm_value_print(&insn->operand[iter], stdout, 0);        
+                delta =  yasm_value_get_intnum(&insn->operand[iter], bc, 0);
+                if (delta) { printf("i0x%06lx ", yasm_intnum_get_uint(delta)); } else { yasm_value_print(&insn->operand[iter], stdout, 1); }
+            break;
+            default:
+            break;
+        }
+    }
+    if (count != 32) {
+        printf("f0x%02x\n", insn->func);
+        count += 6;
+    } else {
+        printf("\n");
+    }
 
     /* TBD */
 #if 0
