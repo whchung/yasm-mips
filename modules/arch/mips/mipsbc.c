@@ -177,125 +177,84 @@ mips_bc_insn_tobytes(yasm_bytecode *bc, unsigned char **bufp,
     /*@only@*/ yasm_intnum *delta;
     unsigned long buf_off = (unsigned long)(*bufp - bufstart);
     int iter;
-    int count = 0;
+    int bit_offset = 32;
+    unsigned int value = 0;
+    unsigned int instr = 0x0;
 
     printf("instr: o0x%02x ", insn->opcode);
-    count += 6; /* opcode is always 6-bit */
+
+    bit_offset -= 6; /* opcode is always 6-bit */
+    instr |= ((unsigned int)insn->opcode << bit_offset);
+
     for (iter = 0; iter < 4; iter++) {
         switch (insn->operand_type[iter]) {
             case MIPS_OPT_NONE:
             break;
             case MIPS_OPT_CONST:
-                count += 5;
-                printf("c0x%02lx ", yasm_intnum_get_uint(yasm_value_get_intnum(&insn->operand[iter], bc, 0)));
+                value = yasm_intnum_get_uint(yasm_value_get_intnum(&insn->operand[iter], bc, 0));
+                printf("c0x%02x ", value);
+                bit_offset -= 5;
+                instr |= (value << bit_offset);
             break;
             case MIPS_OPT_REG:
-                count += 5;
-                printf("r0x%02lx ", yasm_intnum_get_uint(yasm_value_get_intnum(&insn->operand[iter], bc, 0)));
+                value = yasm_intnum_get_uint(yasm_value_get_intnum(&insn->operand[iter], bc, 0));
+                printf("r0x%02x ", value);
+                bit_offset -= 5;
+                instr |= (value << bit_offset);
             break;
             case MIPS_OPT_IMM_5:
-                count += 5;
                 delta =  yasm_value_get_intnum(&insn->operand[iter], bc, 0);
                 if (delta) {
-                    printf("i0x%02lx ", yasm_intnum_get_uint(delta)); 
-                } else { 
+                    value = yasm_intnum_get_uint(delta);
+                    printf("i0x%02x ", value);
+                } else {
+                    value = 0; /* TBD, need to caluclate the correct value */
                     printf("[%s] ", yasm_symrec_get_name(insn->operand[iter].rel)); 
                 }
+                bit_offset -= 5;
+                instr |= (value << bit_offset);
             break;
             case MIPS_OPT_IMM_16:
-                count += 16;
                 delta =  yasm_value_get_intnum(&insn->operand[iter], bc, 0);
-                if (delta) { 
-                    printf("i0x%04lx ", yasm_intnum_get_uint(delta)); 
-                } else { 
+                if (delta) {
+                    value = yasm_intnum_get_uint(delta);
+                    printf("i0x%04x ", value);
+                } else {
+                    value = 0; /* TBD, need to caluclate the correct value */
                     printf("[%s] ", yasm_symrec_get_name(insn->operand[iter].rel)); 
                 }
+                bit_offset -= 16;
+                instr |= (value << bit_offset);
             break;
             case MIPS_OPT_IMM_26:
-                count += 26;
                 delta =  yasm_value_get_intnum(&insn->operand[iter], bc, 0);
-                if (delta) { 
-                    printf("i0x%06lx ", yasm_intnum_get_uint(delta)); 
-                } else { 
+                if (delta) {
+                    value = yasm_intnum_get_uint(delta);
+                    printf("i0x%06x ", value);
+                } else {
+                    value = 0; /* TBD, need to caluclate the correct value */
                     printf("[%s] ", yasm_symrec_get_name(insn->operand[iter].rel)); 
                 }
+                bit_offset -= 26;
+                instr |= (value << bit_offset);
             break;
             default:
             break;
         }
     }
-    if (count != 32) {
+    if (bit_offset != 0) {
         printf("f0x%02x\n", insn->func);
-        count += 6;
+        bit_offset -= 6;
+        instr |= (unsigned int)insn->func;
     } else {
         printf("\n");
     }
 
-    /* TBD */
-#if 0
-    printf("[%s]\n", __FUNCTION__);
-    /* Output opcode */
-    YASM_SAVE_16_L(*bufp, insn->opcode);
+    /* output instruction */
+    /* all MIPS instructions are 4 bytes in size */
+    YASM_SAVE_32_L(*bufp, instr);
+    *bufp += 4;     
 
-    /* Insert immediate into opcode. */
-    switch (insn->imm_type) {
-        case MIPS_IMM_NONE:
-            break;
-        case MIPS_IMM_4:
-            insn->imm.size = 4;
-            if (output_value(&insn->imm, *bufp, 2, buf_off, bc, 1, d))
-                return 1;
-            break;
-        case MIPS_IMM_5:
-            insn->imm.size = 5;
-            insn->imm.sign = 1;
-            if (output_value(&insn->imm, *bufp, 2, buf_off, bc, 1, d))
-                return 1;
-            break;
-        case MIPS_IMM_6_WORD:
-            insn->imm.size = 6;
-            if (output_value(&insn->imm, *bufp, 2, buf_off, bc, 1, d))
-                return 1;
-            break;
-        case MIPS_IMM_6_BYTE:
-            insn->imm.size = 6;
-            insn->imm.sign = 1;
-            if (output_value(&insn->imm, *bufp, 2, buf_off, bc, 1, d))
-                return 1;
-            break;
-        case MIPS_IMM_8:
-            insn->imm.size = 8;
-            if (output_value(&insn->imm, *bufp, 2, buf_off, bc, 1, d))
-                return 1;
-            break;
-        case MIPS_IMM_9_PC:
-            /* Adjust relative displacement to end of bytecode */
-            delta = yasm_intnum_create_int(-1);
-            if (!insn->imm.abs)
-                insn->imm.abs = yasm_expr_create_ident(yasm_expr_int(delta),
-                                                       bc->line);
-            else
-                insn->imm.abs =
-                    yasm_expr_create(YASM_EXPR_ADD,
-                                     yasm_expr_expr(insn->imm.abs),
-                                     yasm_expr_int(delta), bc->line);
-
-            insn->imm.size = 9;
-            insn->imm.sign = 1;
-            if (output_value(&insn->imm, *bufp, 2, buf_off, bc, 1, d))
-                return 1;
-            break;
-        case MIPS_IMM_9:
-            insn->imm.size = 9;
-            if (output_value(&insn->imm, *bufp, 2, buf_off, bc, 1, d))
-                return 1;
-            break;
-        default:
-            yasm_internal_error(N_("Unrecognized immediate type"));
-    }
-#endif
-
-    *bufp += 4;     /* all MIPS instructions are 4 bytes in size */
     return 0;
 }
 
