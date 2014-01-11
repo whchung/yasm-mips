@@ -9,73 +9,6 @@
 
 #include "modules/arch/mips/mipsarch.h"
 
-/* utility macro for binary numbers */
-#define B_000000 ( 0)
-#define B_000001 ( 1)
-#define B_000010 ( 2)
-#define B_000011 ( 3)
-#define B_000100 ( 4)
-#define B_000101 ( 5)
-#define B_000110 ( 6)
-#define B_000111 ( 7)
-#define B_001000 ( 8)
-#define B_001001 ( 9)
-#define B_001010 (10)
-#define B_001011 (11)
-#define B_001100 (12)
-#define B_001101 (13)
-#define B_001110 (14)
-#define B_001111 (15)
-#define B_010000 (16)
-#define B_010001 (17)
-#define B_010010 (18)
-#define B_010011 (19)
-#define B_010100 (20)
-#define B_010101 (21)
-#define B_010110 (22)
-#define B_010111 (23)
-#define B_011000 (24)
-#define B_011001 (25)
-#define B_011010 (26)
-#define B_011011 (27)
-#define B_011100 (28)
-#define B_011101 (29)
-#define B_011110 (30)
-#define B_011111 (31)
-#define B_100000 (32)
-#define B_100001 (33)
-#define B_100010 (34)
-#define B_100011 (35)
-#define B_100100 (36)
-#define B_100101 (37)
-#define B_100110 (38)
-#define B_100111 (39)
-#define B_101000 (40)
-#define B_101001 (41)
-#define B_101010 (42)
-#define B_101011 (43)
-#define B_101100 (44)
-#define B_101101 (45)
-#define B_101110 (46)
-#define B_101111 (47)
-#define B_110000 (48)
-#define B_110001 (49)
-#define B_110010 (50)
-#define B_110011 (51)
-#define B_110100 (52)
-#define B_110101 (53)
-#define B_110110 (54)
-#define B_110111 (55)
-#define B_111000 (56)
-#define B_111001 (57)
-#define B_111010 (58)
-#define B_111011 (59)
-#define B_111100 (60)
-#define B_111101 (61)
-#define B_111110 (62)
-#define B_111111 (63)
-
-
 /*
  * Instruction formats.
  */
@@ -361,9 +294,8 @@ mips_id_insn_finalize(yasm_bytecode *bc, yasm_bytecode *prev_bc)
 
     /* Copy what we can from info */
     insn = yasm_xmalloc(sizeof(mips_insn));
-    yasm_value_initialize(&insn->imm, NULL, 0);
-    insn->imm_type = MIPS_IMM_NONE;
     insn->opcode = info->opcode;
+    insn->func = info->func;
 
     printf("[INSTRUCTION BEGIN]: %s\n", id_insn->instr);
 
@@ -381,32 +313,68 @@ mips_id_insn_finalize(yasm_bytecode *bc, yasm_bytecode *prev_bc)
 
                     /* Extract register value */
                     int reg = op->data.reg;
-                    printf("\t[OPERAND REGISTER]: %lu\n", op->data.reg);
+                    printf("\t[OPERAND REGISTER]: %d\n", reg);
+                    
+                    insn->operand_type[iter] = MIPS_OPT_REG;
 
+                    yasm_value_initialize(&insn->operand[iter], NULL, 0);
+                    /* TBD, how to actually assign value? */ 
+                    //insn->operand[iter] = reg;
+
+                    /* move to the next operand */
                     op = yasm_insn_op_next(op);
                     break;
                 case OPT_Imm:
                     printf("\t[OPERAND IMMEDIATE]: ");
+                    if (op->type != YASM_INSN__OPERAND_IMM)
+                        yasm_internal_error(N_("invalid operand conversion"));
+
                     /* Extract immediate value */
-                    insn->imm_type = info->operands[iter] & OPI_Mask;
-                    switch (op->type) {
-                        case YASM_INSN__OPERAND_IMM:
-                            yasm_expr_print(op->data.val, stdout);
-                            printf("\n");
+                    yasm_expr_print(op->data.val, stdout);
+                    printf("\n");
+                    switch (info->operands[iter] & OPI_Mask) {
+                        case OPI_5:
+                            insn->operand_type[iter] = MIPS_OPT_IMM_5;
+
+                            yasm_value_initialize(&insn->operand[iter], NULL, 0);
+                            /* TBD, how to actually assign value? */
+                            //insn->operand[iter] = op->data.val;
+                            break;
+                        case OPI_16:
+                            insn->operand_type[iter] = MIPS_OPT_IMM_16;
+
+                            yasm_value_initialize(&insn->operand[iter], NULL, 0);
+                            /* TBD, how to actually assign value? */
+                            //insn->operand[iter] = op->data.val;
+                            break;
+                        case OPI_26:
+                            insn->operand_type[iter] = MIPS_OPT_IMM_26;
+
+                            yasm_value_initialize(&insn->operand[iter], NULL, 0);
+                            /* TBD, how to actually assign value? */
+                            //insn->operand[iter] = op->data.val;
                             break;
                         default:
-                            yasm_internal_error(N_("invalid operand conversion"));
+                            yasm_internal_error(N_("invalid immediate format"));
+                            break;
                     }
+
                     /* TBD (why is this line necessary?) Clear so it doesn't get destroyed */
                     //op->type = YASM_INSN__OPERAND_REG;
                     op = yasm_insn_op_next(op);
                     break;
 
                 case OPT_None:
+                    insn->operand_type[iter] = MIPS_OPT_NONE;
                     break;
                 case OPT_Con:
                     /* Extract constant value */
                     printf("\t[OPERAND CONSTANT]: %d\n", info->operands[iter] & OPC_Mask);
+                    insn->operand_type[iter] = MIPS_OPT_CONST;
+
+                    yasm_value_initialize(&insn->operand[iter], NULL, 0);
+                    /* TBD, how to actually assign value? */
+                    //insn->operand[iter] = info->operands[iter] & OPC_Mask;                    
                     break;
                 default:
                     yasm_internal_error(N_("unknown operand action"));

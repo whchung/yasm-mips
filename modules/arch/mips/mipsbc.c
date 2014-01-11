@@ -52,11 +52,13 @@ yasm_mips__bc_transform_insn(yasm_bytecode *bc, mips_insn *insn)
 static void
 mips_bc_insn_destroy(void *contents)
 {
+    int iter;
     mips_insn *insn = (mips_insn *)contents;
-    /* TBD */
-#if 0
-    yasm_value_delete(&insn->imm);
-#endif
+    for (iter = 0; iter < 4; iter++) {
+        if (insn->operand_type[iter] != MIPS_OPT_NONE) {
+            yasm_value_delete(&insn->operand[iter]);
+        }
+    }
     yasm_xfree(contents);
 }
 
@@ -127,29 +129,11 @@ static int
 mips_bc_insn_calc_len(yasm_bytecode *bc, yasm_bc_add_span_func add_span,
                       void *add_span_data)
 {
-    mips_insn *insn = (mips_insn *)bc->contents;
-    yasm_bytecode *target_prevbc;
-
+    /* TBD, really need to understand how this works */
+    printf("[%s]\n", __FUNCTION__);
+    
     /* Fixed size instruction length */
     bc->len += 4;
-
-    /* TBD */
-#if 0
-    /* Only need to worry about out-of-range to PC-relative */
-    if (insn->imm_type != MIPS_IMM_9_PC)
-        return 0;
-
-    if (insn->imm.rel
-        && (!yasm_symrec_get_label(insn->imm.rel, &target_prevbc)
-             || target_prevbc->section != bc->section)) {
-        /* External or out of segment, so we can't check distance. */
-        return 0;
-    }
-
-    /* 9-bit signed, word-multiple displacement */
-    add_span(add_span_data, bc, 1, &insn->imm, -512+(long)bc->len,
-             511+(long)bc->len);
-#endif
 
     return 0;
 }

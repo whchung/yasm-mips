@@ -6,31 +6,94 @@
 #ifndef YASM_MIPSARCH_H
 #define YASM_MIPSARCH_H
 
-/*
- * [JC]: TBD
- */
-/* Types of immediate.  All immediates are stored in the LSBs of the insn. */
-typedef enum mips_imm_type {
-    MIPS_IMM_NONE = 0,  /* no immediate */
-    MIPS_IMM_4,         /* 4-bit */
-    MIPS_IMM_5,         /* 5-bit */
-    MIPS_IMM_6_WORD,    /* 6-bit, word-multiple (byte>>1) */
-    MIPS_IMM_6_BYTE,    /* 6-bit, byte-multiple */
-    MIPS_IMM_8,         /* 8-bit, word-multiple (byte>>1) */
-    MIPS_IMM_9,         /* 9-bit, signed, word-multiple (byte>>1) */
-    MIPS_IMM_9_PC       /* 9-bit, signed, word-multiple, PC relative */
-} mips_imm_type;
+/* utility macro for binary numbers */
+#define B_000000 ( 0)
+#define B_000001 ( 1)
+#define B_000010 ( 2)
+#define B_000011 ( 3)
+#define B_000100 ( 4)
+#define B_000101 ( 5)
+#define B_000110 ( 6)
+#define B_000111 ( 7)
+#define B_001000 ( 8)
+#define B_001001 ( 9)
+#define B_001010 (10)
+#define B_001011 (11)
+#define B_001100 (12)
+#define B_001101 (13)
+#define B_001110 (14)
+#define B_001111 (15)
+#define B_010000 (16)
+#define B_010001 (17)
+#define B_010010 (18)
+#define B_010011 (19)
+#define B_010100 (20)
+#define B_010101 (21)
+#define B_010110 (22)
+#define B_010111 (23)
+#define B_011000 (24)
+#define B_011001 (25)
+#define B_011010 (26)
+#define B_011011 (27)
+#define B_011100 (28)
+#define B_011101 (29)
+#define B_011110 (30)
+#define B_011111 (31)
+#define B_100000 (32)
+#define B_100001 (33)
+#define B_100010 (34)
+#define B_100011 (35)
+#define B_100100 (36)
+#define B_100101 (37)
+#define B_100110 (38)
+#define B_100111 (39)
+#define B_101000 (40)
+#define B_101001 (41)
+#define B_101010 (42)
+#define B_101011 (43)
+#define B_101100 (44)
+#define B_101101 (45)
+#define B_101110 (46)
+#define B_101111 (47)
+#define B_110000 (48)
+#define B_110001 (49)
+#define B_110010 (50)
+#define B_110011 (51)
+#define B_110100 (52)
+#define B_110101 (53)
+#define B_110110 (54)
+#define B_110111 (55)
+#define B_111000 (56)
+#define B_111001 (57)
+#define B_111010 (58)
+#define B_111011 (59)
+#define B_111100 (60)
+#define B_111101 (61)
+#define B_111110 (62)
+#define B_111111 (63)
 
-/*
- * [JC]: TBD
- */
-/* Bytecode types */
+/* Types of operand */
+typedef enum mips_operand_type {
+    MIPS_OPT_NONE = 0,  /* no immediate */
+    MIPS_OPT_CONST,     /* 5-bit constant operand */
+    MIPS_OPT_REG,       /* 5-bit register operand */
+    MIPS_OPT_IMM_5,     /* 5-bit immediate operand */
+    MIPS_OPT_IMM_16,    /* 16-bit immediate operand */
+    MIPS_OPT_IMM_26,    /* 26-bit immediate operand */
+} mips_operand_type;
 
+/* Bytecode format */
 typedef struct mips_insn {
-    yasm_value imm;             /* immediate or relative value */
-    mips_imm_type imm_type;     /* size of the immediate */
+    unsigned char opcode;               /* 6-bit opcode */
 
-    unsigned int opcode;        /* opcode */
+    mips_operand_type operand_type[4];  /* type of operand */
+
+    yasm_value operand[4];              /* operand values, there would be at most 4 operands */
+
+    unsigned char func;                 /* 6-bit function value. 
+                                         * used in case of an R-type instruction.
+                                         * ignored in case of an I-type or J-type instruction.
+                                         */
 } mips_insn;
 
 
